@@ -98,13 +98,13 @@ This makes the common book self-maintaining during leveling and truly universal 
 - [SMN — Summoner](SMN.md)
 
 ### Expansion Jobs
-- [SAM — Samurai](SAM.md)
-- [NIN — Ninja](NIN.md)
+- [SAM — Samurai](SAM.md) *(stub)*
+- [NIN — Ninja](NIN.md) *(stub)*
 - [DRG — Dragoon](DRG.md)
-- [BLU — Blue Mage](BLU.md)
-- [COR — Corsair](COR.md)
-- [PUP — Puppetmaster](PUP.md)
-- [DNC — Dancer](DNC.md)
-- [SCH — Scholar](SCH.md)
-- [GEO — Geomancer](GEO.md)
-- [RUN — Rune Fencer](RUN.md)
+- [BLU — Blue Mage](BLU.md) *(stub)*
+- [COR — Corsair](COR.md) *(stub)*
+- [PUP — Puppetmaster](PUP.md) *(stub)*
+- [DNC — Dancer](DNC.md) *(stub)*
+- [SCH — Scholar](SCH.md) *(stub)*
+- [GEO — Geomancer](GEO.md) *(stub)*
+- [RUN — Rune Fencer](RUN.md) *(stub)*
