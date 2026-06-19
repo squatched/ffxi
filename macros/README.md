@@ -6,6 +6,39 @@ Based on [The Hub System by Sekhmet](https://ffxiclopedia.fandom.com/wiki/The_Hu
 
 ---
 
+## Table of Contents
+
+### Navigation
+- [JobsHub](JobsHub.md)
+
+### Base Jobs
+- [WAR — Warrior](WAR.md)
+- [MNK — Monk](MNK.md)
+- [WHM — White Mage](WHM.md)
+- [BLM — Black Mage](BLM.md)
+- [RDM — Red Mage](RDM.md)
+- [THF — Thief](THF.md)
+- [PLD — Paladin](PLD.md)
+- [DRK — Dark Knight](DRK.md)
+- [BST — Beastmaster](BST.md)
+- [BRD — Bard](BRD.md)
+- [RNG — Ranger](RNG.md)
+- [SMN — Summoner](SMN.md)
+
+### Expansion Jobs
+- [SAM — Samurai](SAM.md) *(stub)*
+- [NIN — Ninja](NIN.md) *(stub)*
+- [DRG — Dragoon](DRG.md)
+- [BLU — Blue Mage](BLU.md) *(stub)*
+- [COR — Corsair](COR.md) *(stub)*
+- [PUP — Puppetmaster](PUP.md) *(stub)*
+- [DNC — Dancer](DNC.md) *(stub)*
+- [SCH — Scholar](SCH.md) *(stub)*
+- [GEO — Geomancer](GEO.md) *(stub)*
+- [RUN — Rune Fencer](RUN.md) *(stub)*
+
+---
+
 ## Global Conventions
 
 - **Alt buttons** — Navigation priority across all jobs
@@ -75,36 +108,3 @@ A dedicated common macro book for cross-job utility, eliminating duplication acr
 ```
 
 This makes the common book self-maintaining during leveling and truly universal across jobs.
-
----
-
-## Table of Contents
-
-### Navigation
-- [JobsHub](JobsHub.md)
-
-### Base Jobs
-- [WAR — Warrior](WAR.md)
-- [MNK — Monk](MNK.md)
-- [WHM — White Mage](WHM.md)
-- [BLM — Black Mage](BLM.md)
-- [RDM — Red Mage](RDM.md)
-- [THF — Thief](THF.md)
-- [PLD — Paladin](PLD.md)
-- [DRK — Dark Knight](DRK.md)
-- [BST — Beastmaster](BST.md)
-- [BRD — Bard](BRD.md)
-- [RNG — Ranger](RNG.md)
-- [SMN — Summoner](SMN.md)
-
-### Expansion Jobs
-- [SAM — Samurai](SAM.md) *(stub)*
-- [NIN — Ninja](NIN.md) *(stub)*
-- [DRG — Dragoon](DRG.md)
-- [BLU — Blue Mage](BLU.md) *(stub)*
-- [COR — Corsair](COR.md) *(stub)*
-- [PUP — Puppetmaster](PUP.md) *(stub)*
-- [DNC — Dancer](DNC.md) *(stub)*
-- [SCH — Scholar](SCH.md) *(stub)*
-- [GEO — Geomancer](GEO.md) *(stub)*
-- [RUN — Rune Fencer](RUN.md) *(stub)*
