@@ -53,10 +53,11 @@ Always: **Earth → Lightning → Water → Fire → Ice → Wind** (Light ↔ D
 ## Targets
 
 - `<me>` — self-only
-- `<t>` — targeted
+- `<t>` — always an enemy (offensive spells, debuffs, WS)
+- `<st>` — sub-target; beneficial spell that may target a party member on a job that holds enemy lock during combat (PLD, DRK, RUN). A bare `<t>` on a cure or buff would land on the enemy.
 - `N/A` — navigation (no cast)
 
-When a set contains both target types, pick the majority as the canonical `Target:` value. Minority exceptions are annotated inline after the macro name (e.g. `WpnBash <t>` in an otherwise `<me>` set). The 8-character name limit applies to the abbreviated name only — the target indicator does not count toward it.
+When a set contains multiple target types, pick the majority as the canonical `Target:` value. Minority exceptions are annotated inline after the macro name (e.g. `WpnBash <t>` in an otherwise `<me>` set). The 8-character name limit applies to the abbreviated name only — the target indicator does not count toward it.
 
 ## SMN Special Cases
 

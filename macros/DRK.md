@@ -22,7 +22,7 @@ Target: `<t>`
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
 | Ctrl | Drain | Aspir | Stun | Sleep | Sleep2 | DredSpk | Endark | Break | DarkSeal | SlEnslv |
-| Alt | SHub | | Tractor | Bio | Poisonga | Bind | | | | |
+| Alt | SHub | | Tractor <st> | Bio | Poisonga | Bind | | | | |
 
 > DredSpk = Dread Spikes, DarkSeal = Dark Seal, SlEnslv = Soul Enslavement (SP2). All spells use highest available rank.
 

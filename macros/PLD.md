@@ -34,7 +34,7 @@ Target: `<t>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Flash | Cure | Holy | Reprisal | Phalanx | Enlight | Crusade | Banish | | |
+| Ctrl | Flash | Cure <st> | Holy | Reprisal <me> | Phalanx <me> | Enlight <me> | Crusade | Banish | | |
 | Alt | SDefHub | SOffHub | | SSword | SClub | SStaff | SGrtSwrd | | | |
 
 > Banish = Banish II (highest PLD native rank). All spells use highest available rank.
