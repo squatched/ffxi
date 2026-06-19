@@ -44,41 +44,41 @@ Target: `<t>`
 ---
 
 ## Set 6 — SMN: Cait Sith
-Target: Mixed
+Target: `<t>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | CaitSith | RglScrch | RglGash | EereEye | Lvl?Holy | FrnzSwp | SoothPur | Reraise2 | Raise2 | AltnaFvr |
+| Ctrl | CaitSith <me> | RglScrch | RglGash | EereEye | Lvl?Holy | FrnzSwp | SoothPur <me> | Reraise2 <me> | Raise2 | AltnaFvr <me> |
 | Alt | | | | | | | | | | |
 
 > CaitSith = summon Cait Sith, RglScrch = Regal Scratch, RglGash = Regal Gash, EereEye = Eerie Eye, Lvl?Holy = Level ? Holy, FrnzSwp = Frenzied Swipe, SoothPur = Soothing Purr, Reraise2 = Reraise II, Raise2 = Raise II, AltnaFvr = Altana's Favor (Astral Flow pact). Pact list approximate — verify and adjust in-game.
 
 ## Set 7 — SMN: Fenrir
-Target: Mixed
+Target: `<t>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Fenrir | EclpsBit | LunarBay | LunarCry | LunarRor | Impact | EclptcHl | HvnwrdHl | HwlngMon | |
+| Ctrl | Fenrir <me> | EclpsBit | LunarBay <me> | LunarCry | LunarRor | Impact | EclptcHl <me> | HvnwrdHl <me> | HwlngMon | |
 | Alt | | | | | | | | | | |
 
 > EclpsBit = Eclipse Bite, LunarBay = Lunar Bay, LunarCry = Lunar Cry, LunarRor = Lunar Roar, EclptcHl = Ecliptic Howl, HvnwrdHl = Heavenward Howl, HwlngMon = Howling Moon (Astral Flow pact). Pact list approximate — verify and adjust in-game.
 
 ## Set 8 — SMN: Diabolos
-Target: Mixed
+Target: `<t>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Diabolos | Nightmre | Somnolnc | NightTrr | Blndside | DrmShrud | Noctoshd | RuinsOmn | | |
+| Ctrl | Diabolos <me> | Nightmre | Somnolnc | NightTrr | Blndside | DrmShrud <me> | Noctoshd <me> | RuinsOmn | | |
 | Alt | | | | | | | | | | |
 
 > Nightmre = Nightmare, Somnolnc = Somnolence, NightTrr = Night Terror, Blndside = Blindside, DrmShrud = Dream Shroud, Noctoshd = Noctoshield, RuinsOmn = Ruinous Omen (Astral Flow pact). Pact list approximate — verify and adjust in-game.
 
 ## Set 9 — SMN: Carbuncle
-Target: Mixed
+Target: `<me>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Carbncle | HealRuby | HealRby2 | ShinRuby | GlitRuby | SoothRby | PacifRby | PoisnNls | Meteorte | SearLght |
+| Ctrl | Carbncle | HealRuby | HealRby2 | ShinRuby | GlitRuby | SoothRby | PacifRby | PoisnNls <t> | Meteorte <t> | SearLght <t> |
 | Alt | | | | | | | | | | |
 
 > Carbncle = summon Carbuncle, HealRuby = Healing Ruby, HealRby2 = Healing Ruby II, ShinRuby = Shining Ruby, GlitRuby = Glittering Ruby, SoothRby = Soothing Ruby, PacifRby = Pacifying Ruby, PoisnNls = Poison Nails, Meteorte = Meteorite, SearLght = Searing Light (Astral Flow pact).

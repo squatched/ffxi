@@ -55,7 +55,8 @@ Always: **Earth → Lightning → Water → Fire → Ice → Wind** (Light ↔ D
 - `<me>` — self-only
 - `<t>` — targeted
 - `N/A` — navigation (no cast)
-- `Mixed` — both types present in the set; noted per macro where it differs from the set default
+
+When a set contains both target types, pick the majority as the canonical `Target:` value. Minority exceptions are annotated inline after the macro name (e.g. `WpnBash <t>` in an otherwise `<me>` set). The 8-character name limit applies to the abbreviated name only — the target indicator does not count toward it.
 
 ## SMN Special Cases
 

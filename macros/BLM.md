@@ -56,11 +56,11 @@ Target: `<t>`
 > All spells use highest available rank.
 
 ## Set 5 — Dark/Utility
-Target: Mixed
+Target: `<t>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Drain | Aspir | Bio | Warp2 | Escape | | | | | |
+| Ctrl | Drain | Aspir | Bio | Warp2 | Escape <me> | | | | | |
 | Alt | SHub | SNukes | | | | | | | | |
 
 > Drain/Aspir/Bio = highest available rank. Warp2 = Warp II (can target others). Escape targets party.

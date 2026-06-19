@@ -15,11 +15,11 @@ Target: `<me>`
 > Aggresr = Aggressor, Restrt = Restraint, BlodRage = Blood Rage, BrznRsh = Brazen Rush, WarCharg = Warrior's Charge, MghtyStr = Mighty Strikes.
 
 ## Set 2 — Defensive Hub
-Target: Mixed
+Target: `<t>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Provoke | Defender | Retaltn | Tomahawk | RngAtk | | | | | |
+| Ctrl | Provoke | Defender <me> | Retaltn <me> | Tomahawk | RngAtk | | | | | |
 | Alt | SOffHub | | SGrtAxe | SAxe | SGrtSwrd | SScythe | SSword | | | SJobHub |
 
 > Retaltn = Retaliation, RngAtk = Ranged Attack (`/ra <t>` with equipped ranged weapon/ammo).

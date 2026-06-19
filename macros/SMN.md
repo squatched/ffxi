@@ -11,11 +11,11 @@
 - Special avatars Cait Sith, Fenrir, Diabolos, and Carbuncle are housed in the [MNK book](MNK.md) (Sets 6-9, built downward from 9). MNK's Set 4 and Set 10 are left empty as bookend buffers. If more overflow is needed, next destination is [THF book](THF.md) (highest set number downward, buffer first).
 
 ## Set 1 — Hub A
-Target: Mixed
+Target: `<me>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | ElmSphn | Apogee | MnaCede | AvtrFvr | Assault | Release | Retreat | | AstrlCnd | AstrlFlw |
+| Ctrl | ElmSphn | Apogee | MnaCede <t> | AvtrFvr | Assault <t> | Release | Retreat | | AstrlCnd | AstrlFlw |
 | Alt | | SHubB | SIfrit | STitan | SLevthn | SGaruda | SShiva | SRamuh | | SJobHub |
 
 > ElmSphn = Elemental Siphon, MnaCede = Mana Cede, AvtrFvr = Avatar's Favor, AstrlCnd = Astral Conduit (SP2), AstrlFlw = Astral Flow (2hr), SLevthn = Leviathan set.
@@ -31,61 +31,61 @@ Target: `<t>`
 > Hub B is primarily a navigation junction; populate Ctrl slots as needed once in actual play.
 
 ## Set 3 — Ifrit
-Target: Mixed
+Target: `<t>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Ifrit | Punch | DblPunch | Fire2 | Fire4 | BrnStrk | FlmCrush | MetStrk | CrmsnHwl | Inferno |
-| Alt | SHubA | SHubB | InfrnHwl | | | | | | | |
+| Ctrl | Ifrit <me> | Punch | DblPunch | Fire2 | Fire4 | BrnStrk | FlmCrush | MetStrk | CrmsnHwl <me> | Inferno |
+| Alt | SHubA | SHubB | InfrnHwl <me> | | | | | | | |
 
 > DblPunch = Double Punch, BrnStrk = Burning Strike, FlmCrush = Flaming Crush, MetStrk = Meteor Strike (merit), CrmsnHwl = Crimson Howl, InfrnHwl = Inferno Howl, Inferno = Astral Flow pact.
 
 ## Set 4 — Titan
-Target: Mixed
+Target: `<t>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Titan | RockThrw | RockBstr | Stone2 | Stone4 | MglthThr | MtnBstr | Geocrush | ErthWard | ErthFury |
-| Alt | SHubA | SHubB | ErthArmr | | | | | | | |
+| Ctrl | Titan <me> | RockThrw | RockBstr | Stone2 | Stone4 | MglthThr | MtnBstr | Geocrush | ErthWard <me> | ErthFury |
+| Alt | SHubA | SHubB | ErthArmr <me> | | | | | | | |
 
 > RockThrw = Rock Throw, RockBstr = Rock Buster, MglthThr = Megalith Throw, MtnBstr = Mountain Buster, Geocrush = Geocrush (merit), ErthWard = Earthen Ward, ErthArmr = Earthen Armor, ErthFury = Earthen Fury (Astral Flow pact).
 
 ## Set 5 — Leviathan
-Target: Mixed
+Target: `<t>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Levthn | BcdaDive | TailWhip | Water2 | Water4 | SpinDive | GrndFall | SoothCur | Slowga | TidalWv |
+| Ctrl | Levthn <me> | BcdaDive | TailWhip | Water2 | Water4 | SpinDive | GrndFall | SoothCur <me> | Slowga | TidalWv |
 | Alt | SHubA | SHubB | TdlRoar | | | | | | | |
 
 > Levthn = Leviathan, BcdaDive = Barracuda Dive, SpinDive = Spinning Dive, GrndFall = Grand Fall (merit), SoothCur = Soothing Current, TdlRoar = Tidal Roar, TidalWv = Tidal Wave (Astral Flow pact).
 
 ## Set 6 — Garuda
-Target: Mixed
+Target: `<t>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Garuda | Claw | PredClaw | Aero2 | Aero4 | WindBlde | AerlArmr | Hastega | Hastega2 | AerlBlst |
-| Alt | SHubA | SHubB | FleetWnd | | | | | | | |
+| Ctrl | Garuda <me> | Claw | PredClaw | Aero2 | Aero4 | WindBlde | AerlArmr <me> | Hastega <me> | Hastega2 <me> | AerlBlst |
+| Alt | SHubA | SHubB | FleetWnd <me> | | | | | | | |
 
 > PredClaw = Predator Claws, WindBlde = Wind Blade (merit), AerlArmr = Aerial Armor, FleetWnd = Fleet Wind, AerlBlst = Aerial Blast (Astral Flow pact).
 
 ## Set 7 — Shiva
-Target: Mixed
+Target: `<t>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Shiva | AxeKick | DblSlap | Blizz2 | Blizz4 | Rush | HvnStrk | FrstArmr | Sleepga | DmndDust |
-| Alt | SHubA | SHubB | DmndStrm | CrstBlss | | | | | | |
+| Ctrl | Shiva <me> | AxeKick | DblSlap | Blizz2 | Blizz4 | Rush | HvnStrk | FrstArmr <me> | Sleepga | DmndDust |
+| Alt | SHubA | SHubB | DmndStrm | CrstBlss <me> | | | | | | |
 
 > DblSlap = Double Slap, HvnStrk = Heavenly Strike (merit), FrstArmr = Frost Armor, DmndDust = Diamond Dust (Astral Flow pact), DmndStrm = Diamond Storm, CrstBlss = Crystal Blessing.
 
 ## Set 8 — Ramuh
-Target: Mixed
+Target: `<t>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Ramuh | ShckStrk | ChsStrk | Thndr2 | Thndr4 | Thndrstm | LtngArmr | RollThdr | ShckSqal | JdgBolt |
+| Ctrl | Ramuh <me> | ShckStrk | ChsStrk | Thndr2 | Thndr4 | Thndrstm | LtngArmr <me> | RollThdr <me> | ShckSqal | JdgBolt |
 | Alt | SHubA | SHubB | | | | | | | | |
 
 > ShckStrk = Shock Strike, ChsStrk = Chaotic Strike, Thndrstm = Thunderstorm (merit), LtngArmr = Lightning Armor, RollThdr = Rolling Thunder, ShckSqal = Shock Squall, JdgBolt = Judgment Bolt (Astral Flow pact).

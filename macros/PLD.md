@@ -20,11 +20,11 @@ Target: `<me>`
 > Sepulchr = Sepulcher, HlyCircl = Holy Circle, Invincbl = Invincible.
 
 ## Set 2 — Offensive Hub
-Target: Mixed
+Target: `<me>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | ShldBash | Majesty | DvnEmblm | Fealty | Chivalry | Intervne | | | | |
+| Ctrl | ShldBash <t> | Majesty | DvnEmblm | Fealty | Chivalry | Intervne <t> | | | | |
 | Alt | SDefHub | | SMagic | SSword | SClub | SStaff | SGrtSwrd | | | SJobHub |
 
 > ShldBash = Shield Bash, DvnEmblm = Divine Emblem, Intervne = Intervene.

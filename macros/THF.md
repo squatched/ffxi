@@ -7,21 +7,21 @@
 **SMN overflow note:** If additional SMN overflow space is needed beyond MNK, THF is the next destination (highest set number downward, buffer set first). See [SMN.md](SMN.md) for details.
 
 ## Set 1 — Combat Hub
-Target: Mixed
+Target: `<me>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | SnkAtck | TrkAtck | AsnCharg | Feint | Bully | | | | | PrfctDdg |
+| Ctrl | SnkAtck | TrkAtck | AsnCharg | Feint <t> | Bully <t> | | | | | PrfctDdg |
 | Alt | | SUtlHub | SDagger | | | | | | | SJobHub |
 
 > SnkAtck = Sneak Attack, TrkAtck = Trick Attack, AsnCharg = Assassin's Charge, PrfctDdg = Perfect Dodge (2hr).
 
 ## Set 2 — Utility Hub
-Target: Mixed
+Target: `<t>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Steal | Mug | Flee | Hide | Despoil | Acomplce | Colabtr | Consprt | Larceny | |
+| Ctrl | Steal | Mug | Flee <me> | Hide <me> | Despoil | Acomplce | Colabtr | Consprt | Larceny | |
 | Alt | SCmbHub | | SDagger | | | | | | | SJobHub |
 
 > Acomplce = Accomplice, Colabtr = Collaborator, Consprt = Conspirator.

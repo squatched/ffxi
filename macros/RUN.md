@@ -13,14 +13,14 @@
 - Gambit and Rayke appear on both Combat Hub (Alt) and Runes (Alt) — used immediately after adjusting runes in combat without navigating back to the hub
 
 ## Set 1 — Combat Hub
-Target: Mixed
+Target: `<me>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Lunge | Swipe | Vallatn | Valiance | Pflug | Swrdply | Embolden | Battuta | VvcPulse | ElmSfrzo |
-| Alt | | SRunes | SMagic | SGrtSwrd | SSword | Gambit | Rayke | Liement | OdlSub | SJobHub |
+| Ctrl | Lunge <t> | Swipe <t> | Vallatn | Valiance | Pflug | Swrdply | Embolden | Battuta | VvcPulse | ElmSfrzo |
+| Alt | | SRunes | SMagic | SGrtSwrd | SSword | Gambit <t> | Rayke <t> | Liement | OdlSub <t> | SJobHub |
 
-> Vallatn = Vallation, Swrdply = Swordplay, VvcPulse = Vivacious Pulse, ElmSfrzo = Elemental Sforzo (SP1 — grants immunity to all magic damage for 30s; 1hr recast). OdlSub = Odyllic Subterfuge (SP2 — reduces target's magic accuracy for 30s). Lunge/Swipe/Gambit/Rayke/OdlSub target `<t>`; all others `<me>`.
+> Vallatn = Vallation, Swrdply = Swordplay, VvcPulse = Vivacious Pulse, ElmSfrzo = Elemental Sforzo (SP1 — grants immunity to all magic damage for 30s; 1hr recast). OdlSub = Odyllic Subterfuge (SP2 — reduces target's magic accuracy for 30s).
 
 ## Set 2 — Runes
 Target: `<me>`
@@ -33,14 +33,14 @@ Target: `<me>`
 > Ignis=Fire, Gelus=Ice, Flabra=Wind, Tellus=Earth, Sulpor=Lightning, Unda=Water, Lux=Light, Tenebrae=Dark. OnForAll = One for All. Gambit/Rayke on Alt+6-7 are intentional redundancy from Combat Hub.
 
 ## Set 3 — Magic
-Target: Mixed
+Target: `<me>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Flash | Foil | Phalanx | StoneSkn | Blink | Regen | Refresh | BlazeSpk | IceSpk | ShckSpk |
+| Ctrl | Flash <t> | Foil <t> | Phalanx | StoneSkn | Blink | Regen | Refresh | BlazeSpk | IceSpk | ShckSpk |
 | Alt | SHub | SRunes | | SGrtSwrd | SSword | Crusade | Aquaveil | Temper | | SJobHub |
 
-> StoneSkn = Stoneskin, BlazeSpk = Blaze Spikes, IceSpk = Ice Spikes, ShckSpk = Shock Spikes. Flash and Foil target `<t>`; all others `<me>`. Temper requires 550 Job Points.
+> StoneSkn = Stoneskin, BlazeSpk = Blaze Spikes, IceSpk = Ice Spikes, ShckSpk = Shock Spikes. Temper requires 550 Job Points.
 
 ## Set 4 — Great Sword WS
 Target: `<t>`

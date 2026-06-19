@@ -17,11 +17,11 @@ Target: `<me>`
 > SprJump = Super Jump, SprtJump = Spirit Jump, SprtSrge = Spirit Surge.
 
 ## Set 2 — Utility/Pet Hub
-Target: Mixed
+Target: `<me>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | AncCircl | SprtLink | SprtBond | DpBreath | Angon | DrgnBrkr | CallWyvn | Dismiss | SmtBrth | RstBrth |
+| Ctrl | AncCircl | SprtLink | SprtBond | DpBreath | Angon <t> | DrgnBrkr <t> | CallWyvn | Dismiss | SmtBrth | RstBrth |
 | Alt | SJumpHub | | SPolearm | StwdWing | | | | | | SJobHub |
 
 > AncCircl = Ancient Circle, SprtLink = Spirit Link, SprtBond = Spirit Bond, DpBreath = Deep Breathing, DrgnBrkr = Dragon Breaker, CallWyvn = Call Wyvern, SmtBrth = Smiting Breath, RstBrth = Restoring Breath, StwdWing = Steady Wing.

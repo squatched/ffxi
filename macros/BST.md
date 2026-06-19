@@ -5,22 +5,22 @@
 - **Alt+0** — Job Hub on both hubs; free on all WS sets
 
 ## Set 1 — Master Hub
-Target: Mixed
+Target: `<t>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Charm | Gauge | Tame | FerlHowl | KlrInstc | | | | | Familar |
+| Ctrl | Charm | Gauge | Tame | FerlHowl <me> | KlrInstc <me> | | | | | Familar <me> |
 | Alt | | SPetHub | SAxe | SGrtAxe | SClub | | | | | SJobHub |
 
 > FerlHowl = Feral Howl, KlrInstc = Killer Instinct, Familar = Familiar (2hr).
 
 ## Set 2 — Pet Hub
-Target: Mixed
+Target: `<me>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | Reward | CallBst | Snarl | Spur | RunWild | Unleash | Fight | Heel | Stay | |
-| Alt | SMstHub | | SAxe | SGrtAxe | SClub | Sic | Leave | | | SJobHub |
+| Ctrl | Reward | CallBst | Snarl <t> | Spur | RunWild | Unleash | Fight <t> | Heel | Stay | |
+| Alt | SMstHub | | SAxe | SGrtAxe | SClub | Sic <t> | Leave | | | SJobHub |
 
 > CallBst = Call Beast, RunWild = Run Wild, Unleash = Unleash (SP2), SMstHub = Master Hub.
 

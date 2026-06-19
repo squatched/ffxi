@@ -7,11 +7,11 @@
 - Elemental nukes (Stone/Water/Fire/Blizzard/Aero/Thunder lines) — DRK gets no Magic Attack Bonus and only tier II nukes; not worth casting
 
 ## Set 1 — Hub
-Target: Mixed
+Target: `<me>`
 
 | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 |
 |------|------|------|------|------|------|------|------|------|------|------|
-| Ctrl | LastRsrt | WpnBash | Souletr | ArcCrest | ScrlDelm | DblcEye | NthrVoid | CnsmMana | ArcCircl | BlodWpn |
+| Ctrl | LastRsrt | WpnBash <t> | Souletr | ArcCrest | ScrlDelm | DblcEye | NthrVoid | CnsmMana | ArcCircl | BlodWpn |
 | Alt | | SDrkMag | SAbsorb | SGrtSwrd | SScythe | | | | | SJobHub |
 
 > LastRsrt = Last Resort, WpnBash = Weapon Bash, Souletr = Souleater, ArcCrest = Arcane Crest, ScrlDelm = Scarlet Delirium, DblcEye = Diabolic Eye, NthrVoid = Nether Void, CnsmMana = Consume Mana, ArcCircl = Arcane Circle, BlodWpn = Blood Weapon (2hr), SDrkMag = Dark Magic set, SAbsorb = Absorb Spells set.
