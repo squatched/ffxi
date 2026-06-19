@@ -35,7 +35,7 @@ Based on [The Hub System by Sekhmet](https://ffxiclopedia.fandom.com/wiki/The_Hu
 - [DNC — Dancer](DNC.md) *(stub)*
 - [SCH — Scholar](SCH.md) *(stub)*
 - [GEO — Geomancer](GEO.md) *(stub)*
-- [RUN — Rune Fencer](RUN.md) *(stub)*
+- [RUN — Rune Fencer](RUN.md)
 
 ---
 
