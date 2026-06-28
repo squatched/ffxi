@@ -1,3 +1,7 @@
+---
+book: 23
+---
+
 # Book: RUN — Rune Fencer
 
 - **Alt+1** — Combat Hub / Set 1 (blank on Set 1 itself)

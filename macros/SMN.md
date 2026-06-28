@@ -1,3 +1,7 @@
+---
+book: 13
+---
+
 # Book: SMN — Summoner
 
 - **Alt+1** — Hub A / Set 1 (blank on Set 1 itself)

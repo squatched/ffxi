@@ -1,3 +1,7 @@
+---
+book: 8
+---
+
 # Book: PLD — Paladin
 
 - **Alt+1** — Defensive Hub / Set 1 (blank on Set 1 itself)

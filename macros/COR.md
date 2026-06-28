@@ -1,3 +1,7 @@
+---
+book: 18
+---
+
 # Book: COR — Corsair
 
 > Alt navigation conventions TBD.

@@ -1,3 +1,7 @@
+---
+book: 16
+---
+
 # Book: DRG — Dragoon
 
 - **Alt+1** — Jump Hub / Set 1 (blank on Set 1 itself)

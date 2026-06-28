@@ -1,3 +1,7 @@
+---
+book: 5
+---
+
 # Book: BLM — Black Mage
 
 - **Alt+1** — BLM Hub (blank on Hub itself)

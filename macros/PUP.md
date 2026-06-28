@@ -1,3 +1,7 @@
+---
+book: 19
+---
+
 # Book: PUP — Puppetmaster
 
 > Alt navigation conventions TBD.

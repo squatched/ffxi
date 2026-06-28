@@ -1,3 +1,7 @@
+---
+book: 12
+---
+
 # Book: RNG — Ranger
 
 - **Alt+1** — RNG Hub (blank on Hub itself)

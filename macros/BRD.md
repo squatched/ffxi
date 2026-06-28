@@ -1,3 +1,7 @@
+---
+book: 11
+---
+
 # Book: BRD — Bard
 
 - **Alt+1** — BRD Hub (blank on Hub itself)

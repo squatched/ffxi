@@ -1,3 +1,7 @@
+---
+book: 21
+---
+
 # Book: SCH — Scholar
 
 > Alt navigation conventions TBD.

@@ -1,3 +1,7 @@
+---
+book: 1
+---
+
 # Book: JobsHub
 
 A shared navigation book linking all job books. Two sets cover all 22 jobs. Alt+0 on any job's primary hub navigates here.

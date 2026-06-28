@@ -26,8 +26,8 @@ Based on [The Hub System by Sekhmet](https://ffxiclopedia.fandom.com/wiki/The_Hu
 - [SMN — Summoner](SMN.md)
 
 ### Expansion Jobs
-- [SAM — Samurai](SAM.md) *(stub)*
-- [NIN — Ninja](NIN.md) *(stub)*
+- [SAM — Samurai](SAM.md)
+- [NIN — Ninja](NIN.md)
 - [DRG — Dragoon](DRG.md)
 - [BLU — Blue Mage](BLU.md) *(stub)*
 - [COR — Corsair](COR.md) *(stub)*

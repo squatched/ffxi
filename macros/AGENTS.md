@@ -69,3 +69,100 @@ When a set contains multiple target types, pick the majority as the canonical `T
 ## Intentional Redundancy
 
 Some spells appear on multiple sets deliberately — e.g. Regen on both Healing and EnhOth — because they're used reactively in different contexts. This is documented per job.
+
+---
+
+## .md / .yml Dual-File Workflow
+
+Each job has two files:
+
+- **`JOB.md`** — design document. Button layout tables, naming rationale, glossary of abbreviations, open questions. Source of truth for *what* each button does and *why*.
+- **`JOB.yml`** — importable artifact for the [macromog](../macromog/) tool. Contains the actual `/ma`, `/ja`, `/ws`, `/pet` command lines. Maintained in parallel with the .md.
+
+The `.md` files are not generated from the `.yml` and vice versa — they are hand-authored companions. When you change what a button does, update both.
+
+### Book Index Assignment
+
+Each .md file begins with YAML frontmatter declaring its book slot — the single source of truth:
+
+```markdown
+---
+book: 4
+---
+# Book: WHM — White Mage
+```
+
+The full assignment table:
+
+| Book | Job      | Book | Job      |
+|------|----------|------|----------|
+| 1    | JobsHub  | 14   | SAM      |
+| 2    | WAR      | 15   | NIN      |
+| 3    | MNK      | 16   | DRG      |
+| 4    | WHM      | 17   | BLU      |
+| 5    | BLM      | 18   | COR      |
+| 6    | RDM      | 19   | PUP      |
+| 7    | THF      | 20   | DNC      |
+| 8    | PLD      | 21   | SCH      |
+| 9    | DRK      | 22   | GEO      |
+| 10   | BST      | 23   | RUN      |
+| 11   | BRD      | 24   | (reserved) |
+| 12   | RNG      | 25–40 | (reserved) |
+| 13   | SMN      |      |          |
+
+### Navigation Macro Contents (Formulaic)
+
+Nav macros are always two lines derived from the book table. No lookup needed — just book index + set number:
+
+```yaml
+contents:
+  - /macro book N
+  - /macro set M
+```
+
+Common patterns:
+
+| Nav label | Meaning | Example (WHM = book 4) |
+|-----------|---------|------------------------|
+| `SJobHub` | Go to JobsHub Set 1 | `/macro book 1` / `/macro set 1` |
+| `SHub`    | Go to this job's Set 1 | `/macro book 4` / `/macro set 1` |
+| `SHeal`   | Go to this job's Set 2 | `/macro book 4` / `/macro set 2` |
+| `SHub` (Alt+1 on Set 1) | Omitted — blank slot | (no entry in YAML) |
+
+Blank nav slots (e.g., Alt+1 on the primary hub) are simply omitted from the YAML — sparse format means only non-empty slots appear.
+
+### Authoring a .yml
+
+```yaml
+version: 1
+scope:
+  level: book
+  selections:
+    - {book: N}        # matches the book: N in the .md frontmatter
+books:
+  N:
+    name: JOB          # ≤15 chars, alphanumeric — shown in-game
+    sets:
+      1:
+        ctrl:
+          1:
+            name: McrName  # ≤8 bytes — shown on button
+            contents:
+              - /ma "Spell Name" <t>   # ≤6 lines, ≤60 chars each
+        alt:
+          0:
+            name: SJobHub
+            contents:
+              - /macro book 1
+              - /macro set 1
+```
+
+Constraints (from macromog schema):
+- Books: 1–40, Sets: 1–10, Keys: 1–9 then 0 (0 = tenth/rightmost slot)
+- Button name: ≤8 bytes
+- Contents: ≤6 lines, each ≤60 characters
+- Only populated slots appear — gaps are valid (sparse format)
+
+### Stub .yml Files
+
+Jobs not yet designed have minimal stub .yml files with only the `SJobHub` nav on Alt+0 of Set 1. These are valid for import but essentially empty. Expand them as the corresponding .md is designed.

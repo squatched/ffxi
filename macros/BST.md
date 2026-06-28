@@ -1,3 +1,7 @@
+---
+book: 10
+---
+
 # Book: BST — Beastmaster
 
 - **Alt+1** — Master Hub / Set 1 (blank on Set 1 itself)

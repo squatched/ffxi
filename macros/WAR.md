@@ -1,3 +1,7 @@
+---
+book: 2
+---
+
 # Book: WAR — Warrior
 
 - **Alt+1** — Offensive Hub / Set 1 (blank on Set 1 itself)

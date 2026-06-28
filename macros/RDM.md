@@ -1,3 +1,7 @@
+---
+book: 6
+---
+
 # Book: RDM — Red Mage
 
 - **Alt+1** — RDM Hub (blank on Hub itself)

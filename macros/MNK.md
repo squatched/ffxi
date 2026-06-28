@@ -1,3 +1,7 @@
+---
+book: 3
+---
+
 # Book: MNK — Monk
 
 - **Alt+1** — MNK Hub (blank on Hub itself)

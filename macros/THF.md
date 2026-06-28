@@ -1,3 +1,7 @@
+---
+book: 7
+---
+
 # Book: THF — Thief
 
 - **Alt+1** — Combat Hub / Set 1 (blank on Set 1 itself)

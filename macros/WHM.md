@@ -1,3 +1,7 @@
+---
+book: 4
+---
+
 # Book: WHM — White Mage
 
 - **Alt+1** — WHM Hub (blank on Hub itself)

@@ -1,3 +1,7 @@
+---
+book: 17
+---
+
 # Book: BLU — Blue Mage
 
 > Alt navigation conventions TBD.

@@ -1,3 +1,7 @@
+---
+book: 22
+---
+
 # Book: GEO — Geomancer
 
 > Alt navigation conventions TBD.
