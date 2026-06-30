@@ -9,9 +9,9 @@ at the given level, removes unavailable actions, and distributes series slots
 available than slots. Nav macros are always preserved unchanged.
 
 Usage:
-  python3 data/gen_macros.py WHM 45
-  python3 data/gen_macros.py BLM 30 --out /tmp/BLM_30.yml
-  python3 data/gen_macros.py WHM 45 --char Valeria
+  python3 scripts/gen_macros.py WHM 45           # writes out/WHM45.yml
+  python3 scripts/gen_macros.py BLM 30           # writes out/BLM30.yml
+  python3 scripts/gen_macros.py WHM 45 --char Valeria
 """
 
 import argparse
@@ -24,8 +24,10 @@ from pathlib import Path
 
 import yaml
 
-DATA_DIR = Path(__file__).parent
-MACROS_DIR = DATA_DIR.parent / 'macros'
+ROOT_DIR = Path(__file__).parent.parent
+DATA_DIR = ROOT_DIR / 'data'
+MACROS_DIR = ROOT_DIR / 'macros'
+OUT_DIR = ROOT_DIR / 'out'
 
 
 # ── Series map ────────────────────────────────────────────────────────────────
@@ -402,11 +404,11 @@ def main():
             )
         finally:
             tmp_path.unlink(missing_ok=True)
-    elif args.out:
-        Path(args.out).write_text(output)
-        print(f'Written to {args.out}', file=sys.stderr)
     else:
-        print(output, end='')
+        out_path = Path(args.out) if args.out else OUT_DIR / f'{job}{level}.yml'
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        out_path.write_text(output)
+        print(f'Written to {out_path}', file=sys.stderr)
 
 
 if __name__ == '__main__':
