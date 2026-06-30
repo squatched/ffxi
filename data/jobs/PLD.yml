@@ -1,5 +1,6 @@
 job: PLD
 name: Paladin
+abilities_default_self: true
 
 abilities:
   - name: Invincible
@@ -7,10 +8,12 @@ abilities:
   - name: Holy Circle
     level: 5
   - name: Shield Bash
+    self_only: false
     level: 15
   - name: Sentinel
     level: 30
   - name: Cover
+    self_only: false
     level: 35
   - name: Rampart
     level: 62
@@ -29,6 +32,7 @@ abilities:
   - name: Palisade
     level: 95
   - name: Intervene
+    self_only: false
     level: 96
 
 magic:

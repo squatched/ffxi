@@ -1,5 +1,6 @@
 job: WHM
 name: White Mage
+abilities_default_self: true
 
 abilities:
   - name: Benediction
@@ -11,9 +12,11 @@ abilities:
   - name: Afflatus Misery
     level: 40
   - name: Martyr
+    self_only: false
     level: 75
     notes: "merit"
   - name: Devotion
+    self_only: false
     level: 75
     notes: "merit"
   - name: Divine Caress

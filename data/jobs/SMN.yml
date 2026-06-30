@@ -1,5 +1,6 @@
 job: SMN
 name: Summoner
+abilities_default_self: true
 
 abilities:
   - name: Astral Flow

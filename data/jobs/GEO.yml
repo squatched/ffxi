@@ -1,5 +1,6 @@
 job: GEO
 name: Geomancer
+abilities_default_self: true
 
 abilities:
   - name: Bolster

@@ -1,5 +1,6 @@
 job: BRD
 name: Bard
+abilities_default_self: true
 
 abilities:
   - name: Soul Voice

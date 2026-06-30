@@ -1,12 +1,15 @@
 job: BST
 name: Beastmaster
+abilities_default_self: true
 
 abilities:
   - name: Familiar
     level: 1
   - name: Charm
+    self_only: false
     level: 1
   - name: Fight
+    self_only: false
     level: 1
   - name: Gauge
     level: 10
@@ -21,14 +24,18 @@ abilities:
   - name: Bestial Loyalty
     level: 23
   - name: Sic
+    self_only: false
     level: 25
   - name: Ready
+    self_only: false
     level: 25
   - name: Tame
+    self_only: false
     level: 30
   - name: Leave
     level: 35
   - name: Snarl
+    self_only: false
     level: 45
   - name: Feral Howl
     level: 75

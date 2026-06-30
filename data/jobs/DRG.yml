@@ -1,5 +1,6 @@
 job: DRG
 name: Dragoon
+abilities_default_self: true
 
 abilities:
   - name: Spirit Surge
@@ -9,6 +10,7 @@ abilities:
   - name: Ancient Circle
     level: 5
   - name: Jump
+    self_only: false
     level: 10
   - name: Spirit Link
     level: 25
@@ -22,13 +24,17 @@ abilities:
     level: 75
     notes: "merit"
   - name: Angon
+    self_only: false
     level: 75
     notes: "merit"
   - name: Spirit Jump
+    self_only: false
     level: 77
   - name: Soul Jump
+    self_only: false
     level: 85
   - name: Dragon Breaker
+    self_only: false
     level: 87
   - name: Fly High
     level: 96

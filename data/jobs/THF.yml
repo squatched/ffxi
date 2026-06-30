@@ -1,38 +1,48 @@
 job: THF
 name: Thief
+abilities_default_self: true
 
 abilities:
   - name: Perfect Dodge
     level: 1
   - name: Steal
+    self_only: false
     level: 5
   - name: Sneak Attack
     level: 15
   - name: Flee
     level: 25
   - name: Trick Attack
+    self_only: false
     level: 30
   - name: Mug
+    self_only: false
     level: 35
   - name: Hide
     level: 45
   - name: Accomplice
+    self_only: false
     level: 65
   - name: Collaborator
+    self_only: false
     level: 65
   - name: Assassin's Charge
     level: 75
     notes: "merit"
   - name: Feint
+    self_only: false
     level: 75
     notes: "merit"
   - name: Despoil
+    self_only: false
     level: 77
   - name: Conspirator
     level: 87
   - name: Bully
+    self_only: false
     level: 93
   - name: Larceny
+    self_only: false
     level: 96
 
 weapons:

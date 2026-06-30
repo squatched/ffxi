@@ -1,5 +1,6 @@
 job: RNG
 name: Ranger
+abilities_default_self: true
 
 abilities:
   - name: Eagle Eye Shot
@@ -13,6 +14,7 @@ abilities:
   - name: Barrage
     level: 30
   - name: Shadowbind
+    self_only: false
     level: 40
   - name: Velocity Shot
     level: 45
@@ -27,8 +29,10 @@ abilities:
   - name: Double Shot
     level: 79
   - name: Bounty Shot
+    self_only: false
     level: 87
   - name: Decoy Shot
+    self_only: false
     level: 95
   - name: Hover Shot
     level: 95

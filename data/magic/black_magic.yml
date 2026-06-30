@@ -1,4 +1,5 @@
 magic: black_magic
+default_self: false
 
 # Per-job unlock levels. Jobs: BLM, RDM, SCH, DRK
 # Omit a job from a spell entry if they cannot learn it
@@ -513,17 +514,21 @@ spells:
     DRK: 32
 
   - name: Warp
+    self_only: true
     BLM: 17
     next: "Warp II"
 
   - name: Warp II
+    self_only: true
     BLM: 40
     prev: "Warp"
 
   - name: Escape
+    self_only: true
     BLM: 29
 
   - name: Retrace
+    self_only: true
     BLM: 55
 
   # --- Enfeebling as Black Magic (BLM/RDM) ---
@@ -639,10 +644,12 @@ spells:
     DRK: 71
 
   - name: Endark
+    self_only: true
     DRK: 85
     next: "Endark II"
 
   - name: Endark II
+    self_only: true
     DRK: 99
     prev: "Endark"
 
@@ -676,4 +683,5 @@ spells:
     SCH: 5
 
   - name: Klimaform
+    self_only: true
     SCH: 46

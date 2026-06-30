@@ -1,4 +1,5 @@
 magic: blood_pacts
+default_self: false
 
 # Job: SMN only
 # Blood pacts require the corresponding avatar to be summoned

@@ -1,5 +1,6 @@
 job: MNK
 name: Monk
+abilities_default_self: true
 
 abilities:
   - name: Hundred Fists
@@ -13,6 +14,7 @@ abilities:
   - name: Chakra
     level: 35
   - name: Chi Blast
+    self_only: false
     level: 41
   - name: Counterstance
     level: 45

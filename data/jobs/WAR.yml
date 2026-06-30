@@ -1,10 +1,12 @@
 job: WAR
 name: Warrior
+abilities_default_self: true
 
 abilities:
   - name: Mighty Strikes
     level: 1
   - name: Provoke
+    self_only: false
     level: 5
   - name: Berserk
     level: 15
@@ -20,6 +22,7 @@ abilities:
     level: 75
     notes: "merit"
   - name: Tomahawk
+    self_only: false
     level: 75
     notes: "merit"
   - name: Restraint

@@ -1,11 +1,14 @@
 magic: ninjutsu
+default_self: false
 
 # Jobs: NIN (main and sub — sub gets spells up to floor(main/2))
 spells:
   - name: "Tonko: Ichi"
+    self_only: true
     level: 9
     next: "Tonko: Ni"
   - name: "Utsusemi: Ichi"
+    self_only: true
     level: 12
     next: "Utsusemi: Ni"
   - name: "Kurayami: Ichi"
@@ -15,15 +18,18 @@ spells:
     level: 23
     next: "Hojo: Ni"
   - name: "Monomi: Ichi"
+    self_only: true
     level: 25
   - name: "Dokumori: Ichi"
     level: 27
   - name: "Jubaku: Ichi"
     level: 30
   - name: "Tonko: Ni"
+    self_only: true
     level: 34
     prev: "Tonko: Ichi"
   - name: "Utsusemi: Ni"
+    self_only: true
     level: 37
     prev: "Utsusemi: Ichi"
     next: "Utsusemi: San"
@@ -100,6 +106,7 @@ spells:
   - name: "Myoshu: Ichi"
     level: 85
   - name: "Migawari: Ichi"
+    self_only: true
     level: 88
   - name: "Gekka: Ichi"
     level: 88
@@ -108,5 +115,6 @@ spells:
   - name: "Kakka: Ichi"
     level: 93
   - name: "Utsusemi: San"
+    self_only: true
     level: 99
     prev: "Utsusemi: Ni"

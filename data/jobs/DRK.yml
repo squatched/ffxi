@@ -1,5 +1,6 @@
 job: DRK
 name: Dark Knight
+abilities_default_self: true
 
 abilities:
   - name: Blood Weapon
@@ -9,6 +10,7 @@ abilities:
   - name: Last Resort
     level: 15
   - name: Weapon Bash
+    self_only: false
     level: 20
   - name: Souleater
     level: 30

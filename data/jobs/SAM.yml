@@ -1,5 +1,6 @@
 job: SAM
 name: Samurai
+abilities_default_self: true
 
 abilities:
   - name: Meikyo Shisui

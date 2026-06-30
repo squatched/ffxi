@@ -1,5 +1,6 @@
 job: RDM
 name: Red Mage
+abilities_default_self: true
 
 abilities:
   - name: Chainspell

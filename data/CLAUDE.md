@@ -47,6 +47,7 @@ All jobs share the same base structure. Special sections for SMN and BST are doc
 ```yaml
 job: RDM
 name: Red Mage
+abilities_default_self: true   # all JAs target <me> unless self_only: false overrides
 
 abilities:
   - name: Convert
@@ -148,6 +149,27 @@ Magic data lives in separate catalog files rather than embedded in job files, av
 across the jobs that share white/black magic. Job files list which categories they have via a
 `magic:` key; the catalog files hold the actual spell data.
 
+### Targeting: `default_self` and `self_only`
+
+Each magic catalog file carries a top-level `default_self:` field indicating whether its entries
+target the caster (`true`) or a target via `<t>` (`false`). Individual entries override this with
+an explicit `self_only: true` or `self_only: false` field when they differ from the file default.
+
+| File | `default_self` | Exceptions |
+|------|---------------|------------|
+| `white_magic.yml` | `false` | Reraise I–IV, Aquaveil → `self_only: true` |
+| `black_magic.yml` | `false` | Warp/II, Escape, Retrace, Endark/II, Klimaform → `self_only: true` |
+| `ninjutsu.yml` | `false` | Utsusemi, Tonko, Monomi, Migawari series → `self_only: true` |
+| `songs.yml` | `true` | none |
+| `blue_magic.yml` | `false` | none |
+| `geomancy.yml` | `false` | all Indi- spells → `self_only: true` |
+| `summoning.yml` | `true` | none |
+| `blood_pacts.yml` | `false` | none |
+
+Job files carry `abilities_default_self: true` (nearly all JAs target the caster). Individual
+abilities that target an enemy or ally carry `self_only: false`. Weapon skills always target
+`<t>` and carry no targeting field.
+
 ### Job-Exclusive Categories
 
 For magic types tied to a single job (songs, ninjutsu, blue_magic, geomancy, summoning, blood_pacts),
@@ -156,10 +178,12 @@ spells have a single `level:` field plus optional flags:
 ```yaml
 # magic/ninjutsu.yml
 magic: ninjutsu
+default_self: false
 spells:
-  - name: Utsusemi: Ichi
+  - name: "Utsusemi: Ichi"
+    self_only: true
     level: 12
-  - name: Katon: Ni
+  - name: "Katon: Ni"
     level: 40
 ```
 

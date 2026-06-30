@@ -1,4 +1,5 @@
 magic: blue_magic
+default_self: false
 
 # Job: BLU only
 # Spells at level 60+ are main job only (unavailable via /BLU subjob)

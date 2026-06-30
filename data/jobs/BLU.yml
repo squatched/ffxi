@@ -1,5 +1,6 @@
 job: BLU
 name: Blue Mage
+abilities_default_self: true
 
 abilities:
   - name: Azure Lore

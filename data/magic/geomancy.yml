@@ -1,125 +1,156 @@
 magic: geomancy
+default_self: false
 
 # Job: GEO only
 # Indi- spells are player-centered; Geo- spells are Luopan-centered
 spells:
   - name: Indi-Poison
+    self_only: true
     level: 1
   - name: Geo-Poison
     level: 5
   - name: Indi-Voidance
+    self_only: true
     level: 4
   - name: Geo-Voidance
     level: 8
   - name: Indi-Precision
+    self_only: true
     level: 10
   - name: Geo-Precision
     level: 14
   - name: Indi-Regen
+    self_only: true
     level: 15
   - name: Geo-Regen
     level: 19
   - name: Indi-Attunement
+    self_only: true
     level: 16
   - name: Geo-Attunement
     level: 20
   - name: Indi-Focus
+    self_only: true
     level: 22
   - name: Geo-Focus
     level: 26
   - name: Indi-Barrier
+    self_only: true
     level: 28
   - name: Geo-Barrier
     level: 32
   - name: Indi-Refresh
+    self_only: true
     level: 30
   - name: Indi-CHR
+    self_only: true
     level: 30
   - name: Geo-Refresh
     level: 34
   - name: Geo-CHR
     level: 34
   - name: Indi-MND
+    self_only: true
     level: 33
   - name: Geo-MND
     level: 37
   - name: Indi-Fury
+    self_only: true
     level: 34
   - name: Geo-Fury
     level: 38
   - name: Indi-INT
+    self_only: true
     level: 36
   - name: Geo-INT
     level: 40
   - name: Indi-AGI
+    self_only: true
     level: 39
   - name: Geo-AGI
     level: 43
   - name: Indi-Fend
+    self_only: true
     level: 40
   - name: Geo-Fend
     level: 44
   - name: Indi-VIT
+    self_only: true
     level: 42
   - name: Geo-VIT
     level: 46
   - name: Indi-DEX
+    self_only: true
     level: 45
   - name: Geo-DEX
     level: 49
   - name: Indi-Acumen
+    self_only: true
     level: 46
   - name: Geo-Acumen
     level: 50
   - name: Indi-STR
+    self_only: true
     level: 48
   - name: Indi-Slow
+    self_only: true
     level: 48
   - name: Geo-STR
     level: 52
   - name: Geo-Slow
     level: 52
   - name: Indi-Torpor
+    self_only: true
     level: 52
   - name: Geo-Torpor
     level: 56
   - name: Indi-Slip
+    self_only: true
     level: 58
   - name: Geo-Slip
     level: 62
   - name: Indi-Languor
+    self_only: true
     level: 64
   - name: Geo-Languor
     level: 68
   - name: Indi-Paralysis
+    self_only: true
     level: 68
   - name: Geo-Paralysis
     level: 72
   - name: Indi-Vex
+    self_only: true
     level: 70
   - name: Geo-Vex
     level: 74
   - name: Indi-Frailty
+    self_only: true
     level: 76
   - name: Geo-Frailty
     level: 80
   - name: Indi-Wilt
+    self_only: true
     level: 82
   - name: Geo-Wilt
     level: 86
   - name: Indi-Gravity
+    self_only: true
     level: 88
   - name: Indi-Malaise
+    self_only: true
     level: 88
   - name: Geo-Gravity
     level: 92
   - name: Geo-Malaise
     level: 92
   - name: Indi-Haste
+    self_only: true
     level: 93
   - name: Geo-Haste
     level: 97
   - name: Indi-Fade
+    self_only: true
     level: 94
   - name: Geo-Fade
     level: 98

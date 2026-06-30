@@ -1,4 +1,5 @@
 magic: summoning
+default_self: true
 
 # Job: SMN only
 # level: minimum character level to summon this avatar

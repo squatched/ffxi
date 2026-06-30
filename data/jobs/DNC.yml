@@ -1,5 +1,6 @@
 job: DNC
 name: Dancer
+abilities_default_self: true
 
 abilities:
   - name: Trance
@@ -7,8 +8,10 @@ abilities:
   - name: Drain Samba
     level: 5
   - name: Curing Waltz
+    self_only: false
     level: 15
   - name: Quickstep
+    self_only: false
     level: 20
   - name: Spectral Jig
     level: 25
@@ -17,22 +20,28 @@ abilities:
   - name: Divine Waltz
     level: 25
   - name: Box Step
+    self_only: false
     level: 30
   - name: Curing Waltz II
+    self_only: false
     level: 30
   - name: Drain Samba II
     level: 35
   - name: Healing Waltz
+    self_only: false
     level: 35
   - name: Stutter Step
+    self_only: false
     level: 40
   - name: Reverse Flourish
     level: 40
   - name: Haste Samba
     level: 45
   - name: Curing Waltz III
+    self_only: false
     level: 45
   - name: Violent Flourish
+    self_only: false
     level: 45
   - name: Building Flourish
     level: 50
@@ -45,6 +54,7 @@ abilities:
   - name: Wild Flourish
     level: 60
   - name: Curing Waltz IV
+    self_only: false
     level: 60
   - name: Drain Samba III
     level: 65
@@ -60,8 +70,10 @@ abilities:
   - name: Climactic Flourish
     level: 80
   - name: Feather Step
+    self_only: false
     level: 83
   - name: Curing Waltz V
+    self_only: false
     level: 87
   - name: Striking Flourish
     level: 89

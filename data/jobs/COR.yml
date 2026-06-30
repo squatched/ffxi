@@ -1,5 +1,6 @@
 job: COR
 name: Corsair
+abilities_default_self: true
 
 abilities:
   - name: Wild Card
@@ -31,6 +32,7 @@ abilities:
   - name: Samurai Roll
     level: 37
   - name: Quick Draw
+    self_only: false
     level: 40
   - name: Evoker's Roll
     level: 40

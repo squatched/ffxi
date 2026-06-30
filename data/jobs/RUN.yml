@@ -1,5 +1,6 @@
 job: RUN
 name: Rune Fencer
+abilities_default_self: true
 
 abilities:
   - name: Elemental Sforzo
@@ -25,8 +26,10 @@ abilities:
   - name: Swordplay
     level: 20
   - name: Swipe
+    self_only: false
     level: 25
   - name: Lunge
+    self_only: false
     level: 25
   - name: Pflug
     level: 40
@@ -37,11 +40,13 @@ abilities:
   - name: Vivacious Pulse
     level: 65
   - name: Gambit
+    self_only: false
     level: 70
   - name: Battuta
     level: 75
     notes: "merit"
   - name: Rayke
+    self_only: false
     level: 75
     notes: "merit"
   - name: Inspiration

@@ -1,4 +1,5 @@
 magic: white_magic
+default_self: false
 
 # Per-job unlock levels. Jobs: WHM, RDM, PLD, SCH
 # Omit a job from a spell entry if they cannot learn it
@@ -142,23 +143,27 @@ spells:
     prev: "Raise II"
 
   - name: Reraise
+    self_only: true
     WHM: 25
     SCH: 35
     next: "Reraise II"
 
   - name: Reraise II
+    self_only: true
     WHM: 56
     SCH: 70
     prev: "Reraise"
     next: "Reraise III"
 
   - name: Reraise III
+    self_only: true
     WHM: 70
     SCH: 91
     prev: "Reraise II"
     next: "Reraise IV"
 
   - name: Reraise IV
+    self_only: true
     WHM: 99
     notes: "Job Points"
     prev: "Reraise III"
@@ -324,6 +329,7 @@ spells:
 
   # --- Utility / Buffs ---
   - name: Aquaveil
+    self_only: true
     WHM: 10
     RDM: 12
     SCH: 13

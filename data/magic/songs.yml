@@ -1,4 +1,5 @@
 magic: songs
+default_self: true
 
 # Job: BRD only
 spells:
