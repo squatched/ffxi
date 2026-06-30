@@ -1,0 +1,37 @@
+job: MNK
+name: Monk
+
+abilities:
+  - name: Hundred Fists
+    level: 1
+  - name: Boost
+    level: 5
+  - name: Dodge
+    level: 15
+  - name: Focus
+    level: 25
+  - name: Chakra
+    level: 35
+  - name: Chi Blast
+    level: 41
+  - name: Counterstance
+    level: 45
+  - name: Footwork
+    level: 65
+  - name: Mantra
+    level: 75
+    notes: "merit"
+  - name: Formless Strikes
+    level: 75
+    notes: "merit"
+  - name: Perfect Counter
+    level: 79
+  - name: Impetus
+    level: 88
+  - name: Inner Strength
+    level: 96
+
+weapons:
+  Hand-to-Hand: A+
+  Staff: B
+  Club: C+

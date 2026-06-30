@@ -1,0 +1,70 @@
+weapon: Great Katana
+
+skills:
+  - name: "Tachi: Enpi"
+    skill: 5
+    acquisition: automatic
+
+  - name: "Tachi: Hobaku"
+    skill: 30
+    acquisition: automatic
+
+  - name: "Tachi: Goten"
+    skill: 70
+    acquisition: automatic
+
+  - name: "Tachi: Kagero"
+    skill: 100
+    acquisition: automatic
+
+  - name: "Tachi: Jinpu"
+    skill: 150
+    acquisition: automatic
+
+  - name: "Tachi: Koki"
+    skill: 175
+    acquisition: automatic
+
+  - name: "Tachi: Yukikaze"
+    skill: 200
+    acquisition: automatic
+    jobs: [SAM]
+
+  - name: "Tachi: Gekko"
+    skill: 225
+    acquisition: automatic
+    jobs: [SAM]
+
+  - name: "Tachi: Kasha"
+    skill: 250
+    acquisition: quest
+    jobs: [SAM]
+
+  - name: "Tachi: Ageha"
+    skill: 300
+    acquisition: automatic
+
+  - name: "Tachi: Shoha"
+    acquisition: weapon_specific
+    jobs: [SAM]
+    notes: "Aeonic weapon; requires skill 357"
+
+  - name: "Tachi: Kaiten"
+    acquisition: weapon_specific
+    jobs: [SAM]
+    notes: "Relic weapon"
+
+  - name: "Tachi: Fudo"
+    acquisition: weapon_specific
+    jobs: [SAM]
+    notes: "Empyrean weapon"
+
+  - name: "Tachi: Rana"
+    acquisition: weapon_specific
+    jobs: [SAM]
+    notes: "Mythic weapon"
+
+  - name: "Tachi: Mumei"
+    acquisition: weapon_specific
+    jobs: [SAM]
+    notes: "Prime weapon"

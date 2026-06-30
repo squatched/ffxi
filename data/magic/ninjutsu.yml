@@ -1,0 +1,112 @@
+magic: ninjutsu
+
+# Jobs: NIN (main and sub — sub gets spells up to floor(main/2))
+spells:
+  - name: "Tonko: Ichi"
+    level: 9
+    next: "Tonko: Ni"
+  - name: "Utsusemi: Ichi"
+    level: 12
+    next: "Utsusemi: Ni"
+  - name: "Kurayami: Ichi"
+    level: 19
+    next: "Kurayami: Ni"
+  - name: "Hojo: Ichi"
+    level: 23
+    next: "Hojo: Ni"
+  - name: "Monomi: Ichi"
+    level: 25
+  - name: "Dokumori: Ichi"
+    level: 27
+  - name: "Jubaku: Ichi"
+    level: 30
+  - name: "Tonko: Ni"
+    level: 34
+    prev: "Tonko: Ichi"
+  - name: "Utsusemi: Ni"
+    level: 37
+    prev: "Utsusemi: Ichi"
+    next: "Utsusemi: San"
+  - name: "Katon: Ichi"
+    level: 15
+    next: "Katon: Ni"
+  - name: "Suiton: Ichi"
+    level: 15
+    next: "Suiton: Ni"
+  - name: "Raiton: Ichi"
+    level: 15
+    next: "Raiton: Ni"
+  - name: "Doton: Ichi"
+    level: 15
+    next: "Doton: Ni"
+  - name: "Huton: Ichi"
+    level: 15
+    next: "Huton: Ni"
+  - name: "Hyoton: Ichi"
+    level: 15
+    next: "Hyoton: Ni"
+  - name: "Katon: Ni"
+    level: 40
+    prev: "Katon: Ichi"
+    next: "Katon: San"
+  - name: "Suiton: Ni"
+    level: 40
+    prev: "Suiton: Ichi"
+    next: "Suiton: San"
+  - name: "Raiton: Ni"
+    level: 40
+    prev: "Raiton: Ichi"
+    next: "Raiton: San"
+  - name: "Doton: Ni"
+    level: 40
+    prev: "Doton: Ichi"
+    next: "Doton: San"
+  - name: "Huton: Ni"
+    level: 40
+    prev: "Huton: Ichi"
+    next: "Huton: San"
+  - name: "Hyoton: Ni"
+    level: 40
+    prev: "Hyoton: Ichi"
+    next: "Hyoton: San"
+  - name: "Katon: San"
+    level: 75
+    prev: "Katon: Ni"
+  - name: "Suiton: San"
+    level: 75
+    prev: "Suiton: Ni"
+  - name: "Raiton: San"
+    level: 75
+    prev: "Raiton: Ni"
+  - name: "Doton: San"
+    level: 75
+    prev: "Doton: Ni"
+  - name: "Huton: San"
+    level: 75
+    prev: "Huton: Ni"
+  - name: "Hyoton: San"
+    level: 75
+    prev: "Hyoton: Ni"
+  - name: "Kurayami: Ni"
+    level: 44
+    prev: "Kurayami: Ichi"
+  - name: "Hojo: Ni"
+    level: 48
+    prev: "Hojo: Ichi"
+  - name: "Aisha: Ichi"
+    level: 78
+  - name: "Yurin: Ichi"
+    level: 83
+  - name: "Myoshu: Ichi"
+    level: 85
+  - name: "Migawari: Ichi"
+    level: 88
+  - name: "Gekka: Ichi"
+    level: 88
+  - name: "Yain: Ichi"
+    level: 91
+  - name: "Kakka: Ichi"
+    level: 93
+  - name: "Utsusemi: San"
+    level: 99
+    prev: "Utsusemi: Ni"

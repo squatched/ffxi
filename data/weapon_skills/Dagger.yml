@@ -1,0 +1,88 @@
+weapon: Dagger
+
+skills:
+  - name: Wasp Sting
+    skill: 5
+    acquisition: automatic
+
+  - name: Gust Slash
+    skill: 40
+    acquisition: automatic
+
+  - name: Shadowstitch
+    skill: 70
+    acquisition: automatic
+
+  - name: Viper Bite
+    skill: 100
+    acquisition: automatic
+
+  - name: Cyclone
+    skill: 125
+    acquisition: automatic
+
+  - name: Energy Steal
+    skill: 150
+    acquisition: automatic
+
+  - name: Energy Drain
+    skill: 175
+    acquisition: automatic
+
+  - name: Dancing Edge
+    skill: 200
+    acquisition: automatic
+    jobs: [THF, DNC]
+
+  - name: Shark Bite
+    skill: 225
+    acquisition: automatic
+    jobs: [THF, DNC]
+
+  - name: Evisceration
+    skill: 230
+    acquisition: quest
+    jobs: [THF, COR, DNC, RDM, WAR, BRD, RNG, BST, NIN]
+    notes: "Cloak and Dagger"
+
+  - name: Evisceration
+    acquisition: weapon_specific
+    jobs: [RDM, THF, BST, BRD, RNG, NIN, COR, DNC, PUP]
+    notes: "Kaja Knife or Tauret; main hand only"
+
+  - name: Aeolian Edge
+    skill: 290
+    acquisition: automatic
+
+  - name: Exenterator
+    skill: 357
+    acquisition: automatic
+    notes: "merit upgradeable (not required)"
+
+  - name: Mercy Stroke
+    acquisition: weapon_specific
+    notes: "Relic: specific dagger weapons"
+
+  - name: Rudra's Storm
+    acquisition: weapon_specific
+    jobs: [THF, BRD, DNC]
+    notes: "Empyrean weapon"
+
+  - name: Mandalic Stab
+    acquisition: weapon_specific
+    jobs: [THF]
+    notes: "Mythic weapon"
+
+  - name: Mordant Rime
+    acquisition: weapon_specific
+    jobs: [BRD]
+    notes: "Mythic weapon"
+
+  - name: Pyrrhic Kleos
+    acquisition: weapon_specific
+    jobs: [DNC]
+    notes: "Mythic weapon"
+
+  - name: Ruthless Stroke
+    acquisition: weapon_specific
+    notes: "Prime weapon"

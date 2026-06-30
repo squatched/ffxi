@@ -1,0 +1,76 @@
+magic: summoning
+
+# Job: SMN only
+# level: minimum character level to summon this avatar
+# acquisition: quest for most — the avatar must be unlocked before summoning
+# All avatars are perpetual pact type (summoned with /ma)
+avatars:
+  - name: Carbuncle
+    level: 1
+    acquisition: quest
+    notes: "Trial of the Magians — Ruby Light"
+
+  - name: Ifrit
+    level: 1
+    acquisition: quest
+    notes: "Trial by Fire"
+
+  - name: Titan
+    level: 1
+    acquisition: quest
+    notes: "Trial by Earth"
+
+  - name: Leviathan
+    level: 1
+    acquisition: quest
+    notes: "Trial by Water"
+
+  - name: Garuda
+    level: 1
+    acquisition: quest
+    notes: "Trial by Wind"
+
+  - name: Shiva
+    level: 1
+    acquisition: quest
+    notes: "Trial by Ice"
+
+  - name: Ramuh
+    level: 1
+    acquisition: quest
+    notes: "Trial by Lightning"
+
+  - name: Fenrir
+    level: 1
+    acquisition: quest
+    notes: "Trial by Darkness"
+
+  - name: Diabolos
+    level: 1
+    acquisition: quest
+    notes: "Diabolos — CoP quest"
+
+  - name: Cait Sith
+    level: 1
+    acquisition: quest
+    notes: "The Moonlit Path — ToAU quest"
+
+  - name: Siren
+    level: 1
+    acquisition: quest
+    notes: "Siren quest"
+
+  - name: Atomos
+    level: 75
+    acquisition: quest
+    notes: "Obtained via Wings of the Goddess content"
+
+  - name: Alexander
+    level: 75
+    acquisition: quest
+    notes: "Trial of the Magians — Alexander"
+
+  - name: Odin
+    level: 75
+    acquisition: quest
+    notes: "Trial of the Magians — Odin"

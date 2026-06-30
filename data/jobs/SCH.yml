@@ -1,0 +1,68 @@
+job: SCH
+name: Scholar
+
+abilities:
+  - name: Tabula Rasa
+    level: 1
+  - name: Light Arts
+    level: 10
+  - name: Dark Arts
+    level: 10
+  - name: Penury
+    level: 10
+  - name: Parsimony
+    level: 10
+  - name: Addendum: White
+    level: 10
+  - name: Celerity
+    level: 25
+  - name: Alacrity
+    level: 25
+  - name: Addendum: Black
+    level: 30
+  - name: Sublimation
+    level: 35
+  - name: Accession
+    level: 40
+  - name: Manifestation
+    level: 40
+  - name: Rapture
+    level: 55
+  - name: Ebullience
+    level: 55
+  - name: Modus Veritas
+    level: 65
+  - name: Enlightenment
+    level: 75
+    notes: "merit"
+  - name: Altruism
+    level: 75
+    notes: "merit"
+  - name: Tranquility
+    level: 75
+    notes: "merit"
+  - name: Focalization
+    level: 75
+    notes: "merit"
+  - name: Equanimity
+    level: 75
+    notes: "merit"
+  - name: Stormsurge
+    level: 75
+    notes: "merit"
+  - name: Libra
+    level: 76
+  - name: Perpetuance
+    level: 87
+  - name: Immanence
+    level: 87
+  - name: Caper Emissarius
+    level: 96
+
+magic:
+  - white_magic
+  - black_magic
+weapons:
+  Club: C+
+  Staff: C+
+  Dagger: D

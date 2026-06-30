@@ -1,0 +1,552 @@
+magic: blue_magic
+
+# Job: BLU only
+# Spells at level 60+ are main job only (unavailable via /BLU subjob)
+# unbridled_learning: true — spell requires Unbridled Learning job ability active when cast
+spells:
+  - name: Pollen
+    level: 1
+  - name: Sandspin
+    level: 1
+  - name: Foot Kick
+    level: 1
+  - name: Sprout Smack
+    level: 4
+  - name: Wild Oats
+    level: 4
+  - name: Power Attack
+    level: 4
+  - name: Cocoon
+    level: 8
+  - name: Metallic Body
+    level: 8
+  - name: Queasyshroom
+    level: 8
+  - name: Battle Dance
+    level: 12
+  - name: Feather Storm
+    level: 12
+  - name: Head Butt
+    level: 12
+  - name: Healing Breeze
+    level: 16
+  - name: Sheep Song
+    level: 16
+  - name: Helldive
+    level: 16
+  - name: Cursed Sphere
+    level: 18
+  - name: Blastbomb
+    level: 18
+  - name: Bludgeon
+    level: 18
+  - name: Blood Drain
+    level: 20
+  - name: Claw Cyclone
+    level: 20
+  - name: Poison Breath
+    level: 22
+  - name: Soporific
+    level: 24
+  - name: Screwdriver
+    level: 26
+  - name: Bomb Toss
+    level: 28
+  - name: Grand Slam
+    level: 30
+  - name: Wild Carrot
+    level: 30
+  - name: Chaotic Eye
+    level: 32
+  - name: Sound Blast
+    level: 32
+  - name: Death Ray
+    level: 34
+  - name: Smite of Rage
+    level: 34
+  - name: Digest
+    level: 36
+  - name: Pinecone Bomb
+    level: 36
+  - name: Blank Gaze
+    level: 38
+  - name: Jet Stream
+    level: 38
+  - name: Uppercut
+    level: 38
+  - name: Mysterious Light
+    level: 40
+  - name: Terror Touch
+    level: 40
+  - name: MP Drainkiss
+    level: 42
+  - name: Venom Shell
+    level: 42
+  - name: Stinking Gas
+    level: 44
+  - name: Blitzstrahl
+    level: 44
+  - name: Mandibular Bite
+    level: 44
+  - name: Awful Eye
+    level: 46
+  - name: Geist Wall
+    level: 46
+  - name: Magnetite Cloud
+    level: 46
+  - name: Jettatura
+    level: 48
+  - name: Blood Saber
+    level: 48
+  - name: Refueling
+    level: 48
+  - name: Sickle Slash
+    level: 48
+  - name: Ice Break
+    level: 50
+  - name: Self-Destruct
+    level: 50
+  - name: Frightful Roar
+    level: 50
+  - name: Cold Wave
+    level: 52
+  - name: Filamented Hold
+    level: 52
+  - name: Hecatomb Wave
+    level: 54
+  - name: Radiant Breath
+    level: 54
+  - name: Feather Barrier
+    level: 56
+  - name: Light of Penance
+    level: 58
+  - name: Flying Hip Press
+    level: 58
+  - name: Magic Fruit
+    level: 58
+  - name: Dimensional Death
+    level: 60
+    main_job_only: true
+  - name: Spiral Spin
+    level: 60
+    main_job_only: true
+  - name: Death Scissors
+    level: 60
+    main_job_only: true
+  - name: Eyes On Me
+    level: 61
+    main_job_only: true
+  - name: Bad Breath
+    level: 61
+    main_job_only: true
+  - name: Maelstrom
+    level: 61
+    main_job_only: true
+  - name: Seedspray
+    level: 61
+    main_job_only: true
+  - name: 1000 Needles
+    level: 62
+    main_job_only: true
+  - name: Memento Mori
+    level: 62
+    main_job_only: true
+  - name: Body Slam
+    level: 62
+    main_job_only: true
+  - name: Hydro Shot
+    level: 63
+    main_job_only: true
+  - name: Frypan
+    level: 63
+    main_job_only: true
+  - name: Frenetic Rip
+    level: 63
+    main_job_only: true
+  - name: Spinal Cleave
+    level: 63
+    main_job_only: true
+  - name: Voracious Trunk
+    level: 64
+    main_job_only: true
+  - name: Feather Tickle
+    level: 64
+    main_job_only: true
+  - name: Yawn
+    level: 64
+    main_job_only: true
+  - name: Infrasonics
+    level: 65
+    main_job_only: true
+  - name: Zephyr Mantle
+    level: 65
+    main_job_only: true
+  - name: Corrosive Ooze
+    level: 66
+    main_job_only: true
+  - name: Sandspray
+    level: 66
+    main_job_only: true
+  - name: Frost Breath
+    level: 66
+    main_job_only: true
+  - name: Diamondhide
+    level: 67
+    main_job_only: true
+  - name: Enervation
+    level: 67
+    main_job_only: true
+  - name: Firespit
+    level: 68
+    main_job_only: true
+  - name: Warm-Up
+    level: 68
+    main_job_only: true
+  - name: Regurgitation
+    level: 69
+    main_job_only: true
+  - name: Tail Slap
+    level: 69
+    main_job_only: true
+  - name: Hysteric Barrage
+    level: 69
+    main_job_only: true
+  - name: Asuran Claws
+    level: 70
+    main_job_only: true
+  - name: Cannonball
+    level: 70
+    main_job_only: true
+  - name: Amplification
+    level: 70
+    main_job_only: true
+  - name: Heat Breath
+    level: 71
+    main_job_only: true
+  - name: Lowing
+    level: 71
+    main_job_only: true
+  - name: Triumphant Roar
+    level: 71
+    main_job_only: true
+  - name: Saline Coat
+    level: 72
+    main_job_only: true
+  - name: Disseverment
+    level: 72
+    main_job_only: true
+  - name: Sub-zero Smash
+    level: 72
+    main_job_only: true
+  - name: Temporal Shift
+    level: 73
+    main_job_only: true
+  - name: Ram Charge
+    level: 73
+    main_job_only: true
+  - name: Mind Blast
+    level: 73
+    main_job_only: true
+  - name: Actinic Burst
+    level: 74
+    main_job_only: true
+  - name: Reactor Cool
+    level: 74
+    main_job_only: true
+  - name: Magic Hammer
+    level: 74
+    main_job_only: true
+  - name: Exuviation
+    level: 75
+    main_job_only: true
+  - name: Plasma Charge
+    level: 75
+    main_job_only: true
+  - name: Vertical Cleave
+    level: 75
+    main_job_only: true
+  - name: Plenilune Embrace
+    level: 76
+    main_job_only: true
+  - name: Acrid Stream
+    level: 77
+    main_job_only: true
+  - name: Leafstorm
+    level: 77
+    main_job_only: true
+  - name: Cimicine Discharge
+    level: 78
+    main_job_only: true
+  - name: Regeneration
+    level: 78
+    main_job_only: true
+  - name: Animating Wail
+    level: 79
+    main_job_only: true
+  - name: Battery Charge
+    level: 79
+    main_job_only: true
+  - name: Blazing Bound
+    level: 80
+    main_job_only: true
+  - name: Demoralizing Roar
+    level: 80
+    main_job_only: true
+  - name: Final Sting
+    level: 81
+    main_job_only: true
+  - name: Goblin Rush
+    level: 81
+    main_job_only: true
+  - name: Vanity Dive
+    level: 82
+    main_job_only: true
+  - name: Magic Barrier
+    level: 82
+    main_job_only: true
+  - name: Whirl of Rage
+    level: 83
+    main_job_only: true
+  - name: Benthic Typhoon
+    level: 83
+    main_job_only: true
+  - name: Auroral Drape
+    level: 84
+    main_job_only: true
+  - name: Osmosis
+    level: 84
+    main_job_only: true
+  - name: Quad. Continuum
+    level: 85
+    main_job_only: true
+  - name: Fantod
+    level: 85
+    main_job_only: true
+  - name: Thermal Pulse
+    level: 86
+    main_job_only: true
+  - name: Empty Thrash
+    level: 87
+    main_job_only: true
+  - name: Dream Flower
+    level: 87
+    main_job_only: true
+  - name: Occultation
+    level: 88
+    main_job_only: true
+  - name: Charged Whisker
+    level: 88
+    main_job_only: true
+  - name: Winds of Promy.
+    level: 89
+    main_job_only: true
+  - name: Delta Thrust
+    level: 89
+    main_job_only: true
+  - name: Evryone. Grudge
+    level: 90
+    main_job_only: true
+  - name: Reaving Wind
+    level: 90
+    main_job_only: true
+  - name: Barrier Tusk
+    level: 91
+    main_job_only: true
+  - name: Mortal Ray
+    level: 91
+    main_job_only: true
+  - name: Water Bomb
+    level: 92
+    main_job_only: true
+  - name: Heavy Strike
+    level: 92
+    main_job_only: true
+  - name: Dark Orb
+    level: 93
+    main_job_only: true
+  - name: White Wind
+    level: 94
+    main_job_only: true
+  - name: Sudden Lunge
+    level: 95
+    main_job_only: true
+  - name: Thunderbolt
+    level: 95
+    main_job_only: true
+    unbridled_learning: true
+  - name: Harden Shell
+    level: 95
+    main_job_only: true
+    unbridled_learning: true
+  - name: Quadrastrike
+    level: 96
+    main_job_only: true
+  - name: Vapor Spray
+    level: 96
+    main_job_only: true
+  - name: Absolute Terror
+    level: 96
+    main_job_only: true
+    unbridled_learning: true
+  - name: Thunder Breath
+    level: 97
+    main_job_only: true
+  - name: Gates of Hades
+    level: 97
+    main_job_only: true
+    unbridled_learning: true
+  - name: Tourbillion
+    level: 97
+    main_job_only: true
+    unbridled_learning: true
+  - name: O. Counterstance
+    level: 98
+    main_job_only: true
+  - name: Amorphic Spikes
+    level: 98
+    main_job_only: true
+  - name: Pyric Bulwark
+    level: 98
+    main_job_only: true
+    unbridled_learning: true
+  - name: Wind Breath
+    level: 99
+    main_job_only: true
+  - name: Barbed Crescent
+    level: 99
+    main_job_only: true
+  - name: Bilgestorm
+    level: 99
+    main_job_only: true
+    unbridled_learning: true
+  - name: Bloodrake
+    level: 99
+    main_job_only: true
+    unbridled_learning: true
+  - name: Nature's Meditation
+    level: 99
+    main_job_only: true
+  - name: Glutinous Dart
+    level: 99
+    main_job_only: true
+  - name: Paralyzing Triad
+    level: 99
+    main_job_only: true
+  - name: Tem. Upheaval
+    level: 99
+    main_job_only: true
+  - name: Embalming Earth
+    level: 99
+    main_job_only: true
+  - name: Rending Deluge
+    level: 99
+    main_job_only: true
+  - name: Foul Waters
+    level: 99
+    main_job_only: true
+  - name: Retinal Glare
+    level: 99
+    main_job_only: true
+  - name: Droning Whirlwind
+    level: 99
+    main_job_only: true
+    unbridled_learning: true
+  - name: Carcharian Verve
+    level: 99
+    main_job_only: true
+    unbridled_learning: true
+  - name: Blistering Roar
+    level: 99
+    main_job_only: true
+    unbridled_learning: true
+  - name: Erratic Flutter
+    level: 99
+    main_job_only: true
+  - name: Subduction
+    level: 99
+    main_job_only: true
+  - name: Thrashing Assault
+    level: 99
+    main_job_only: true
+  - name: Diffusion Ray
+    level: 99
+    main_job_only: true
+  - name: Rail Cannon
+    level: 99
+    main_job_only: true
+  - name: Restoral
+    level: 99
+    main_job_only: true
+  - name: Sinker Drill
+    level: 99
+    main_job_only: true
+  - name: Uproot
+    level: 99
+    main_job_only: true
+    unbridled_learning: true
+  - name: Crashing Thunder
+    level: 99
+    main_job_only: true
+    unbridled_learning: true
+  - name: Polar Roar
+    level: 99
+    main_job_only: true
+    unbridled_learning: true
+  - name: Sweeping Gouge
+    level: 99
+    main_job_only: true
+  - name: Molting Plumage
+    level: 99
+    main_job_only: true
+  - name: Nectarous Deluge
+    level: 99
+    main_job_only: true
+  - name: Atra. Libations
+    level: 99
+    main_job_only: true
+  - name: Searing Tempest
+    level: 99
+    main_job_only: true
+  - name: Blinding Fulgor
+    level: 99
+    main_job_only: true
+  - name: Spectral Floe
+    level: 99
+    main_job_only: true
+  - name: Scouring Spate
+    level: 99
+    main_job_only: true
+  - name: Anvil Lightning
+    level: 99
+    main_job_only: true
+  - name: Silent Storm
+    level: 99
+    main_job_only: true
+  - name: Entomb
+    level: 99
+    main_job_only: true
+  - name: Tenebral Crush
+    level: 99
+    main_job_only: true
+  - name: Saurian Slide
+    level: 99
+    main_job_only: true
+  - name: Palling Salvo
+    level: 99
+    main_job_only: true
+  - name: Mighty Guard
+    level: 99
+    main_job_only: true
+    unbridled_learning: true
+  - name: Cruel Joke
+    level: 99
+    main_job_only: true
+    unbridled_learning: true
+  - name: Cesspool
+    level: 99
+    main_job_only: true
+    unbridled_learning: true
+  - name: Tearing Gust
+    level: 99
+    main_job_only: true
+    unbridled_learning: true

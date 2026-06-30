@@ -1,0 +1,25 @@
+job: RDM
+name: Red Mage
+
+abilities:
+  - name: Chainspell
+    level: 1
+  - name: Convert
+    level: 40
+  - name: Composure
+    level: 50
+  - name: Saboteur
+    level: 83
+  - name: Spontaneity
+    level: 95
+  - name: Stymie
+    level: 96
+
+magic:
+  - white_magic
+  - black_magic
+weapons:
+  Sword: B
+  Dagger: B
+  Club: D
+  Archery: D

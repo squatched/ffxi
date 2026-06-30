@@ -1,0 +1,40 @@
+job: DRK
+name: Dark Knight
+
+abilities:
+  - name: Blood Weapon
+    level: 1
+  - name: Arcane Circle
+    level: 5
+  - name: Last Resort
+    level: 15
+  - name: Weapon Bash
+    level: 20
+  - name: Souleater
+    level: 30
+  - name: Consume Mana
+    level: 55
+  - name: Dark Seal
+    level: 75
+    notes: "merit"
+  - name: Diabolic Eye
+    level: 75
+    notes: "merit"
+  - name: Nether Void
+    level: 78
+  - name: Arcane Crest
+    level: 87
+  - name: Scarlet Delirium
+    level: 95
+  - name: Soul Enslavement
+    level: 96
+
+magic:
+  - black_magic
+weapons:
+  Scythe: A+
+  Great Sword: A
+  Great Axe: B+
+  Axe: B
+  Dagger: C
+  Club: C-

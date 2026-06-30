@@ -1,0 +1,44 @@
+job: RNG
+name: Ranger
+
+abilities:
+  - name: Eagle Eye Shot
+    level: 1
+  - name: Sharpshot
+    level: 1
+  - name: Scavenge
+    level: 10
+  - name: Camouflage
+    level: 20
+  - name: Barrage
+    level: 30
+  - name: Shadowbind
+    level: 40
+  - name: Velocity Shot
+    level: 45
+  - name: Unlimited Shot
+    level: 51
+  - name: Flashy Shot
+    level: 75
+    notes: "merit"
+  - name: Stealth Shot
+    level: 75
+    notes: "merit"
+  - name: Double Shot
+    level: 79
+  - name: Bounty Shot
+    level: 87
+  - name: Decoy Shot
+    level: 95
+  - name: Hover Shot
+    level: 95
+  - name: Overkill
+    level: 96
+
+weapons:
+  Archery: A
+  Marksmanship: A
+  Dagger: B-
+  Axe: B-
+  Sword: D
+  Club: E

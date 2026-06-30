@@ -1,0 +1,66 @@
+job: RUN
+name: Rune Fencer
+
+abilities:
+  - name: Elemental Sforzo
+    level: 1
+  - name: Ignis
+    level: 5
+  - name: Gelus
+    level: 5
+  - name: Flabra
+    level: 5
+  - name: Tellus
+    level: 5
+  - name: Sulpor
+    level: 5
+  - name: Unda
+    level: 5
+  - name: Lux
+    level: 5
+  - name: Tenebrae
+    level: 5
+  - name: Vallation
+    level: 10
+  - name: Swordplay
+    level: 20
+  - name: Swipe
+    level: 25
+  - name: Lunge
+    level: 25
+  - name: Pflug
+    level: 40
+  - name: Valiance
+    level: 50
+  - name: Embolden
+    level: 60
+  - name: Vivacious Pulse
+    level: 65
+  - name: Gambit
+    level: 70
+  - name: Battuta
+    level: 75
+    notes: "merit"
+  - name: Rayke
+    level: 75
+    notes: "merit"
+  - name: Inspiration
+    level: 75
+    notes: "merit"
+  - name: Sleight of Sword
+    level: 75
+    notes: "merit"
+  - name: Liement
+    level: 85
+  - name: One for All
+    level: 95
+  - name: Odyllic Subterfuge
+    level: 96
+
+# weapons section needs verification — skill caps page returned 404
+weapons:
+  Great Sword: A+
+  Sword: A
+  Great Axe: B
+  Axe: B-
+  Club: C-

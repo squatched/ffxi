@@ -1,0 +1,290 @@
+job: BST
+name: Beastmaster
+
+abilities:
+  - name: Familiar
+    level: 1
+  - name: Charm
+    level: 1
+  - name: Fight
+    level: 1
+  - name: Gauge
+    level: 10
+  - name: Heel
+    level: 10
+  - name: Stay
+    level: 15
+  - name: Reward
+    level: 12
+  - name: Call Beast
+    level: 23
+  - name: Bestial Loyalty
+    level: 23
+  - name: Sic
+    level: 25
+  - name: Ready
+    level: 25
+  - name: Tame
+    level: 30
+  - name: Leave
+    level: 35
+  - name: Snarl
+    level: 45
+  - name: Feral Howl
+    level: 75
+    notes: "merit"
+  - name: Killer Instinct
+    level: 75
+    notes: "merit"
+  - name: Spur
+    level: 83
+  - name: Run Wild
+    level: 93
+  - name: Unleash
+    level: 96
+
+# Jug pets used via Call Beast (level 23+) and activated with Ready.
+# Abilities listed are the pet's Ready moves available to BST.
+# Data complete through level 83; level 84+ entries need verification.
+jug_pets:
+  - name: Herbal Broth
+    level: 23
+    family: Sheep
+    abilities: [Lamb Chop, Rage, Sheep Charge, Sheep Song]
+
+  - name: Carrot Broth
+    level: 23
+    family: Rabbit
+    abilities: [Foot Kick, Dust Cloud, Whirl Claws, Wild Carrot]
+
+  - name: Fish Broth
+    level: 23
+    family: Crab
+    abilities: [Bubble Shower, Bubble Curtain, Big Scissors, Scissor Guard, Metallic Body]
+
+  - name: Fish Oil Broth
+    level: 23
+    family: Crab
+    abilities: [Bubble Shower, Bubble Curtain, Big Scissors, Scissor Guard, Metallic Body]
+
+  - name: Alchemist Water
+    level: 23
+    family: Mandragora
+    abilities: [Head Butt, Dream Flower, Wild Oats, Leaf Dagger, Scream]
+
+  - name: Wormy Broth
+    level: 23
+    family: Toad
+    abilities: []
+
+  - name: Grasshopper Broth
+    level: 28
+    family: Flytrap
+    abilities: [Soporific, Gloeosuccus, Palsy Pollen]
+
+  - name: Humus
+    level: 28
+    family: Mandragora
+    abilities: [Head Butt, Dream Flower, Wild Oats, Leaf Dagger, Scream]
+
+  - name: Meat Broth
+    level: 28
+    family: Tiger
+    abilities: [Roar, Razor Fang, Claw Cyclone, Crossthrash, Predatory Glare]
+
+  - name: Bug Broth
+    level: 33
+    family: Fly
+    abilities: [Cursed Sphere, Venom, Somersault]
+
+  - name: Carrion Broth
+    level: 33
+    family: Hill Lizard
+    abilities: [Tail Blow, Fireball, Blockhead, Brain Crush, Infrasonics, Secretion]
+
+  - name: Mole Broth
+    level: 33
+    family: Eft
+    abilities: [Nimble Snap, Cyclotail, Geist Wall, Numbing Noise, Toxic Spit]
+
+  - name: Seedbed Soil
+    level: 33
+    family: Funguar
+    abilities: [Frogkick, Spore, Queasyshroom, Numbshroom, Shakeshroom, Silence Gas, Dark Spore]
+
+  - name: Antica Broth
+    level: 38
+    family: Antlion
+    abilities: [Mandibular Bite, Sandblast, Sandpit, Venom Spray]
+
+  - name: Tree Sap
+    level: 38
+    family: Beetle
+    abilities: [Power Attack, High-Frequency Field, Rhino Attack, Rhino Guard, Spoil]
+
+  - name: F. Carrot Broth
+    level: 43
+    family: Rabbit
+    abilities: [Foot Kick, Dust Cloud, Whirl Claws, Wild Carrot]
+
+  - name: S. Herbal Broth
+    level: 43
+    family: Sheep
+    abilities: [Lamb Chop, Rage, Sheep Charge, Sheep Song]
+
+  - name: Blood Broth
+    level: 43
+    family: Diremite
+    abilities: [Double Claw, Grapple, Spinning Top, Filamented Hold]
+
+  - name: Rich Humus
+    level: 51
+    family: Mandragora
+    abilities: [Head Butt, Dream Flower, Wild Oats, Leaf Dagger, Scream]
+
+  - name: Warm Meat Broth
+    level: 51
+    family: Tiger
+    abilities: [Roar, Razor Fang, Claw Cyclone, Crossthrash, Predatory Glare]
+
+  - name: L. Mole Broth
+    level: 58
+    family: Eft
+    abilities: [Nimble Snap, Cyclotail, Geist Wall, Numbing Noise, Toxic Spit]
+
+  - name: Cold Carrion Broth
+    level: 53
+    family: Hill Lizard
+    abilities: [Tail Blow, Fireball, Blockhead, Brain Crush, Infrasonics, Secretion]
+
+  - name: Noisy Grasshopper Broth
+    level: 53
+    family: Flytrap
+    abilities: [Soporific, Gloeosuccus, Palsy Pollen]
+
+  - name: Qdv. Bug Broth
+    level: 53
+    family: Fly
+    abilities: [Cursed Sphere, Venom, Somersault]
+
+  - name: Fragrant Antica Broth
+    level: 63
+    family: Antlion
+    abilities: [Mandibular Bite, Sandblast, Sandpit, Venom Spray]
+
+  - name: Scarlet Sap
+    level: 63
+    family: Beetle
+    abilities: [Power Attack, High-Frequency Field, Rhino Attack, Rhino Guard, Spoil]
+
+  - name: Clear Blood Broth
+    level: 63
+    family: Diremite
+    abilities: [Double Claw, Grapple, Spinning Top, Filamented Hold]
+
+  - name: Auroral Broth
+    level: 75
+    family: Pugil
+    abilities: [Intimidate, Recoil Dive, Water Wall]
+
+  - name: Sun Water
+    level: 75
+    family: Sabotender
+    abilities: [Needleshot, "??? Needles"]
+
+  - name: Briny Broth
+    level: 76
+    family: Apkallu
+    abilities: [Wing Slap, Beak Lunge]
+
+  - name: Cng. Brain Broth
+    level: 76
+    family: Coeurl
+    abilities: [Chaotic Eye, Blaster]
+
+  - name: D. Herbal Broth
+    level: 76
+    family: Sheep
+    abilities: [Lamb Chop, Rage, Sheep Charge, Sheep Song]
+
+  - name: L. Carrot Broth
+    level: 76
+    family: Rabbit
+    abilities: [Foot Kick, Dust Cloud, Whirl Claws, Wild Carrot]
+
+  - name: Vermihumus
+    level: 76
+    family: Mandragora
+    abilities: [Head Butt, Dream Flower, Wild Oats, Leaf Dagger, Scream]
+
+  - name: Wool Grease
+    level: 76
+    family: Ladybug
+    abilities: [Sudden Lunge, Spiral Spin, Noisome Powder]
+
+  - name: Deepbed Soil
+    level: 79
+    family: Funguar
+    abilities: [Frogkick, Spore, Queasyshroom, Numbshroom, Shakeshroom, Silence Gas, Dark Spore]
+
+  - name: C. Plasma Broth
+    level: 81
+    family: Leech
+    abilities: [Suction, Drainkiss, Acid Mist, TP Drainkiss]
+
+  - name: C. Grass. Broth
+    level: 83
+    family: Flytrap
+    abilities: [Soporific, Gloeosuccus, Palsy Pollen]
+
+  - name: Goblin Bug Broth
+    level: 85
+    family: Fly
+    abilities: [Cursed Sphere, Venom, Somersault]
+
+  - name: Bubbling Carrion Broth
+    level: 85
+    family: Lizard
+    abilities: [Tail Blow, Fireball, Blockhead, Brain Crush, Infrasonics, Secretion]
+
+  - name: Mellow Bird Broth
+    level: 86
+    family: Raptor
+    abilities: [Scythe Tail, Ripper Fang, Chomp Rush]
+
+  - name: Lucky Broth
+    level: 86
+    family: Hippogryph
+    abilities: [Back Heel, Jettatura, Choke Breath, Fantod, Hoof Volley, Nihility Song]
+
+  - name: Savage Mole Broth
+    level: 90
+    family: Eft
+    abilities: [Nimble Snap, Cyclotail, Geist Wall, Numbing Noise, Toxic Spit]
+
+  - name: Razor Brain Broth
+    level: 90
+    family: Coeurl
+    abilities: [Chaotic Eye, Blaster]
+
+  - name: Burning Carrion Broth
+    level: 93
+    family: Tiger
+    abilities: [Roar, Razor Fang, Claw Cyclone, Crossthrash, Predatory Glare]
+
+  - name: Cloudy Wheat Broth
+    level: 95
+    family: Slug
+    abilities: [Purulent Ooze, Corrosive Ooze]
+
+  - name: Shadowy Broth
+    level: 96
+    family: Adamantoise
+    abilities: [Tortoise Stomp, Harden Shell, Aqua Breath]
+
+weapons:
+  Axe: A
+  Dagger: C+
+  Scythe: C-
+  Club: D
+  Sword: E

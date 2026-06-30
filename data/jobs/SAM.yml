@@ -1,0 +1,42 @@
+job: SAM
+name: Samurai
+
+abilities:
+  - name: Meikyo Shisui
+    level: 1
+  - name: Warding Circle
+    level: 5
+  - name: Third Eye
+    level: 15
+  - name: Hasso
+    level: 25
+  - name: Meditate
+    level: 30
+  - name: Seigan
+    level: 35
+  - name: Sekkanoki
+    level: 40
+  - name: Konzen-ittai
+    level: 65
+  - name: Shikikoyo
+    level: 75
+    notes: "merit"
+  - name: Blade Bash
+    level: 75
+    notes: "merit"
+  - name: Sengikori
+    level: 77
+  - name: Hamanoha
+    level: 87
+  - name: Hagakure
+    level: 95
+  - name: Yaegasumi
+    level: 96
+
+weapons:
+  Great Katana: A+
+  Polearm: B-
+  Sword: C+
+  Archery: C+
+  Dagger: E
+  Club: E

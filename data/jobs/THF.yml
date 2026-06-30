@@ -1,0 +1,45 @@
+job: THF
+name: Thief
+
+abilities:
+  - name: Perfect Dodge
+    level: 1
+  - name: Steal
+    level: 5
+  - name: Sneak Attack
+    level: 15
+  - name: Flee
+    level: 25
+  - name: Trick Attack
+    level: 30
+  - name: Mug
+    level: 35
+  - name: Hide
+    level: 45
+  - name: Accomplice
+    level: 65
+  - name: Collaborator
+    level: 65
+  - name: Assassin's Charge
+    level: 75
+    notes: "merit"
+  - name: Feint
+    level: 75
+    notes: "merit"
+  - name: Despoil
+    level: 77
+  - name: Conspirator
+    level: 87
+  - name: Bully
+    level: 93
+  - name: Larceny
+    level: 96
+
+weapons:
+  Dagger: A
+  Marksmanship: C+
+  Archery: C-
+  Sword: D
+  Throwing: D
+  Hand-to-Hand: E
+  Club: E

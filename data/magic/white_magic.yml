@@ -1,0 +1,758 @@
+magic: white_magic
+
+# Per-job unlock levels. Jobs: WHM, RDM, PLD, SCH
+# Omit a job from a spell entry if they cannot learn it
+# WHM = White Mage, RDM = Red Mage, PLD = Paladin, SCH = Scholar
+
+spells:
+
+  # --- Healing ---
+  - name: Cure
+    WHM: 1
+    PLD: 5
+    RDM: 3
+    SCH: 5
+    next: "Cure II"
+
+  - name: Cure II
+    WHM: 11
+    PLD: 17
+    RDM: 14
+    SCH: 17
+    prev: "Cure"
+    next: "Cure III"
+
+  - name: Cure III
+    WHM: 21
+    PLD: 30
+    RDM: 26
+    SCH: 30
+    prev: "Cure II"
+    next: "Cure IV"
+
+  - name: Cure IV
+    WHM: 41
+    PLD: 55
+    RDM: 48
+    SCH: 55
+    prev: "Cure III"
+    next: "Cure V"
+
+  - name: Cure V
+    WHM: 61
+    prev: "Cure IV"
+    next: "Cure VI"
+
+  - name: Cure VI
+    WHM: 80
+    prev: "Cure V"
+
+  - name: Curaga
+    WHM: 16
+    next: "Curaga II"
+
+  - name: Curaga II
+    WHM: 31
+    prev: "Curaga"
+    next: "Curaga III"
+
+  - name: Curaga III
+    WHM: 51
+    prev: "Curaga II"
+    next: "Curaga IV"
+
+  - name: Curaga IV
+    WHM: 71
+    prev: "Curaga III"
+    next: "Curaga V"
+
+  - name: Curaga V
+    WHM: 91
+    prev: "Curaga IV"
+
+  - name: Cura
+    WHM: 40
+    next: "Cura II"
+
+  - name: Cura II
+    WHM: 83
+    prev: "Cura"
+    next: "Cura III"
+
+  - name: Cura III
+    WHM: 96
+    prev: "Cura II"
+
+  - name: Arise
+    WHM: 99
+
+  - name: Full Cure
+    WHM: 99
+    notes: "Job Points"
+
+  # --- Regen ---
+  - name: Regen
+    WHM: 21
+    RDM: 21
+    SCH: 18
+    next: "Regen II"
+
+  - name: Regen II
+    WHM: 44
+    RDM: 77
+    SCH: 37
+    prev: "Regen"
+    next: "Regen III"
+
+  - name: Regen III
+    WHM: 66
+    SCH: 59
+    prev: "Regen II"
+    next: "Regen IV"
+
+  - name: Regen IV
+    WHM: 86
+    SCH: 79
+    prev: "Regen III"
+    next: "Regen V"
+
+  - name: Regen V
+    WHM: 99
+    SCH: 99
+    prev: "Regen IV"
+
+  # --- Raise / Reraise ---
+  - name: Raise
+    WHM: 25
+    RDM: 38
+    PLD: 50
+    SCH: 35
+    next: "Raise II"
+
+  - name: Raise II
+    WHM: 56
+    RDM: 95
+    SCH: 70
+    prev: "Raise"
+    next: "Raise III"
+
+  - name: Raise III
+    WHM: 70
+    SCH: 91
+    prev: "Raise II"
+
+  - name: Reraise
+    WHM: 25
+    SCH: 35
+    next: "Reraise II"
+
+  - name: Reraise II
+    WHM: 56
+    SCH: 70
+    prev: "Reraise"
+    next: "Reraise III"
+
+  - name: Reraise III
+    WHM: 70
+    SCH: 91
+    prev: "Reraise II"
+    next: "Reraise IV"
+
+  - name: Reraise IV
+    WHM: 99
+    notes: "Job Points"
+    prev: "Reraise III"
+
+  # --- Protect / Protectra ---
+  - name: Protect
+    WHM: 7
+    PLD: 10
+    RDM: 7
+    SCH: 10
+    next: "Protect II"
+
+  - name: Protectra
+    WHM: 7
+    next: "Protectra II"
+
+  - name: Protect II
+    WHM: 27
+    PLD: 30
+    RDM: 27
+    SCH: 30
+    prev: "Protect"
+    next: "Protect III"
+
+  - name: Protectra II
+    WHM: 27
+    prev: "Protectra"
+    next: "Protectra III"
+
+  - name: Protect III
+    WHM: 47
+    PLD: 50
+    RDM: 47
+    SCH: 50
+    prev: "Protect II"
+    next: "Protect IV"
+
+  - name: Protectra III
+    WHM: 47
+    prev: "Protectra II"
+    next: "Protectra IV"
+
+  - name: Protect IV
+    WHM: 63
+    PLD: 70
+    RDM: 63
+    SCH: 66
+    prev: "Protect III"
+    next: "Protect V"
+
+  - name: Protectra IV
+    WHM: 63
+    prev: "Protectra III"
+    next: "Protectra V"
+
+  - name: Protect V
+    WHM: 76
+    PLD: 90
+    RDM: 77
+    SCH: 80
+    prev: "Protect IV"
+
+  - name: Protectra V
+    WHM: 75
+    prev: "Protectra IV"
+
+  # --- Shell / Shellra ---
+  - name: Shell
+    WHM: 17
+    PLD: 20
+    RDM: 17
+    SCH: 20
+    next: "Shell II"
+
+  - name: Shellra
+    WHM: 17
+    next: "Shellra II"
+
+  - name: Shell II
+    WHM: 37
+    PLD: 40
+    RDM: 37
+    SCH: 40
+    prev: "Shell"
+    next: "Shell III"
+
+  - name: Shellra II
+    WHM: 37
+    prev: "Shellra"
+    next: "Shellra III"
+
+  - name: Shell III
+    WHM: 57
+    PLD: 60
+    RDM: 57
+    SCH: 60
+    prev: "Shell II"
+    next: "Shell IV"
+
+  - name: Shellra III
+    WHM: 57
+    prev: "Shellra II"
+    next: "Shellra IV"
+
+  - name: Shell IV
+    WHM: 68
+    PLD: 80
+    RDM: 68
+    SCH: 71
+    prev: "Shell III"
+    next: "Shell V"
+
+  - name: Shellra IV
+    WHM: 68
+    prev: "Shellra III"
+    next: "Shellra V"
+
+  - name: Shell V
+    WHM: 76
+    RDM: 87
+    SCH: 90
+    prev: "Shell IV"
+
+  - name: Shellra V
+    WHM: 75
+    prev: "Shellra IV"
+
+  # --- Status Removal ---
+  - name: Poisona
+    WHM: 6
+    SCH: 10
+
+  - name: Paralyna
+    WHM: 9
+    SCH: 12
+
+  - name: Blindna
+    WHM: 14
+    SCH: 17
+
+  - name: Silena
+    WHM: 19
+    SCH: 22
+
+  - name: Viruna
+    WHM: 34
+    SCH: 46
+
+  - name: Cursna
+    WHM: 29
+    SCH: 32
+
+  - name: Erase
+    WHM: 32
+    SCH: 39
+
+  - name: Stona
+    WHM: 39
+    SCH: 50
+
+  - name: Esuna
+    WHM: 61
+
+  # --- Utility / Buffs ---
+  - name: Aquaveil
+    WHM: 10
+    RDM: 12
+    SCH: 13
+
+  - name: Blink
+    WHM: 19
+    RDM: 23
+    SCH: 30
+
+  - name: Stoneskin
+    WHM: 28
+    RDM: 34
+    SCH: 44
+
+  - name: Haste
+    WHM: 40
+    RDM: 48
+    next: "Haste II"
+
+  - name: Haste II
+    RDM: 96
+    prev: "Haste"
+
+  - name: Sneak
+    WHM: 20
+    RDM: 20
+    SCH: 20
+
+  - name: Invisible
+    WHM: 25
+    RDM: 25
+    SCH: 25
+
+  - name: Deodorize
+    WHM: 15
+    RDM: 15
+    SCH: 15
+
+  - name: Flash
+    WHM: 45
+    PLD: 37
+
+  - name: Repose
+    WHM: 48
+
+  - name: Auspice
+    WHM: 55
+
+  - name: Sacrifice
+    WHM: 65
+
+  # --- Enfeebling as White Magic ---
+  - name: Paralyze
+    WHM: 4
+    RDM: 6
+    next: "Paralyze II"
+
+  - name: Slow
+    WHM: 13
+    RDM: 13
+    next: "Slow II"
+
+  - name: Silence
+    WHM: 15
+    RDM: 18
+
+  - name: Slow II
+    WHM: 75
+    RDM: 75
+    prev: "Slow"
+
+  - name: Paralyze II
+    RDM: 75
+    prev: "Paralyze"
+
+  - name: Dia
+    WHM: 3
+    RDM: 1
+    next: "Dia II"
+
+  - name: Dia II
+    WHM: 36
+    RDM: 31
+    prev: "Dia"
+    next: "Dia III"
+
+  - name: Diaga
+    WHM: 18
+    RDM: 15
+
+  - name: Dia III
+    RDM: 75
+    prev: "Dia II"
+
+  - name: Addle
+    RDM: 83
+    next: "Addle II"
+
+  - name: Addle II
+    RDM: 99
+    prev: "Addle"
+
+  # --- Bar Spells (WHM — area "ra" versions) ---
+  - name: Barstonra
+    WHM: 5
+
+  - name: Barsleepra
+    WHM: 7
+
+  - name: Barwatera
+    WHM: 9
+
+  - name: Barpoisonra
+    WHM: 10
+
+  - name: Barparalyzra
+    WHM: 12
+
+  - name: Baraera
+    WHM: 13
+
+  - name: Barfira
+    WHM: 17
+
+  - name: Barblizzara
+    WHM: 21
+
+  - name: Barsilencera
+    WHM: 23
+
+  - name: Barthundra
+    WHM: 25
+
+  - name: Barvira
+    WHM: 39
+
+  - name: Barpetra
+    WHM: 43
+
+  - name: Baramnesra
+    WHM: 78
+
+  # --- Bar Spells (RDM — single-target versions) ---
+  - name: Barstone
+    RDM: 5
+
+  - name: Barsleep
+    RDM: 7
+
+  - name: Barwater
+    RDM: 9
+
+  - name: Barpoison
+    RDM: 10
+
+  - name: Barparalyze
+    RDM: 12
+
+  - name: Baraero
+    RDM: 13
+
+  - name: Barfire
+    RDM: 17
+
+  - name: Barblizzard
+    RDM: 21
+
+  - name: Barsilence
+    RDM: 23
+
+  - name: Barthunder
+    RDM: 25
+
+  - name: Barblind
+    RDM: 18
+
+  - name: Barvirus
+    RDM: 39
+
+  - name: Barpetrify
+    RDM: 43
+
+  - name: Baramnesia
+    WHM: 78
+    RDM: 78
+
+  # --- Enhancing (RDM En- spells) ---
+  - name: Enthunder
+    RDM: 16
+    next: "Enthunder II"
+
+  - name: Enstone
+    RDM: 18
+    next: "Enstone II"
+
+  - name: Enaero
+    RDM: 20
+    next: "Enaero II"
+
+  - name: Enblizzard
+    RDM: 22
+    next: "Enblizzard II"
+
+  - name: Enfire
+    RDM: 24
+    next: "Enfire II"
+
+  - name: Enwater
+    RDM: 27
+    next: "Enwater II"
+
+  - name: Enthunder II
+    RDM: 50
+    prev: "Enthunder"
+
+  - name: Enstone II
+    RDM: 52
+    prev: "Enstone"
+
+  - name: Enaero II
+    RDM: 54
+    prev: "Enaero"
+
+  - name: Enblizzard II
+    RDM: 56
+    prev: "Enblizzard"
+
+  - name: Enfire II
+    RDM: 58
+    prev: "Enfire"
+
+  - name: Enwater II
+    RDM: 60
+    prev: "Enwater"
+
+  - name: Phalanx
+    RDM: 33
+    next: "Phalanx II"
+
+  - name: Phalanx II
+    RDM: 75
+    prev: "Phalanx"
+
+  - name: Inundation
+    RDM: 64
+
+  - name: Refresh
+    RDM: 41
+    next: "Refresh II"
+
+  - name: Refresh II
+    RDM: 82
+    prev: "Refresh"
+    next: "Refresh III"
+
+  - name: Refresh III
+    RDM: 99
+    prev: "Refresh II"
+
+  - name: Flurry
+    RDM: 48
+    next: "Flurry II"
+
+  - name: Flurry II
+    RDM: 96
+    prev: "Flurry"
+
+  - name: Temper
+    RDM: 95
+    next: "Temper II"
+
+  - name: Temper II
+    RDM: 99
+    prev: "Temper"
+
+  - name: Gain-VIT
+    RDM: 81
+
+  - name: Gain-MND
+    RDM: 84
+
+  - name: Gain-CHR
+    RDM: 87
+
+  - name: Gain-AGI
+    RDM: 90
+
+  - name: Gain-STR
+    RDM: 93
+
+  - name: Gain-INT
+    RDM: 96
+
+  - name: Gain-DEX
+    RDM: 99
+
+  # --- Divine (WHM/PLD) ---
+  - name: Banish
+    WHM: 5
+    PLD: 7
+    next: "Banish II"
+
+  - name: Banish II
+    WHM: 30
+    PLD: 34
+    prev: "Banish"
+    next: "Banish III"
+
+  - name: Banish III
+    WHM: 65
+    prev: "Banish II"
+
+  - name: Banishga
+    WHM: 15
+    PLD: 30
+    next: "Banishga II"
+
+  - name: Banishga II
+    WHM: 40
+    prev: "Banishga"
+
+  - name: Holy
+    WHM: 50
+    PLD: 55
+    next: "Holy II"
+
+  - name: Holy II
+    WHM: 95
+    PLD: 99
+    prev: "Holy"
+
+  # --- PLD Specific ---
+  - name: Reprisal
+    PLD: 61
+
+  - name: Enlight
+    PLD: 85
+    next: "Enlight II"
+
+  - name: Enlight II
+    PLD: 99
+    prev: "Enlight"
+
+  - name: Crusade
+    PLD: 88
+
+  # --- Teleports (WHM only) ---
+  - name: Teleport-Dem
+    WHM: 36
+
+  - name: Teleport-Holla
+    WHM: 36
+
+  - name: Teleport-Mea
+    WHM: 36
+
+  - name: Teleport-Altep
+    WHM: 38
+
+  - name: Teleport-Yhoat
+    WHM: 38
+
+  - name: Teleport-Vahzl
+    WHM: 42
+
+  - name: Recall-Jugner
+    WHM: 53
+
+  - name: Recall-Meriph
+    WHM: 53
+
+  - name: Recall-Pashh
+    WHM: 53
+
+  # --- Boost Stats (WHM only) ---
+  - name: Boost-VIT
+    WHM: 81
+
+  - name: Boost-MND
+    WHM: 84
+
+  - name: Boost-CHR
+    WHM: 87
+
+  - name: Boost-AGI
+    WHM: 90
+
+  - name: Boost-STR
+    WHM: 93
+
+  - name: Boost-INT
+    WHM: 96
+
+  - name: Boost-DEX
+    WHM: 99
+
+  # --- SCH Specific White Magic ---
+  - name: Embrava
+    SCH: 5
+
+  - name: Sandstorm
+    SCH: 41
+
+  - name: Rainstorm
+    SCH: 42
+
+  - name: Windstorm
+    SCH: 43
+
+  - name: Firestorm
+    SCH: 44
+
+  - name: Hailstorm
+    SCH: 45
+
+  - name: Thunderstorm
+    SCH: 46
+
+  - name: Voidstorm
+    SCH: 47
+
+  - name: Aurorastorm
+    SCH: 48
+
+  - name: Animus Augeo
+    SCH: 85
+
+  - name: Animus Minuo
+    SCH: 85
+
+  - name: Adloquium
+    SCH: 88

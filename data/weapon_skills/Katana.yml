@@ -1,0 +1,70 @@
+weapon: Katana
+
+skills:
+  - name: "Blade: Rin"
+    skill: 5
+    acquisition: automatic
+
+  - name: "Blade: Retsu"
+    skill: 30
+    acquisition: automatic
+
+  - name: "Blade: Teki"
+    skill: 70
+    acquisition: automatic
+
+  - name: "Blade: To"
+    skill: 100
+    acquisition: automatic
+
+  - name: "Blade: Chi"
+    skill: 150
+    acquisition: automatic
+
+  - name: "Blade: Ei"
+    skill: 175
+    acquisition: automatic
+
+  - name: "Blade: Jin"
+    skill: 200
+    acquisition: automatic
+    jobs: [NIN]
+
+  - name: "Blade: Ten"
+    skill: 225
+    acquisition: automatic
+    jobs: [NIN]
+
+  - name: "Blade: Ku"
+    skill: 250
+    acquisition: quest
+    jobs: [NIN]
+
+  - name: "Blade: Yu"
+    skill: 290
+    acquisition: automatic
+    jobs: [NIN]
+
+  - name: "Blade: Shun"
+    skill: 357
+    acquisition: automatic
+    notes: "merit upgradeable (not required)"
+
+  - name: "Blade: Metsu"
+    acquisition: weapon_specific
+    notes: "Relic: Yoshimitsu, Kikoku, or Sekirei"
+
+  - name: "Blade: Hi"
+    acquisition: weapon_specific
+    jobs: [NIN]
+    notes: "Empyrean: Kannagi"
+
+  - name: "Blade: Kamu"
+    acquisition: weapon_specific
+    jobs: [NIN]
+    notes: "Mythic weapon"
+
+  - name: Zesho Meppo
+    acquisition: weapon_specific
+    jobs: [NIN]
+    notes: "Prime: Dokoku"

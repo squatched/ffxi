@@ -1,0 +1,679 @@
+magic: black_magic
+
+# Per-job unlock levels. Jobs: BLM, RDM, SCH, DRK
+# Omit a job from a spell entry if they cannot learn it
+# "black magic" here covers elemental, dark, and enfeebling subcategories
+
+spells:
+
+  # --- Elemental: Stone ---
+  - name: Stone
+    BLM: 1
+    RDM: 4
+    SCH: 4
+    DRK: 5
+    next: "Stone II"
+
+  - name: Stone II
+    BLM: 26
+    RDM: 35
+    SCH: 30
+    DRK: 42
+    prev: "Stone"
+    next: "Stone III"
+
+  - name: Stone III
+    BLM: 51
+    RDM: 65
+    SCH: 54
+    DRK: 76
+    prev: "Stone II"
+    next: "Stone IV"
+
+  - name: Stone IV
+    BLM: 68
+    RDM: 77
+    SCH: 70
+    prev: "Stone III"
+    next: "Stone V"
+
+  - name: Stone V
+    BLM: 77
+    RDM: 99
+    SCH: 79
+    prev: "Stone IV"
+    next: "Stone VI"
+
+  - name: Stone VI
+    BLM: 99
+    prev: "Stone V"
+
+  # --- Elemental: Water ---
+  - name: Water
+    BLM: 5
+    RDM: 9
+    SCH: 8
+    DRK: 11
+    next: "Water II"
+
+  - name: Water II
+    BLM: 30
+    RDM: 40
+    SCH: 34
+    DRK: 48
+    prev: "Water"
+    next: "Water III"
+
+  - name: Water III
+    BLM: 55
+    RDM: 67
+    SCH: 57
+    DRK: 80
+    prev: "Water II"
+    next: "Water IV"
+
+  - name: Water IV
+    BLM: 70
+    RDM: 80
+    SCH: 71
+    prev: "Water III"
+    next: "Water V"
+
+  - name: Water V
+    BLM: 80
+    RDM: 99
+    SCH: 83
+    prev: "Water IV"
+    next: "Water VI"
+
+  - name: Water VI
+    BLM: 99
+    prev: "Water V"
+
+  # --- Elemental: Aero ---
+  - name: Aero
+    BLM: 9
+    RDM: 14
+    SCH: 12
+    DRK: 17
+    next: "Aero II"
+
+  - name: Aero II
+    BLM: 34
+    RDM: 45
+    SCH: 38
+    DRK: 54
+    prev: "Aero"
+    next: "Aero III"
+
+  - name: Aero III
+    BLM: 59
+    RDM: 69
+    SCH: 60
+    DRK: 84
+    prev: "Aero II"
+    next: "Aero IV"
+
+  - name: Aero IV
+    BLM: 72
+    RDM: 83
+    SCH: 72
+    prev: "Aero III"
+    next: "Aero V"
+
+  - name: Aero V
+    BLM: 83
+    RDM: 99
+    SCH: 87
+    prev: "Aero IV"
+    next: "Aero VI"
+
+  - name: Aero VI
+    BLM: 99
+    prev: "Aero V"
+
+  # --- Elemental: Fire ---
+  - name: Fire
+    BLM: 13
+    RDM: 19
+    SCH: 16
+    DRK: 23
+    next: "Fire II"
+
+  - name: Fire II
+    BLM: 38
+    RDM: 50
+    SCH: 42
+    DRK: 60
+    prev: "Fire"
+    next: "Fire III"
+
+  - name: Fire III
+    BLM: 62
+    RDM: 71
+    SCH: 63
+    DRK: 88
+    prev: "Fire II"
+    next: "Fire IV"
+
+  - name: Fire IV
+    BLM: 73
+    RDM: 86
+    SCH: 73
+    prev: "Fire III"
+    next: "Fire V"
+
+  - name: Fire V
+    BLM: 86
+    RDM: 99
+    SCH: 91
+    prev: "Fire IV"
+    next: "Fire VI"
+
+  - name: Fire VI
+    BLM: 99
+    prev: "Fire V"
+
+  # --- Elemental: Blizzard ---
+  - name: Blizzard
+    BLM: 17
+    RDM: 24
+    SCH: 20
+    DRK: 29
+    next: "Blizzard II"
+
+  - name: Blizzard II
+    BLM: 42
+    RDM: 55
+    SCH: 46
+    DRK: 66
+    prev: "Blizzard"
+    next: "Blizzard III"
+
+  - name: Blizzard III
+    BLM: 64
+    RDM: 73
+    SCH: 66
+    DRK: 92
+    prev: "Blizzard II"
+    next: "Blizzard IV"
+
+  - name: Blizzard IV
+    BLM: 74
+    RDM: 89
+    SCH: 74
+    prev: "Blizzard III"
+    next: "Blizzard V"
+
+  - name: Blizzard V
+    BLM: 89
+    RDM: 99
+    SCH: 95
+    prev: "Blizzard IV"
+    next: "Blizzard VI"
+
+  - name: Blizzard VI
+    BLM: 99
+    prev: "Blizzard V"
+
+  # --- Elemental: Thunder ---
+  - name: Thunder
+    BLM: 21
+    RDM: 29
+    SCH: 24
+    DRK: 35
+    next: "Thunder II"
+
+  - name: Thunder II
+    BLM: 46
+    RDM: 60
+    SCH: 51
+    DRK: 72
+    prev: "Thunder"
+    next: "Thunder III"
+
+  - name: Thunder III
+    BLM: 66
+    RDM: 75
+    SCH: 69
+    DRK: 96
+    prev: "Thunder II"
+    next: "Thunder IV"
+
+  - name: Thunder IV
+    BLM: 75
+    RDM: 92
+    SCH: 75
+    prev: "Thunder III"
+    next: "Thunder V"
+
+  - name: Thunder V
+    BLM: 92
+    RDM: 99
+    SCH: 99
+    prev: "Thunder IV"
+    next: "Thunder VI"
+
+  - name: Thunder VI
+    BLM: 99
+    prev: "Thunder V"
+
+  # --- Area Elemental (BLM only) ---
+  - name: Stonega
+    BLM: 15
+    next: "Stonega II"
+
+  - name: Waterga
+    BLM: 19
+    next: "Waterga II"
+
+  - name: Aeroga
+    BLM: 23
+    next: "Aeroga II"
+
+  - name: Firaga
+    BLM: 28
+    next: "Firaga II"
+
+  - name: Blizzaga
+    BLM: 32
+    next: "Blizzaga II"
+
+  - name: Thundaga
+    BLM: 36
+    next: "Thundaga II"
+
+  - name: Stonega II
+    BLM: 40
+    prev: "Stonega"
+    next: "Stonega III"
+
+  - name: Waterga II
+    BLM: 44
+    prev: "Waterga"
+    next: "Waterga III"
+
+  - name: Aeroga II
+    BLM: 48
+    prev: "Aeroga"
+    next: "Aeroga III"
+
+  - name: Firaga II
+    BLM: 53
+    prev: "Firaga"
+    next: "Firaga III"
+
+  - name: Blizzaga II
+    BLM: 57
+    prev: "Blizzaga"
+    next: "Blizzaga III"
+
+  - name: Thundaga II
+    BLM: 61
+    prev: "Thundaga"
+    next: "Thundaga III"
+
+  - name: Stonega III
+    BLM: 63
+    prev: "Stonega II"
+
+  - name: Waterga III
+    BLM: 65
+    prev: "Waterga II"
+
+  - name: Aeroga III
+    BLM: 67
+    prev: "Aeroga II"
+
+  - name: Firaga III
+    BLM: 69
+    prev: "Firaga II"
+
+  - name: Blizzaga III
+    BLM: 71
+    prev: "Blizzaga II"
+
+  - name: Thundaga III
+    BLM: 73
+    prev: "Thundaga II"
+
+  - name: Stoneja
+    BLM: 81
+
+  - name: Waterja
+    BLM: 84
+
+  - name: Aeroja
+    BLM: 87
+
+  - name: Firaja
+    BLM: 90
+
+  - name: Blizzaja
+    BLM: 93
+
+  - name: Thundaja
+    BLM: 96
+
+  # --- Ancient Magic (BLM only) ---
+  - name: Freeze
+    BLM: 50
+    next: "Freeze II"
+
+  - name: Tornado
+    BLM: 52
+    next: "Tornado II"
+
+  - name: Quake
+    BLM: 54
+    next: "Quake II"
+
+  - name: Burst
+    BLM: 56
+    next: "Burst II"
+
+  - name: Flood
+    BLM: 58
+    next: "Flood II"
+
+  - name: Freeze II
+    BLM: 75
+    prev: "Freeze"
+
+  - name: Tornado II
+    BLM: 75
+    prev: "Tornado"
+
+  - name: Quake II
+    BLM: 75
+    prev: "Quake"
+
+  - name: Burst II
+    BLM: 75
+    prev: "Burst"
+
+  - name: Flood II
+    BLM: 75
+    prev: "Flood"
+
+  - name: Flare
+    BLM: 60
+    next: "Flare II"
+
+  - name: Flare II
+    BLM: 75
+    prev: "Flare"
+
+  - name: Comet
+    BLM: 94
+
+  - name: Death
+    BLM: 99
+
+  # --- Spike Spells (BLM/RDM/SCH) ---
+  - name: Blaze Spikes
+    BLM: 10
+    RDM: 20
+    SCH: 30
+
+  - name: Ice Spikes
+    BLM: 20
+    RDM: 40
+    SCH: 50
+
+  - name: Shock Spikes
+    BLM: 30
+    RDM: 60
+    SCH: 70
+
+  # --- Dark Magic: Drain / Aspir ---
+  - name: Drain
+    BLM: 12
+    DRK: 10
+    SCH: 21
+    next: "Drain II"
+
+  - name: Drain II
+    DRK: 62
+    prev: "Drain"
+    next: "Drain III"
+
+  - name: Drain III
+    DRK: 99
+    prev: "Drain II"
+
+  - name: Aspir
+    BLM: 25
+    DRK: 20
+    SCH: 36
+    next: "Aspir II"
+
+  - name: Aspir II
+    BLM: 83
+    DRK: 78
+    SCH: 97
+    prev: "Aspir"
+    next: "Aspir III"
+
+  - name: Aspir III
+    BLM: 99
+    prev: "Aspir II"
+
+  # --- Dark Magic: Bio ---
+  - name: Bio
+    BLM: 10
+    RDM: 10
+    DRK: 15
+    next: "Bio II"
+
+  - name: Bio II
+    BLM: 35
+    RDM: 36
+    DRK: 40
+    prev: "Bio"
+    next: "Bio III"
+
+  - name: Bio III
+    RDM: 75
+    prev: "Bio II"
+
+  # --- Dark Magic: Sleep ---
+  - name: Sleep
+    BLM: 20
+    RDM: 25
+    SCH: 30
+    DRK: 30
+    next: "Sleep II"
+
+  - name: Sleep II
+    BLM: 41
+    RDM: 46
+    SCH: 65
+    DRK: 56
+    prev: "Sleep"
+
+  - name: Sleepga
+    BLM: 31
+    next: "Sleepga II"
+
+  - name: Sleepga II
+    BLM: 56
+    prev: "Sleepga"
+
+  # --- Dark Magic: Other ---
+  - name: Choke
+    BLM: 20
+
+  - name: Stun
+    BLM: 45
+    DRK: 37
+
+  - name: Tractor
+    BLM: 25
+    DRK: 32
+
+  - name: Warp
+    BLM: 17
+    next: "Warp II"
+
+  - name: Warp II
+    BLM: 40
+    prev: "Warp"
+
+  - name: Escape
+    BLM: 29
+
+  - name: Retrace
+    BLM: 55
+
+  # --- Enfeebling as Black Magic (BLM/RDM) ---
+  - name: Poison
+    BLM: 3
+    DRK: 6
+    next: "Poison II"
+
+  - name: Poison II
+    BLM: 43
+    RDM: 46
+    DRK: 46
+    prev: "Poison"
+
+  - name: Poisonga
+    BLM: 24
+    DRK: 26
+
+  - name: Bind
+    BLM: 7
+    RDM: 11
+    DRK: 20
+
+  - name: Blind
+    BLM: 4
+    next: "Blind II"
+
+  - name: Blind II
+    RDM: 75
+    prev: "Blind"
+
+  - name: Gravity
+    RDM: 21
+    next: "Gravity II"
+
+  - name: Gravity II
+    RDM: 98
+    prev: "Gravity"
+
+  - name: Dispel
+    RDM: 32
+    SCH: 32
+
+  - name: Break
+    BLM: 85
+    RDM: 87
+    SCH: 90
+    DRK: 95
+
+  - name: Breakga
+    BLM: 95
+
+  # --- RDM Specific Enfeebling (Black Magic) ---
+  - name: Distract
+    RDM: 35
+    next: "Distract II"
+
+  - name: Distract II
+    RDM: 85
+    prev: "Distract"
+    next: "Distract III"
+
+  - name: Distract III
+    RDM: 99
+    prev: "Distract II"
+
+  - name: Frazzle
+    RDM: 42
+    next: "Frazzle II"
+
+  - name: Frazzle II
+    RDM: 92
+    prev: "Frazzle"
+    next: "Frazzle III"
+
+  - name: Frazzle III
+    RDM: 99
+    prev: "Frazzle II"
+
+  # --- DRK: Absorb Spells ---
+  - name: Absorb-MND
+    DRK: 31
+
+  - name: Absorb-CHR
+    DRK: 33
+
+  - name: Absorb-VIT
+    DRK: 35
+
+  - name: Absorb-AGI
+    DRK: 37
+
+  - name: Absorb-INT
+    DRK: 39
+
+  - name: Absorb-DEX
+    DRK: 41
+
+  - name: Absorb-STR
+    DRK: 43
+
+  - name: Absorb-TP
+    DRK: 45
+
+  - name: Absorb-ACC
+    DRK: 61
+
+  - name: Absorb-Attri
+    DRK: 91
+
+  # --- DRK: Other Dark Magic ---
+  - name: Dread Spikes
+    DRK: 71
+
+  - name: Endark
+    DRK: 85
+    next: "Endark II"
+
+  - name: Endark II
+    DRK: 99
+    prev: "Endark"
+
+  # --- SCH: Helix Spells (black magic) ---
+  - name: Geohelix
+    SCH: 18
+
+  - name: Hydrohelix
+    SCH: 20
+
+  - name: Anemohelix
+    SCH: 22
+
+  - name: Pyrohelix
+    SCH: 24
+
+  - name: Cryohelix
+    SCH: 26
+
+  - name: Ionohelix
+    SCH: 28
+
+  - name: Noctohelix
+    SCH: 30
+
+  - name: Luminohelix
+    SCH: 32
+
+  # --- SCH: Other Unique Black Magic ---
+  - name: Kaustra
+    SCH: 5
+
+  - name: Klimaform
+    SCH: 46

@@ -1,0 +1,41 @@
+job: DRG
+name: Dragoon
+
+abilities:
+  - name: Spirit Surge
+    level: 1
+  - name: Call Wyvern
+    level: 1
+  - name: Ancient Circle
+    level: 5
+  - name: Jump
+    level: 10
+  - name: Spirit Link
+    level: 25
+  - name: High Jump
+    level: 35
+  - name: Super Jump
+    level: 50
+  - name: Spirit Bond
+    level: 65
+  - name: Deep Breathing
+    level: 75
+    notes: "merit"
+  - name: Angon
+    level: 75
+    notes: "merit"
+  - name: Spirit Jump
+    level: 77
+  - name: Soul Jump
+    level: 85
+  - name: Dragon Breaker
+    level: 87
+  - name: Fly High
+    level: 96
+
+weapons:
+  Polearm: A+
+  Staff: B-
+  Sword: C-
+  Dagger: E
+  Club: E

@@ -1,0 +1,26 @@
+job: BLM
+name: Black Mage
+
+abilities:
+  - name: Manafont
+    level: 1
+  - name: Elemental Seal
+    level: 15
+  - name: Mana Wall
+    level: 76
+  - name: Cascade
+    level: 85
+  - name: Enmity Douse
+    level: 87
+  - name: Manawell
+    level: 95
+  - name: Subtle Sorcery
+    level: 96
+
+magic:
+  - black_magic
+weapons:
+  Staff: B-
+  Club: C+
+  Dagger: D
+  Scythe: E

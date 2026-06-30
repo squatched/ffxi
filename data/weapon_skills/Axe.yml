@@ -1,0 +1,70 @@
+weapon: Axe
+
+skills:
+  - name: Raging Axe
+    skill: 5
+    acquisition: automatic
+
+  - name: Smash Axe
+    skill: 40
+    acquisition: automatic
+
+  - name: Gale Axe
+    skill: 70
+    acquisition: automatic
+
+  - name: Avalanche Axe
+    skill: 100
+    acquisition: automatic
+
+  - name: Spinning Axe
+    skill: 150
+    acquisition: automatic
+
+  - name: Rampage
+    skill: 175
+    acquisition: automatic
+
+  - name: Calamity
+    skill: 200
+    acquisition: automatic
+    jobs: [WAR, BST]
+
+  - name: Mistral Axe
+    skill: 225
+    acquisition: automatic
+    jobs: [WAR, BST]
+
+  - name: Decimation
+    skill: 240
+    acquisition: quest
+    jobs: [WAR, DRK, BST, RNG, RUN]
+    notes: "Axe the Competition"
+
+  - name: Bora Axe
+    skill: 290
+    acquisition: automatic
+
+  - name: Ruinator
+    skill: 357
+    acquisition: merit
+    jobs: [WAR, DRK, BST, RNG, RUN]
+
+  - name: Onslaught
+    acquisition: weapon_specific
+    notes: "Relic: specific axe weapons"
+
+  - name: Cloudsplitter
+    acquisition: weapon_specific
+    jobs: [WAR, BST]
+    notes: "Empyrean weapon"
+
+  - name: Primal Rend
+    acquisition: weapon_specific
+    jobs: [BST]
+    notes: "Mythic weapon"
+
+  - name: Blitz
+    acquisition: weapon_specific
+    jobs: [BST]
+    notes: "Prime weapon"

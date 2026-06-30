@@ -1,0 +1,45 @@
+job: GEO
+name: Geomancer
+
+abilities:
+  - name: Bolster
+    level: 1
+  - name: Full Circle
+    level: 5
+  - name: Lasting Emanation
+    level: 25
+  - name: Ecliptic Attrition
+    level: 25
+  - name: Collimated Fervor
+    level: 40
+  - name: Life Cycle
+    level: 50
+  - name: Blaze of Glory
+    level: 60
+  - name: Dematerialize
+    level: 70
+  - name: Entrust
+    level: 75
+  - name: Mending Halation
+    level: 75
+    notes: "merit"
+  - name: Radial Arcana
+    level: 75
+    notes: "merit"
+  - name: Primeval Zeal
+    level: 75
+    notes: "merit"
+  - name: Theurgic Focus
+    level: 80
+  - name: Concentric Pulse
+    level: 90
+  - name: Widened Compass
+    level: 96
+
+magic:
+  - geomancy
+# weapons section needs verification — skill caps page returned 404
+weapons:
+  Club: B+
+  Staff: C+
+  Dagger: C-

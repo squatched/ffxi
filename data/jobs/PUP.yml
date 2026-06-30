@@ -1,0 +1,53 @@
+job: PUP
+name: Puppetmaster
+
+abilities:
+  - name: Overdrive
+    level: 1
+  - name: Activate
+    level: 1
+  - name: Deactivate
+    level: 1
+  - name: Deploy
+    level: 1
+  - name: Fire Maneuver
+    level: 1
+  - name: Ice Maneuver
+    level: 1
+  - name: Wind Maneuver
+    level: 1
+  - name: Earth Maneuver
+    level: 1
+  - name: Thunder Maneuver
+    level: 1
+  - name: Water Maneuver
+    level: 1
+  - name: Light Maneuver
+    level: 1
+  - name: Dark Maneuver
+    level: 1
+  - name: Retrieve
+    level: 10
+  - name: Repair
+    level: 15
+  - name: Maintenance
+    level: 30
+  - name: Deus Ex Automata
+    level: 5
+  - name: Ventriloquy
+    level: 75
+    notes: "merit"
+  - name: Role Reversal
+    level: 75
+    notes: "merit"
+  - name: Tactical Switch
+    level: 79
+  - name: Cooldown
+    level: 95
+  - name: Heady Artifice
+    level: 96
+
+weapons:
+  Hand-to-Hand: B+
+  Dagger: C-
+  Club: D

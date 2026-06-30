@@ -1,0 +1,34 @@
+job: BRD
+name: Bard
+
+abilities:
+  - name: Soul Voice
+    level: 1
+  - name: Pianissimo
+    level: 20
+  - name: Nightingale
+    level: 75
+    notes: "merit"
+  - name: Troubadour
+    level: 75
+    notes: "merit"
+  - name: Con Anima
+    level: 75
+    notes: "merit"
+  - name: Con Brio
+    level: 75
+    notes: "merit"
+  - name: Tenuto
+    level: 83
+  - name: Marcato
+    level: 95
+  - name: Clarion Call
+    level: 96
+
+magic:
+  - songs
+weapons:
+  Dagger: B-
+  Staff: C+
+  Sword: C-
+  Club: D

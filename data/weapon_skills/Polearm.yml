@@ -1,0 +1,70 @@
+weapon: Polearm
+
+skills:
+  - name: Double Thrust
+    skill: 5
+    acquisition: automatic
+
+  - name: Thunder Thrust
+    skill: 30
+    acquisition: automatic
+
+  - name: Raiden Thrust
+    skill: 70
+    acquisition: automatic
+
+  - name: Leg Sweep
+    skill: 100
+    acquisition: automatic
+
+  - name: Penta Thrust
+    skill: 150
+    acquisition: automatic
+
+  - name: Vorpal Thrust
+    skill: 175
+    acquisition: automatic
+
+  - name: Skewer
+    skill: 200
+    acquisition: automatic
+    jobs: [DRG]
+
+  - name: Wheeling Thrust
+    skill: 225
+    acquisition: automatic
+    jobs: [DRG]
+
+  - name: Impulse Drive
+    skill: 240
+    acquisition: quest
+    jobs: [WAR, SAM, DRG]
+    notes: "Methods Create Madness"
+
+  - name: Sonic Thrust
+    skill: 300
+    acquisition: automatic
+
+  - name: Stardiver
+    skill: 357
+    acquisition: merit
+    jobs: [WAR, SAM, DRG]
+
+  - name: Geirskogul
+    acquisition: weapon_specific
+    notes: "Relic: Gae Assail, Gungnir, or Skogul Lance"
+
+  - name: Camlann's Torment
+    acquisition: weapon_specific
+    jobs: [DRG]
+    notes: "Empyrean: Rhongomiant"
+
+  - name: Drakesbane
+    acquisition: weapon_specific
+    jobs: [DRG]
+    notes: "Mythic: Ryunohige"
+
+  - name: Diarmuid
+    acquisition: weapon_specific
+    jobs: [DRG]
+    notes: "Prime: Gae Buide"

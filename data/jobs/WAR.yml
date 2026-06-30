@@ -1,0 +1,44 @@
+job: WAR
+name: Warrior
+
+abilities:
+  - name: Mighty Strikes
+    level: 1
+  - name: Provoke
+    level: 5
+  - name: Berserk
+    level: 15
+  - name: Defender
+    level: 25
+  - name: Warcry
+    level: 35
+  - name: Aggressor
+    level: 45
+  - name: Retaliation
+    level: 60
+  - name: Warrior's Charge
+    level: 75
+    notes: "merit"
+  - name: Tomahawk
+    level: 75
+    notes: "merit"
+  - name: Restraint
+    level: 77
+  - name: Blood Rage
+    level: 87
+  - name: Brazen Rush
+    level: 96
+
+weapons:
+  Great Axe: A+
+  Axe: A
+  Great Sword: B+
+  Scythe: B+
+  Sword: B
+  Staff: B
+  Dagger: B-
+  Polearm: B-
+  Club: B-
+  Hand-to-Hand: D
+  Archery: D
+  Marksmanship: D

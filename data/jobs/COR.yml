@@ -1,0 +1,96 @@
+job: COR
+name: Corsair
+
+abilities:
+  - name: Wild Card
+    level: 1
+  - name: Phantom Roll
+    level: 5
+  - name: Double-Up
+    level: 5
+  - name: Corsair's Roll
+    level: 5
+  - name: Ninja's Roll
+    level: 8
+  - name: Hunter's Roll
+    level: 11
+  - name: Chaos Roll
+    level: 14
+  - name: Magus's Roll
+    level: 17
+  - name: Healer's Roll
+    level: 20
+  - name: Drachen Roll
+    level: 23
+  - name: Choral Roll
+    level: 26
+  - name: Monk's Roll
+    level: 31
+  - name: Beast Roll
+    level: 34
+  - name: Samurai Roll
+    level: 37
+  - name: Quick Draw
+    level: 40
+  - name: Evoker's Roll
+    level: 40
+  - name: Rogue's Roll
+    level: 43
+  - name: Warlock's Roll
+    level: 46
+  - name: Fighter's Roll
+    level: 49
+  - name: Random Deal
+    level: 50
+  - name: Puppet Roll
+    level: 52
+  - name: Gallant's Roll
+    level: 55
+  - name: Wizard's Roll
+    level: 58
+  - name: Dancer's Roll
+    level: 61
+  - name: Scholar's Roll
+    level: 64
+  - name: Naturalist's Roll
+    level: 67
+  - name: Runeist's Roll
+    level: 70
+  - name: Snake Eye
+    level: 75
+    notes: "merit"
+  - name: Fold
+    level: 75
+    notes: "merit"
+  - name: Winning Streak
+    level: 75
+    notes: "merit"
+  - name: Bolter's Roll
+    level: 76
+  - name: Caster's Roll
+    level: 79
+  - name: Courser's Roll
+    level: 81
+  - name: Blitzer's Roll
+    level: 83
+  - name: Tactician's Roll
+    level: 86
+  - name: Allies' Roll
+    level: 89
+  - name: Miser's Roll
+    level: 92
+  - name: Companion's Roll
+    level: 95
+  - name: Triple Shot
+    level: 87
+  - name: Crooked Cards
+    level: 95
+  - name: Avenger's Roll
+    level: 97
+  - name: Cutting Cards
+    level: 96
+
+weapons:
+  Dagger: B+
+  Marksmanship: B
+  Sword: B-

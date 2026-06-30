@@ -1,0 +1,125 @@
+magic: geomancy
+
+# Job: GEO only
+# Indi- spells are player-centered; Geo- spells are Luopan-centered
+spells:
+  - name: Indi-Poison
+    level: 1
+  - name: Geo-Poison
+    level: 5
+  - name: Indi-Voidance
+    level: 4
+  - name: Geo-Voidance
+    level: 8
+  - name: Indi-Precision
+    level: 10
+  - name: Geo-Precision
+    level: 14
+  - name: Indi-Regen
+    level: 15
+  - name: Geo-Regen
+    level: 19
+  - name: Indi-Attunement
+    level: 16
+  - name: Geo-Attunement
+    level: 20
+  - name: Indi-Focus
+    level: 22
+  - name: Geo-Focus
+    level: 26
+  - name: Indi-Barrier
+    level: 28
+  - name: Geo-Barrier
+    level: 32
+  - name: Indi-Refresh
+    level: 30
+  - name: Indi-CHR
+    level: 30
+  - name: Geo-Refresh
+    level: 34
+  - name: Geo-CHR
+    level: 34
+  - name: Indi-MND
+    level: 33
+  - name: Geo-MND
+    level: 37
+  - name: Indi-Fury
+    level: 34
+  - name: Geo-Fury
+    level: 38
+  - name: Indi-INT
+    level: 36
+  - name: Geo-INT
+    level: 40
+  - name: Indi-AGI
+    level: 39
+  - name: Geo-AGI
+    level: 43
+  - name: Indi-Fend
+    level: 40
+  - name: Geo-Fend
+    level: 44
+  - name: Indi-VIT
+    level: 42
+  - name: Geo-VIT
+    level: 46
+  - name: Indi-DEX
+    level: 45
+  - name: Geo-DEX
+    level: 49
+  - name: Indi-Acumen
+    level: 46
+  - name: Geo-Acumen
+    level: 50
+  - name: Indi-STR
+    level: 48
+  - name: Indi-Slow
+    level: 48
+  - name: Geo-STR
+    level: 52
+  - name: Geo-Slow
+    level: 52
+  - name: Indi-Torpor
+    level: 52
+  - name: Geo-Torpor
+    level: 56
+  - name: Indi-Slip
+    level: 58
+  - name: Geo-Slip
+    level: 62
+  - name: Indi-Languor
+    level: 64
+  - name: Geo-Languor
+    level: 68
+  - name: Indi-Paralysis
+    level: 68
+  - name: Geo-Paralysis
+    level: 72
+  - name: Indi-Vex
+    level: 70
+  - name: Geo-Vex
+    level: 74
+  - name: Indi-Frailty
+    level: 76
+  - name: Geo-Frailty
+    level: 80
+  - name: Indi-Wilt
+    level: 82
+  - name: Geo-Wilt
+    level: 86
+  - name: Indi-Gravity
+    level: 88
+  - name: Indi-Malaise
+    level: 88
+  - name: Geo-Gravity
+    level: 92
+  - name: Geo-Malaise
+    level: 92
+  - name: Indi-Haste
+    level: 93
+  - name: Geo-Haste
+    level: 97
+  - name: Indi-Fade
+    level: 94
+  - name: Geo-Fade
+    level: 98

@@ -1,0 +1,76 @@
+job: DNC
+name: Dancer
+
+abilities:
+  - name: Trance
+    level: 1
+  - name: Drain Samba
+    level: 5
+  - name: Curing Waltz
+    level: 15
+  - name: Quickstep
+    level: 20
+  - name: Spectral Jig
+    level: 25
+  - name: Aspir Samba
+    level: 25
+  - name: Divine Waltz
+    level: 25
+  - name: Box Step
+    level: 30
+  - name: Curing Waltz II
+    level: 30
+  - name: Drain Samba II
+    level: 35
+  - name: Healing Waltz
+    level: 35
+  - name: Stutter Step
+    level: 40
+  - name: Reverse Flourish
+    level: 40
+  - name: Haste Samba
+    level: 45
+  - name: Curing Waltz III
+    level: 45
+  - name: Violent Flourish
+    level: 45
+  - name: Building Flourish
+    level: 50
+  - name: Contradance
+    level: 50
+  - name: Chocobo Jig
+    level: 55
+  - name: Aspir Samba II
+    level: 60
+  - name: Wild Flourish
+    level: 60
+  - name: Curing Waltz IV
+    level: 60
+  - name: Drain Samba III
+    level: 65
+  - name: Chocobo Jig II
+    level: 70
+  - name: Saber Dance
+    level: 75
+    notes: "merit"
+  - name: Presto
+    level: 77
+  - name: Divine Waltz II
+    level: 78
+  - name: Climactic Flourish
+    level: 80
+  - name: Feather Step
+    level: 83
+  - name: Curing Waltz V
+    level: 87
+  - name: Striking Flourish
+    level: 89
+  - name: Ternary Flourish
+    level: 93
+  - name: Grand Pas
+    level: 96
+
+weapons:
+  Dagger: B+
+  Hand-to-Hand: D
+  Sword: D

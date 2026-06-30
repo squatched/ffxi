@@ -1,0 +1,300 @@
+magic: songs
+
+# Job: BRD only
+spells:
+  - name: Knight's Minne
+    level: 1
+    next: "Knight's Minne II"
+  - name: Valor Minuet
+    level: 3
+    next: "Valor Minuet II"
+  - name: Army's Paeon
+    level: 5
+    next: "Army's Paeon II"
+  - name: Foe Requiem
+    level: 7
+    next: "Foe Requiem II"
+  - name: Herb Pastoral
+    level: 9
+  - name: Light Threnody
+    level: 10
+    next: "Light Threnody II"
+  - name: Sword Madrigal
+    level: 11
+  - name: Dark Threnody
+    level: 12
+    next: "Dark Threnody II"
+  - name: Sheepfoe Mambo
+    level: 13
+  - name: Earth Threnody
+    level: 14
+    next: "Earth Threnody II"
+  - name: Army's Paeon II
+    level: 15
+    prev: "Army's Paeon"
+    next: "Army's Paeon III"
+  - name: Foe Lullaby
+    level: 16
+    next: "Foe Lullaby II"
+  - name: Water Threnody
+    level: 16
+    next: "Water Threnody II"
+  - name: Foe Requiem II
+    level: 17
+    prev: "Foe Requiem"
+    next: "Foe Requiem III"
+  - name: Wind Threnody
+    level: 18
+    next: "Wind Threnody II"
+  - name: Scop's Operetta
+    level: 19
+  - name: Fire Threnody
+    level: 20
+    next: "Fire Threnody II"
+  - name: Knight's Minne II
+    level: 21
+    prev: "Knight's Minne"
+    next: "Knight's Minne III"
+  - name: Enchanting Etude
+    level: 22
+  - name: Ice Threnody
+    level: 22
+    next: "Ice Threnody II"
+  - name: Valor Minuet II
+    level: 23
+    prev: "Valor Minuet"
+    next: "Valor Minuet III"
+  - name: Lightning Threnody
+    level: 24
+    next: "Lightning Threnody II"
+  - name: Spirited Etude
+    level: 24
+  - name: Mage's Ballad
+    level: 25
+    next: "Mage's Ballad II"
+  - name: Learned Etude
+    level: 26
+  - name: Horde Lullaby
+    level: 27
+    next: "Horde Lullaby II"
+  - name: Quick Etude
+    level: 28
+  - name: Advancing March
+    level: 29
+  - name: Vivacious Etude
+    level: 30
+  - name: Hunter's Prelude
+    level: 31
+  - name: Dextrous Etude
+    level: 32
+  - name: Fowl Aubade
+    level: 33
+  - name: Magic Finale
+    level: 33
+  - name: Sinewy Etude
+    level: 34
+  - name: Army's Paeon III
+    level: 35
+    prev: "Army's Paeon II"
+    next: "Army's Paeon IV"
+  - name: Light Carol
+    level: 36
+    next: "Light Carol II"
+  - name: Foe Requiem III
+    level: 37
+    prev: "Foe Requiem II"
+    next: "Foe Requiem IV"
+  - name: Raptor Mazurka
+    level: 37
+  - name: Earth Carol
+    level: 38
+    next: "Earth Carol II"
+  - name: Battlefield Elegy
+    level: 39
+  - name: Water Carol
+    level: 40
+    next: "Water Carol II"
+  - name: Knight's Minne III
+    level: 41
+    prev: "Knight's Minne II"
+    next: "Knight's Minne IV"
+  - name: Wind Carol
+    level: 42
+    next: "Wind Carol II"
+  - name: Valor Minuet III
+    level: 43
+    prev: "Valor Minuet II"
+    next: "Valor Minuet IV"
+  - name: Fire Carol
+    level: 44
+    next: "Fire Carol II"
+  - name: Army's Paeon IV
+    level: 45
+    prev: "Army's Paeon III"
+    next: "Army's Paeon V"
+  - name: Ice Carol
+    level: 46
+    next: "Ice Carol II"
+  - name: Foe Requiem IV
+    level: 47
+    prev: "Foe Requiem III"
+    next: "Foe Requiem V"
+  - name: Lightning Carol
+    level: 48
+    next: "Lightning Carol II"
+  - name: Goblin Gavotte
+    level: 49
+  - name: Dark Carol
+    level: 50
+    next: "Dark Carol II"
+  - name: Blade Madrigal
+    level: 51
+  - name: Dragonfoe Mambo
+    level: 53
+  - name: Gold Capriccio
+    level: 54
+  - name: Mage's Ballad II
+    level: 55
+    prev: "Mage's Ballad"
+    next: "Mage's Ballad III"
+  - name: Shining Fantasia
+    level: 56
+  - name: Foe Requiem V
+    level: 57
+    prev: "Foe Requiem IV"
+    next: "Foe Requiem VI"
+  - name: Carnage Elegy
+    level: 59
+  - name: Victory March
+    level: 60
+  - name: Knight's Minne IV
+    level: 61
+    prev: "Knight's Minne III"
+    next: "Knight's Minne V"
+  - name: Bewitching Etude
+    level: 62
+  - name: Valor Minuet IV
+    level: 63
+    prev: "Valor Minuet III"
+    next: "Valor Minuet V"
+  - name: Logical Etude
+    level: 64
+  - name: Army's Paeon V
+    level: 65
+    prev: "Army's Paeon IV"
+    next: "Army's Paeon VI"
+  - name: Sage Etude
+    level: 66
+  - name: Foe Requiem VI
+    level: 67
+    prev: "Foe Requiem V"
+  - name: Swift Etude
+    level: 68
+  - name: Puppet's Operetta
+    level: 69
+  - name: Vital Etude
+    level: 70
+  - name: Archer's Prelude
+    level: 71
+  - name: Goddess' Hymnus
+    level: 71
+  - name: Uncanny Etude
+    level: 72
+  - name: Chocobo Mazurka
+    level: 73
+  - name: Warding Round
+    level: 73
+  - name: Herculean Etude
+    level: 74
+  - name: Maiden's Virelai
+    level: 75
+  - name: Adventurer's Dirge
+    level: 75
+  - name: Foe Sirvente
+    level: 75
+  - name: Foe Requiem VII
+    level: 76
+  - name: Army's Paeon VI
+    level: 78
+    prev: "Army's Paeon V"
+  - name: Knight's Minne V
+    level: 80
+    prev: "Knight's Minne IV"
+  - name: Earth Carol II
+    level: 81
+    prev: "Earth Carol"
+  - name: Sentinel's Scherzo
+    level: 82
+  - name: Foe Lullaby II
+    level: 83
+    prev: "Foe Lullaby"
+  - name: Water Carol II
+    level: 84
+    prev: "Water Carol"
+  - name: Mage's Ballad III
+    level: 85
+    prev: "Mage's Ballad II"
+  - name: Valor Minuet V
+    level: 87
+    prev: "Valor Minuet IV"
+  - name: Wind Carol II
+    level: 87
+    prev: "Wind Carol"
+  - name: Fire Carol II
+    level: 90
+    prev: "Fire Carol"
+  - name: Horde Lullaby II
+    level: 92
+    prev: "Horde Lullaby"
+  - name: Ice Carol II
+    level: 93
+    prev: "Ice Carol"
+  - name: Pining Nocturne
+    level: 95
+  - name: Lightning Carol II
+    level: 96
+    prev: "Lightning Carol"
+  - name: Light Carol II
+    level: 99
+    prev: "Light Carol"
+  - name: Dark Carol II
+    level: 99
+    prev: "Dark Carol"
+  - name: Light Threnody II
+    level: 99
+    notes: "Job Points"
+    prev: "Light Threnody"
+  - name: Dark Threnody II
+    level: 99
+    notes: "Job Points"
+    prev: "Dark Threnody"
+  - name: Earth Threnody II
+    level: 99
+    notes: "Job Points"
+    prev: "Earth Threnody"
+  - name: Water Threnody II
+    level: 99
+    notes: "Job Points"
+    prev: "Water Threnody"
+  - name: Wind Threnody II
+    level: 99
+    notes: "Job Points"
+    prev: "Wind Threnody"
+  - name: Fire Threnody II
+    level: 99
+    notes: "Job Points"
+    prev: "Fire Threnody"
+  - name: Ice Threnody II
+    level: 99
+    notes: "Job Points"
+    prev: "Ice Threnody"
+  - name: Lightning Threnody II
+    level: 99
+    notes: "Job Points"
+    prev: "Lightning Threnody"
+  - name: Honor March
+    level: 99
+    notes: "Requires Marsyas equipped"
+  - name: Aria of Passion
+    level: 99
+    notes: "Requires Loughnashade equipped"

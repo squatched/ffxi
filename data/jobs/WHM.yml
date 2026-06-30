@@ -1,0 +1,30 @@
+job: WHM
+name: White Mage
+
+abilities:
+  - name: Benediction
+    level: 1
+  - name: Divine Seal
+    level: 15
+  - name: Afflatus Solace
+    level: 40
+  - name: Afflatus Misery
+    level: 40
+  - name: Martyr
+    level: 75
+    notes: "merit"
+  - name: Devotion
+    level: 75
+    notes: "merit"
+  - name: Divine Caress
+    level: 83
+  - name: Sacrosanctity
+    level: 95
+  - name: Asylum
+    level: 96
+
+magic:
+  - white_magic
+weapons:
+  Club: B+
+  Staff: C+

@@ -1,0 +1,28 @@
+job: BLU
+name: Blue Mage
+
+abilities:
+  - name: Azure Lore
+    level: 1
+  - name: Burst Affinity
+    level: 25
+  - name: Chain Affinity
+    level: 40
+  - name: Convergence
+    level: 75
+    notes: "merit"
+  - name: Diffusion
+    level: 75
+    notes: "merit"
+  - name: Efflux
+    level: 83
+  - name: Unbridled Learning
+    level: 95
+  - name: Unbridled Wisdom
+    level: 96
+
+magic:
+  - blue_magic
+weapons:
+  Sword: A+
+  Club: B-

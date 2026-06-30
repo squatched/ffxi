@@ -1,0 +1,67 @@
+weapon: Marksmanship
+
+skills:
+  - name: Hot Shot
+    skill: 5
+    acquisition: automatic
+
+  - name: Split Shot
+    skill: 40
+    acquisition: automatic
+
+  - name: Sniper Shot
+    skill: 80
+    acquisition: automatic
+
+  - name: Slug Shot
+    skill: 175
+    acquisition: automatic
+
+  - name: Blast Shot
+    skill: 200
+    acquisition: automatic
+    jobs: [RNG]
+
+  - name: Heavy Shot
+    skill: 225
+    acquisition: automatic
+    jobs: [RNG]
+
+  - name: Detonator
+    skill: 250
+    acquisition: quest
+    jobs: [RNG, COR]
+    notes: "Shoot First, Ask Questions Later"
+
+  - name: Numbing Shot
+    skill: 290
+    acquisition: automatic
+
+  - name: Last Stand
+    acquisition: weapon_specific
+    jobs: [THF, RNG, COR]
+    notes: "Aeonic weapon; requires skill 357 and merit points"
+
+  - name: Coronach
+    acquisition: weapon_specific
+    notes: "Relic: Ferdinand, Annihilator, or Exequy Gun"
+
+  - name: Wildfire
+    acquisition: weapon_specific
+    jobs: [RNG, COR]
+    notes: "Empyrean weapon"
+
+  - name: Trueflight
+    acquisition: weapon_specific
+    jobs: [RNG]
+    notes: "Mythic weapon"
+
+  - name: Leaden Salute
+    acquisition: weapon_specific
+    jobs: [COR]
+    notes: "Mythic weapon"
+
+  - name: Terminus
+    acquisition: weapon_specific
+    jobs: [RNG, COR]
+    notes: "Prime weapon"

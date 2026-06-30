@@ -1,0 +1,77 @@
+weapon: Club
+
+skills:
+  - name: Shining Strike
+    skill: 5
+    acquisition: automatic
+
+  - name: Seraph Strike
+    skill: 40
+    acquisition: automatic
+
+  - name: Brainshaker
+    skill: 70
+    acquisition: automatic
+
+  - name: Starlight
+    skill: 100
+    acquisition: automatic
+
+  - name: Moonlight
+    skill: 125
+    acquisition: automatic
+
+  - name: Skullbreaker
+    skill: 150
+    acquisition: automatic
+
+  - name: True Strike
+    skill: 175
+    acquisition: automatic
+
+  - name: Judgment
+    skill: 200
+    acquisition: automatic
+
+  - name: Hexa Strike
+    skill: 220
+    acquisition: automatic
+    jobs: [WHM, GEO]
+
+  - name: Black Halo
+    skill: 230
+    acquisition: quest
+    jobs: [WAR, MNK, WHM, PLD, DRK, SAM, BLU, GEO]
+    notes: "Orastery Woes"
+
+  - name: Flash Nova
+    skill: 290
+    acquisition: automatic
+
+  - name: Realmrazer
+    acquisition: weapon_specific
+    jobs: [PLD, WHM, GEO, WAR, BLU, MNK, BLM, SMN, RUN]
+    notes: "Aeonic weapon"
+
+  - name: Randgrith
+    acquisition: weapon_specific
+    notes: "Relic: Gullintani, Mjollnir, or Molva Maul"
+
+  - name: Dagan
+    acquisition: weapon_specific
+    jobs: [WHM]
+    notes: "Empyrean: Gambanteinn"
+
+  - name: Mystic Boon
+    acquisition: weapon_specific
+    jobs: [WHM]
+    notes: "Mythic: Yagrush"
+
+  - name: Exudation
+    acquisition: weapon_specific
+    jobs: [GEO]
+    notes: "Ergon: Idris"
+
+  - name: Dagda
+    acquisition: weapon_specific
+    notes: "Prime: Lorg Mor"

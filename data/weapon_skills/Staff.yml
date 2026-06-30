@@ -1,0 +1,82 @@
+weapon: Staff
+
+skills:
+  - name: Heavy Swing
+    skill: 5
+    acquisition: automatic
+
+  - name: Rock Crusher
+    skill: 40
+    acquisition: automatic
+
+  - name: Earth Crusher
+    skill: 70
+    acquisition: automatic
+
+  - name: Starburst
+    skill: 100
+    acquisition: automatic
+
+  - name: Sunburst
+    skill: 150
+    acquisition: automatic
+
+  - name: Shell Crusher
+    skill: 175
+    acquisition: automatic
+
+  - name: Full Swing
+    skill: 200
+    acquisition: automatic
+
+  - name: Spirit Taker
+    skill: 215
+    acquisition: automatic
+
+  - name: Retribution
+    skill: 230
+    acquisition: quest
+    jobs: [WAR, MNK, WHM, PLD, GEO]
+    notes: "Blood and Glory"
+
+  - name: Cataclysm
+    skill: 290
+    acquisition: automatic
+
+  - name: Shattersoul
+    skill: 357
+    acquisition: automatic
+    notes: "merit upgradeable (not required)"
+
+  - name: Gate of Tartarus
+    acquisition: weapon_specific
+    notes: "Relic: Thyrus, Claustrum, or Chthonic Staff"
+
+  - name: Myrkr
+    acquisition: weapon_specific
+    jobs: [BLM, SMN, SCH]
+    notes: "Empyrean weapon"
+
+  - name: Garland of Bliss
+    acquisition: weapon_specific
+    jobs: [SMN]
+    notes: "Mythic weapon"
+
+  - name: Omniscience
+    acquisition: weapon_specific
+    jobs: [SCH]
+    notes: "Mythic weapon"
+
+  - name: Vidohunir
+    acquisition: weapon_specific
+    jobs: [BLM]
+    notes: "Mythic weapon"
+
+  - name: Oshala
+    acquisition: weapon_specific
+    jobs: [BLM, SMN, SCH]
+    notes: "Prime weapon"
+
+  - name: Tartarus Torpor
+    acquisition: weapon_specific
+    notes: "Campaign: Samudra; Campaign battles only"

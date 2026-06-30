@@ -1,0 +1,42 @@
+job: PLD
+name: Paladin
+
+abilities:
+  - name: Invincible
+    level: 1
+  - name: Holy Circle
+    level: 5
+  - name: Shield Bash
+    level: 15
+  - name: Sentinel
+    level: 30
+  - name: Cover
+    level: 35
+  - name: Rampart
+    level: 62
+  - name: Majesty
+    level: 70
+  - name: Fealty
+    level: 75
+    notes: "merit"
+  - name: Chivalry
+    level: 75
+    notes: "merit"
+  - name: Divine Emblem
+    level: 78
+  - name: Sepulcher
+    level: 87
+  - name: Palisade
+    level: 95
+  - name: Intervene
+    level: 96
+
+magic:
+  - white_magic
+weapons:
+  Sword: A+
+  Club: A
+  Staff: A
+  Great Sword: B
+  Dagger: C-
+  Polearm: E

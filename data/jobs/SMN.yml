@@ -1,0 +1,22 @@
+job: SMN
+name: Summoner
+
+abilities:
+  - name: Astral Flow
+    level: 1
+  - name: Elemental Siphon
+    level: 50
+  - name: Apogee
+    level: 70
+  - name: Mana Cede
+    level: 87
+  - name: Astral Conduit
+    level: 96
+
+magic:
+  - summoning
+  - blood_pacts
+weapons:
+  Staff: B
+  Club: C+
+  Dagger: E

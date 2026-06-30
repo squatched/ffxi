@@ -1,0 +1,57 @@
+weapon: Archery
+
+skills:
+  - name: Flaming Arrow
+    skill: 5
+    acquisition: automatic
+
+  - name: Piercing Arrow
+    skill: 40
+    acquisition: automatic
+
+  - name: Dulling Arrow
+    skill: 80
+    acquisition: automatic
+
+  - name: Sidewinder
+    skill: 175
+    acquisition: automatic
+
+  - name: Blast Arrow
+    skill: 200
+    acquisition: automatic
+    jobs: [RNG]
+
+  - name: Arching Arrow
+    skill: 225
+    acquisition: automatic
+    jobs: [RNG]
+
+  - name: Empyreal Arrow
+    skill: 250
+    acquisition: quest
+    jobs: [RNG]
+    notes: "From Saplings Grow"
+
+  - name: Refulgent Arrow
+    skill: 290
+    acquisition: automatic
+
+  - name: Apex Arrow
+    acquisition: weapon_specific
+    jobs: [RNG, SAM]
+    notes: "Aeonic weapon; requires skill 357 and merit points"
+
+  - name: Namas Arrow
+    acquisition: weapon_specific
+    notes: "Relic: Futatokoroto, Yoichinoyumi, or Murti Bow"
+
+  - name: Jishnu's Radiance
+    acquisition: weapon_specific
+    jobs: [RNG]
+    notes: "Empyrean: Gandiva"
+
+  - name: Sarv
+    acquisition: weapon_specific
+    jobs: [RNG]
+    notes: "Prime: Pinaka"

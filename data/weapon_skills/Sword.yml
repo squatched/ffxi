@@ -1,0 +1,98 @@
+weapon: Sword
+
+skills:
+  - name: Fast Blade
+    skill: 5
+    acquisition: automatic
+
+  - name: Burning Blade
+    skill: 30
+    acquisition: automatic
+
+  - name: Red Lotus Blade
+    skill: 50
+    acquisition: automatic
+
+  - name: Flat Blade
+    skill: 75
+    acquisition: automatic
+
+  - name: Shining Blade
+    skill: 100
+    acquisition: automatic
+
+  - name: Seraph Blade
+    skill: 125
+    acquisition: automatic
+
+  - name: Circle Blade
+    skill: 150
+    acquisition: automatic
+
+  - name: Spirits Within
+    skill: 175
+    acquisition: automatic
+
+  - name: Vorpal Blade
+    skill: 200
+    acquisition: automatic
+
+  - name: Swift Blade
+    skill: 225
+    acquisition: automatic
+    jobs: [PLD, RUN]
+
+  - name: Savage Blade
+    skill: 240
+    acquisition: quest
+    jobs: [WAR, RDM, PLD, DRK, BLU, COR, RUN]
+    notes: "Old Wounds; main only"
+
+  - name: Sanguine Blade
+    skill: 300
+    acquisition: automatic
+
+  - name: Requiescat
+    skill: 357
+    acquisition: merit
+    jobs: [WAR, RDM, PLD, DRK, SAM, BLU, COR, RUN]
+
+  - name: Knights of Round
+    acquisition: weapon_specific
+    notes: "Relic: Caliburn, Excalibur, or Corbenic Sword"
+
+  - name: Chant du Cygne
+    acquisition: weapon_specific
+    jobs: [RDM, PLD, BLU]
+    notes: "Empyrean weapon"
+
+  - name: Death Blossom
+    acquisition: weapon_specific
+    jobs: [RDM]
+    notes: "Mythic weapon"
+
+  - name: Atonement
+    acquisition: weapon_specific
+    jobs: [PLD]
+    notes: "Mythic weapon"
+
+  - name: Expiacion
+    acquisition: weapon_specific
+    jobs: [BLU]
+    notes: "Mythic weapon"
+
+  - name: Imperator
+    acquisition: weapon_specific
+    notes: "Prime weapon"
+
+  - name: Uriel Blade
+    acquisition: weapon_specific
+    notes: "Campaign: Griffinclaw equipped"
+
+  - name: Glory Slash
+    acquisition: weapon_specific
+    notes: "Campaign: Lex Talionis equipped"
+
+  - name: Fast Blade II
+    acquisition: weapon_specific
+    notes: "Mog Bonanza: Onion Sword III"

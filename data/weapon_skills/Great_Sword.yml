@@ -1,0 +1,72 @@
+weapon: Great Sword
+
+skills:
+  - name: Hard Slash
+    skill: 5
+    acquisition: automatic
+
+  - name: Power Slash
+    skill: 30
+    acquisition: automatic
+
+  - name: Frostbite
+    skill: 70
+    acquisition: automatic
+
+  - name: Freezebite
+    skill: 100
+    acquisition: automatic
+
+  - name: Shockwave
+    skill: 150
+    acquisition: automatic
+
+  - name: Crescent Moon
+    skill: 175
+    acquisition: automatic
+
+  - name: Sickle Moon
+    skill: 200
+    acquisition: automatic
+    jobs: [RUN, DRK, PLD]
+
+  - name: Spinning Slash
+    skill: 225
+    acquisition: automatic
+    jobs: [RUN, DRK, PLD]
+
+  - name: Spinning Slash
+    acquisition: weapon_specific
+    jobs: [PLD, DRK, RUN, WAR]
+    notes: "Beryllium Sword or Beryllium Sword +1"
+
+  - name: Ground Strike
+    skill: 250
+    acquisition: quest
+    notes: "Inheritance"
+
+  - name: Herculean Slash
+    skill: 290
+    acquisition: automatic
+
+  - name: Resolution
+    skill: 357
+    acquisition: merit
+
+  - name: Scourge
+    acquisition: weapon_specific
+    notes: "Relic: Valhalla, Ragnarok, or Khloros Blade"
+
+  - name: Torcleaver
+    acquisition: weapon_specific
+    jobs: [DRK, PLD]
+    notes: "Empyrean weapon"
+
+  - name: Dimidiation
+    acquisition: weapon_specific
+    jobs: [RUN]
+    notes: "Ergon weapon"
+
+  - name: Fimbulvetr
+    acquisition: weapon_specific
+    notes: "Prime weapon"

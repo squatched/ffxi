@@ -1,0 +1,321 @@
+magic: blood_pacts
+
+# Job: SMN only
+# Blood pacts require the corresponding avatar to be summoned
+# Rage = offensive blood pacts; Ward = support/defensive blood pacts
+# 2-hour pacts share the avatar's 2-hour timer
+
+pacts:
+  Carbuncle:
+    rage:
+      - name: Searing Light
+        level: 1
+        notes: "2-hour"
+      - name: Poison Nails
+        level: 5
+      - name: Meteorite
+        level: 55
+      - name: Holy Mist
+        level: 76
+    ward:
+      - name: Healing Ruby
+        level: 1
+      - name: Shining Ruby
+        level: 24
+      - name: Glittering Ruby
+        level: 44
+      - name: Healing Ruby II
+        level: 65
+      - name: Soothing Ruby
+        level: 94
+      - name: Pacifying Ruby
+        level: 99
+
+  Ifrit:
+    rage:
+      - name: Inferno
+        level: 1
+        notes: "2-hour"
+      - name: Punch
+        level: 1
+      - name: Fire II
+        level: 10
+      - name: Burning Strike
+        level: 23
+      - name: Double Punch
+        level: 30
+      - name: Fire IV
+        level: 60
+      - name: Flaming Crush
+        level: 70
+      - name: Meteor Strike
+        level: 75
+        notes: "merit"
+      - name: Conflag Strike
+        level: 99
+    ward:
+      - name: Crimson Howl
+        level: 38
+      - name: Inferno Howl
+        level: 88
+
+  Titan:
+    rage:
+      - name: Earthen Fury
+        level: 1
+        notes: "2-hour"
+      - name: Rock Throw
+        level: 1
+      - name: Stone II
+        level: 10
+      - name: Rock Buster
+        level: 21
+      - name: Megalith Throw
+        level: 35
+      - name: Stone IV
+        level: 60
+      - name: Mountain Buster
+        level: 70
+      - name: Geocrush
+        level: 75
+        notes: "merit"
+      - name: Crag Throw
+        level: 99
+    ward:
+      - name: Earthen Ward
+        level: 46
+      - name: Earthen Armor
+        level: 82
+
+  Leviathan:
+    rage:
+      - name: Tidal Wave
+        level: 1
+        notes: "2-hour"
+      - name: Barracuda Dive
+        level: 1
+      - name: Water II
+        level: 10
+      - name: Tail Whip
+        level: 26
+      - name: Water IV
+        level: 60
+      - name: Spinning Dive
+        level: 70
+      - name: Grand Fall
+        level: 75
+        notes: "merit"
+    ward:
+      - name: Slowga
+        level: 33
+      - name: Spring Water
+        level: 47
+      - name: Tidal Roar
+        level: 84
+      - name: Soothing Current
+        level: 99
+
+  Garuda:
+    rage:
+      - name: Aerial Blast
+        level: 1
+        notes: "2-hour"
+      - name: Claw
+        level: 1
+      - name: Aero II
+        level: 10
+      - name: Aero IV
+        level: 60
+      - name: Predator Claws
+        level: 70
+      - name: Wind Blade
+        level: 75
+        notes: "merit"
+    ward:
+      - name: Aerial Armor
+        level: 25
+      - name: Whispering Wind
+        level: 36
+      - name: Hastega
+        level: 48
+      - name: Fleet Wind
+        level: 86
+      - name: Hastega II
+        level: 99
+
+  Shiva:
+    rage:
+      - name: Diamond Dust
+        level: 1
+        notes: "2-hour"
+      - name: Axe Kick
+        level: 1
+      - name: Blizzard II
+        level: 10
+      - name: Double Slap
+        level: 50
+      - name: Blizzard IV
+        level: 60
+      - name: Rush
+        level: 70
+      - name: Heavenly Strike
+        level: 75
+        notes: "merit"
+    ward:
+      - name: Frost Armor
+        level: 28
+      - name: Sleepga
+        level: 39
+      - name: Diamond Storm
+        level: 90
+      - name: Crystal Blessing
+        level: 99
+
+  Ramuh:
+    rage:
+      - name: Judgment Bolt
+        level: 1
+        notes: "2-hour"
+      - name: Shock Strike
+        level: 1
+      - name: Thunder II
+        level: 10
+      - name: Thunderspark
+        level: 19
+      - name: Thunder IV
+        level: 60
+      - name: Chaotic Strike
+        level: 70
+      - name: Thunderstorm
+        level: 75
+        notes: "merit"
+      - name: Volt Strike
+        level: 99
+    ward:
+      - name: Rolling Thunder
+        level: 31
+      - name: Lightning Armor
+        level: 42
+      - name: Shock Squall
+        level: 92
+
+  Fenrir:
+    rage:
+      - name: Howling Moon
+        level: 1
+        notes: "2-hour"
+      - name: Moonlit Charge
+        level: 5
+      - name: Crescent Fang
+        level: 10
+      - name: Eclipse Bite
+        level: 65
+      - name: Lunar Bay
+        level: 78
+      - name: Impact
+        level: 99
+    ward:
+      - name: Lunar Cry
+        level: 21
+      - name: Lunar Roar
+        level: 32
+      - name: Ecliptic Growl
+        level: 43
+      - name: Ecliptic Howl
+        level: 54
+      - name: Heavenward Howl
+        level: 96
+
+  Diabolos:
+    rage:
+      - name: Ruinous Omen
+        level: 1
+        notes: "2-hour"
+      - name: Camisado
+        level: 1
+      - name: Nether Blast
+        level: 65
+      - name: Night Terror
+        level: 80
+      - name: Blindside
+        level: 99
+    ward:
+      - name: Somnolence
+        level: 20
+      - name: Nightmare
+        level: 29
+      - name: Ultimate Terror
+        level: 37
+      - name: Noctoshield
+        level: 49
+      - name: Dream Shroud
+        level: 56
+      - name: Pavor Nocturnus
+        level: 98
+
+  Cait Sith:
+    rage:
+      - name: Regal Scratch
+        level: 1
+      - name: Level ? Holy
+        level: 75
+      - name: Regal Gash
+        level: 99
+    ward:
+      - name: Altana's Favor
+        level: 1
+        notes: "2-hour"
+      - name: Raise II
+        level: 15
+      - name: Mewing Lullaby
+        level: 25
+      - name: Reraise II
+        level: 30
+      - name: Eerie Eye
+        level: 55
+
+  Siren:
+    rage:
+      - name: Clarsach Call
+        level: 1
+        notes: "2-hour"
+      - name: Welt
+        level: 1
+      - name: Roundhouse
+        level: 25
+      - name: Sonic Buffet
+        level: 65
+      - name: Tornado II
+        level: 75
+      - name: Hysteric Assault
+        level: 99
+    ward:
+      - name: Lunatic Voice
+        level: 15
+      - name: Katabatic Blades
+        level: 31
+      - name: Chinook
+        level: 42
+      - name: Bitter Elegy
+        level: 50
+      - name: Wind's Blessing
+        level: 88
+
+  Alexander:
+    ward:
+      - name: Perfect Defense
+        level: 75
+        notes: "2-hour"
+
+  Odin:
+    rage:
+      - name: Zantetsuken
+        level: 75
+        notes: "2-hour"
+
+  Atomos:
+    ward:
+      - name: Deconstruction
+        level: 75
+      - name: Chronoshift
+        level: 75

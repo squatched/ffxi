@@ -1,0 +1,71 @@
+weapon: Great Axe
+
+skills:
+  - name: Shield Break
+    skill: 5
+    acquisition: automatic
+
+  - name: Iron Tempest
+    skill: 40
+    acquisition: automatic
+
+  - name: Sturmwind
+    skill: 70
+    acquisition: automatic
+
+  - name: Armor Break
+    skill: 100
+    acquisition: automatic
+
+  - name: Keen Edge
+    skill: 150
+    acquisition: automatic
+
+  - name: Weapon Break
+    skill: 175
+    acquisition: automatic
+
+  - name: Raging Rush
+    skill: 200
+    acquisition: automatic
+    jobs: [WAR]
+
+  - name: Full Break
+    skill: 225
+    acquisition: automatic
+    jobs: [WAR]
+
+  - name: Steel Cyclone
+    skill: 240
+    acquisition: quest
+    jobs: [WAR, DRK, RUN]
+    notes: "The Weight of Your Limits"
+
+  - name: Fell Cleave
+    skill: 300
+    acquisition: automatic
+
+  - name: Upheaval
+    skill: 357
+    acquisition: merit
+    jobs: [WAR, DRK, RUN]
+    notes: "main only"
+
+  - name: Metatron Torment
+    acquisition: weapon_specific
+    notes: "Relic: specific great axe weapons"
+
+  - name: Ukko's Fury
+    acquisition: weapon_specific
+    jobs: [WAR]
+    notes: "Empyrean weapon"
+
+  - name: King's Justice
+    acquisition: weapon_specific
+    jobs: [WAR]
+    notes: "Mythic weapon"
+
+  - name: Disaster
+    acquisition: weapon_specific
+    jobs: [WAR]
+    notes: "Prime weapon"

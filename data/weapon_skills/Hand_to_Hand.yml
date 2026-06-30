@@ -1,0 +1,79 @@
+weapon: Hand-to-Hand
+
+skills:
+  - name: Combo
+    skill: 5
+    acquisition: automatic
+
+  - name: Shoulder Tackle
+    skill: 40
+    acquisition: automatic
+
+  - name: One Inch Punch
+    skill: 75
+    acquisition: automatic
+
+  - name: Backhand Blow
+    skill: 100
+    acquisition: automatic
+
+  - name: Raging Fists
+    skill: 125
+    acquisition: automatic
+
+  - name: Spinning Attack
+    skill: 150
+    acquisition: automatic
+
+  - name: Howling Fist
+    skill: 200
+    acquisition: automatic
+    jobs: [MNK, PUP]
+
+  - name: Dragon Kick
+    skill: 225
+    acquisition: automatic
+    jobs: [MNK, PUP]
+
+  - name: Asuran Fists
+    skill: 250
+    acquisition: quest
+    jobs: [MNK, PUP]
+    notes: "The Walls of Your Mind"
+
+  - name: Tornado Kick
+    skill: 300
+    acquisition: automatic
+
+  - name: Shijin Spiral
+    skill: 357
+    acquisition: merit
+    jobs: [MNK, PUP]
+
+  - name: Final Heaven
+    acquisition: weapon_specific
+    jobs: [MNK]
+    notes: "Relic: Caestus, Spharai, or Heofon Knuckles"
+
+  - name: Victory Smite
+    acquisition: weapon_specific
+    jobs: [MNK, PUP]
+    notes: "Empyrean weapon"
+
+  - name: Ascetic's Fury
+    acquisition: weapon_specific
+    jobs: [MNK]
+    notes: "Mythic weapon"
+
+  - name: Stringing Pummel
+    acquisition: weapon_specific
+    jobs: [PUP]
+    notes: "Mythic weapon"
+
+  - name: Maru Kala
+    acquisition: weapon_specific
+    notes: "Prime weapon"
+
+  - name: Dragon Blow
+    acquisition: weapon_specific
+    notes: "Dragon Fangs weapon"

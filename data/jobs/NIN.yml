@@ -1,0 +1,31 @@
+job: NIN
+name: Ninja
+
+abilities:
+  - name: Mijin Gakure
+    level: 1
+  - name: Yonin
+    level: 40
+  - name: Innin
+    level: 40
+  - name: Sange
+    level: 75
+    notes: "merit"
+  - name: Futae
+    level: 77
+  - name: Issekigan
+    level: 95
+  - name: Mikage
+    level: 96
+
+magic:
+  - ninjutsu
+weapons:
+  Katana: A
+  Dagger: C+
+  Sword: C
+  Marksmanship: C
+  Great Katana: C-
+  Hand-to-Hand: E
+  Club: E
+  Archery: E

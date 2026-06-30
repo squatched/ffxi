@@ -1,0 +1,69 @@
+weapon: Scythe
+
+skills:
+  - name: Slice
+    skill: 5
+    acquisition: automatic
+
+  - name: Dark Harvest
+    skill: 30
+    acquisition: automatic
+
+  - name: Shadow of Death
+    skill: 70
+    acquisition: automatic
+
+  - name: Nightmare Scythe
+    skill: 100
+    acquisition: automatic
+
+  - name: Spinning Scythe
+    skill: 125
+    acquisition: automatic
+
+  - name: Vorpal Scythe
+    skill: 150
+    acquisition: automatic
+
+  - name: Guillotine
+    skill: 200
+    acquisition: automatic
+    jobs: [DRK]
+
+  - name: Cross Reaper
+    skill: 225
+    acquisition: automatic
+    jobs: [DRK]
+
+  - name: Spiral Hell
+    skill: 240
+    acquisition: quest
+    jobs: [WAR, DRK, BST]
+    notes: "Souls in Shadow"
+
+  - name: Infernal Scythe
+    skill: 300
+    acquisition: automatic
+
+  - name: Entropy
+    skill: 357
+    acquisition: merit
+    jobs: [WAR, DRK, BST]
+
+  - name: Catastrophe
+    acquisition: weapon_specific
+    notes: "Relic: specific scythe weapons"
+
+  - name: Quietus
+    acquisition: weapon_specific
+    jobs: [DRK]
+    notes: "Empyrean weapon"
+
+  - name: Insurgency
+    acquisition: weapon_specific
+    jobs: [DRK]
+    notes: "Mythic weapon"
+
+  - name: Origin
+    acquisition: weapon_specific
+    notes: "Prime weapon"
