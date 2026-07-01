@@ -47,6 +47,9 @@ ENEMY_GROUPS = frozenset({'nuking', 'nuking_aoe', 'cc', 'dots', 'enfeebling'})
 # Content slots before overflow: ~10 Ctrl + 8 Alt after a typical non-hub nav prefix
 MAX_CONTENT = 18
 
+# JobsHub slots per page: 10 Ctrl + 9 Alt (1-9); Alt+0 reserved for page toggle
+JOBSHUB_PAGE_SIZE = 19
+
 # Known nav button labels for groups (≤8 chars)
 _GROUP_NAV_LABELS: dict[str, str] = {
     'healing':        'SHeal',
@@ -144,6 +147,12 @@ def _merge_dedup(action_lists: list) -> list:
 
 def _is_ws_group(name: str) -> bool:
     return name == 'ws' or name.startswith('ws_')
+
+def _book_name(job: str, level: int, subjob: Optional[str]) -> str:
+    name = job.lower() + str(level)
+    if subjob:
+        name += subjob.lower()
+    return name[:15]
 
 
 # ── Series map ────────────────────────────────────────────────────────────────
@@ -787,20 +796,36 @@ def _build_job_sets(resolved_hubs: list, cores: list, spokes: list, two_hour: di
 # ── JobsHub ───────────────────────────────────────────────────────────────────
 
 def build_jobshub(assignments: list) -> dict:
-    """Build the JobsHub book from (book_num, label) pairs."""
-    ctrl: dict = {}
-    alt:  dict = {}
-    for i, (book_num, label) in enumerate(assignments):
-        btn = _nav_entry(book_num, 1, _abbrev(label, 8))
-        if i < 10:
-            ctrl[CTRL_SLOTS[i]] = btn
-        elif i - 10 < 10:
-            alt[ALT_SLOTS[i - 10]] = btn
-    sets: dict = {1: {}}
-    if ctrl:
-        sets[1]['ctrl'] = ctrl
-    if alt:
-        sets[1]['alt'] = alt
+    """Build the JobsHub book from (book_num, label) pairs, spanning multiple sets if needed."""
+    num_pages = max(1, (len(assignments) + JOBSHUB_PAGE_SIZE - 1) // JOBSHUB_PAGE_SIZE)
+    sets: dict = {}
+
+    for page_idx in range(num_pages):
+        set_no = page_idx + 1
+        page_jobs = assignments[page_idx * JOBSHUB_PAGE_SIZE:(page_idx + 1) * JOBSHUB_PAGE_SIZE]
+        ctrl: dict = {}
+        alt:  dict = {}
+
+        for i, (book_num, label) in enumerate(page_jobs):
+            btn = _nav_entry(book_num, 1, _abbrev(label, 8))
+            if i < 10:
+                ctrl[CTRL_SLOTS[i]] = btn
+            else:
+                alt[ALT_SLOTS[i - 10]] = btn  # slots 1-9 (i-10 = 0-8)
+
+        if num_pages > 1:
+            next_set = page_idx % num_pages + 2  # 2..num_pages, then wrap to 1
+            if next_set > num_pages:
+                next_set = 1
+            alt[0] = _nav_entry(1, next_set, f'SJbHub{next_set}'[:8])
+
+        set_dict: dict = {}
+        if ctrl:
+            set_dict['ctrl'] = ctrl
+        if alt:
+            set_dict['alt'] = alt
+        sets[set_no] = set_dict
+
     return {'name': 'JobsHub', 'sets': sets}
 
 
@@ -918,9 +943,15 @@ def main():
     reserved_books = {1} | set(primary_books)  # JobsHub + every job's primary book
 
     # ── Phase 1: allocate a (book, set) address for every group in every job ────
-    # JobsHub is allocated first (B1S1); its unused sets are the stack's floor.
+    # JobsHub occupies B1S1..B1S{num_jobshub_sets}; remaining sets are the stack's floor.
+    num_jobshub_sets = max(1, (len(configurations) + JOBSHUB_PAGE_SIZE - 1) // JOBSHUB_PAGE_SIZE)
+    if num_jobshub_sets > BOOK_CAPACITY:
+        max_configs = BOOK_CAPACITY * JOBSHUB_PAGE_SIZE
+        sys.exit(f'error: {len(configurations)} job configurations need {num_jobshub_sets} '
+                 f'JobsHub sets, but book 1 only has {BOOK_CAPACITY} — max supported is '
+                 f'{max_configs} configurations')
     free_stack: list = []
-    for s in range(2, BOOK_CAPACITY + 1):
+    for s in range(num_jobshub_sets + 1, BOOK_CAPACITY + 1):
         free_stack.append((1, s))
     tail_fallback = _TailFallback(reserved_books)
 
@@ -995,7 +1026,8 @@ def main():
                 free_stack.append((book_num, s))
 
         job_records.append({
-            'job': job, 'resolved_hubs': resolved_hubs, 'cores': cores,
+            'job': job, 'level': level, 'subjob': config.get('subjob', '').upper() or None,
+            'resolved_hubs': resolved_hubs, 'cores': cores,
             'spokes': spokes, 'two_hour': two_hour, 'address_map': address_map,
         })
 
@@ -1022,7 +1054,7 @@ def main():
             # combo: always use 3-letter abbreviations — "RDM/WHM" fits in 7 chars
             job_display = f'{job}/{config["subjob"].upper()}'
         else:
-            job_display = _job_label(spoke_def, job)
+            job_display = job  # 3-letter moniker (e.g. WAR, BLM)
         assignments.append((book_num, job_display))
 
     for job, addr_str in non_contiguous_warnings:
@@ -1040,11 +1072,12 @@ def main():
     for rec in job_records:
         job_sets = _build_job_sets(rec['resolved_hubs'], rec['cores'], rec['spokes'],
                                    rec['two_hour'], rec['address_map'])
+        book_name = _book_name(rec['job'], rec['level'], rec.get('subjob'))
         for (set_book, set_no), set_dict in job_sets.items():
-            book = books.setdefault(set_book, {'name': rec['job'][:15], 'sets': {}})
+            book = books.setdefault(set_book, {'name': book_name, 'sets': {}})
             book['sets'][set_no] = set_dict
 
-    books[1]['sets'][1] = build_jobshub(assignments)['sets'][1]
+    books[1]['sets'].update(build_jobshub(assignments)['sets'])
     all_books = sorted(books.keys())
 
     output = {
