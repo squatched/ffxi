@@ -1,13 +1,6 @@
 job: SMN
 name: Summoner
 
-# GENERATOR GAP: avatar summon spells and all blood pacts are currently unresolvable
-# by gen_macros.py (blood_pacts and summoning categories are skipped in _avail_spells).
-# The six avatar spokes below document the INTENDED L99 design; they will generate as
-# empty sets until gen_macros.py is extended to flatten blood_pacts.yml and summoning.yml.
-# See the TODO in scripts/gen_macros.py for what needs to be implemented.
-# coverage.py reports ~70 unreachable for SMN — expected, same root cause.
-#
 # Hub holds SMN job abilities. Six primary celestial avatar groups (Sets 3-8) are spokes.
 # Primary avatars (Ifrit/Titan/Leviathan/Garuda/Shiva/Ramuh): the six elemental celestials,
 # most commonly used in endgame content (elemental burns, resist stacking, etc.).
