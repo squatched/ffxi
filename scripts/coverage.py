@@ -20,18 +20,6 @@ Excluded names also suppress their series siblings in default mode.
 
 Exit code 1 if any spoke entry is unreachable (wrong name or unavailable to job).
 Exit code 0 otherwise (including when uncovered items exist).
-
-Known limitation — SMN blood pacts and avatar summons:
-  Both `blood_pacts` and `summoning` magic categories are excluded from the
-  available-action set (they use nested avatar→rage/ward structures, not the
-  flat spell list that the rest of the tool assumes).  As a result:
-    - Avatar summon spells ("Ifrit", "Garuda", …) show as unreachable
-    - All blood pact names show as unreachable
-  SMN will always report ~70 unreachable at L99.  This is a tool gap, not a
-  spoke design error.  The same gap exists in gen_macros.py — avatar sets
-  currently generate empty at runtime.
-  TODO: extend _avail_spells (and _resolve_action) to flatten blood_pacts.yml
-  into a per-avatar name→level map so both tools can handle SMN correctly.
 """
 
 import argparse
@@ -42,6 +30,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from gen_macros import (
     DATA_DIR, SPOKES_DIR,
     _load, _avail_spells, _avail_abilities, _avail_ws, _avail_ws_exotic, _avail_wyvern,
+    _avail_summons, _avail_blood_pacts,
     build_series_map, _build_spell_target_map, _resolve_action,
 )
 
@@ -82,15 +71,20 @@ def main() -> None:
     abilities = _avail_abilities(job_data, level)
     ws_names  = _avail_ws(job_data, DATA_DIR, level, cutoff)
     wyvern    = _avail_wyvern(job_data, level)
+    summons   = _avail_summons(job_data, DATA_DIR, level)
+    blood_pact_targets = _avail_blood_pacts(job_data, DATA_DIR, level, summons)
     two_hour  = job_data.get('two_hour_ability')
 
     # Precompute L99 availability for "not yet unlocked" hints when level < 99
     if level < 99:
+        summons_99 = _avail_summons(job_data, DATA_DIR, 99)
         avail_99: set[str] = (
             _avail_spells(job_data, DATA_DIR, 99)
             | _avail_abilities(job_data, 99)
             | _avail_ws(job_data, DATA_DIR, 99, cutoff)
             | _avail_wyvern(job_data, 99)
+            | summons_99
+            | set(_avail_blood_pacts(job_data, DATA_DIR, 99, summons_99))
         )
         if two_hour:
             avail_99.add(two_hour)
@@ -103,6 +97,8 @@ def main() -> None:
     for a in abilities: available[a] = 'ability'
     for w in ws_names:  available[w] = 'ws'
     for v in wyvern:    available[v] = 'wyvern'
+    for m in summons:   available[m] = 'summon'
+    for p in blood_pact_targets: available[p] = 'blood_pact'
     if two_hour:        available.setdefault(two_hour, 'ability')
 
     excludes: set[str] = set(spoke_def.get('exclude', []))
@@ -130,6 +126,7 @@ def main() -> None:
             spells, abilities, ws_names, wyvern,
             job_data, spell_targets, ability_data,
             name_to_series, series_members,
+            summons=summons, blood_pact_targets=blood_pact_targets,
         )
         if result:
             covered.add(result['resolved'])

@@ -135,12 +135,6 @@ def build_series_map(data_dir: Path):
 
     for path in (data_dir / 'magic').glob('*.yml'):
         catalog = _load(path)
-        if catalog.get('magic') in ('blood_pacts', 'summoning'):
-            # TODO: SMN support — flatten blood_pacts.yml (avatar→rage/ward→{name,level})
-            # and summoning.yml (avatars→{name,level}) into spells so that avatar summon
-            # commands resolve as /ma and blood pacts resolve as /pet.  Until then, all
-            # SMN avatar spoke entries silently resolve to None and are dropped.
-            continue
         spells = catalog.get('spells', [])
         by_name = {s['name']: s for s in spells if 'name' in s}
         for spell in spells:
@@ -166,7 +160,7 @@ def _avail_spells(job_data: dict, data_dir: Path, level: int) -> set[str]:
     found: set[str] = set()
     for category in job_data.get('magic', []):
         if category in ('blood_pacts', 'summoning'):
-            continue
+            continue  # handled separately by _avail_summons / _avail_blood_pacts
         path = data_dir / 'magic' / f'{category}.yml'
         if not path.exists():
             continue
@@ -205,6 +199,37 @@ def _avail_wyvern(job_data: dict, level: int) -> set[str]:
         if cmd.get('level', 999) <= level:
             found.add(cmd['name'])
     return found
+
+
+def _avail_summons(job_data: dict, data_dir: Path, level: int) -> set[str]:
+    """Return avatar names summonable at or below level (summoning.yml)."""
+    if 'summoning' not in job_data.get('magic', []):
+        return set()
+    catalog = _load(data_dir / 'magic' / 'summoning.yml')
+    return {a['name'] for a in catalog.get('avatars', []) if a.get('level', 999) <= level}
+
+
+def _avail_blood_pacts(job_data: dict, data_dir: Path, level: int,
+                       summons: set[str]) -> dict[str, str]:
+    """Return {pact_name: target} for blood pacts available at or below level.
+
+    Rage pacts target <t>, ward pacts target <me>. A pact is only available if its
+    avatar is already summonable at this level (blood_pacts.yml is keyed by avatar).
+    """
+    if 'blood_pacts' not in job_data.get('magic', []):
+        return {}
+    catalog = _load(data_dir / 'magic' / 'blood_pacts.yml')
+    targets: dict[str, str] = {}
+    for avatar, sections in catalog.get('pacts', {}).items():
+        if avatar not in summons:
+            continue
+        for pact in sections.get('rage', []):
+            if pact.get('level', 999) <= level:
+                targets[pact['name']] = '<t>'
+        for pact in sections.get('ward', []):
+            if pact.get('level', 999) <= level:
+                targets[pact['name']] = '<me>'
+    return targets
 
 
 def _avail_ws(job_data: dict, data_dir: Path, level: int, cutoff: str) -> set[str]:
@@ -308,7 +333,9 @@ def _resolve_series(name: str, sub_tier: Optional[int],
 def _resolve_action(entry: dict, group_name: str, is_hub: bool,
                     spells: set, abilities: set, ws_names: set, wyvern: set,
                     job_data: dict, spell_targets: dict, ability_data: dict,
-                    name_to_series: dict, series_members: dict
+                    name_to_series: dict, series_members: dict,
+                    summons: Optional[set] = None,
+                    blood_pact_targets: Optional[dict] = None,
                     ) -> Optional[dict]:
     """
     Resolve one spoke action entry to a concrete macro.
@@ -385,6 +412,26 @@ def _resolve_action(entry: dict, group_name: str, is_hub: bool,
             'cmd': '/ja',
             'resolved': name,
             'target': '<me>' if self_only else '<t>',
+            'priority': priority,
+        }
+
+    # ── Avatar summon ─────────────────────────────────────────────────────────
+    if summons and name in summons:
+        return {
+            'display': _abbrev(name),
+            'cmd': '/ma',
+            'resolved': name,
+            'target': '<me>',
+            'priority': priority,
+        }
+
+    # ── Blood pact ────────────────────────────────────────────────────────────
+    if blood_pact_targets and name in blood_pact_targets:
+        return {
+            'display': _abbrev(name),
+            'cmd': '/pet',
+            'resolved': name,
+            'target': blood_pact_targets[name],
             'priority': priority,
         }
 
@@ -546,6 +593,8 @@ def build_job_book(job: str, level: int, spoke_def: dict, job_data: dict,
     abilities = _avail_abilities(job_data, level)
     ws_names  = _avail_ws(job_data, data_dir, level, cutoff)
     wyvern    = _avail_wyvern(job_data, level)
+    summons   = _avail_summons(job_data, data_dir, level)
+    blood_pact_targets = _avail_blood_pacts(job_data, data_dir, level, summons)
 
     # Build ability lookup map (abilities + wyvern commands) for target resolution
     ability_data: dict[str, dict] = {ab['name']: ab for ab in job_data.get('abilities', [])}
@@ -573,7 +622,8 @@ def build_job_book(job: str, level: int, spoke_def: dict, job_data: dict,
                                 spells=spells, abilities=abilities, ws_names=ws_names,
                                 wyvern=wyvern, job_data=job_data,
                                 spell_targets=spell_targets, ability_data=ability_data,
-                                name_to_series=name_to_series, series_members=series_members)
+                                name_to_series=name_to_series, series_members=series_members,
+                                summons=summons, blood_pact_targets=blood_pact_targets)
             if r:
                 acts.append(r)
         resolved_hubs.append({**hub, 'actions': acts})
@@ -587,7 +637,8 @@ def build_job_book(job: str, level: int, spoke_def: dict, job_data: dict,
                                 spells=spells, abilities=abilities, ws_names=ws_names,
                                 wyvern=wyvern, job_data=job_data,
                                 spell_targets=spell_targets, ability_data=ability_data,
-                                name_to_series=name_to_series, series_members=series_members)
+                                name_to_series=name_to_series, series_members=series_members,
+                                summons=summons, blood_pact_targets=blood_pact_targets)
             if r:
                 acts.append(r)
         if acts:
