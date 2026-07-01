@@ -31,7 +31,7 @@ from gen_macros import (
     DATA_DIR, SPOKES_DIR,
     _load, _avail_spells, _avail_abilities, _avail_ws, _avail_ws_exotic, _avail_wyvern,
     _avail_summons, _avail_blood_pacts,
-    build_series_map, _build_spell_target_map, _resolve_action,
+    build_series_map, _build_spell_target_map, _resolve_action, _is_ws_group,
 )
 
 
@@ -44,6 +44,9 @@ def main() -> None:
                         help='Character level (default: 99)')
     parser.add_argument('--strict', action='store_true',
                         help='Report all uncovered actions including lower series tiers')
+    parser.add_argument('--subjob', metavar='SUB',
+                        help='Report coverage of the combined main+subjob set '
+                             '(subjob evaluated at level // 2; its ws_* groups are excluded)')
     args = parser.parse_args()
 
     job   = args.job.upper()
@@ -141,6 +144,62 @@ def main() -> None:
         for entry in group.get('actions', []):
             _walk(group['name'], entry, is_hub=False)
 
+    # ── Subjob merge (optional) ────────────────────────────────────────────────
+    # Mirrors gen_macros._merge_subjob: subjob evaluated at level // 2, its ws_*
+    # groups excluded (main job's weapon rank caps the effective skill regardless).
+
+    sub_level = None
+    if args.subjob:
+        subjob    = args.subjob.upper()
+        sub_level = level // 2
+
+        sub_job_path   = DATA_DIR / 'jobs' / f'{subjob}.yml'
+        sub_spoke_path = SPOKES_DIR        / f'{subjob}.yml'
+        if not sub_job_path.exists():
+            sys.exit(f'error: no job data at {sub_job_path}')
+        if not sub_spoke_path.exists():
+            sys.exit(f'error: no spoke definition at {sub_spoke_path}')
+
+        sub_job_data  = _load(sub_job_path)
+        sub_spoke_def = _load(sub_spoke_path)
+
+        sub_ability_data = {ab['name']: ab for ab in sub_job_data.get('abilities', [])}
+        for cmd in sub_job_data.get('wyvern_commands', []):
+            sub_ability_data[cmd['name']] = cmd
+
+        sub_spells    = _avail_spells(sub_job_data, DATA_DIR, sub_level)
+        sub_abilities = _avail_abilities(sub_job_data, sub_level)
+        sub_wyvern    = _avail_wyvern(sub_job_data, sub_level)
+        sub_summons   = _avail_summons(sub_job_data, DATA_DIR, sub_level)
+        sub_blood_pact_targets = _avail_blood_pacts(sub_job_data, DATA_DIR, sub_level, sub_summons)
+
+        for name in sub_spells:    available.setdefault(name, 'spell')
+        for name in sub_abilities: available.setdefault(name, 'ability')
+        for name in sub_wyvern:    available.setdefault(name, 'wyvern')
+        for name in sub_summons:   available.setdefault(name, 'summon')
+        for name in sub_blood_pact_targets: available.setdefault(name, 'blood_pact')
+
+        def _sub_walk(group_name: str, entry: dict, is_hub: bool) -> None:
+            result = _resolve_action(
+                entry, group_name, is_hub,
+                sub_spells, sub_abilities, set(), sub_wyvern,
+                sub_job_data, spell_targets, sub_ability_data,
+                name_to_series, series_members,
+                summons=sub_summons, blood_pact_targets=sub_blood_pact_targets,
+            )
+            if result:
+                covered.add(result['resolved'])
+
+        for hub in sub_spoke_def.get('hubs', []):
+            for entry in hub.get('actions', []):
+                _sub_walk(hub['name'], entry, is_hub=True)
+
+        for group in sub_spoke_def.get('groups', []):
+            if _is_ws_group(group['name']):
+                continue
+            for entry in group.get('actions', []):
+                _sub_walk(group['name'], entry, is_hub=False)
+
     # ── Build uncovered list ──────────────────────────────────────────────────
 
     def _series_touched(name: str) -> bool:
@@ -167,6 +226,8 @@ def main() -> None:
 
     job_name = job_data.get('name', job)
     title    = f'{job} ({job_name}) — L{level}'
+    if args.subjob:
+        title += f' / {args.subjob.upper()} L{sub_level} (ws excluded)'
     print(title)
     print('─' * len(title))
 

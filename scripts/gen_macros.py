@@ -125,6 +125,26 @@ def _group_nav_label(group_name: str, label: Optional[str] = None) -> str:
 def _higher_priority(a: str, b: str) -> str:
     return a if PRIORITY_RANK.get(a, 0) >= PRIORITY_RANK.get(b, 0) else b
 
+def _merge_dedup(action_lists: list) -> list:
+    """Merge several resolved-action lists, deduped by resolved name (higher priority wins)."""
+    seen: dict[str, dict] = {}
+    merged: list = []
+    for actions in action_lists:
+        for a in actions:
+            key = a['resolved']
+            if key in seen:
+                seen[key]['priority'] = _higher_priority(
+                    seen[key]['priority'], a.get('priority', 'mid')
+                )
+            else:
+                action = dict(a)
+                seen[key] = action
+                merged.append(action)
+    return merged
+
+def _is_ws_group(name: str) -> bool:
+    return name == 'ws' or name.startswith('ws_')
+
 
 # ── Series map ────────────────────────────────────────────────────────────────
 
@@ -474,19 +494,7 @@ def _resolve_families(groups: list) -> list:
             continue
 
         # Build merged action list — dedup by resolved name, higher priority wins
-        seen: dict[str, dict] = {}
-        merged: list[dict] = []
-        for g in members:
-            for a in g.get('actions', []):
-                key = a['resolved']
-                if key in seen:
-                    seen[key]['priority'] = _higher_priority(
-                        seen[key]['priority'], a.get('priority', 'mid')
-                    )
-                else:
-                    action = dict(a)
-                    seen[key] = action
-                    merged.append(action)
+        merged = _merge_dedup([g.get('actions', []) for g in members])
 
         if len(merged) <= MAX_CONTENT:
             result.append({
@@ -653,6 +661,42 @@ def _resolve_job_groups(job: str, level: int, spoke_def: dict, job_data: dict,
     spokes = [g for g in final_groups if g.get('type') != 'core']
 
     return two_hour, resolved_hubs, cores, spokes
+
+
+def _merge_subjob(main_hubs: list, main_cores: list, main_spokes: list,
+                  sub_hubs: list, sub_cores: list, sub_spokes: list) -> tuple:
+    """Merge a subjob's resolved hubs/groups into the main job's, in place.
+
+    Hub actions merge by index (cycling if the subjob has more hubs than the main
+    job has, e.g. a dual-hub subjob under a single-hub main job — all of its hub
+    actions land on the main job's one hub). Non-ws groups merge by name — matching
+    names combine action lists (dedup by resolved name, higher priority wins);
+    unmatched subjob groups are appended as new spokes. ws_* groups are dropped
+    entirely: the main job's weapon rank caps the effective skill, so a subjob WS
+    group adds nothing practical. The subjob's two-hour is discarded by the caller
+    before this function ever sees it — the main job's is always the only one.
+    """
+    if main_hubs and sub_hubs:
+        for i, sub_hub in enumerate(sub_hubs):
+            main_hub = main_hubs[i % len(main_hubs)]
+            main_hub['actions'] = _merge_dedup([main_hub['actions'], sub_hub['actions']])
+
+    by_name = {g['name']: g for g in main_cores + main_spokes}
+    order = [g['name'] for g in main_cores + main_spokes]
+    for sg in sub_cores + sub_spokes:
+        if _is_ws_group(sg['name']):
+            continue
+        if sg['name'] in by_name:
+            main_g = by_name[sg['name']]
+            main_g['actions'] = _merge_dedup([main_g['actions'], sg['actions']])
+        else:
+            by_name[sg['name']] = {**sg, 'type': 'spoke'}
+            order.append(sg['name'])
+
+    merged = [by_name[n] for n in order]
+    cores  = [g for g in merged if g.get('type') == 'core']
+    spokes = [g for g in merged if g.get('type') != 'core']
+    return main_hubs, cores, spokes
 
 
 def _ordered_groups(resolved_hubs: list, cores: list, spokes: list) -> list[dict]:
@@ -903,6 +947,26 @@ def main():
         two_hour, resolved_hubs, cores, spokes = _resolve_job_groups(
             job, level, spoke_def, job_data, DATA_DIR,
             name_to_series, series_members, spell_targets)
+
+        subjob = config.get('subjob')
+        if subjob:
+            subjob = subjob.upper()
+            sub_spoke_path    = SPOKES_DIR / f'{subjob}.yml'
+            sub_job_data_path = DATA_DIR / 'jobs' / f'{subjob}.yml'
+            if not sub_spoke_path.exists():
+                sys.exit(f'error: no spoke definition at {sub_spoke_path}')
+            if not sub_job_data_path.exists():
+                sys.exit(f'error: no job data at {sub_job_data_path}')
+
+            sub_spoke_def = _load(sub_spoke_path)
+            sub_job_data  = _load(sub_job_data_path)
+
+            _, sub_hubs, sub_cores, sub_spokes = _resolve_job_groups(
+                subjob, level // 2, sub_spoke_def, sub_job_data, DATA_DIR,
+                name_to_series, series_members, spell_targets)
+
+            resolved_hubs, cores, spokes = _merge_subjob(
+                resolved_hubs, cores, spokes, sub_hubs, sub_cores, sub_spokes)
 
         ordered = _ordered_groups(resolved_hubs, cores, spokes)
         count = len(ordered)
