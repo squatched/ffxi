@@ -1,10 +1,9 @@
 job: SAM
 name: Samurai
 abilities_default_self: true
+two_hour_ability: Meikyo Shisui
 
 abilities:
-  - name: Meikyo Shisui
-    level: 1
   - name: Warding Circle
     level: 5
   - name: Third Eye

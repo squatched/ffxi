@@ -1,0 +1,46 @@
+job: THF
+name: Thief
+
+hubs:
+  - name: combat
+    label: "CmbHub"
+    actions:
+      - {name: Sneak Attack,       priority: high}
+      - {name: Trick Attack,       priority: high}
+      - {name: Assassin's Charge,  priority: high}
+      - {name: Feint,              priority: high}
+      - {name: Bully,              priority: mid}
+
+  - name: utility
+    label: "UtlHub"
+    actions:
+      - {name: Steal,        priority: high}
+      - {name: Mug,          priority: high}
+      - {name: Flee,         priority: high}
+      - {name: Hide,         priority: high}
+      - {name: Despoil,      priority: high}
+      - {name: Accomplice,   priority: mid}
+      - {name: Collaborator, priority: mid}
+      - {name: Conspirator,  priority: mid}
+      - {name: Larceny,      priority: mid}
+
+groups:
+  - name: ws_dagger
+    type: spoke
+    actions:
+      - {name: Rudra's Storm,  priority: high}
+      - {name: Evisceration,   priority: high}
+      - {name: Exenterator,    priority: high}
+      - {name: Dancing Edge,   priority: high}
+      - {name: Shark Bite,     priority: mid}
+      - {name: Mercy Stroke,   priority: mid}
+      - {name: Mandalic Stab,  priority: mid}
+      - {name: Wasp Sting,     priority: low}
+      - {name: Viper Bite,     priority: low}
+      - {name: Cyclone,        priority: low}
+      - {name: Shadowstitch,   priority: low}
+      - {name: Gust Slash,      priority: low}
+      - {name: Energy Steal,   priority: low}
+      - {name: Energy Drain,   priority: low}
+      - {name: Aeolian Edge,   priority: low}
+      - {name: Ruthless Stroke, priority: low}

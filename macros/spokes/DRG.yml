@@ -1,0 +1,54 @@
+job: DRG
+name: Dragoon
+
+# The 2-hour (Spirit Surge) is derived from game data and placed on Ctrl+0 of every hub
+# automatically — it does not need to appear in hub action lists.
+
+hubs:
+  - name: jumps
+    label: "Jump Hub"
+    actions:
+      - {name: Jump,         priority: high}
+      - {name: High Jump,    priority: high}
+      - {name: Super Jump,   priority: high}
+      - {name: Soul Jump,    priority: high}
+      - {name: Spirit Jump,  priority: high}
+      - {name: Fly High,     priority: mid}
+
+  - name: utility
+    label: "Utility/Pet Hub"
+    actions:
+      - {name: Ancient Circle,   priority: high}
+      - {name: Spirit Link,      priority: high}
+      - {name: Spirit Bond,      priority: high}
+      - {name: Deep Breathing,   priority: high}
+      - {name: Angon,            priority: high}
+      - {name: Dragon Breaker,   priority: mid}
+      - {name: Call Wyvern,      priority: mid}
+      - {name: Dismiss,          priority: mid}
+      - {name: Smiting Breath,   priority: mid,  note: "melee subjob"}
+      - {name: Steady Wing,      priority: low}
+      - {name: Restoring Breath, priority: low,  note: "mage subjob"}
+
+groups:
+  - name: ws_polearm
+    type: spoke
+    actions:
+      - {name: Drakesbane,        priority: high, note: "Mythic: Ryunohige"}
+      - {name: Stardiver,         priority: high, note: "merit"}
+      - {name: "Camlann's Torment", priority: high, note: "Empyrean: Rhongomiant"}
+      - {name: Geirskogul,        priority: high, note: "Relic"}
+      - {name: Sonic Thrust,      priority: high}
+      - {name: Thunder Thrust,    priority: mid}
+      - {name: Skewer,            priority: mid}
+      - {name: Diarmuid,          priority: mid,  note: "Prime: Gae Buide"}
+      - {name: Double Thrust,     priority: low}
+      - {name: Leg Sweep,         priority: low}
+      - {name: Penta Thrust,      priority: low}
+      - {name: Wheeling Thrust,   priority: low}
+      - {name: Impulse Drive,     priority: low,  note: "quest: Methods Create Madness"}
+      - {name: Raiden Thrust,     priority: low}
+      - {name: Vorpal Thrust,     priority: low}
+
+# ws_rank_cutoff: "B-"  # default; weapons at this rank or below have WS excluded
+#                         # omit to use default; set lower to include more weapons; null for all

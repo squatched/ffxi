@@ -1,0 +1,117 @@
+job: WAR
+name: Warrior
+
+# Excluded intentionally (weapons WAR has at low rank but won't use in practice):
+exclude:
+  # Staff WS — WAR has rank A+ but doesn't wield Staff in practice
+  - Heavy Swing    # Staff WS
+  - Rock Crusher   # Staff WS
+  - Earth Crusher  # Staff WS
+  - Spirit Taker   # Staff WS
+  - Full Swing     # Staff WS
+  - Shell Crusher  # Staff WS
+  - Cataclysm      # Staff WS
+  - Starburst      # Staff WS
+  - Sunburst       # Staff WS
+  - Shattersoul    # Staff WS
+  - Retribution    # Staff WS (quest)
+
+hubs:
+  - name: offensive
+    label: "Off Hub"
+    actions:
+      - {name: Berserk,           priority: high}
+      - {name: Warcry,            priority: high}
+      - {name: Aggressor,         priority: high}
+      - {name: Restraint,         priority: high}
+      - {name: Blood Rage,        priority: high}
+      - {name: Brazen Rush,       priority: mid}
+      - {name: Warrior's Charge,  priority: mid}
+
+  - name: defensive
+    label: "Def Hub"
+    actions:
+      - {name: Provoke,        priority: high}
+      - {name: Defender,       priority: high}
+      - {name: Retaliation,    priority: high}
+      - {name: Tomahawk,       priority: high}
+      - {name: Ranged Attack,  priority: mid}
+
+groups:
+  - name: ws_great_axe
+    type: spoke
+    actions:
+      - {name: Iron Tempest,     priority: high}
+      - {name: Sturmwind,        priority: high}
+      - {name: Armor Break,      priority: high}
+      - {name: Weapon Break,     priority: high}
+      - {name: Full Break,       priority: high}
+      - {name: Ukko's Fury,      priority: high}
+      - {name: Steel Cyclone,    priority: mid}
+      - {name: Fell Cleave,      priority: mid}
+      - {name: Raging Rush,      priority: mid}
+      - {name: King's Justice,   priority: mid}
+      - {name: Upheaval,         priority: mid}
+      - {name: Disaster,         priority: mid}
+      - {name: Shield Break,     priority: low}
+      - {name: Keen Edge,        priority: low}
+      - {name: Metatron Torment, priority: low}
+
+  - name: ws_axe
+    type: spoke
+    actions:
+      - {name: Raging Axe,    priority: high}
+      - {name: Smash Axe,     priority: high}
+      - {name: Gale Axe,      priority: high}
+      - {name: Avalanche Axe, priority: high}
+      - {name: Spinning Axe,  priority: high}
+      - {name: Rampage,       priority: mid}
+      - {name: Mistral Axe,   priority: mid}
+      - {name: Calamity,      priority: mid}
+      - {name: Decimation,    priority: mid}
+      - {name: Bora Axe,      priority: mid}
+      - {name: Ruinator,      priority: mid}
+
+  - name: ws_great_sword
+    type: spoke
+    actions:
+      - {name: Hard Slash,      priority: high}
+      - {name: Power Slash,     priority: high}
+      - {name: Shockwave,       priority: high}
+      - {name: Herculean Slash, priority: high}
+      - {name: Ground Strike,   priority: high}
+      - {name: Resolution,      priority: mid}
+      - {name: Spinning Slash,  priority: mid}
+      - {name: Frostbite,       priority: low}
+      - {name: Freezebite,      priority: low}
+      - {name: Crescent Moon,   priority: low}
+
+  - name: ws_scythe
+    type: spoke
+    actions:
+      - {name: Dark Harvest,     priority: high}
+      - {name: Nightmare Scythe, priority: high}
+      - {name: Vorpal Scythe,    priority: high}
+      - {name: Spinning Scythe,  priority: high}
+      - {name: Infernal Scythe,  priority: high}
+      - {name: Catastrophe,      priority: mid}
+      - {name: Entropy,          priority: mid}
+      - {name: Spiral Hell,      priority: mid}
+      - {name: Shadow of Death,  priority: low}
+      - {name: Slice,            priority: low}  # only Scythe WS below skill 30
+
+  - name: ws_sword
+    type: spoke
+    actions:
+      - {name: Fast Blade,      priority: high}
+      - {name: Burning Blade,   priority: high}
+      - {name: Red Lotus Blade, priority: high}
+      - {name: Flat Blade,      priority: high}
+      - {name: Shining Blade,   priority: high}
+      - {name: Circle Blade,    priority: mid}
+      - {name: Spirits Within,  priority: mid}
+      - {name: Savage Blade,    priority: mid}
+      - {name: Sanguine Blade,  priority: mid}
+      - {name: Requiescat,      priority: mid}
+      - {name: Vorpal Blade,    priority: low}
+      - {name: Seraph Blade,    priority: low}

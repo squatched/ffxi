@@ -1,10 +1,9 @@
 job: NIN
 name: Ninja
 abilities_default_self: true
+two_hour_ability: Mijin Gakure
 
 abilities:
-  - name: Mijin Gakure
-    level: 1
   - name: Yonin
     level: 40
   - name: Innin

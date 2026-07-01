@@ -1,0 +1,109 @@
+job: BLM
+name: Black Mage
+ws_rank_cutoff: C   # include Staff B- and Club C+ WS (default B- excludes both)
+
+
+hubs:
+  - name: main
+    label: "BLM Hub"
+    actions:
+      - {name: Blaze Spikes,   priority: high}
+      - {name: Ice Spikes,     priority: high}
+      - {name: Shock Spikes,   priority: high}
+      - {name: Elemental Seal, priority: high}
+      - {name: Mana Wall,      priority: high}
+      - {name: Cascade,        priority: mid}
+      - {name: Enmity Douse,   priority: mid}
+      - {name: Manawell,       priority: mid}
+      - {name: Subtle Sorcery, priority: mid}
+
+groups:
+  # Two cores: single-target nukes (Alt+2) and AoE nukes (Alt+3)
+  - name: nuking
+    type: core
+    # Elemental order: Earth → Lightning → Water → Fire → Ice → Wind (series roots)
+    # Ancient magic fills low-priority slots after the elemental series
+    actions:
+      - {name: Stone,   priority: high}
+      - {name: Thunder, priority: high}
+      - {name: Water,   priority: high}
+      - {name: Fire,    priority: high}
+      - {name: Blizzard, priority: high}
+      - {name: Aero,    priority: high}
+      - {name: Comet,   priority: mid}
+      - {name: Death,   priority: mid}
+      - {name: Freeze,  priority: low}
+      - {name: Tornado, priority: low}
+      - {name: Quake,   priority: low}
+      - {name: Burst,   priority: low}
+      - {name: Flood,   priority: low}
+      - {name: Flare,   priority: low}
+
+  - name: nuking_aoe
+    type: core
+    # -ga on Ctrl (high), -ja on Alt (low); names are series roots
+    actions:
+      - {name: Stonega,  priority: high}
+      - {name: Thundaga, priority: high}
+      - {name: Waterga,  priority: high}
+      - {name: Firaga,   priority: high}
+      - {name: Blizzaga, priority: high}
+      - {name: Aeroga,   priority: high}
+      - {name: Stoneja,  priority: low}
+      - {name: Thundaja, priority: low}
+      - {name: Waterja,  priority: low}
+      - {name: Firaja,   priority: low}
+      - {name: Blizzaja, priority: low}
+      - {name: Aeroja,   priority: low}
+
+  - name: cc
+    type: spoke
+    actions:
+      - {name: Sleep,    priority: high}
+      - {name: Sleepga,  priority: high}
+      - {name: Bind,     priority: high}
+      - {name: Blind,    priority: high}
+      - {name: Poison,   priority: high}
+      - {name: Choke,    priority: high}   # only elemental DoT natively available to BLM
+      - {name: Stun,     priority: mid}
+      - {name: Poisonga, priority: mid}
+      - {name: Break,    priority: mid}
+      - {name: Breakga,  priority: mid}
+
+  - name: dark_utility
+    type: spoke
+    actions:
+      - {name: Drain,   priority: high}
+      - {name: Aspir,   priority: high}
+      - {name: Bio,     priority: high}
+      - {name: Warp,    priority: high}  # series: resolves to Warp II at L40+
+      - {name: Escape,  priority: high}
+      - {name: Retrace, priority: mid}
+      - {name: Tractor, priority: low}
+
+  - name: ws_staff
+    type: spoke
+    actions:
+      - {name: Spirit Taker,  priority: high}
+      - {name: Cataclysm,     priority: high}
+      - {name: Shattersoul,   priority: high}
+      - {name: Full Swing,    priority: high}
+      - {name: Shell Crusher, priority: high}
+      - {name: Heavy Swing,   priority: low}
+      - {name: Rock Crusher,  priority: low}
+      - {name: Earth Crusher, priority: low}
+      - {name: Starburst,     priority: low}
+      - {name: Sunburst,      priority: low}
+
+  - name: ws_club
+    type: spoke
+    actions:
+      - {name: True Strike,   priority: high}
+      - {name: Judgment,      priority: high}
+      - {name: Flash Nova,    priority: high}
+      - {name: Shining Strike, priority: low}
+      - {name: Seraph Strike, priority: low}
+      - {name: Brainshaker,   priority: low}
+      - {name: Starlight,     priority: low}
+      - {name: Moonlight,     priority: low}
+      - {name: Skullbreaker,  priority: low}

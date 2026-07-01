@@ -13,27 +13,77 @@ Based on [The Hub System by Sekhmet](https://ffxiclopedia.fandom.com/wiki/The_Hu
 - Nav macros use `S` prefix ("go to Set"): `SHub`, `SHeal`, `SEnfCC`
 - Abbreviate spell/skill names, prioritizing readability
 
+## Group Types
+
+Every set in a job book is one of three types:
+
+**Hub** — the player's home set. The hub is where you live between actions; you navigate to spokes as needed and return. Actions on the hub are the most constantly-needed — JAs and reactive self-buffs (spells are valid hub actions). Always pinned (reachable from every other set). Full nav to all groups on Alt. Ctrl+0 = 2-hour. Alt+0 = JobsHub. A job may have one or two hubs (max); a second hub is a full co-equal hub with the same contract, not an overflow mechanism. The primary hub is pin:1, the secondary hub is pin:2.
+
+**Core** — a content set (spells/skills) that must be reactively reachable from any other set without first returning to the hub. Alt slot assignment is driven by `type:` and file order: cores fill Alt slots immediately after hubs in file order (see Navigation). No 2-hour on Ctrl+0; no full nav on Alt — just nav back to the hub(s). Use sparingly; each core costs one Alt slot on every other set.
+
+**Spoke** — a content set reachable only from the hub. Nav back to hub(s) on Alt+1 (and Alt+2 if dual-hub). No pin.
+
 ## Button Conventions
 
-- **Alt** = navigation priority (all jobs)
-- **Ctrl** = skills/actions only (exception: Hub sets use both)
-- **Ctrl+0 on primary hub** = 2-hour ability (always, every job)
-- Fill spare Alt slots with lower-priority spells rather than leaving empty
-
-## Hub Types
-
-**Single Hub** (simple jobs, e.g. MNK): one hub + WS sets. Alt+1 = hub. Alt+1 blank on hub.
-
-**Dual Hub** (complex melee, e.g. WAR, THF, BST): two peer hub sets split by logical category (offensive/defensive, combat/utility, etc.). Alt+1 and Alt+2 navigate between hubs from any WS set. Alt+1 blank on Set 1, Alt+2 blank on Set 2.
-
-**Spell Hub** (mage jobs, e.g. RDM, WHM, BLM): single hub with always-up buffs + nav links to spell category sets. Alt+2 shortcut to the primary reactive set (Healing for healers, Nukes for BLM). Alt+2 blank on that primary reactive set.
+- **Alt** = navigation priority (all groups)
+- **Ctrl** = actions only (exception: hubs use both for actions and nav)
+- **Ctrl+0** = 2-hour ability on **every hub** (primary and secondary)
+- **Alt+0** = JobsHub on **every hub**; free on all other sets
+- Action priority fills Ctrl slots in order: `high` → Ctrl+1-5, `mid` → Ctrl+6-0, `low` → remaining Alt slots then overflow to a second set
 
 ## Navigation
 
-- **Alt+0** on the primary hub = JobsHub book
-- **Alt+1** = blank on the primary hub of every job (safe to hammer from any sub-set)
-- **Alt+2** = blank on the secondary hub or primary reactive set
-- Two-press sequence to reach JobsHub (Alt+1 to hub, then Alt+0) is intentional — prevents accidental job-switching
+Alt slots are filled in priority order on every set:
+1. **Hubs** — pin:1 → Alt+1 (always); pin:2 → Alt+2 if the job has a secondary hub
+2. **Cores** — fill the next available Alt slots in pin order, immediately after hubs
+3. **Spoke nav** (hub sets only) — remaining Alt slots after hub and core pins
+
+Examples:
+- Single-hub job, one core: Alt+1 = hub, Alt+2 = core
+- Dual-hub job, one core: Alt+1 = Hub A, Alt+2 = Hub B, Alt+3 = core
+
+Two-press sequence to reach JobsHub (Alt+1 → hub, then Alt+0) is intentional — prevents accidental job-switching.
+
+### Hub toggle (dual-hub jobs)
+On Hub A: Alt+1 = Hub B. On Hub B: Alt+1 = Hub A. Pressing Alt+1 on either hub toggles to the other. Hub A also has Alt+2 = Hub B (consistent with the spoke convention). Single-hub jobs have Alt+1 blank on the hub — nothing to toggle to.
+
+### Multi-page groups
+When any group overflows to a second set, the same toggle button links page 1 ↔ page 2:
+- **Spokes and core groups**: Alt+0 (free on non-hub sets)
+- **Hubs**: Alt+9 (Alt+0 is reserved for JobsHub)
+
+The toggle always returns you to the primary page. On hub overflow pages, Ctrl+0 = 2-hour is repeated. Ctrl+1-9 duplicates page 1 if all JAs fit there; otherwise holds the overflow JAs.
+
+## Group Taxonomy
+
+Groups are named by **usage context** (how you reach for them mid-fight), not by magic type or
+skill category. The same action can appear in multiple groups if it's genuinely used in different
+contexts — this is expected and correct. Deduplication when merging subjob groups applies only
+within the same group.
+
+| Group | What belongs here | Examples |
+|---|---|---|
+| `nuking` | Offensive damage | Fire/Blizzard/Thunder series, Holy, Banish, Katon/Hyoton/Raiton ninjutsu, Drain, offensive BLU spells |
+| `cc` | Crowd control — prevents, restricts, or impairs enemy action | Sleep/Sleepga, Bind, Gravity, Silence, Break, Repose, Lullaby, Elegy (BRD), Paralyze, Kurayami/Hojo ninjutsu |
+| `dots` | Damage over time | Dia/Bio series, Poison, elemental DoTs (Choke/Rasp/Shock/Drown/Burn/Frost), Requiem (BRD) |
+| `enfeebling` | Stat debuffs with no CC or DoT component; cross-cut into `cc` or `dots` if both apply | Slow, Blind, Addle, Frazzle, Distract, Dispel, Inundation, elemental DoTs (also in `dots`) |
+| `healing` | Ally restoration and recovery | Cure/Cura/Raise/Regen series, Full Cure, Tractor, Curing Waltz, Paeon/Ballad songs |
+| `status_removal` | Removing debuffs from allies | Erase, Esuna, Cursna, Poisona, Paralyna, Blindna, Silena, Viruna, Stona |
+| `resist_dmg` | Damage resistance/mitigation — self or party | Stoneskin, Blink, Aquaveil, Phalanx, Utsusemi/Tonko/Migawari ninjutsu, Protect, Shell |
+| `resist_elem` | Elemental resistance buffs — sub-category of `resist` | Barfira, Barblizzara, Barstonra, Barthundra, Barwatera, Baraera |
+| `resist_status` | Status resistance buffs — sub-category of `resist` | Barsleepra, Barparalyzra, Barsilencera, Barpoisonra, Barpetra, Baramnesra |
+| `enhance_self` | Capability buffs that can only target self | Enspells, Klimaform, Convert, Composure |
+| `enhance_others` | Capability buffs cast on party members | Haste, Refresh, Regen, Boost-stats, Protect/Shell (party), March/Minuet/Madrigal/Mambo songs, COR rolls |
+| `field` | Out-of-combat situational utility | Teleport/Recall, Warp, Flee, Sneak, Invisible, Deodorize, Tractor (field use) |
+| `utility` | Catch-all for anything that genuinely doesn't fit above | (reserved; may be unused) |
+| `ws_<weapon>` | Weapon skills — one group per weapon type | `ws_polearm`, `ws_sword`, `ws_great_sword`, `ws_hand_to_hand`, etc. |
+| `avatar_<name>` | SMN per-avatar sets (summon + all blood pacts inline) | `avatar_ifrit`, `avatar_shiva`, etc. |
+| `jug_pets` | BST jug pet command sets | — |
+
+### Weapon type keys (snake_case, matching `data/weapon_skills/` filenames)
+`ws_hand_to_hand` · `ws_dagger` · `ws_sword` · `ws_great_sword` · `ws_axe` · `ws_great_axe`
+· `ws_scythe` · `ws_polearm` · `ws_katana` · `ws_great_katana` · `ws_club` · `ws_staff`
+· `ws_marksmanship` · `ws_archery`
 
 ## Set Order (mage jobs)
 
@@ -45,7 +95,7 @@ Always: **Earth → Lightning → Water → Fire → Ice → Wind** (Light ↔ D
 
 ## Spell Filtering — Excluded by Default
 
-- **Pre-combat set-and-forget**: Protect/Shell/Reraise/Sneak/Invisible/Deodorize/Teleport/Bar-spells
+- **Pre-combat set-and-forget**: Protect/Shell/Reraise/Sneak/Invisible/Deodorize/Teleport — Bar-spells are excluded by default but belong in `resistances` if the job has enough of them to warrant a set
 - **Redundant**: lower tiers when a higher tier is macroed, healing is an exception for mana efficiency
 - **Covered by Erase**: Blindna, Paralyna, Poisona — Cursna is kept because Erase does not remove Curse
 - **Subjob spells**: excluded by default; switch to the relevant job book instead
@@ -58,6 +108,12 @@ Always: **Earth → Lightning → Water → Fire → Ice → Wind** (Light ↔ D
 - `N/A` — navigation (no cast)
 
 When a set contains multiple target types, pick the majority as the canonical `Target:` value. Minority exceptions are annotated inline after the macro name (e.g. `WpnBash <t>` in an otherwise `<me>` set). The 8-character name limit applies to the abbreviated name only — the target indicator does not count toward it.
+
+## Pet Command Syntax (`/ja` vs `/pet`)
+
+- **DRG wyvern commands** — `/ja` and `/pet` are interchangeable. The wyvern is a job pet intrinsic to DRG, so wyvern commands sit in the same namespace as job abilities.
+- **SMN blood pacts, BST pet commands** — `/pet` only. External summoned pets do not respond to `/ja`.
+- **PUP** — all player-triggered commands (Activate, Deactivate, Overdrive, maneuvers) are `/ja`. The automaton then acts autonomously; there are no `/pet` commands for PUP.
 
 ## SMN Special Cases
 

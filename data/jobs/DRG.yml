@@ -1,11 +1,12 @@
 job: DRG
 name: Dragoon
 abilities_default_self: true
+two_hour_ability: Spirit Surge
 
 abilities:
-  - name: Spirit Surge
-    level: 1
   - name: Call Wyvern
+    level: 1
+  - name: Dismiss
     level: 1
   - name: Ancient Circle
     level: 5
@@ -15,6 +16,7 @@ abilities:
   - name: Spirit Link
     level: 25
   - name: High Jump
+    self_only: false
     level: 35
   - name: Super Jump
     level: 50
@@ -38,6 +40,18 @@ abilities:
     level: 87
   - name: Fly High
     level: 96
+
+wyvern_commands:
+  - name: Smiting Breath
+    self_only: false
+    level: 1
+    notes: "requires melee subjob; wyvern deals fire damage to target"
+  - name: Restoring Breath
+    level: 1
+    notes: "requires mage subjob; wyvern heals lowest-HP party member"
+  - name: Steady Wing
+    level: 95
+    notes: "absorbs a set amount of damage dealt to wyvern for 3 min; /pet command"
 
 weapons:
   Polearm: A+

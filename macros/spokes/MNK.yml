@@ -1,0 +1,55 @@
+job: MNK
+name: Monk
+
+# Sets 6-9 of the MNK book are borrowed by SMN for overflow avatars (Cait Sith, Fenrir,
+# Diabolos, Carbuncle). Sets 4 and 10 are left empty as visual buffers. These slots
+# are defined in the SMN spoke definition, not here.
+
+hubs:
+  - name: main
+    label: "MNK Hub"
+    actions:
+      - {name: Boost,            priority: high}
+      - {name: Dodge,            priority: high}
+      - {name: Focus,            priority: high}
+      - {name: Chakra,           priority: high}
+      - {name: Chi Blast,        priority: high}
+      - {name: Counterstance,    priority: mid}
+      - {name: Footwork,         priority: mid}
+      - {name: Perfect Counter,  priority: mid}
+      - {name: Impetus,          priority: mid}
+      - {name: Inner Strength,   priority: low}
+      - {name: Mantra,           priority: low}
+      - {name: Formless Strikes, priority: low}
+
+groups:
+  - name: ws_hand_to_hand
+    type: spoke
+    actions:
+      - {name: Combo,           priority: high}
+      - {name: Shoulder Tackle, priority: high}
+      - {name: One Inch Punch,  priority: high}
+      - {name: Backhand Blow,   priority: high}
+      - {name: Raging Fists,    priority: high}
+      - {name: Spinning Attack, priority: mid}
+      - {name: Howling Fist,    priority: mid}
+      - {name: Dragon Kick,     priority: mid}
+      - {name: Asuran Fists,    priority: mid}
+      - {name: Tornado Kick,    priority: mid}
+      - {name: Shijin Spiral,   priority: low}
+      - {name: Ascetic's Fury,  priority: low}
+
+  - name: ws_staff
+    type: spoke
+    actions:
+      - {name: Heavy Swing,   priority: high}
+      - {name: Rock Crusher,  priority: high}
+      - {name: Earth Crusher, priority: high}
+      - {name: Shell Crusher, priority: high}
+      - {name: Full Swing,    priority: high}
+      - {name: Spirit Taker,  priority: mid}
+      - {name: Retribution,   priority: mid}
+      - {name: Cataclysm,     priority: mid}
+      - {name: Shattersoul,   priority: mid}
+      - {name: Starburst,     priority: low}
+      - {name: Sunburst,      priority: low}

@@ -1,6 +1,7 @@
 job: RDM
 name: Red Mage
 abilities_default_self: true
+two_hour_ability: Chainspell
 
 abilities:
   - name: Chainspell

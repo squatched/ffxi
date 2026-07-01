@@ -1,10 +1,9 @@
 job: DRK
 name: Dark Knight
 abilities_default_self: true
+two_hour_ability: Blood Weapon
 
 abilities:
-  - name: Blood Weapon
-    level: 1
   - name: Arcane Circle
     level: 5
   - name: Last Resort

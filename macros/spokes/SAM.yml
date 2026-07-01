@@ -1,0 +1,44 @@
+job: SAM
+name: Samurai
+
+# No magic. Polearm B- is at the default cutoff (excluded); SAM is purely Great Katana.
+# Archery C+ gives Ranged Attack for pulling.
+
+hubs:
+  - name: main
+    label: "SAM Hub"
+    actions:
+      - {name: Hasso,        priority: high}
+      - {name: Seigan,       priority: high}
+      - {name: Meditate,     priority: high}
+      - {name: Third Eye,    priority: high}
+      - {name: Sekkanoki,    priority: high}
+      - {name: Konzen-ittai, priority: mid}
+      - {name: Sengikori,    priority: mid}
+      - {name: Hamanoha,     priority: mid}
+      - {name: Hagakure,     priority: mid}
+      - {name: Warding Circle, priority: low}
+      - {name: Blade Bash,   priority: low}
+      - {name: Shikikoyo,    priority: low}
+      - {name: Yaegasumi,    priority: low}
+      - {name: Ranged Attack, priority: low}
+
+groups:
+  - name: ws_great_katana
+    type: spoke
+    actions:
+      - {name: "Tachi: Fudo",    priority: high}  # SAM mythic
+      - {name: "Tachi: Shoha",   priority: high}  # SAM weapon_specific
+      - {name: "Tachi: Kaiten",  priority: high}  # SAM weapon_specific
+      - {name: "Tachi: Kasha",   priority: high}  # SAM quest
+      - {name: "Tachi: Gekko",   priority: high}  # SAM only
+      - {name: "Tachi: Rana",    priority: mid}   # SAM weapon_specific
+      - {name: "Tachi: Mumei",   priority: mid}   # SAM weapon_specific
+      - {name: "Tachi: Ageha",   priority: mid}
+      - {name: "Tachi: Yukikaze", priority: mid}  # SAM only
+      - {name: "Tachi: Koki",    priority: low}
+      - {name: "Tachi: Jinpu",   priority: low}
+      - {name: "Tachi: Kagero",  priority: low}
+      - {name: "Tachi: Goten",   priority: low}
+      - {name: "Tachi: Hobaku",  priority: low}
+      - {name: "Tachi: Enpi",    priority: low}

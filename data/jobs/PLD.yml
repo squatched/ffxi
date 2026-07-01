@@ -1,10 +1,9 @@
 job: PLD
 name: Paladin
 abilities_default_self: true
+two_hour_ability: Invincible
 
 abilities:
-  - name: Invincible
-    level: 1
   - name: Holy Circle
     level: 5
   - name: Shield Bash

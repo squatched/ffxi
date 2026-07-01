@@ -1,10 +1,9 @@
 job: BLM
 name: Black Mage
 abilities_default_self: true
+two_hour_ability: Manafont
 
 abilities:
-  - name: Manafont
-    level: 1
   - name: Elemental Seal
     level: 15
   - name: Mana Wall

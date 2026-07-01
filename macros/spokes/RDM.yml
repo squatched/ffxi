@@ -1,0 +1,186 @@
+job: RDM
+name: Red Mage
+
+# Chainspell (2-hour) placed on Ctrl+0 of every hub via two_hour_ability in game data.
+# Stoneskin/Blink/Aquaveil are spells placed on the hub for immediate reactive access.
+# They are hub-only and do not appear in enhance_self (which holds enspells and Gain-xxx).
+
+exclude:
+  - Ranged Attack  # Archery D; magic (Dia/Bio) is strictly better for pulling
+
+hubs:
+  - name: main
+    label: "RDM Hub"
+    actions:
+      - {name: Stoneskin,   priority: high}
+      - {name: Blink,       priority: high}
+      - {name: Aquaveil,    priority: high}
+      - {name: Convert,     priority: high}
+      - {name: Saboteur,    priority: high}
+      - {name: Spontaneity, priority: mid}
+      - {name: Composure,   priority: mid}
+      - {name: Stymie,      priority: mid}
+
+groups:
+  - name: healing
+    type: core
+    actions:
+      - {name: Cure,  priority: high}              # highest available tier
+      - {name: Cure,  priority: high, sub_tier: 2} # 2 below max; empty until Cure III available
+      - {name: Raise,    priority: high, exact: true} # always Raise; never upgrades to Raise II
+      - {name: Raise II, priority: high, exact: true} # Raise II; empty until RDM L95
+      - {name: Regen, priority: mid}               # cross-cutting: also in enhance_others
+      # Erase and Cursna are WHM/SCH only — not available to RDM
+
+  - name: nuking
+    type: spoke
+    actions:
+      - {name: Stone,    priority: high}
+      - {name: Thunder,  priority: high}
+      - {name: Water,    priority: high}
+      - {name: Fire,     priority: high}
+      - {name: Blizzard, priority: high}
+      - {name: Aero,     priority: mid}
+
+  - name: cc
+    type: spoke
+    family: enfeebling
+    actions:
+      - {name: Sleep,    priority: high}
+      - {name: Bind,     priority: high}
+      - {name: Gravity,  priority: high}
+      - {name: Silence,  priority: high}
+      - {name: Paralyze, priority: high}
+      - {name: Break,    priority: low}
+
+  - name: enfeebling
+    type: spoke
+    family: enfeebling
+    actions:
+      - {name: Slow,       priority: high}
+      - {name: Blind,      priority: high}
+      - {name: Addle,      priority: high}
+      - {name: Frazzle,    priority: high}
+      - {name: Distract,   priority: high}
+      - {name: Dispel,     priority: mid}
+      - {name: Inundation, priority: mid}
+      - {name: Dia,        priority: mid,  note: "cross-cutting: also in dots"}
+      - {name: Bio,        priority: mid,  note: "cross-cutting: also in dots"}
+      - {name: Diaga,      priority: mid,  note: "cross-cutting: also in dots"}
+
+  - name: dots
+    type: spoke
+    family: enfeebling
+    actions:
+      - {name: Dia,      priority: high, note: "cross-cutting: also in enfeebling"}
+      - {name: Bio,      priority: high, note: "cross-cutting: also in enfeebling"}
+      - {name: Diaga,    priority: high, note: "cross-cutting: also in enfeebling"}
+      - {name: Poison, priority: mid}
+
+  - name: enhance_others
+    type: spoke
+    family: enhance
+    actions:
+      - {name: Refresh, priority: high}
+      - {name: Haste,   priority: high}
+      - {name: Regen,   priority: high}  # cross-cutting: also in healing
+      - {name: Phalanx, priority: high}
+      - {name: Flurry,  priority: high}
+
+  - name: enhance_self
+    type: spoke
+    family: enhance
+    actions:
+      - {name: Enstone,      priority: high}
+      - {name: Enthunder,    priority: high}
+      - {name: Enwater,      priority: high}
+      - {name: Enfire,       priority: high}
+      - {name: Enblizzard,   priority: high}
+      - {name: Enaero,       priority: mid}
+      - {name: Shock Spikes, priority: mid}
+      - {name: Blaze Spikes, priority: mid}
+      - {name: Ice Spikes,   priority: mid}
+      - {name: Temper,       priority: mid}
+      - {name: Gain-STR,     priority: low}
+      - {name: Gain-DEX,     priority: low}
+      - {name: Gain-VIT,     priority: low}
+      - {name: Gain-AGI,     priority: low}
+      - {name: Gain-INT,     priority: low}
+      - {name: Gain-MND,     priority: low}
+      - {name: Gain-CHR,     priority: low}
+
+  - name: resist_dmg
+    type: spoke
+    family: resist
+    actions:
+      - {name: Protect, priority: high}  # series: Protect → Protect V
+      - {name: Shell,   priority: high}  # series: Shell → Shell V
+
+  - name: field
+    type: spoke
+    actions:
+      - {name: Sneak,     priority: high}
+      - {name: Invisible, priority: high}
+      - {name: Deodorize, priority: high}
+
+  - name: ws_sword
+    type: spoke
+    actions:
+      - {name: Savage Blade,    priority: high}
+      - {name: Requiescat,      priority: high}
+      - {name: Sanguine Blade,  priority: high}
+      - {name: Death Blossom,   priority: high}
+      - {name: Spirits Within,  priority: high}
+      - {name: Vorpal Blade,    priority: mid}
+      # Swift Blade is PLD/RUN only (jobs: [PLD, RUN])
+      - {name: Fast Blade,      priority: low}
+      - {name: Burning Blade,   priority: low}
+      - {name: Red Lotus Blade, priority: low}
+      - {name: Flat Blade,      priority: low}
+      - {name: Shining Blade,   priority: low}
+      - {name: Circle Blade,    priority: low}
+      - {name: Seraph Blade,    priority: low}
+
+  - name: ws_dagger
+    type: spoke
+    actions:
+      - {name: Evisceration, priority: high}
+      - {name: Exenterator,  priority: high}
+      - {name: Aeolian Edge, priority: high}
+      - {name: Energy Steal, priority: high}
+      # Mordant Rime is BRD-only (Mythic weapon jobs: [BRD])
+      - {name: Energy Drain, priority: mid}
+      - {name: Gust Slash,   priority: low}
+      - {name: Wasp Sting,   priority: low}
+      - {name: Viper Bite,   priority: low}
+      - {name: Cyclone,      priority: low}
+      - {name: Shadowstitch, priority: low}
+
+  - name: resist_elem
+    type: spoke
+    family: resist
+    # RDM gets the non-ra tier bar-spells (Barfire not Barfira, etc.)
+    # Elemental order: Earth → Lightning → Water → Fire → Ice → Wind
+    actions:
+      - {name: Barstone,    priority: high}
+      - {name: Barthunder,  priority: high}
+      - {name: Barwater,    priority: high}
+      - {name: Barfire,     priority: high}
+      - {name: Barblizzard, priority: high}
+      - {name: Baraero,     priority: high}
+
+  - name: resist_status
+    type: spoke
+    family: resist
+    actions:
+      - {name: Barsleep,    priority: high}
+      - {name: Barparalyze, priority: high}
+      - {name: Barsilence,  priority: high}
+      - {name: Barpoison,   priority: high}
+      - {name: Barpetrify,  priority: high}
+      - {name: Barvirus,    priority: high}
+      - {name: Barblind,    priority: high}
+      - {name: Baramnesia,  priority: high}
+
+# ws_rank_cutoff: "B-"  # default; Club (D) and Archery (D) excluded automatically
+#                         # Club note: used for magic stats only (Daybreak, Bunzi's Rod), not melee

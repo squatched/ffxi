@@ -1,0 +1,118 @@
+job: PLD
+name: Paladin
+
+exclude:
+  # Staff WS — PLD has rank A but doesn't wield Staff in practice
+  - Heavy Swing
+  - Rock Crusher
+  - Earth Crusher
+  - Starburst
+  - Sunburst
+  - Shell Crusher
+  - Full Swing
+  - Spirit Taker
+  - Retribution      # quest Staff WS
+  - Cataclysm
+  - Shattersoul
+  - Gate of Tartarus # weapon_specific Staff
+  - Tartarus Torpor  # weapon_specific Staff
+
+hubs:
+  - name: main
+    label: "PLD Hub"
+    actions:
+      - {name: Shield Bash,   priority: high}
+      - {name: Sentinel,      priority: high}
+      - {name: Cover,         priority: high}
+      - {name: Rampart,       priority: high}
+      - {name: Palisade,      priority: high}
+      - {name: Divine Emblem, priority: mid}
+      - {name: Majesty,       priority: mid}
+      - {name: Intervene,     priority: mid}
+      - {name: Fealty,        priority: mid}
+      - {name: Chivalry,      priority: mid}
+      - {name: Sepulcher,     priority: low}
+      - {name: Holy Circle,   priority: low}
+
+groups:
+  - name: healing
+    type: core
+    actions:
+      - {name: Cure, priority: high}              # highest available tier
+      - {name: Cure, priority: high, sub_tier: 2} # 2 below max
+      - {name: Raise, priority: mid}
+
+  - name: offensive
+    type: spoke
+    actions:
+      - {name: Holy,     priority: high}
+      - {name: Holy II,  priority: high}
+      - {name: Flash,    priority: high}
+      - {name: Banish,   priority: mid}
+      - {name: Banishga, priority: mid}
+
+  - name: resist_dmg
+    type: spoke
+    actions:
+      - {name: Protect, priority: high}  # series: Protect → Protect V
+      - {name: Shell,   priority: high}  # series: Shell → Shell V
+
+  - name: enhance_self
+    type: spoke
+    actions:
+      - {name: Enlight,    priority: high}  # enspell series (→ Enlight II)
+      - {name: Reprisal,   priority: high}  # self-only damage return
+      - {name: Crusade,    priority: high}  # holy attack boost; also castable on party
+
+  - name: ws_sword
+    type: spoke
+    actions:
+      - {name: Atonement,      priority: high}  # PLD-only empyrean
+      - {name: Chant du Cygne, priority: high}  # RDM/PLD/BLU empyrean
+      - {name: Swift Blade,    priority: high}  # PLD/RUN only
+      - {name: Savage Blade,   priority: high}
+      - {name: Spirits Within, priority: high}
+      - {name: Requiescat,     priority: mid}
+      - {name: Sanguine Blade, priority: mid}
+      - {name: Vorpal Blade,   priority: mid}
+      - {name: Circle Blade,   priority: low}
+      - {name: Shining Blade,  priority: low}
+      - {name: Seraph Blade,   priority: low}
+      - {name: Red Lotus Blade, priority: low}
+      - {name: Flat Blade,     priority: low}
+      - {name: Burning Blade,  priority: low}
+      - {name: Fast Blade,     priority: low}
+
+  - name: ws_great_sword
+    type: spoke
+    actions:
+      - {name: Torcleaver,      priority: high}  # DRK/PLD empyrean
+      - {name: Scourge,         priority: high}  # weapon_specific
+      - {name: Resolution,      priority: high}  # merit
+      - {name: Ground Strike,   priority: high}  # quest
+      - {name: Spinning Slash,  priority: high}  # PLD/DRK/RUN
+      - {name: Herculean Slash, priority: mid}
+      - {name: Sickle Moon,     priority: mid}   # PLD/DRK/RUN
+      - {name: Shockwave,       priority: low}
+      - {name: Crescent Moon,   priority: low}
+      - {name: Freezebite,      priority: low}
+      - {name: Frostbite,       priority: low}
+      - {name: Power Slash,     priority: low}
+      - {name: Hard Slash,      priority: low}
+
+  - name: ws_club
+    type: spoke
+    actions:
+      - {name: Black Halo,    priority: high}
+      - {name: Flash Nova,    priority: high}
+      - {name: Judgment,      priority: high}
+      - {name: True Strike,   priority: high}
+      - {name: Realmrazer,    priority: mid}
+      - {name: Randgrith,     priority: mid}
+      - {name: Dagda,         priority: mid}
+      - {name: Skullbreaker,  priority: low}
+      - {name: Starlight,     priority: low}
+      - {name: Moonlight,     priority: low}
+      - {name: Brainshaker,   priority: low}
+      - {name: Seraph Strike, priority: low}
+      - {name: Shining Strike, priority: low}

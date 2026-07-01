@@ -1,10 +1,9 @@
 job: WHM
 name: White Mage
 abilities_default_self: true
+two_hour_ability: Benediction
 
 abilities:
-  - name: Benediction
-    level: 1
   - name: Divine Seal
     level: 15
   - name: Afflatus Solace

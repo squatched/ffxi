@@ -1,0 +1,88 @@
+job: NIN
+name: Ninja
+
+# Marksmanship C gives Ranged Attack. Dagger/Sword/Great Katana/H2H/Club are all
+# below the B- cutoff and WS are excluded automatically.
+
+hubs:
+  - name: main
+    label: "NIN Hub"
+    actions:
+      # Stances toggle between Yonin (receiver bonus) and Innin (flanker bonus)
+      - {name: Yonin,           priority: high}
+      - {name: Innin,           priority: high}
+      - {name: Futae,           priority: high}  # doubles next ninjutsu
+      # Utsusemi is the core defensive loop — hub access is critical
+      - {name: "Utsusemi: Ichi", priority: high, exact: true}
+      - {name: "Utsusemi: Ni",   priority: high, exact: true}
+      - {name: Issekigan,        priority: mid}
+      - {name: Mikage,           priority: mid}
+      - {name: Sange,            priority: mid}
+      - {name: Ranged Attack,    priority: mid}
+
+groups:
+  - name: nuking
+    type: spoke
+    actions:
+      - {name: "Katon: Ichi",  priority: high}  # resolves to San
+      - {name: "Raiton: Ichi", priority: high}
+      - {name: "Suiton: Ichi", priority: high}
+      - {name: "Huton: Ichi",  priority: high}
+      - {name: "Hyoton: Ichi", priority: high, note: "cross-cutting: also in cc"}
+      - {name: "Doton: Ichi",  priority: high, note: "cross-cutting: also in cc"}
+
+  - name: cc
+    type: spoke
+    family: enfeebling
+    actions:
+      - {name: "Hojo: Ichi",    priority: high}  # resolves to Ni (slow/gravity)
+      - {name: "Kurayami: Ichi", priority: high}  # resolves to Ni (blind)
+      - {name: "Hyoton: Ichi",  priority: high, note: "cross-cutting: also in nuking"}
+      - {name: "Doton: Ichi",   priority: high, note: "cross-cutting: also in nuking"}
+      - {name: "Aisha: Ichi",   priority: mid}   # bind
+      - {name: "Jubaku: Ichi",  priority: mid}   # bind
+      - {name: "Kakka: Ichi",   priority: mid}   # AoE bind
+      - {name: "Yurin: Ichi",   priority: mid}   # charm
+      - {name: "Gekka: Ichi",   priority: low}   # sleep (lunar)
+      - {name: "Yain: Ichi",    priority: low}   # amnesia
+
+  - name: dots
+    type: spoke
+    actions:
+      - {name: "Dokumori: Ichi", priority: high}  # poison DoT
+
+  - name: resist_dmg
+    type: spoke
+    actions:
+      - {name: "Utsusemi: San",  priority: high}  # 5 shadows — pre-pull setup
+      - {name: "Migawari: Ichi", priority: high}  # take hit in place of party member
+
+  - name: enhance_self
+    type: spoke
+    actions:
+      - {name: "Myoshu: Ichi", priority: high}  # enspell (Water)
+
+  - name: field
+    type: spoke
+    actions:
+      - {name: "Tonko: Ichi",  priority: high}  # resolves to Ni (Invisible)
+      - {name: "Monomi: Ichi", priority: high}  # Sneak
+
+  - name: ws_katana
+    type: spoke
+    actions:
+      - {name: "Blade: Hi",    priority: high}  # NIN relic
+      - {name: "Blade: Kamu",  priority: high}  # NIN weapon_specific
+      - {name: "Blade: Metsu", priority: high}
+      - {name: "Zesho Meppo", priority: high}   # NIN weapon_specific
+      - {name: "Blade: Ku",   priority: high}   # NIN quest
+      - {name: "Blade: Yu",   priority: mid}
+      - {name: "Blade: Ten",  priority: mid}    # NIN only
+      - {name: "Blade: Jin",  priority: mid}    # NIN only
+      - {name: "Blade: Shun", priority: mid}    # merit
+      - {name: "Blade: Ei",   priority: low}
+      - {name: "Blade: Chi",  priority: low}
+      - {name: "Blade: To",   priority: low}
+      - {name: "Blade: Teki", priority: low}
+      - {name: "Blade: Retsu", priority: low}
+      - {name: "Blade: Rin",  priority: low}

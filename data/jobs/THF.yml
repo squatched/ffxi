@@ -1,10 +1,9 @@
 job: THF
 name: Thief
 abilities_default_self: true
+two_hour_ability: Perfect Dodge
 
 abilities:
-  - name: Perfect Dodge
-    level: 1
   - name: Steal
     self_only: false
     level: 5

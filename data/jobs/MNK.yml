@@ -1,10 +1,9 @@
 job: MNK
 name: Monk
 abilities_default_self: true
+two_hour_ability: Hundred Fists
 
 abilities:
-  - name: Hundred Fists
-    level: 1
   - name: Boost
     level: 5
   - name: Dodge

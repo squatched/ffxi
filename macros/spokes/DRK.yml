@@ -1,0 +1,133 @@
+job: DRK
+name: Dark Knight
+
+
+hubs:
+  - name: main
+    label: "DRK Hub"
+    actions:
+      - {name: Last Resort,      priority: high}
+      - {name: Souleater,        priority: high}
+      - {name: Weapon Bash,      priority: high}
+      - {name: Nether Void,      priority: high}
+      - {name: Arcane Circle,    priority: high}
+      - {name: Dark Seal,        priority: mid}
+      - {name: Diabolic Eye,     priority: mid}
+      - {name: Scarlet Delirium, priority: mid}
+      - {name: Consume Mana,     priority: mid}
+      - {name: Soul Enslavement, priority: low}
+      - {name: Arcane Crest,     priority: low}
+
+groups:
+  - name: dark_utility
+    type: core
+    actions:
+      - {name: Drain,       priority: high}  # resolves to Drain III
+      - {name: Aspir,       priority: high}  # resolves to Aspir II
+      - {name: Absorb-TP,   priority: high}
+      - {name: Absorb-STR,  priority: high}
+      - {name: Dread Spikes, priority: high}
+      - {name: Absorb-ACC,  priority: mid}
+      - {name: Absorb-DEX,  priority: mid}
+      - {name: Absorb-VIT,  priority: mid}
+      - {name: Absorb-AGI,  priority: mid}
+      - {name: Absorb-INT,  priority: low}
+      - {name: Absorb-MND,  priority: low}
+      - {name: Absorb-CHR,  priority: low}
+      - {name: Absorb-Attri, priority: low}
+      - {name: Tractor,     priority: low}
+
+  - name: enhance_self
+    type: spoke
+    actions:
+      - {name: Endark, priority: high}  # resolves to Endark II
+
+  - name: dots
+    type: spoke
+    actions:
+      - {name: Bio,      priority: high}  # resolves to Bio II
+      - {name: Poison,   priority: high}  # resolves to Poison II
+      - {name: Poisonga, priority: mid}
+
+  - name: cc
+    type: spoke
+    family: enfeebling
+    actions:
+      - {name: Sleep, priority: high}  # resolves to Sleep II
+      - {name: Bind,  priority: high}
+      - {name: Stun,  priority: high}
+      - {name: Break, priority: mid}
+
+  - name: nuking
+    type: spoke
+    actions:
+      - {name: Stone,    priority: low}  # resolves to Stone III
+      - {name: Thunder,  priority: low}
+      - {name: Water,    priority: low}
+      - {name: Fire,     priority: low}
+      - {name: Blizzard, priority: low}
+      - {name: Aero,     priority: low}
+
+  - name: ws_scythe
+    type: spoke
+    actions:
+      - {name: Quietus,         priority: high}  # DRK-only (relic)
+      - {name: Insurgency,      priority: high}  # DRK-only (empyrean)
+      - {name: Catastrophe,     priority: high}
+      - {name: Cross Reaper,    priority: high}  # DRK only
+      - {name: Guillotine,      priority: high}  # DRK only
+      - {name: Entropy,         priority: mid}
+      - {name: Spiral Hell,     priority: mid}
+      - {name: Infernal Scythe, priority: mid}
+      - {name: Spinning Scythe, priority: low}
+      - {name: Vorpal Scythe,   priority: low}
+      - {name: Nightmare Scythe, priority: low}
+      - {name: Shadow of Death, priority: low}
+      - {name: Dark Harvest,    priority: low}
+      - {name: Slice,           priority: low}  # only Scythe WS below skill 30
+
+  - name: ws_great_sword
+    type: spoke
+    actions:
+      - {name: Torcleaver,      priority: high}  # DRK/PLD (empyrean)
+      - {name: Scourge,         priority: high}
+      - {name: Fimbulvetr,      priority: high}
+      - {name: Resolution,      priority: high}  # merit
+      - {name: Ground Strike,   priority: high}  # quest
+      - {name: Spinning Slash,  priority: high}  # DRK/PLD/RUN
+      - {name: Herculean Slash, priority: mid}
+      - {name: Sickle Moon,     priority: mid}   # DRK/PLD/RUN
+      - {name: Shockwave,       priority: low}
+      - {name: Crescent Moon,   priority: low}
+      - {name: Freezebite,      priority: low}
+      - {name: Frostbite,       priority: low}
+      - {name: Power Slash,     priority: low}
+      - {name: Hard Slash,      priority: low}
+
+  - name: ws_great_axe
+    type: spoke
+    actions:
+      - {name: Metatron Torment, priority: high}
+      - {name: Upheaval,        priority: high}  # merit, DRK/WAR/RUN
+      - {name: Steel Cyclone,   priority: high}  # quest, DRK/WAR/RUN
+      - {name: Fell Cleave,     priority: mid}
+      - {name: Weapon Break,    priority: mid}
+      - {name: Armor Break,     priority: mid}
+      - {name: Keen Edge,       priority: mid}
+      - {name: Sturmwind,       priority: low}
+      - {name: Iron Tempest,    priority: low}
+      - {name: Shield Break,    priority: low}
+
+  - name: ws_axe
+    type: spoke
+    actions:
+      - {name: Ruinator,     priority: high}  # merit
+      - {name: Decimation,   priority: high}  # quest
+      - {name: Onslaught,    priority: high}
+      - {name: Bora Axe,     priority: mid}
+      - {name: Rampage,      priority: mid}
+      - {name: Spinning Axe, priority: mid}
+      - {name: Avalanche Axe, priority: low}
+      - {name: Gale Axe,    priority: low}
+      - {name: Smash Axe,   priority: low}
+      - {name: Raging Axe,  priority: low}
