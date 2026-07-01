@@ -136,6 +136,10 @@ def build_series_map(data_dir: Path):
     for path in (data_dir / 'magic').glob('*.yml'):
         catalog = _load(path)
         if catalog.get('magic') in ('blood_pacts', 'summoning'):
+            # TODO: SMN support — flatten blood_pacts.yml (avatar→rage/ward→{name,level})
+            # and summoning.yml (avatars→{name,level}) into spells so that avatar summon
+            # commands resolve as /ma and blood pacts resolve as /pet.  Until then, all
+            # SMN avatar spoke entries silently resolve to None and are dropped.
             continue
         spells = catalog.get('spells', [])
         by_name = {s['name']: s for s in spells if 'name' in s}

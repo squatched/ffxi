@@ -1,10 +1,25 @@
 job: SMN
 name: Summoner
 
-# Hub holds SMN job abilities. Six celestial avatar groups (Sets 3-8) are spokes off the hub.
-# Overflow avatars (Carbuncle, Siren, Fenrir, Diabolos, Cait Sith, Atomos, Alexander, Odin)
-# are hand-crafted in the MNK book per macros/AGENTS.md overflow rules.
+# GENERATOR GAP: avatar summon spells and all blood pacts are currently unresolvable
+# by gen_macros.py (blood_pacts and summoning categories are skipped in _avail_spells).
+# The six avatar spokes below document the INTENDED L99 design; they will generate as
+# empty sets until gen_macros.py is extended to flatten blood_pacts.yml and summoning.yml.
+# See the TODO in scripts/gen_macros.py for what needs to be implemented.
+# coverage.py reports ~70 unreachable for SMN — expected, same root cause.
+#
+# Hub holds SMN job abilities. Six primary celestial avatar groups (Sets 3-8) are spokes.
+# Primary avatars (Ifrit/Titan/Leviathan/Garuda/Shiva/Ramuh): the six elemental celestials,
+# most commonly used in endgame content (elemental burns, resist stacking, etc.).
+# Overflow avatars in MNK book (Sets 6-9, Sets 4+10 left empty as bookend buffers):
+#   Carbuncle (light), Fenrir (dark/moon), Diabolos (dark), Cait Sith (arcane),
+#   Siren (wind), Atomos (arcane), Alexander (light), Odin (dark)
 # Staff B included for WS (default B- cutoff passes it).
+#
+# Within each avatar spoke, pacts are ordered by endgame usefulness (high → Ctrl slots,
+# low → Alt slots). At any sub-cap level, all unlocked pacts fit without overflow.
+# Low-priority pacts (basic L1 physical hits, tier-II spells) are last so they naturally
+# fall to Alt slots at endgame when all pacts are unlocked.
 
 hubs:
   - name: main
@@ -25,11 +40,12 @@ groups:
       - {name: Flaming Crush,  priority: high}
       - {name: Fire IV,        priority: high}
       - {name: Crimson Howl,   priority: high}  # ward: ATK buff
-      - {name: Inferno Howl,   priority: mid}   # ward: ATK+DEF buff
-      - {name: Double Punch,   priority: mid}
-      - {name: Burning Strike, priority: mid}
-      - {name: Fire II,        priority: low}
-      - {name: Punch,          priority: low}
+      - {name: Inferno Howl,    priority: mid}   # ward: ATK+DEF buff (L88)
+      - {name: Double Punch,    priority: mid}
+      - {name: Burning Strike,  priority: mid}
+      - {name: Conflag Strike,  priority: mid}   # L99 rage
+      - {name: Fire II,         priority: low}
+      - {name: Punch,           priority: low}
 
   - name: avatar_titan
     type: spoke
@@ -40,9 +56,10 @@ groups:
       - {name: Mountain Buster, priority: high}
       - {name: Stone IV,        priority: high}
       - {name: Earthen Ward,    priority: high}  # ward: bar-stone
-      - {name: Earthen Armor,   priority: mid}   # ward: stoneskin party
+      - {name: Earthen Armor,   priority: mid}   # ward: stoneskin party (L82)
       - {name: Megalith Throw,  priority: mid}
       - {name: Rock Buster,     priority: mid}
+      - {name: Crag Throw,      priority: mid}   # L99 rage
       - {name: Stone II,        priority: low}
       - {name: Rock Throw,      priority: low}
 

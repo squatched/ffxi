@@ -20,6 +20,18 @@ Excluded names also suppress their series siblings in default mode.
 
 Exit code 1 if any spoke entry is unreachable (wrong name or unavailable to job).
 Exit code 0 otherwise (including when uncovered items exist).
+
+Known limitation — SMN blood pacts and avatar summons:
+  Both `blood_pacts` and `summoning` magic categories are excluded from the
+  available-action set (they use nested avatar→rage/ward structures, not the
+  flat spell list that the rest of the tool assumes).  As a result:
+    - Avatar summon spells ("Ifrit", "Garuda", …) show as unreachable
+    - All blood pact names show as unreachable
+  SMN will always report ~70 unreachable at L99.  This is a tool gap, not a
+  spoke design error.  The same gap exists in gen_macros.py — avatar sets
+  currently generate empty at runtime.
+  TODO: extend _avail_spells (and _resolve_action) to flatten blood_pacts.yml
+  into a per-avatar name→level map so both tools can handle SMN correctly.
 """
 
 import argparse

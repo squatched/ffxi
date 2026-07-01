@@ -61,14 +61,15 @@ groups:
       - {name: Aero,        priority: mid}
       - {name: Kaustra,     priority: mid}    # dark-aligned nuke (SCH L5)
       - {name: Klimaform,   priority: mid}    # self-buff: enhances next Helix cast
-      - {name: Geohelix,    priority: mid}
-      - {name: Hydrohelix,  priority: mid}
-      - {name: Anemohelix,  priority: mid}
-      - {name: Pyrohelix,   priority: mid}
-      - {name: Cryohelix,   priority: low}
-      - {name: Ionohelix,   priority: low}
-      - {name: Noctohelix,  priority: low}
-      - {name: Luminohelix, priority: low}
+      # Helix spells: Earth → Lightning → Water → Fire → Ice → Wind → Light → Dark
+      - {name: Geohelix,    priority: mid}    # earth
+      - {name: Ionohelix,   priority: mid}    # lightning
+      - {name: Hydrohelix,  priority: mid}    # water
+      - {name: Pyrohelix,   priority: mid}    # fire
+      - {name: Cryohelix,   priority: low}    # ice
+      - {name: Anemohelix,  priority: low}    # wind
+      - {name: Luminohelix, priority: low}    # light
+      - {name: Noctohelix,  priority: low}    # dark
 
   - name: cc
     type: spoke
@@ -118,15 +119,16 @@ groups:
     type: spoke
     label: "SStorms"
     # SCH weather-effect spells — pair with matching Helix for bonus damage
+    # Ordered Earth → Lightning → Water → Fire → Ice → Wind → Light → Dark
     actions:
       - {name: Sandstorm,    priority: high}  # earth → Geohelix bonus
+      - {name: Thunderstorm, priority: high}  # lightning → Ionohelix
       - {name: Rainstorm,    priority: high}  # water → Hydrohelix
-      - {name: Windstorm,    priority: high}  # wind → Anemohelix
       - {name: Firestorm,    priority: high}  # fire → Pyrohelix
       - {name: Hailstorm,    priority: mid}   # ice → Cryohelix
-      - {name: Thunderstorm, priority: mid}   # lightning → Ionohelix
-      - {name: Voidstorm,    priority: mid}   # dark → Noctohelix
+      - {name: Windstorm,    priority: mid}   # wind → Anemohelix
       - {name: Aurorastorm,  priority: mid}   # light → Luminohelix
+      - {name: Voidstorm,    priority: mid}   # dark → Noctohelix
       - {name: Embrava,      priority: low}   # regen+haste-like party buff
 
   # ws_club and ws_staff auto-merge as 'ws' family (11+7=18 ≤ 18 → one set)
