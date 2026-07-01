@@ -1,0 +1,91 @@
+job: COR
+name: Corsair
+
+# Ranged Attack auto-added (Marksmanship B).
+# Dagger B+ and Marksmanship B included by default. Sword B- at cutoff — excluded.
+# 31 Phantom Rolls split across two groups (rolls_1/rolls_2) — both nav from hub.
+# Quick Draw targets an enemy (<t>); all Phantom Roll JAs target self by default.
+
+hubs:
+  - name: main
+    label: "COR Hub"
+    actions:
+      - {name: Phantom Roll,   priority: high}
+      - {name: Double-Up,      priority: high}
+      - {name: Snake Eye,      priority: high}
+      - {name: Winning Streak, priority: high}
+      - {name: Triple Shot,    priority: high}
+      - {name: Ranged Attack,  priority: low}
+      - {name: Random Deal,    priority: mid}
+      - {name: Fold,           priority: mid}
+      - {name: Quick Draw,     priority: mid,  self_only: false}
+      - {name: Crooked Cards,  priority: mid}
+      - {name: Cutting Cards,  priority: low}
+
+groups:
+  - name: rolls_1
+    type: spoke
+    actions:
+      - {name: "Fighter's Roll",     priority: high}   # double attack
+      - {name: "Chaos Roll",         priority: high}   # ATK
+      - {name: "Samurai Roll",       priority: high}   # TP bonus
+      - {name: "Hunter's Roll",      priority: high}   # ACC/ranged ACC
+      - {name: "Corsair's Roll",     priority: high}   # COR ability delay + regen-like
+      - {name: "Healer's Roll",      priority: mid}    # MND / cure potency
+      - {name: "Wizard's Roll",      priority: mid}    # INT / MAB
+      - {name: "Warlock's Roll",     priority: mid}    # MAB (magic attack bonus)
+      - {name: "Evoker's Roll",      priority: mid}    # avatar stats / MP regen
+      - {name: "Blitzer's Roll",     priority: mid}    # haste/attack delay
+      - {name: "Courser's Roll",     priority: mid}    # snapshot / double shot
+      - {name: "Tactician's Roll",   priority: low}    # regain (TP)
+      - {name: "Rogue's Roll",       priority: low}    # critical hit rate
+      - {name: "Gallant's Roll",     priority: low}    # DEF / enmity / cure
+      - {name: "Runeist's Roll",     priority: low}    # rune fencer enhancement
+
+  - name: rolls_2
+    type: spoke
+    actions:
+      - {name: "Naturalist's Roll",  priority: high}   # subtle blow / TP
+      - {name: "Caster's Roll",      priority: high}   # cast time reduction
+      - {name: "Bolter's Roll",      priority: high}   # movement speed
+      - {name: "Allies' Roll",       priority: high}   # enmity reduction party
+      - {name: "Avenger's Roll",     priority: high}   # counter rate
+      - {name: "Miser's Roll",       priority: mid}    # save TP
+      - {name: "Companion's Roll",   priority: mid}    # pet stats
+      - {name: "Dancer's Roll",      priority: mid}    # regen effect
+      - {name: "Scholar's Roll",     priority: mid}    # conserve MP
+      - {name: "Puppet Roll",        priority: mid}    # PUP automaton
+      - {name: "Monk's Roll",        priority: low}    # H2H / critical
+      - {name: "Beast Roll",         priority: low}    # pet stats
+      - {name: "Drachen Roll",       priority: low}    # DRG / pet enhancement
+      - {name: "Magus's Roll",       priority: low}    # INT
+      - {name: "Choral Roll",        priority: low}    # spell interruption
+      - {name: "Ninja's Roll",       priority: low}    # evasion
+
+  - name: ws_dagger
+    type: spoke
+    actions:
+      - {name: Evisceration,  priority: high, note: "quest: Cloak and Dagger"}
+      - {name: Aeolian Edge,  priority: high}
+      - {name: Exenterator,   priority: high}
+      - {name: Energy Drain,  priority: mid}
+      - {name: Energy Steal,  priority: mid}
+      - {name: Cyclone,       priority: low}
+      - {name: Viper Bite,    priority: low}
+      - {name: Shadowstitch,  priority: low}
+      - {name: Gust Slash,    priority: low}
+      - {name: Wasp Sting,    priority: low}
+
+  - name: ws_marksmanship
+    type: spoke
+    actions:
+      - {name: Leaden Salute,  priority: high, note: "Mythic: COR only"}
+      - {name: Wildfire,       priority: high, note: "Empyrean: RNG/COR"}
+      - {name: Last Stand,     priority: high, note: "Aeonic weapon"}
+      - {name: Terminus,       priority: high, note: "Prime weapon"}
+      - {name: Detonator,      priority: high, note: "quest: Shoot First, Ask Questions Later"}
+      - {name: Numbing Shot,   priority: mid}
+      - {name: Slug Shot,      priority: low}
+      - {name: Sniper Shot,    priority: low}
+      - {name: Split Shot,     priority: low}
+      - {name: Hot Shot,       priority: low}

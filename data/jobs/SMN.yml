@@ -1,10 +1,9 @@
 job: SMN
 name: Summoner
 abilities_default_self: true
+two_hour_ability: Astral Flow
 
 abilities:
-  - name: Astral Flow
-    level: 1
   - name: Elemental Siphon
     level: 50
   - name: Apogee

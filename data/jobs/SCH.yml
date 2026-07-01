@@ -1,10 +1,9 @@
 job: SCH
 name: Scholar
 abilities_default_self: true
+two_hour_ability: Tabula Rasa
 
 abilities:
-  - name: Tabula Rasa
-    level: 1
   - name: Light Arts
     level: 10
   - name: Dark Arts
@@ -13,13 +12,13 @@ abilities:
     level: 10
   - name: Parsimony
     level: 10
-  - name: Addendum: White
+  - name: "Addendum: White"
     level: 10
   - name: Celerity
     level: 25
   - name: Alacrity
     level: 25
-  - name: Addendum: Black
+  - name: "Addendum: Black"
     level: 30
   - name: Sublimation
     level: 35

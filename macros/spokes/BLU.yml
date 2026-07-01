@@ -1,0 +1,110 @@
+job: BLU
+name: Blue Mage
+
+# Blue magic spells must be manually set via Set Blue Magic menu; they don't auto-unlock.
+# This spoke lists the L99 design — actual availability depends on set points and which spells
+# have been learned. Spells marked main_job_only unavailable via /BLU subjob.
+# Unbridled Learning required for spells marked unbridled_learning in data.
+# Sword A+ included (primary). Club B- at cutoff — excluded by default.
+
+hubs:
+  - name: main
+    label: "BLU Hub"
+    # Azure Lore (2-hour) placed on Ctrl+0 automatically — not listed here
+    actions:
+      - {name: Burst Affinity,    priority: high}
+      - {name: Chain Affinity,    priority: high}
+      - {name: Convergence,       priority: mid}
+      - {name: Diffusion,         priority: mid}
+      - {name: Efflux,            priority: mid}
+      - {name: Unbridled Learning, priority: low}
+      - {name: Unbridled Wisdom,  priority: low}
+
+groups:
+  - name: nuking
+    type: core
+    actions:
+      - {name: Cannonball,      priority: high}   # physical piercing
+      - {name: 1000 Needles,    priority: high}   # fixed 1000 HP damage
+      - {name: Dimensional Death, priority: high}
+      - {name: Asuran Claws,    priority: high}   # multi-hit physical
+      - {name: Delta Thrust,    priority: high}
+      - {name: Goblin Rush,     priority: high}
+      - {name: Thunderbolt,     priority: high,   note: "Unbridled Learning"}
+      - {name: Gates of Hades,  priority: mid,    note: "Unbridled Learning"}
+      - {name: Dark Orb,        priority: mid}
+      - {name: Heavy Strike,    priority: mid}
+      - {name: Blazing Bound,   priority: mid}
+      - {name: Quad. Continuum, priority: mid}
+
+  - name: healing
+    type: spoke
+    actions:
+      - {name: White Wind,       priority: high}   # % HP restore (main only)
+      - {name: Plenilune Embrace, priority: high}  # HP restore (main only)
+      - {name: Restoral,         priority: high}   # HP/MP restore (main only)
+      - {name: Magic Fruit,      priority: mid}
+      - {name: Wild Carrot,      priority: mid}
+      - {name: Healing Breeze,   priority: low}
+      - {name: Pollen,           priority: low}
+
+  - name: resist_dmg
+    type: spoke
+    actions:
+      - {name: Mighty Guard,   priority: high, note: "Unbridled Learning — party-wide buffs"}
+      - {name: Occultation,    priority: high}   # multiple blink shadows
+      - {name: Magic Barrier,  priority: high}   # magic shield (main only)
+      - {name: Diamondhide,    priority: high}   # high defense boost (main only)
+      - {name: Zephyr Mantle,  priority: high}   # blink (main only)
+      - {name: Feather Barrier, priority: mid}   # high evasion boost
+      - {name: Metallic Body,  priority: mid}    # stoneskin
+      - {name: Cocoon,         priority: low}    # defense +50%
+
+  - name: enhance_self
+    type: spoke
+    actions:
+      - {name: Erratic Flutter,  priority: high}  # double attack/triple attack/haste
+      - {name: Animating Wail,   priority: high}  # ATK/DEF buff (main only)
+      - {name: Triumphant Roar,  priority: high}  # stat boost (main only)
+      - {name: Amplification,    priority: high}  # MAB boost (main only)
+      - {name: Battery Charge,   priority: mid}   # HP/MP recovery (main only)
+      - {name: Plasma Charge,    priority: mid}   # MP recovery (main only)
+      - {name: Reactor Cool,     priority: mid}   # enmity down (main only)
+      - {name: Exuviation,       priority: mid}   # status removal (main only)
+      - {name: Warm-Up,          priority: low}   # enhancing magic buff (main only)
+      - {name: Refueling,        priority: low}   # haste
+
+  - name: debuffs
+    type: spoke
+    actions:
+      - {name: Absolute Terror,   priority: high, note: "Unbridled Learning — terrify"}
+      - {name: Dream Flower,      priority: high}  # AoE sleep (main only)
+      - {name: Jettatura,         priority: high}  # gaze terror
+      - {name: Sheep Song,        priority: high}  # AoE sleep
+      - {name: Soporific,         priority: high}  # AoE sleep
+      - {name: Yawn,              priority: high}  # AoE sleep (main only)
+      - {name: Feather Tickle,    priority: mid}   # slow (main only)
+      - {name: Enervation,        priority: mid}   # stat drain (main only)
+      - {name: Lowing,            priority: mid}   # INT/MND down (main only)
+      - {name: Demoralizing Roar, priority: mid}   # DEF down AoE (main only)
+      - {name: Frightful Roar,    priority: mid}   # DEF down AoE (main only)
+      - {name: Disseverment,      priority: low}   # DoT + poison (main only)
+      - {name: Acrid Stream,      priority: low}   # INT/MND down + DoT (main only)
+      - {name: Chaotic Eye,       priority: low}   # single target sleep
+
+  - name: ws_sword
+    type: spoke
+    actions:
+      - {name: Expiacion,      priority: high, note: "Mythic: BLU only"}
+      - {name: Chant du Cygne, priority: high, note: "Empyrean: RDM/PLD/BLU"}
+      - {name: Savage Blade,   priority: high, note: "quest: Old Wounds"}
+      - {name: Requiescat,     priority: high, note: "merit"}
+      - {name: Spirits Within, priority: high}
+      - {name: Vorpal Blade,   priority: mid}
+      - {name: Circle Blade,   priority: low}
+      - {name: Seraph Blade,   priority: low}
+      - {name: Shining Blade,  priority: low}
+      - {name: Flat Blade,     priority: low}
+      - {name: Red Lotus Blade, priority: low}
+      - {name: Burning Blade,  priority: low}
+      - {name: Fast Blade,     priority: low}

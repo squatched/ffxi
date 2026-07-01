@@ -1,0 +1,75 @@
+job: DNC
+name: Dancer
+
+# DNC is ability-only — no magic. Waltzes/Jigs are JAs that use Finishing Moves (FM).
+# Steps (Quickstep, Box Step, Stutter Step, Feather Step) debuff enemy; all <t>.
+# Contradance (L50) — shares TP generation with a target partner.
+# Dagger B+ is primary weapon. H2H D and Sword D excluded by default.
+
+hubs:
+  - name: main
+    label: "DNC Hub"
+    actions:
+      - {name: Drain Samba,       priority: high}
+      - {name: Haste Samba,       priority: high}
+      - {name: Reverse Flourish,  priority: high}
+      - {name: Violent Flourish,  priority: high, self_only: false}
+      - {name: Building Flourish, priority: high}
+      - {name: Aspir Samba,       priority: mid}
+      - {name: Wild Flourish,     priority: mid}
+      - {name: Climactic Flourish, priority: mid}
+      - {name: Presto,            priority: mid}
+      - {name: Saber Dance,       priority: mid}
+      - {name: Drain Samba II,    priority: low}
+      - {name: Aspir Samba II,    priority: low}
+      - {name: Striking Flourish, priority: low}
+      - {name: Ternary Flourish,  priority: low}
+      - {name: Grand Pas,         priority: low}
+      - {name: Drain Samba III,   priority: low}
+
+groups:
+  - name: healing
+    type: core
+    actions:
+      - {name: Curing Waltz V,    priority: high, self_only: false}
+      - {name: Curing Waltz IV,   priority: high, self_only: false}
+      - {name: Curing Waltz III,  priority: high, self_only: false}
+      - {name: Curing Waltz II,   priority: mid,  self_only: false}
+      - {name: Curing Waltz,      priority: mid,  self_only: false}
+      - {name: Divine Waltz II,   priority: mid}   # AoE cure
+      - {name: Divine Waltz,      priority: mid}
+      - {name: Healing Waltz,     priority: low, self_only: false}  # status removal
+
+  - name: cc
+    type: spoke
+    actions:
+      - {name: Quickstep,    priority: high, self_only: false}
+      - {name: Box Step,     priority: high, self_only: false}
+      - {name: Stutter Step, priority: mid,  self_only: false}
+      - {name: Feather Step, priority: mid,  self_only: false}
+
+  - name: field
+    type: spoke
+    actions:
+      - {name: Spectral Jig,  priority: high}   # Sneak+Invisible on self
+      - {name: Chocobo Jig II, priority: mid}   # movement speed
+      - {name: Chocobo Jig,   priority: mid}
+      - {name: Contradance,   priority: low}    # share TP generation with partner
+
+  - name: ws_dagger
+    type: spoke
+    actions:
+      - {name: Pyrrhic Kleos, priority: high, note: "Mythic: DNC only"}
+      - {name: Rudra's Storm, priority: high, note: "Empyrean: THF/BRD/DNC"}
+      - {name: Dancing Edge,  priority: high, note: "THF/DNC only"}
+      - {name: Shark Bite,    priority: high, note: "THF/DNC only"}
+      - {name: Evisceration,  priority: high, note: "quest: Cloak and Dagger"}
+      - {name: Aeolian Edge,  priority: high}
+      - {name: Exenterator,   priority: mid}
+      - {name: Energy Drain,  priority: mid}
+      - {name: Energy Steal,  priority: mid}
+      - {name: Cyclone,       priority: low}
+      - {name: Viper Bite,    priority: low}
+      - {name: Shadowstitch,  priority: low}
+      - {name: Gust Slash,    priority: low}
+      - {name: Wasp Sting,    priority: low}

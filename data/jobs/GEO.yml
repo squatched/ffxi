@@ -1,10 +1,9 @@
 job: GEO
 name: Geomancer
 abilities_default_self: true
+two_hour_ability: Bolster
 
 abilities:
-  - name: Bolster
-    level: 1
   - name: Full Circle
     level: 5
   - name: Lasting Emanation

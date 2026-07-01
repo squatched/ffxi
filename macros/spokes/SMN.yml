@@ -1,0 +1,128 @@
+job: SMN
+name: Summoner
+
+# Hub holds SMN job abilities. Six celestial avatar groups (Sets 3-8) are spokes off the hub.
+# Overflow avatars (Carbuncle, Siren, Fenrir, Diabolos, Cait Sith, Atomos, Alexander, Odin)
+# are hand-crafted in the MNK book per macros/AGENTS.md overflow rules.
+# Staff B included for WS (default B- cutoff passes it).
+
+hubs:
+  - name: main
+    label: "SMN Hub"
+    actions:
+      - {name: Astral Conduit,    priority: high}
+      - {name: Apogee,            priority: high}
+      - {name: Elemental Siphon,  priority: high}
+      - {name: Mana Cede,         priority: mid}
+
+groups:
+  - name: avatar_ifrit
+    type: spoke
+    actions:
+      - {name: Ifrit,          priority: high}  # summon
+      - {name: Inferno,        priority: high}  # 2-hour blood pact
+      - {name: Meteor Strike,  priority: high}  # merit rage
+      - {name: Flaming Crush,  priority: high}
+      - {name: Fire IV,        priority: high}
+      - {name: Crimson Howl,   priority: high}  # ward: ATK buff
+      - {name: Inferno Howl,   priority: mid}   # ward: ATK+DEF buff
+      - {name: Double Punch,   priority: mid}
+      - {name: Burning Strike, priority: mid}
+      - {name: Fire II,        priority: low}
+      - {name: Punch,          priority: low}
+
+  - name: avatar_titan
+    type: spoke
+    actions:
+      - {name: Titan,           priority: high}
+      - {name: Earthen Fury,    priority: high}  # 2-hour
+      - {name: Geocrush,        priority: high}  # merit
+      - {name: Mountain Buster, priority: high}
+      - {name: Stone IV,        priority: high}
+      - {name: Earthen Ward,    priority: high}  # ward: bar-stone
+      - {name: Earthen Armor,   priority: mid}   # ward: stoneskin party
+      - {name: Megalith Throw,  priority: mid}
+      - {name: Rock Buster,     priority: mid}
+      - {name: Stone II,        priority: low}
+      - {name: Rock Throw,      priority: low}
+
+  - name: avatar_leviathan
+    type: spoke
+    actions:
+      - {name: Leviathan,    priority: high}
+      - {name: Tidal Wave,   priority: high}  # 2-hour
+      - {name: Grand Fall,   priority: high}  # merit
+      - {name: Spinning Dive, priority: high}
+      - {name: Water IV,     priority: high}
+      - {name: Spring Water, priority: high}  # ward: curesong-like
+      - {name: Tidal Roar,   priority: mid}   # ward: enmity down AoE
+      - {name: Soothing Current, priority: mid}  # ward: regen
+      - {name: Slowga,       priority: mid}   # ward: slowga
+      - {name: Tail Whip,    priority: low}
+      - {name: Water II,     priority: low}
+      - {name: Barracuda Dive, priority: low}
+
+  - name: avatar_garuda
+    type: spoke
+    actions:
+      - {name: Garuda,          priority: high}
+      - {name: Aerial Blast,    priority: high}  # 2-hour
+      - {name: Wind Blade,      priority: high}  # merit
+      - {name: Predator Claws,  priority: high}
+      - {name: Aero IV,         priority: high}
+      - {name: Hastega,         priority: high}  # ward: haste party
+      - {name: Hastega II,      priority: high}  # ward: haste II party (L99)
+      - {name: Whispering Wind, priority: mid}   # ward: curaga-like
+      - {name: Fleet Wind,      priority: mid}   # ward: movement speed
+      - {name: Aerial Armor,    priority: mid}   # ward: wind resist
+      - {name: Aero II,         priority: low}
+      - {name: Claw,            priority: low}
+
+  - name: avatar_shiva
+    type: spoke
+    actions:
+      - {name: Shiva,           priority: high}
+      - {name: Diamond Dust,    priority: high}  # 2-hour
+      - {name: Heavenly Strike, priority: high}  # merit
+      - {name: Rush,            priority: high}
+      - {name: Blizzard IV,     priority: high}
+      - {name: Crystal Blessing, priority: high}  # ward: magic acc party (L99)
+      - {name: Diamond Storm,   priority: mid}    # ward: blizzard debuff AoE
+      - {name: Sleepga,         priority: mid}    # ward
+      - {name: Frost Armor,     priority: mid}    # ward: blizzard resist
+      - {name: Double Slap,     priority: low}
+      - {name: Blizzard II,     priority: low}
+      - {name: Axe Kick,        priority: low}
+
+  - name: avatar_ramuh
+    type: spoke
+    actions:
+      - {name: Ramuh,          priority: high}
+      - {name: Judgment Bolt,  priority: high}  # 2-hour
+      - {name: Thunderstorm,   priority: high}  # merit
+      - {name: Volt Strike,    priority: high}  # L99
+      - {name: Chaotic Strike, priority: high}
+      - {name: Thunder IV,     priority: high}
+      - {name: Rolling Thunder, priority: high}  # ward: enThunder party
+      - {name: Shock Squall,   priority: mid}    # ward: thunder debuff AoE
+      - {name: Lightning Armor, priority: mid}   # ward: thunder resist
+      - {name: Thunderspark,   priority: mid}
+      - {name: Thunder II,     priority: low}
+      - {name: Shock Strike,   priority: low}
+
+  - name: ws_staff
+    type: spoke
+    actions:
+      - {name: Myrkr,        priority: high, note: "Empyrean: BLM/SMN/SCH"}
+      - {name: Oshala,       priority: high, note: "Prime: BLM/SMN/SCH"}
+      - {name: Garland of Bliss, priority: high, note: "Mythic: SMN only"}
+      - {name: Cataclysm,    priority: high}
+      - {name: Shattersoul,  priority: high}
+      - {name: Full Swing,   priority: mid}
+      - {name: Spirit Taker, priority: mid}
+      - {name: Shell Crusher, priority: mid}
+      - {name: Sunburst,     priority: low}
+      - {name: Starburst,    priority: low}
+      - {name: Earth Crusher, priority: low}
+      - {name: Rock Crusher, priority: low}
+      - {name: Heavy Swing,  priority: low}

@@ -1,0 +1,52 @@
+job: BST
+name: Beastmaster
+
+# Dual hub: master hub (charming/taming) + pet hub (pet management/commands).
+# Jug pet sets are hand-crafted in macros/BST.yml and not generated.
+# Dagger C+, Scythe C-, Club D, Sword E all below B- cutoff — only Axe WS included.
+
+hubs:
+  - name: master
+    label: "BST Master"
+    actions:
+      - {name: Charm,          priority: high, self_only: false}
+      - {name: Tame,           priority: high, self_only: false}
+      - {name: Gauge,          priority: high}
+      - {name: Feral Howl,     priority: mid}
+      - {name: Killer Instinct, priority: mid}
+
+  - name: pet
+    label: "BST Pet"
+    actions:
+      - {name: Reward,          priority: high}
+      - {name: Call Beast,      priority: high}
+      - {name: Snarl,           priority: high, self_only: false}
+      - {name: Spur,            priority: high}
+      - {name: Run Wild,        priority: high}
+      - {name: Unleash,         priority: mid}
+      - {name: Bestial Loyalty, priority: mid}
+      - {name: Fight,           priority: mid,  self_only: false}
+      - {name: Sic,             priority: mid,  self_only: false}
+      - {name: Ready,           priority: mid,  self_only: false}
+      - {name: Heel,            priority: low}
+      - {name: Stay,            priority: low}
+      - {name: Leave,           priority: low}
+
+groups:
+  - name: ws_axe
+    type: spoke
+    actions:
+      - {name: Primal Rend,    priority: high, note: "Mythic: BST only"}
+      - {name: Ruinator,       priority: high, note: "merit"}
+      - {name: Decimation,     priority: high, note: "quest: Axe the Competition"}
+      - {name: Cloudsplitter,  priority: high, note: "Empyrean: WAR/BST"}
+      - {name: Blitz,          priority: high, note: "Prime: BST only"}
+      - {name: Calamity,       priority: high, note: "WAR/BST only"}
+      - {name: Mistral Axe,    priority: high, note: "WAR/BST only"}
+      - {name: Bora Axe,       priority: mid}
+      - {name: Spinning Axe,   priority: mid}
+      - {name: Rampage,        priority: mid}
+      - {name: Avalanche Axe,  priority: low}
+      - {name: Gale Axe,       priority: low}
+      - {name: Smash Axe,      priority: low}
+      - {name: Raging Axe,     priority: low}

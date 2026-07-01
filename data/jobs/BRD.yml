@@ -1,10 +1,9 @@
 job: BRD
 name: Bard
 abilities_default_self: true
+two_hour_ability: Soul Voice
 
 abilities:
-  - name: Soul Voice
-    level: 1
   - name: Pianissimo
     level: 20
   - name: Nightingale

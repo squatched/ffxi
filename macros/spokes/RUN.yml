@@ -1,0 +1,94 @@
+job: RUN
+name: Rune Fencer
+
+# Rune Fencer's core mechanic: harbor runes (Ignis/Gelus/etc.) via JA, then expend via
+# Swipe/Lunge (targeted elemental damage) or passively via Vallation/Valiance (resistance).
+# All 8 elemental runes on hub for fast access during combat rotation.
+# Great Sword A+ and Sword A are primary weapons (both included by default).
+# Great Axe B included (B > B- cutoff). Axe B- and Club C- excluded.
+
+hubs:
+  - name: main
+    label: "RUN Hub"
+    actions:
+      - {name: Ignis,            priority: high}  # fire rune
+      - {name: Gelus,            priority: high}  # ice rune
+      - {name: Flabra,           priority: high}  # wind rune
+      - {name: Tellus,           priority: high}  # earth rune
+      - {name: Elemental Sforzo, priority: high}  # immunity to elemental damage
+      - {name: Sulpor,           priority: mid}   # lightning rune
+      - {name: Unda,             priority: mid}   # water rune
+      - {name: Lux,              priority: mid}   # light rune
+      - {name: Tenebrae,         priority: mid}   # dark rune
+      - {name: Swordplay,        priority: mid}   # evasion/subtle blow
+      - {name: Vallation,        priority: low}   # magic shield based on runes
+      - {name: Valiance,         priority: low}   # party-wide magic shield
+      - {name: Pflug,            priority: low}   # rune-based resistance
+      - {name: Embolden,         priority: low}   # enhancing magic boost
+      - {name: Liement,          priority: low}   # absorb damage via rune
+
+groups:
+  - name: offensive
+    type: spoke
+    actions:
+      - {name: Lunge,            priority: high, self_only: false}  # big rune-fueled hit
+      - {name: Swipe,            priority: high, self_only: false}  # rune-fueled hit
+      - {name: Rayke,            priority: high, self_only: false}  # lowers enemy resistance (merit)
+      - {name: Gambit,           priority: high, self_only: false}  # debuff via harbored runes
+      - {name: Battuta,          priority: mid}   # parry enhancement (merit)
+      - {name: Inspiration,      priority: mid}   # enhancing magic bonus (merit)
+      - {name: Sleight of Sword, priority: low}   # absorb WS (merit)
+
+  - name: enhance_self
+    type: spoke
+    actions:
+      - {name: Vivacious Pulse,  priority: high}  # HP recovery via harbored runes
+      - {name: One for All,      priority: high}  # party-wide rune resistance share
+      # Odyllic Subterfuge (two_hour_ability) is placed on Ctrl+0 of every hub automatically
+
+  - name: ws_great_sword
+    type: spoke
+    actions:
+      - {name: Dimidiation,      priority: high, note: "Ergon: RUN only"}
+      - {name: Fimbulvetr,       priority: high, note: "Prime weapon"}
+      - {name: Resolution,       priority: high, note: "merit"}
+      - {name: Herculean Slash,  priority: high}
+      - {name: Ground Strike,    priority: high, note: "quest: Inheritance"}
+      - {name: Spinning Slash,   priority: mid}
+      - {name: Sickle Moon,      priority: mid}
+      - {name: Crescent Moon,    priority: low}
+      - {name: Shockwave,        priority: low}
+      - {name: Freezebite,       priority: low}
+      - {name: Frostbite,        priority: low}
+      - {name: Power Slash,      priority: low}
+      - {name: Hard Slash,       priority: low}
+
+  - name: ws_sword
+    type: spoke
+    actions:
+      - {name: Savage Blade,     priority: high, note: "quest: Old Wounds"}
+      - {name: Requiescat,       priority: high, note: "merit"}
+      - {name: Swift Blade,      priority: high, note: "PLD/RUN only"}
+      - {name: Spirits Within,   priority: high}
+      - {name: Vorpal Blade,     priority: mid}
+      - {name: Sanguine Blade,   priority: mid}
+      - {name: Circle Blade,     priority: low}
+      - {name: Seraph Blade,     priority: low}
+      - {name: Shining Blade,    priority: low}
+      - {name: Flat Blade,       priority: low}
+      - {name: Red Lotus Blade,  priority: low}
+      - {name: Burning Blade,    priority: low}
+      - {name: Fast Blade,       priority: low}
+
+  - name: ws_great_axe
+    type: spoke
+    actions:
+      - {name: Upheaval,      priority: high, note: "merit: WAR/DRK/RUN"}
+      - {name: Steel Cyclone, priority: high, note: "quest: The Weight of Your Limits"}
+      - {name: Fell Cleave,   priority: high}
+      - {name: Keen Edge,     priority: mid}
+      - {name: Weapon Break,  priority: mid}
+      - {name: Armor Break,   priority: low}
+      - {name: Sturmwind,     priority: low}
+      - {name: Iron Tempest,  priority: low}
+      - {name: Shield Break,  priority: low}

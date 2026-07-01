@@ -1,10 +1,9 @@
 job: COR
 name: Corsair
 abilities_default_self: true
+two_hour_ability: Wild Card
 
 abilities:
-  - name: Wild Card
-    level: 1
   - name: Phantom Roll
     level: 5
   - name: Double-Up

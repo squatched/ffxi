@@ -1,0 +1,133 @@
+job: BRD
+name: Bard
+ws_rank_cutoff: C  # include Dagger B- (primary melee weapon)
+
+exclude:
+  # Staff WS — BRD has Staff C+ but doesn't wield Staff for weapon skills in practice
+  - Heavy Swing
+  - Rock Crusher
+  - Earth Crusher
+  - Starburst
+  - Sunburst
+  - Shell Crusher
+  - Full Swing
+  - Spirit Taker
+  - Cataclysm
+  - Shattersoul
+  # Weapon-specific song requiring Loughnashade equipped — not a standard macro
+  - Aria of Passion
+
+# Songs use series resolution: Army's Paeon → Army's Paeon VI, Mage's Ballad → III, etc.
+# Enfeebling family: cc + dots + enfeebling merge if ≤18 combined. Current count: 7+1+10=18 ✓
+
+hubs:
+  - name: main
+    label: "BRD Hub"
+    actions:
+      - {name: Nightingale,  priority: high}
+      - {name: Troubadour,   priority: high}
+      - {name: Pianissimo,   priority: high}
+      - {name: Con Anima,    priority: high}
+      - {name: Con Brio,     priority: high}
+      - {name: Tenuto,       priority: mid}
+      - {name: Marcato,      priority: mid}
+      - {name: Clarion Call, priority: mid}
+
+groups:
+  - name: healing
+    type: core
+    actions:
+      - {name: Army's Paeon, priority: high}   # series → Army's Paeon VI at L78
+      - {name: Mage's Ballad, priority: high}  # series → Mage's Ballad III at L85
+      - {name: Goddess' Hymnus, priority: mid} # reraise song
+
+  - name: enhance_others
+    type: spoke
+    actions:
+      - {name: Valor Minuet, priority: high}   # series → Valor Minuet V at L87
+      - {name: Victory March, priority: high}  # haste/multiattack
+      - {name: Advancing March, priority: high}
+      - {name: Honor March,  priority: high,   note: "Requires Marsyas equipped"}
+      - {name: Knight's Minne, priority: high} # series → Knight's Minne V at L80 (defense)
+      - {name: Blade Madrigal, priority: high} # best accuracy madrigal
+      - {name: Sword Madrigal, priority: mid}
+      - {name: Herculean Etude, priority: mid} # STR buff (highest tier)
+      - {name: Vital Etude,   priority: mid}   # VIT
+      - {name: Bewitching Etude, priority: mid}  # CHR
+      - {name: Logical Etude,  priority: mid}  # MND
+      - {name: Sage Etude,    priority: mid}   # INT
+      - {name: Dextrous Etude, priority: low}  # DEX
+      - {name: Uncanny Etude,  priority: low}  # AGI
+      - {name: Spirited Etude, priority: low}  # MP
+      - {name: Sentinel's Scherzo, priority: low}  # evasion/defense
+      - {name: Hunter's Prelude, priority: low}    # ranged accuracy
+      - {name: Archer's Prelude, priority: low}
+
+  - name: cc
+    type: spoke
+    family: enfeebling
+    actions:
+      - {name: Foe Lullaby,       priority: high}  # series → Foe Lullaby II at L83
+      - {name: Horde Lullaby,     priority: high}  # series → Horde Lullaby II at L92 (AoE sleep)
+      - {name: Maiden's Virelai,  priority: high}  # charm
+      - {name: Battlefield Elegy, priority: mid}
+      - {name: Carnage Elegy,     priority: mid}   # ATK/ACC down on enemy
+      - {name: Pining Nocturne,   priority: low}   # slow on enemy
+      - {name: Adventurer's Dirge, priority: low}  # charm resist down
+
+  - name: dots
+    type: spoke
+    family: enfeebling
+    actions:
+      - {name: Foe Requiem,    priority: high}  # series → Foe Requiem VI at L67
+      - {name: Foe Requiem VII, priority: high, exact: true}  # not chained to series; standalone at L76
+
+  - name: enfeebling
+    type: spoke
+    family: enfeebling
+    actions:
+      - {name: Earth Threnody,     priority: high}  # element resist down (enemy)
+      - {name: Water Threnody,     priority: high}
+      - {name: Wind Threnody,      priority: high}
+      - {name: Fire Threnody,      priority: high}
+      - {name: Ice Threnody,       priority: high}
+      - {name: Lightning Threnody, priority: high}
+      - {name: Light Threnody,     priority: mid}
+      - {name: Dark Threnody,      priority: mid}
+      - {name: Magic Finale,       priority: mid}   # dispel
+      - {name: Foe Sirvente,       priority: low}   # ATK down
+
+  - name: resist_elem
+    type: spoke
+    actions:
+      - {name: Earth Carol,     priority: high}  # series → Earth Carol II at L81
+      - {name: Water Carol,     priority: high}
+      - {name: Wind Carol,      priority: high}
+      - {name: Fire Carol,      priority: high}
+      - {name: Ice Carol,       priority: high}
+      - {name: Lightning Carol, priority: high}
+      - {name: Light Carol,     priority: mid}   # series → Light Carol II at L99
+      - {name: Dark Carol,      priority: mid}
+
+  - name: field
+    type: spoke
+    actions:
+      - {name: Raptor Mazurka,  priority: high}  # movement speed
+      - {name: Chocobo Mazurka, priority: mid}   # movement speed (higher tier)
+      - {name: Warding Round,   priority: low}   # march-type defense
+
+  - name: ws_dagger
+    type: spoke
+    actions:
+      - {name: Mordant Rime,   priority: high, note: "Mythic: BRD only"}
+      - {name: Rudra's Storm,  priority: high, note: "Empyrean: THF/BRD/DNC"}
+      - {name: Evisceration,   priority: high, note: "quest: Cloak and Dagger"}
+      - {name: Exenterator,    priority: high}
+      - {name: Aeolian Edge,   priority: high}
+      - {name: Energy Drain,   priority: mid}
+      - {name: Energy Steal,   priority: mid}
+      - {name: Cyclone,        priority: low}
+      - {name: Viper Bite,     priority: low}
+      - {name: Shadowstitch,   priority: low}
+      - {name: Gust Slash,     priority: low}
+      - {name: Wasp Sting,     priority: low}

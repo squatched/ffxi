@@ -1,0 +1,162 @@
+job: SCH
+name: Scholar
+ws_rank_cutoff: C  # include Club C+ and Staff C+
+
+# SCH has 17+ JA stratagems but hub fits only 11 (5 high Ctrl+1-5, 4 mid Ctrl+6-9,
+# 2 low on Alt+8-9 — remaining Alt+2-7 used for 6 content group nav).
+# Uncovered JAs: Perpetuance, Immanence, Rapture, Ebullience, Modus Veritas,
+# Sublimation, Libra, Stormsurge, Altruism and merit abilities. Accepted — too many
+# stratagems to fit on one hub. Bring them up via /ja in chat or a separate macro book.
+#
+# Content group math (7 total sets):
+#   resist_dmg + status_removal + field: family:resist → merge (6+8+3=17 ≤ 18) → 1 set
+#   ws_club (11) + ws_staff (7): auto-merge as ws family (11+7=18 ≤ 18) → 1 set
+#   hub(1) + healing(1) + nuking(1) + cc(1) + resist(1) + storms(1) + ws(1) = 7 sets
+#
+# SCH white magic: Cure I-IV, Protect/Shell/Regen/Raise/Reraise series,
+#   Poisona/Paralyna/Blindna/Silena/Viruna/Cursna/Erase/Stona, Sneak/Invis/Deodorize,
+#   Blink/Stoneskin/Aquaveil, Embrava, Adloquium, 8 storm spells.
+# SCH black magic: Stone-Thunder-Water-Fire-Blizzard-Aero (I-V), Sleep/Sleep II/Break,
+#   Drain/Aspir/Aspir II, Dispel, Kaustra, Klimaform, 8 Helix spells.
+# NOT available: Curaga, Bind, Gravity, Repose (WHM/RDM), Esuna (WHM), Warp (BLM),
+#   Dia/Bio/Poison/Slow/Paralyze/Silence/Blind (RDM only).
+
+hubs:
+  - name: main
+    label: "SCH Hub"
+    actions:
+      - {name: Light Arts,          priority: high}
+      - {name: Dark Arts,           priority: high}
+      - {name: Accession,           priority: high}
+      - {name: Manifestation,       priority: high}
+      - {name: Celerity,            priority: high}
+      - {name: Alacrity,            priority: mid}
+      - {name: Penury,              priority: mid}
+      - {name: Parsimony,           priority: mid}
+      - {name: "Addendum: White",   priority: mid}
+      - {name: "Addendum: Black",   priority: low}  # lands on Alt+8
+      - {name: Enlightenment,       priority: low}  # lands on Alt+9 — doubles next stratagem
+      # Tabula Rasa (2-hour) placed on Ctrl+0 automatically
+
+groups:
+  - name: healing
+    type: core
+    actions:
+      - {name: Cure,        priority: high}               # highest tier: Cure IV at L55
+      - {name: Cure,        priority: high, sub_tier: 1}  # one below max
+      - {name: Cure,        priority: high, sub_tier: 2}  # two below max (mana-efficient)
+      - {name: Raise,       priority: mid}                # series: Raise III at L91
+      - {name: Regen,       priority: mid}                # series: Regen V at L99
+      - {name: Adloquium,   priority: low}                # HP restore based on status
+
+  - name: nuking
+    type: spoke
+    # All SCH elemental nukes + Helix spells (Addendum: Black / Dark Arts required)
+    actions:
+      - {name: Stone,       priority: high}  # series: Stone V at L79
+      - {name: Thunder,     priority: high}
+      - {name: Water,       priority: high}
+      - {name: Fire,        priority: high}
+      - {name: Blizzard,    priority: high}
+      - {name: Aero,        priority: mid}
+      - {name: Kaustra,     priority: mid}    # dark-aligned nuke (SCH L5)
+      - {name: Klimaform,   priority: mid}    # self-buff: enhances next Helix cast
+      - {name: Geohelix,    priority: mid}
+      - {name: Hydrohelix,  priority: mid}
+      - {name: Anemohelix,  priority: mid}
+      - {name: Pyrohelix,   priority: mid}
+      - {name: Cryohelix,   priority: low}
+      - {name: Ionohelix,   priority: low}
+      - {name: Noctohelix,  priority: low}
+      - {name: Luminohelix, priority: low}
+
+  - name: cc
+    type: spoke
+    # Dark Arts CC + drain spells — all require Addendum: Black or Dark Arts mode
+    actions:
+      - {name: Sleep,     priority: high}   # series: Sleep II at L65
+      - {name: Break,     priority: high}   # petrify (SCH L90)
+      - {name: Drain,     priority: high}   # HP drain
+      - {name: Aspir,     priority: high}   # series: Aspir II at L97
+      - {name: Dispel,    priority: mid}
+      - {name: Sleep II,  priority: mid, exact: true}  # AoE version
+
+  # resist_dmg + status_removal + field share family:resist (16 total ≤ 18 → one set)
+  - name: resist_dmg
+    type: spoke
+    family: resist
+    actions:
+      - {name: Protect,   priority: high}  # series: Protect V at L80
+      - {name: Shell,     priority: high}  # series: Shell V at L90
+      - {name: Stoneskin, priority: high}
+      - {name: Blink,     priority: mid}
+      - {name: Reraise,   priority: mid}   # series: Reraise III at L91
+      - {name: Aquaveil,  priority: low}
+
+  - name: status_removal
+    type: spoke
+    family: resist
+    actions:
+      - {name: Erase,     priority: high}
+      - {name: Cursna,    priority: high}
+      - {name: Viruna,    priority: high}
+      - {name: Stona,     priority: high}
+      - {name: Poisona,   priority: mid}
+      - {name: Paralyna,  priority: mid}
+      - {name: Blindna,   priority: mid}
+      - {name: Silena,    priority: mid}
+
+  - name: field
+    type: spoke
+    family: resist
+    actions:
+      - {name: Sneak,     priority: high}
+      - {name: Invisible, priority: high}
+      - {name: Deodorize, priority: mid}
+
+  - name: storms
+    type: spoke
+    label: "SStorms"
+    # SCH weather-effect spells — pair with matching Helix for bonus damage
+    actions:
+      - {name: Sandstorm,    priority: high}  # earth → Geohelix bonus
+      - {name: Rainstorm,    priority: high}  # water → Hydrohelix
+      - {name: Windstorm,    priority: high}  # wind → Anemohelix
+      - {name: Firestorm,    priority: high}  # fire → Pyrohelix
+      - {name: Hailstorm,    priority: mid}   # ice → Cryohelix
+      - {name: Thunderstorm, priority: mid}   # lightning → Ionohelix
+      - {name: Voidstorm,    priority: mid}   # dark → Noctohelix
+      - {name: Aurorastorm,  priority: mid}   # light → Luminohelix
+      - {name: Embrava,      priority: low}   # regen+haste-like party buff
+
+  # ws_club and ws_staff auto-merge as 'ws' family (11+7=18 ≤ 18 → one set)
+  - name: ws_club
+    type: spoke
+    # Hexa Strike (WHM/GEO), Black Halo (WAR/MNK/WHM/PLD/DRK/SAM/BLU/GEO), Realmrazer —
+    # all jobs-restricted; SCH not eligible.
+    actions:
+      - {name: Dagda,          priority: high, note: "Prime: Lorg Mor"}
+      - {name: Randgrith,      priority: high, note: "Relic weapon"}
+      - {name: Flash Nova,     priority: high}
+      - {name: Judgment,       priority: mid}
+      - {name: True Strike,    priority: mid}
+      - {name: Skullbreaker,   priority: low}
+      - {name: Brainshaker,    priority: low}
+      - {name: Starlight,      priority: low}
+      - {name: Moonlight,      priority: low}
+      - {name: Seraph Strike,  priority: low}
+      - {name: Shining Strike, priority: low}
+
+  - name: ws_staff
+    type: spoke
+    # Retribution (WAR/MNK/WHM/PLD/GEO) — SCH not eligible.
+    # Trimmed to 7 so ws_club(11)+ws_staff(7)=18 auto-merges into one SWS set.
+    # Dropped lower tiers: Shell Crusher, Sunburst, Starburst, Earth Crusher, Rock Crusher, Heavy Swing.
+    actions:
+      - {name: Omniscience,  priority: high, note: "Mythic: SCH only"}
+      - {name: Myrkr,        priority: high, note: "Empyrean: BLM/SMN/SCH"}
+      - {name: Oshala,       priority: high, note: "Prime: BLM/SMN/SCH"}
+      - {name: Cataclysm,    priority: high}
+      - {name: Shattersoul,  priority: high}
+      - {name: Full Swing,   priority: mid}
+      - {name: Spirit Taker, priority: mid}

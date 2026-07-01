@@ -1,0 +1,87 @@
+job: RNG
+name: Ranger
+ws_rank_cutoff: C  # include Dagger B- and Axe B- secondary melee weapons
+
+# Ranged Attack auto-added (Archery A + Marksmanship A).
+# Archery and Marksmanship are co-primary — both WS sets are equally important.
+
+hubs:
+  - name: main
+    label: "RNG Hub"
+    actions:
+      - {name: Sharpshot,    priority: high}
+      - {name: Barrage,      priority: high}
+      - {name: Unlimited Shot, priority: high}
+      - {name: Velocity Shot, priority: high}
+      - {name: Double Shot,  priority: high}
+      - {name: Hover Shot,   priority: mid}
+      - {name: Overkill,     priority: mid}
+      - {name: Flashy Shot,  priority: mid}
+      - {name: Stealth Shot, priority: mid}
+      - {name: Camouflage,   priority: low}
+      - {name: Scavenge,     priority: low}
+      - {name: Shadowbind,   priority: low, self_only: false}
+      - {name: Bounty Shot,  priority: low, self_only: false}
+      - {name: Decoy Shot,   priority: low, self_only: false}
+      - {name: Ranged Attack, priority: low}
+
+groups:
+  - name: ws_archery
+    type: spoke
+    actions:
+      - {name: Jishnu's Radiance, priority: high, note: "Empyrean: Gandiva"}
+      - {name: Sarv,             priority: high, note: "Prime: Pinaka"}
+      - {name: Apex Arrow,       priority: high, note: "Aeonic weapon"}
+      - {name: Namas Arrow,      priority: high, note: "Relic weapon"}
+      - {name: Empyreal Arrow,   priority: high, note: "quest: From Saplings Grow"}
+      - {name: Refulgent Arrow,  priority: high}
+      - {name: Arching Arrow,    priority: mid}
+      - {name: Blast Arrow,      priority: mid}
+      - {name: Sidewinder,       priority: mid}
+      - {name: Dulling Arrow,    priority: low}
+      - {name: Piercing Arrow,   priority: low}
+      - {name: Flaming Arrow,    priority: low}
+
+  - name: ws_marksmanship
+    type: spoke
+    actions:
+      - {name: Trueflight,   priority: high, note: "Mythic: RNG only"}
+      - {name: Terminus,     priority: high, note: "Prime weapon"}
+      - {name: Last Stand,   priority: high, note: "Aeonic weapon"}
+      - {name: Wildfire,     priority: high, note: "Empyrean: RNG/COR"}
+      - {name: Coronach,     priority: high, note: "Relic weapon"}
+      - {name: Detonator,    priority: high, note: "quest: Shoot First, Ask Questions Later"}
+      - {name: Numbing Shot, priority: mid}
+      - {name: Heavy Shot,   priority: mid}
+      - {name: Blast Shot,   priority: mid}
+      - {name: Slug Shot,    priority: low}
+      - {name: Sniper Shot,  priority: low}
+      - {name: Split Shot,   priority: low}
+      - {name: Hot Shot,     priority: low}
+
+  - name: ws_dagger
+    type: spoke
+    actions:
+      - {name: Evisceration, priority: high, note: "quest: Cloak and Dagger"}
+      - {name: Aeolian Edge, priority: high}
+      - {name: Exenterator,  priority: high}
+      - {name: Energy Drain, priority: mid}
+      - {name: Energy Steal, priority: mid}
+      - {name: Cyclone,      priority: low}
+      - {name: Viper Bite,   priority: low}
+      - {name: Shadowstitch, priority: low}
+      - {name: Gust Slash,   priority: low}
+      - {name: Wasp Sting,   priority: low}
+
+  - name: ws_axe
+    type: spoke
+    actions:
+      - {name: Ruinator,      priority: high, note: "merit"}
+      - {name: Decimation,    priority: high, note: "quest: Axe the Competition"}
+      - {name: Bora Axe,      priority: mid}
+      - {name: Spinning Axe,  priority: mid}
+      - {name: Rampage,       priority: mid}
+      - {name: Avalanche Axe, priority: low}
+      - {name: Gale Axe,      priority: low}
+      - {name: Smash Axe,     priority: low}
+      - {name: Raging Axe,    priority: low}

@@ -1,10 +1,9 @@
 job: DNC
 name: Dancer
 abilities_default_self: true
+two_hour_ability: Trance
 
 abilities:
-  - name: Trance
-    level: 1
   - name: Drain Samba
     level: 5
   - name: Curing Waltz

@@ -1,6 +1,7 @@
 job: RUN
 name: Rune Fencer
 abilities_default_self: true
+two_hour_ability: Odyllic Subterfuge
 
 abilities:
   - name: Elemental Sforzo
@@ -59,8 +60,6 @@ abilities:
     level: 85
   - name: One for All
     level: 95
-  - name: Odyllic Subterfuge
-    level: 96
 
 # weapons section needs verification — skill caps page returned 404
 weapons:

@@ -1,0 +1,141 @@
+job: GEO
+name: Geomancer
+ws_rank_cutoff: C  # include Club B+ and Staff C+
+
+# Indi- spells are player-centered auras (self_only: true in geomancy.yml).
+# Geo- spells place a Luopan at target's position (target enemy or <t> for friendly).
+# Indi-/Geo- pairs are used simultaneously, not as upgrades — no series resolution.
+# Both indi and geo spells are available at all levels; just use whichever tier unlocks.
+# Club B+ WS included (Hexa Strike, Black Halo, Exudation ergon).
+
+hubs:
+  - name: main
+    label: "GEO Hub"
+    actions:
+      - {name: Full Circle,       priority: high}
+      - {name: Lasting Emanation, priority: high}
+      - {name: Ecliptic Attrition, priority: high}
+      - {name: Collimated Fervor, priority: high}
+      - {name: Life Cycle,        priority: mid}
+      - {name: Blaze of Glory,    priority: mid}
+      - {name: Dematerialize,     priority: mid}
+      - {name: Entrust,           priority: mid}
+      - {name: Mending Halation,  priority: mid}
+      - {name: Radial Arcana,     priority: low}
+      - {name: Primeval Zeal,     priority: low}
+      - {name: Theurgic Focus,    priority: low}
+      - {name: Concentric Pulse,  priority: low}
+      - {name: Widened Compass,   priority: low}
+
+groups:
+  - name: indi_offense
+    type: spoke
+    # Elemental ordering: Earth > Lightning > Water > Fire > Ice > Wind, then Light > Dark, then misc
+    actions:
+      - {name: Indi-Frailty,   priority: high}  # DEF down (enemy)
+      - {name: Indi-Malaise,   priority: high}  # INT/MND down (enemy magic)
+      - {name: Indi-Torpor,    priority: high}  # AGI/evasion down
+      - {name: Indi-Wilt,      priority: high}  # subtle blow bonus
+      - {name: Indi-Vex,       priority: high}  # enmity reduction debuff
+      - {name: Indi-Languor,   priority: mid}   # slow effect on enemy
+      - {name: Indi-Paralysis, priority: mid}
+      - {name: Indi-Gravity,   priority: mid}
+      - {name: Indi-Slow,      priority: mid}
+      - {name: Indi-Slip,      priority: low}   # skill reduction
+      - {name: Indi-Voidance,  priority: low}   # evasion down
+      - {name: Indi-Fury,      priority: low}   # STR/ATK (also useful for party)
+      - {name: Indi-Poison,    priority: low}
+      - {name: Indi-Fade,      priority: low}   # reduces enemy damage
+
+  - name: indi_support
+    type: spoke
+    actions:
+      - {name: Indi-Haste,      priority: high}
+      - {name: Indi-Refresh,    priority: high}
+      - {name: Indi-Regen,      priority: high}
+      - {name: Indi-Acumen,     priority: high}  # INT/MND up
+      - {name: Indi-Attunement, priority: high}  # MAcc/MAB
+      - {name: Indi-Focus,      priority: mid}   # ACC
+      - {name: Indi-Barrier,    priority: mid}   # magic defense
+      - {name: Indi-Precision,  priority: mid}   # ranged/WS accuracy
+      - {name: Indi-STR,        priority: mid}
+      - {name: Indi-DEX,        priority: mid}
+      - {name: Indi-VIT,        priority: mid}
+      - {name: Indi-AGI,        priority: low}
+      - {name: Indi-INT,        priority: low}
+      - {name: Indi-MND,        priority: low}
+      - {name: Indi-CHR,        priority: low}
+      - {name: Indi-Fend,       priority: low}   # DEF up
+
+  - name: geo_offense
+    type: spoke
+    # Luopan placed at target (<t>) for enemy-targeted debuffs
+    actions:
+      - {name: Geo-Frailty,    priority: high}
+      - {name: Geo-Malaise,    priority: high}
+      - {name: Geo-Torpor,     priority: high}
+      - {name: Geo-Wilt,       priority: high}
+      - {name: Geo-Vex,        priority: high}
+      - {name: Geo-Languor,    priority: mid}
+      - {name: Geo-Paralysis,  priority: mid}
+      - {name: Geo-Gravity,    priority: mid}
+      - {name: Geo-Slow,       priority: mid}
+      - {name: Geo-Slip,       priority: low}
+      - {name: Geo-Voidance,   priority: low}
+      - {name: Geo-Fury,       priority: low}
+      - {name: Geo-Poison,     priority: low}
+      - {name: Geo-Fade,       priority: low}
+
+  - name: geo_support
+    type: spoke
+    # Luopan placed near party members for buffs
+    actions:
+      - {name: Geo-Haste,      priority: high}
+      - {name: Geo-Refresh,    priority: high}
+      - {name: Geo-Regen,      priority: high}
+      - {name: Geo-Acumen,     priority: high}
+      - {name: Geo-Attunement, priority: high}
+      - {name: Geo-Focus,      priority: mid}
+      - {name: Geo-Barrier,    priority: mid}
+      - {name: Geo-Precision,  priority: mid}
+      - {name: Geo-STR,        priority: mid}
+      - {name: Geo-DEX,        priority: mid}
+      - {name: Geo-VIT,        priority: mid}
+      - {name: Geo-AGI,        priority: low}
+      - {name: Geo-INT,        priority: low}
+      - {name: Geo-MND,        priority: low}
+      - {name: Geo-CHR,        priority: low}
+      - {name: Geo-Fend,       priority: low}
+
+  - name: ws_club
+    type: spoke
+    actions:
+      - {name: Exudation,    priority: high, note: "Ergon: Idris (GEO only)"}
+      - {name: Dagda,        priority: high, note: "Prime: Lorg Mor"}
+      - {name: Realmrazer,   priority: high, note: "Aeonic weapon"}
+      - {name: Hexa Strike,  priority: high, note: "WHM/GEO only"}
+      - {name: Black Halo,   priority: high, note: "quest: Orastery Woes"}
+      - {name: Flash Nova,   priority: high}
+      - {name: Judgment,     priority: mid}
+      - {name: True Strike,  priority: mid}
+      - {name: Skullbreaker, priority: low}
+      - {name: Brainshaker,  priority: low}
+      - {name: Starlight,    priority: low}
+      - {name: Moonlight,    priority: low}
+      - {name: Seraph Strike, priority: low}
+      - {name: Shining Strike, priority: low}
+
+  - name: ws_staff
+    type: spoke
+    actions:
+      - {name: Retribution,  priority: high, note: "quest: Blood and Glory (GEO eligible)"}
+      - {name: Cataclysm,    priority: high}
+      - {name: Shattersoul,  priority: high}
+      - {name: Full Swing,   priority: mid}
+      - {name: Spirit Taker, priority: mid}
+      - {name: Shell Crusher, priority: mid}
+      - {name: Sunburst,     priority: low}
+      - {name: Starburst,    priority: low}
+      - {name: Earth Crusher, priority: low}
+      - {name: Rock Crusher, priority: low}
+      - {name: Heavy Swing,  priority: low}

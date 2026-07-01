@@ -1,10 +1,9 @@
 job: BLU
 name: Blue Mage
 abilities_default_self: true
+two_hour_ability: Azure Lore
 
 abilities:
-  - name: Azure Lore
-    level: 1
   - name: Burst Affinity
     level: 25
   - name: Chain Affinity

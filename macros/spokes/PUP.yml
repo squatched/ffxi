@@ -1,0 +1,55 @@
+job: PUP
+name: Puppetmaster
+
+# All maneuvers and deployment commands are /ja. There are no /pet commands for PUP.
+# Automaton head/frame/attachment decisions are out of scope for this macro system.
+# Heady Artifice (L96) is the highest-tier ability; Tactical Switch/Role Reversal are merit-tier.
+# Hand-to-Hand B+ included. Dagger C- and Club D below cutoff — excluded.
+
+hubs:
+  - name: main
+    label: "PUP Hub"
+    actions:
+      - {name: Fire Maneuver,    priority: high}
+      - {name: Wind Maneuver,    priority: high}
+      - {name: Thunder Maneuver, priority: high}
+      - {name: Light Maneuver,   priority: high}
+      - {name: Activate,         priority: high}
+      - {name: Ice Maneuver,     priority: mid}
+      - {name: Earth Maneuver,   priority: mid}
+      - {name: Water Maneuver,   priority: mid}
+      - {name: Dark Maneuver,    priority: mid}
+      - {name: Deactivate,       priority: mid}
+      - {name: Deploy,           priority: low}
+      - {name: Retrieve,         priority: low}
+      - {name: Repair,           priority: low}
+      - {name: Deus Ex Automata, priority: low}
+      - {name: Maintenance,      priority: low}
+
+groups:
+  - name: utility
+    type: spoke
+    actions:
+      - {name: Heady Artifice,  priority: high}
+      - {name: Cooldown,        priority: high}
+      - {name: Tactical Switch, priority: mid}
+      - {name: Role Reversal,   priority: mid}
+      - {name: Ventriloquy,     priority: low}
+
+  - name: ws_hand_to_hand
+    type: spoke
+    actions:
+      - {name: Stringing Pummel, priority: high, note: "Mythic: PUP only"}
+      - {name: Victory Smite,    priority: high, note: "Empyrean: MNK/PUP"}
+      - {name: Maru Kala,        priority: high, note: "Prime weapon"}
+      - {name: Shijin Spiral,    priority: high, note: "merit"}
+      - {name: Asuran Fists,     priority: high, note: "quest: The Walls of Your Mind"}
+      - {name: Tornado Kick,     priority: mid}
+      - {name: Dragon Kick,      priority: mid}
+      - {name: Howling Fist,     priority: mid}
+      - {name: Spinning Attack,  priority: low}
+      - {name: Raging Fists,     priority: low}
+      - {name: Backhand Blow,    priority: low}
+      - {name: One Inch Punch,   priority: low}
+      - {name: Shoulder Tackle,  priority: low}
+      - {name: Combo,            priority: low}

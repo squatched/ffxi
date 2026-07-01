@@ -1,10 +1,9 @@
 job: PUP
 name: Puppetmaster
 abilities_default_self: true
+two_hour_ability: Overdrive
 
 abilities:
-  - name: Overdrive
-    level: 1
   - name: Activate
     level: 1
   - name: Deactivate
