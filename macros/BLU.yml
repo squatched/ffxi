@@ -1,0 +1,16 @@
+version: 1
+scope:
+  level: book
+  selections:
+    - {book: 17}
+books:
+  17:
+    name: BLU
+    sets:
+      1:
+        alt:
+          0:
+            name: SJobHub
+            contents:
+              - /macro book 1
+              - /macro set 1

@@ -1,0 +1,272 @@
+version: 1
+scope:
+  level: book
+  selections:
+    - {book: 10}
+books:
+  10:
+    name: BST
+    sets:
+      1:
+        ctrl:
+          1:
+            name: Charm
+            contents:
+              - /ja "Charm" <t>
+          2:
+            name: Gauge
+            contents:
+              - /ja "Gauge" <t>
+          3:
+            name: Tame
+            contents:
+              - /ja "Tame" <t>
+          4:
+            name: FerlHowl
+            contents:
+              - /ja "Feral Howl" <me>
+          5:
+            name: KlrInstc
+            contents:
+              - /ja "Killer Instinct" <me>
+          0:
+            name: Familar
+            contents:
+              - /ja "Familiar" <me>
+        alt:
+          2:
+            name: SPetHub
+            contents:
+              - /macro book 10
+              - /macro set 2
+          3:
+            name: SAxe
+            contents:
+              - /macro book 10
+              - /macro set 3
+          4:
+            name: SGrtAxe
+            contents:
+              - /macro book 10
+              - /macro set 4
+          5:
+            name: SClub
+            contents:
+              - /macro book 10
+              - /macro set 5
+          0:
+            name: SJobHub
+            contents:
+              - /macro book 1
+              - /macro set 1
+      2:
+        ctrl:
+          1:
+            name: Reward
+            contents:
+              - /ja "Reward" <me>
+          2:
+            name: CallBst
+            contents:
+              - /ja "Call Beast" <me>
+          3:
+            name: Snarl
+            contents:
+              - /ja "Snarl" <t>
+          4:
+            name: Spur
+            contents:
+              - /ja "Spur" <me>
+          5:
+            name: RunWild
+            contents:
+              - /ja "Run Wild" <me>
+          6:
+            name: Unleash
+            contents:
+              - /ja "Unleash" <me>
+          7:
+            name: Fight
+            contents:
+              - /pet "Fight" <t>
+          8:
+            name: Heel
+            contents:
+              - /pet "Heel" <me>
+          9:
+            name: Stay
+            contents:
+              - /pet "Stay" <me>
+        alt:
+          1:
+            name: SMstHub
+            contents:
+              - /macro book 10
+              - /macro set 1
+          3:
+            name: SAxe
+            contents:
+              - /macro book 10
+              - /macro set 3
+          4:
+            name: SGrtAxe
+            contents:
+              - /macro book 10
+              - /macro set 4
+          5:
+            name: SClub
+            contents:
+              - /macro book 10
+              - /macro set 5
+          6:
+            name: Sic
+            contents:
+              - /pet "Sic" <t>
+          7:
+            name: Leave
+            contents:
+              - /pet "Leave" <me>
+          0:
+            name: SJobHub
+            contents:
+              - /macro book 1
+              - /macro set 1
+      3:
+        ctrl:
+          1:
+            name: Rampage
+            contents:
+              - /ws "Rampage" <t>
+          2:
+            name: Decimatn
+            contents:
+              - /ws "Decimation" <t>
+          3:
+            name: Calamity
+            contents:
+              - /ws "Calamity" <t>
+          4:
+            name: MistAxe
+            contents:
+              - /ws "Mistral Axe" <t>
+          5:
+            name: BoraAxe
+            contents:
+              - /ws "Bora Axe" <t>
+          6:
+            name: SpinAxe
+            contents:
+              - /ws "Spinning Axe" <t>
+          7:
+            name: AvlnAxe
+            contents:
+              - /ws "Avalanche Axe" <t>
+          8:
+            name: GaleAxe
+            contents:
+              - /ws "Gale Axe" <t>
+          9:
+            name: SmashAxe
+            contents:
+              - /ws "Smash Axe" <t>
+          0:
+            name: RagAxe
+            contents:
+              - /ws "Raging Axe" <t>
+        alt:
+          1:
+            name: SMstHub
+            contents:
+              - /macro book 10
+              - /macro set 1
+          2:
+            name: SPetHub
+            contents:
+              - /macro book 10
+              - /macro set 2
+      4:
+        ctrl:
+          1:
+            name: Guttler
+            contents:
+              - /ws "Guttler" <t>
+          2:
+            name: StlCycln
+            contents:
+              - /ws "Steel Cyclone" <t>
+          3:
+            name: FellClve
+            contents:
+              - /ws "Fell Cleave" <t>
+          4:
+            name: RagRush
+            contents:
+              - /ws "Raging Rush" <t>
+          5:
+            name: FullBrk
+            contents:
+              - /ws "Full Break" <t>
+          6:
+            name: WpnBrk
+            contents:
+              - /ws "Weapon Break" <t>
+          7:
+            name: ArmrBrk
+            contents:
+              - /ws "Armor Break" <t>
+          8:
+            name: Sturmwnd
+            contents:
+              - /ws "Sturmwind" <t>
+          9:
+            name: IrnTmpt
+            contents:
+              - /ws "Iron Tempest" <t>
+          0:
+            name: ShldBrk
+            contents:
+              - /ws "Shield Break" <t>
+        alt:
+          1:
+            name: SMstHub
+            contents:
+              - /macro book 10
+              - /macro set 1
+          2:
+            name: SPetHub
+            contents:
+              - /macro book 10
+              - /macro set 2
+      5:
+        ctrl:
+          1:
+            name: TruStrke
+            contents:
+              - /ws "True Strike" <t>
+          2:
+            name: Judgmnt
+            contents:
+              - /ws "Judgment" <t>
+          3:
+            name: SkulBrkr
+            contents:
+              - /ws "Skullbreaker" <t>
+          4:
+            name: Brainshr
+            contents:
+              - /ws "Brainshaker" <t>
+          5:
+            name: Starlit
+            contents:
+              - /ws "Starlit Skies" <t>
+        alt:
+          1:
+            name: SMstHub
+            contents:
+              - /macro book 10
+              - /macro set 1
+          2:
+            name: SPetHub
+            contents:
+              - /macro book 10
+              - /macro set 2

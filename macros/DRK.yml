@@ -1,0 +1,289 @@
+version: 1
+scope:
+  level: book
+  selections:
+    - {book: 9}
+books:
+  9:
+    name: DRK
+    sets:
+      1:
+        ctrl:
+          1:
+            name: LastRsrt
+            contents:
+              - /ja "Last Resort" <me>
+          2:
+            name: WpnBash
+            contents:
+              - /ja "Weapon Bash" <t>
+          3:
+            name: Souletr
+            contents:
+              - /ja "Souleater" <me>
+          4:
+            name: ArcCrest
+            contents:
+              - /ja "Arcane Crest" <me>
+          5:
+            name: ScrlDelm
+            contents:
+              - /ja "Scarlet Delirium" <me>
+          6:
+            name: DblcEye
+            contents:
+              - /ja "Diabolic Eye" <me>
+          7:
+            name: NthrVoid
+            contents:
+              - /ja "Nether Void" <me>
+          8:
+            name: CnsmMana
+            contents:
+              - /ja "Consume Mana" <me>
+          9:
+            name: ArcCircl
+            contents:
+              - /ja "Arcane Circle" <me>
+          0:
+            name: BlodWpn
+            contents:
+              - /ja "Blood Weapon" <me>
+        alt:
+          2:
+            name: SDrkMag
+            contents:
+              - /macro book 9
+              - /macro set 2
+          3:
+            name: SAbsorb
+            contents:
+              - /macro book 9
+              - /macro set 3
+          4:
+            name: SGrtSwrd
+            contents:
+              - /macro book 9
+              - /macro set 4
+          5:
+            name: SScythe
+            contents:
+              - /macro book 9
+              - /macro set 5
+          0:
+            name: SJobHub
+            contents:
+              - /macro book 1
+              - /macro set 1
+      2:
+        ctrl:
+          1:
+            name: Drain
+            contents:
+              - /ma "Drain" <t>
+          2:
+            name: Aspir
+            contents:
+              - /ma "Aspir" <t>
+          3:
+            name: Stun
+            contents:
+              - /ma "Stun" <t>
+          4:
+            name: Sleep
+            contents:
+              - /ma "Sleep" <t>
+          5:
+            name: Sleep2
+            contents:
+              - /ma "Sleep II" <t>
+          6:
+            name: DredSpk
+            contents:
+              - /ma "Dread Spikes" <me>
+          7:
+            name: Endark
+            contents:
+              - /ma "Endark II" <me>
+          8:
+            name: Break
+            contents:
+              - /ma "Break" <t>
+          9:
+            name: DarkSeal
+            contents:
+              - /ja "Dark Seal" <me>
+          0:
+            name: SlEnslv
+            contents:
+              - /ja "Soul Enslavement" <me>
+        alt:
+          1:
+            name: SHub
+            contents:
+              - /macro book 9
+              - /macro set 1
+          3:
+            name: Tractor
+            contents:
+              - /ma "Tractor" <st>
+          4:
+            name: Bio
+            contents:
+              - /ma "Bio III" <t>
+          5:
+            name: Poisonga
+            contents:
+              - /ma "Poisonga" <t>
+          6:
+            name: Bind
+            contents:
+              - /ma "Bind" <t>
+      3:
+        ctrl:
+          1:
+            name: AbsSTR
+            contents:
+              - /ma "Absorb-STR" <t>
+          2:
+            name: AbsDEX
+            contents:
+              - /ma "Absorb-DEX" <t>
+          3:
+            name: AbsVIT
+            contents:
+              - /ma "Absorb-VIT" <t>
+          4:
+            name: AbsAGI
+            contents:
+              - /ma "Absorb-AGI" <t>
+          5:
+            name: AbsINT
+            contents:
+              - /ma "Absorb-INT" <t>
+          6:
+            name: AbsMND
+            contents:
+              - /ma "Absorb-MND" <t>
+          7:
+            name: AbsCHR
+            contents:
+              - /ma "Absorb-CHR" <t>
+          8:
+            name: AbsTP
+            contents:
+              - /ma "Absorb-TP" <t>
+          9:
+            name: AbsACC
+            contents:
+              - /ma "Absorb-ACC" <t>
+          0:
+            name: AbsAtri
+            contents:
+              - /ma "Absorb-Attri" <t>
+        alt:
+          1:
+            name: SHub
+            contents:
+              - /macro book 9
+              - /macro set 1
+      4:
+        ctrl:
+          1:
+            name: Resoltn
+            contents:
+              - /ws "Resolution" <t>
+          2:
+            name: GrndStrk
+            contents:
+              - /ws "Ground Strike" <t>
+          3:
+            name: Torclevr
+            contents:
+              - /ws "Torcleaver" <t>
+          4:
+            name: Scourge
+            contents:
+              - /ws "Scourge" <t>
+          5:
+            name: HercSlsh
+            contents:
+              - /ws "Herculean Slash" <t>
+          6:
+            name: SpinSlsh
+            contents:
+              - /ws "Spinning Slash" <t>
+          7:
+            name: SicklMon
+            contents:
+              - /ws "Sickle Moon" <t>
+          8:
+            name: Shockwav
+            contents:
+              - /ws "Shockwave" <t>
+        alt:
+          1:
+            name: SHub
+            contents:
+              - /macro book 9
+              - /macro set 1
+          3:
+            name: HardSlsh
+            contents:
+              - /ws "Hard Slash" <t>
+          4:
+            name: PwrSlash
+            contents:
+              - /ws "Power Slash" <t>
+          5:
+            name: Frostbit
+            contents:
+              - /ws "Frostbite" <t>
+          6:
+            name: Freezbit
+            contents:
+              - /ws "Freezebite" <t>
+          7:
+            name: CrsntMon
+            contents:
+              - /ws "Crescent Moon" <t>
+      5:
+        ctrl:
+          1:
+            name: Catclysm
+            contents:
+              - /ws "Catastrophe" <t>
+          2:
+            name: SprlHell
+            contents:
+              - /ws "Spiral Hell" <t>
+          3:
+            name: InfScyth
+            contents:
+              - /ws "Infernal Scythe" <t>
+          4:
+            name: VrplScyt
+            contents:
+              - /ws "Vorpal Scythe" <t>
+          5:
+            name: SpnScyth
+            contents:
+              - /ws "Spinning Scythe" <t>
+          6:
+            name: NghtScyt
+            contents:
+              - /ws "Nightmare Scythe" <t>
+          7:
+            name: DrkHrvst
+            contents:
+              - /ws "Dark Harvest" <t>
+          8:
+            name: ShdwDeth
+            contents:
+              - /ws "Shadow of Death" <t>
+        alt:
+          1:
+            name: SHub
+            contents:
+              - /macro book 9
+              - /macro set 1

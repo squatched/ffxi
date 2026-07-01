@@ -1,0 +1,199 @@
+version: 1
+scope:
+  level: book
+  selections:
+    - {book: 16}
+books:
+  16:
+    name: DRG
+    sets:
+      1:
+        ctrl:
+          1:
+            name: Jump
+            contents:
+              - /ja "Jump" <t>
+          2:
+            name: HghJump
+            contents:
+              - /ja "High Jump" <t>
+          3:
+            name: SprJump
+            contents:
+              - /ja "Super Jump" <me>
+          4:
+            name: SoulJump
+            contents:
+              - /ja "Soul Jump" <t>
+          5:
+            name: SprtJump
+            contents:
+              - /ja "Spirit Jump" <t>
+          6:
+            name: FlyHigh
+            contents:
+              - /ja "Fly High" <me>
+          0:
+            name: SprtSrge
+            contents:
+              - /ja "Spirit Surge" <me>
+        alt:
+          1:
+            name: SUtlPet
+            contents:
+              - /macro book 16
+              - /macro set 2
+          2:
+            name: SUtlPet
+            contents:
+              - /macro book 16
+              - /macro set 2
+          3:
+            name: SPolearm
+            contents:
+              - /macro book 16
+              - /macro set 3
+          0:
+            name: SJobHub
+            contents:
+              - /macro book 1
+              - /macro set 1
+      2:
+        ctrl:
+          1:
+            name: AncCircl
+            contents:
+              - /ja "Ancient Circle" <me>
+          2:
+            name: SprtLink
+            contents:
+              - /ja "Spirit Link" <me>
+          3:
+            name: SprtBond
+            contents:
+              - /ja "Spirit Bond" <me>
+          4:
+            name: DpBreath
+            contents:
+              - /ja "Deep Breathing" <me>
+          5:
+            name: Angon
+            contents:
+              - /ja "Angon" <t>
+          6:
+            name: DrgnBrkr
+            contents:
+              - /ja "Dragon Breaker" <t>
+          7:
+            name: CallWyvn
+            contents:
+              - /ja "Call Wyvern" <me>
+          8:
+            name: Dismiss
+            contents:
+              - /ja "Dismiss" <me>
+          9:
+            name: SmtBrth
+            contents:
+              - /pet "Smiting Breath" <t>
+          0:
+            name: SprtSrge
+            contents:
+              - /ja "Spirit Surge" <me>
+        alt:
+          1:
+            name: SJumpHub
+            contents:
+              - /macro book 16
+              - /macro set 1
+          3:
+            name: SPolearm
+            contents:
+              - /macro book 16
+              - /macro set 3
+          4:
+            name: StwdWing
+            contents:
+              - /pet "Steady Wing" <me>
+          5:
+            name: RstBrth
+            contents:
+              - /pet "Restoring Breath" <me>
+          0:
+            name: SJobHub
+            contents:
+              - /macro book 1
+              - /macro set 1
+      3:
+        ctrl:
+          1:
+            name: Draksbne
+            contents:
+              - /ws "Drakesbane" <t>
+          2:
+            name: Stardivr
+            contents:
+              - /ws "Stardiver" <t>
+          3:
+            name: CmlnTrmt
+            contents:
+              - /ws "Camlann's Torment" <t>
+          4:
+            name: Geirskgl
+            contents:
+              - /ws "Geirskogul" <t>
+          5:
+            name: SncThrst
+            contents:
+              - /ws "Sonic Thrust" <t>
+          6:
+            name: ThunThrt
+            contents:
+              - /ws "Thunder Thrust" <t>
+          7:
+            name: Skewer
+            contents:
+              - /ws "Skewer" <t>
+          8:
+            name: Diarmuid
+            contents:
+              - /ws "Diarmuid" <t>
+        alt:
+          1:
+            name: SJumpHub
+            contents:
+              - /macro book 16
+              - /macro set 1
+          2:
+            name: SUtlPet
+            contents:
+              - /macro book 16
+              - /macro set 2
+          3:
+            name: DblThrst
+            contents:
+              - /ws "Double Thrust" <t>
+          4:
+            name: LegSweep
+            contents:
+              - /ws "Leg Sweep" <t>
+          5:
+            name: PntaThrt
+            contents:
+              - /ws "Penta Thrust" <t>
+          6:
+            name: WhlThrst
+            contents:
+              - /ws "Wheeling Thrust" <t>
+          7:
+            name: ImpDrive
+            contents:
+              - /ws "Impulse Drive" <t>
+          8:
+            name: RaidThrt
+            contents:
+              - /ws "Raiden Thrust" <t>
+          9:
+            name: VrplThrt
+            contents:
+              - /ws "Vorpal Thrust" <t>

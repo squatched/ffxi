@@ -1,0 +1,542 @@
+version: 1
+scope:
+  level: book
+  selections:
+    - {book: 13}
+books:
+  13:
+    name: SMN
+    sets:
+      1:
+        ctrl:
+          1:
+            name: ElmSphn
+            contents:
+              - /ja "Elemental Siphon" <me>
+          2:
+            name: Apogee
+            contents:
+              - /ja "Apogee" <me>
+          3:
+            name: MnaCede
+            contents:
+              - /ja "Mana Cede" <t>
+          4:
+            name: AvtrFvr
+            contents:
+              - /ja "Avatar's Favor" <me>
+          5:
+            name: Assault
+            contents:
+              - /pet "Assault" <t>
+          6:
+            name: Release
+            contents:
+              - /pet "Release" <me>
+          7:
+            name: Retreat
+            contents:
+              - /pet "Retreat" <me>
+          9:
+            name: AstrlCnd
+            contents:
+              - /ja "Astral Conduit" <me>
+          0:
+            name: AstrlFlw
+            contents:
+              - /ja "Astral Flow" <me>
+        alt:
+          2:
+            name: SHubB
+            contents:
+              - /macro book 13
+              - /macro set 2
+          3:
+            name: SIfrit
+            contents:
+              - /macro book 13
+              - /macro set 3
+          4:
+            name: STitan
+            contents:
+              - /macro book 13
+              - /macro set 4
+          5:
+            name: SLevthn
+            contents:
+              - /macro book 13
+              - /macro set 5
+          6:
+            name: SGaruda
+            contents:
+              - /macro book 13
+              - /macro set 6
+          7:
+            name: SShiva
+            contents:
+              - /macro book 13
+              - /macro set 7
+          8:
+            name: SRamuh
+            contents:
+              - /macro book 13
+              - /macro set 8
+          0:
+            name: SJobHub
+            contents:
+              - /macro book 1
+              - /macro set 1
+      2:
+        alt:
+          1:
+            name: SHubA
+            contents:
+              - /macro book 13
+              - /macro set 1
+          3:
+            name: SIfrit
+            contents:
+              - /macro book 13
+              - /macro set 3
+          4:
+            name: STitan
+            contents:
+              - /macro book 13
+              - /macro set 4
+          5:
+            name: SLevthn
+            contents:
+              - /macro book 13
+              - /macro set 5
+          6:
+            name: SGaruda
+            contents:
+              - /macro book 13
+              - /macro set 6
+          7:
+            name: SShiva
+            contents:
+              - /macro book 13
+              - /macro set 7
+          8:
+            name: SRamuh
+            contents:
+              - /macro book 13
+              - /macro set 8
+          9:
+            name: SStaff
+            contents:
+              - /macro book 13
+              - /macro set 9
+          0:
+            name: SOpen
+            contents:
+              - /macro book 13
+              - /macro set 10
+      3:
+        ctrl:
+          1:
+            name: Ifrit
+            contents:
+              - /ma "Ifrit" <me>
+          2:
+            name: Punch
+            contents:
+              - /pet "Punch" <t>
+          3:
+            name: DblPunch
+            contents:
+              - /pet "Double Punch" <t>
+          4:
+            name: Fire2
+            contents:
+              - /pet "Fire II" <t>
+          5:
+            name: Fire4
+            contents:
+              - /pet "Fire IV" <t>
+          6:
+            name: BrnStrk
+            contents:
+              - /pet "Burning Strike" <t>
+          7:
+            name: FlmCrush
+            contents:
+              - /pet "Flaming Crush" <t>
+          8:
+            name: MetStrk
+            contents:
+              - /pet "Meteor Strike" <t>
+          9:
+            name: CrmsnHwl
+            contents:
+              - /pet "Crimson Howl" <me>
+          0:
+            name: Inferno
+            contents:
+              - /pet "Inferno" <t>
+        alt:
+          1:
+            name: SHubA
+            contents:
+              - /macro book 13
+              - /macro set 1
+          2:
+            name: SHubB
+            contents:
+              - /macro book 13
+              - /macro set 2
+          3:
+            name: InfrnHwl
+            contents:
+              - /pet "Inferno Howl" <me>
+      4:
+        ctrl:
+          1:
+            name: Titan
+            contents:
+              - /ma "Titan" <me>
+          2:
+            name: RockThrw
+            contents:
+              - /pet "Rock Throw" <t>
+          3:
+            name: RockBstr
+            contents:
+              - /pet "Rock Buster" <t>
+          4:
+            name: Stone2
+            contents:
+              - /pet "Stone II" <t>
+          5:
+            name: Stone4
+            contents:
+              - /pet "Stone IV" <t>
+          6:
+            name: MglthThr
+            contents:
+              - /pet "Megalith Throw" <t>
+          7:
+            name: MtnBstr
+            contents:
+              - /pet "Mountain Buster" <t>
+          8:
+            name: Geocrush
+            contents:
+              - /pet "Geocrush" <t>
+          9:
+            name: ErthWard
+            contents:
+              - /pet "Earthen Ward" <me>
+          0:
+            name: ErthFury
+            contents:
+              - /pet "Earthen Fury" <t>
+        alt:
+          1:
+            name: SHubA
+            contents:
+              - /macro book 13
+              - /macro set 1
+          2:
+            name: SHubB
+            contents:
+              - /macro book 13
+              - /macro set 2
+          3:
+            name: ErthArmr
+            contents:
+              - /pet "Earthen Armor" <me>
+      5:
+        ctrl:
+          1:
+            name: Levthn
+            contents:
+              - /ma "Leviathan" <me>
+          2:
+            name: BcdaDive
+            contents:
+              - /pet "Barracuda Dive" <t>
+          3:
+            name: TailWhip
+            contents:
+              - /pet "Tail Whip" <t>
+          4:
+            name: Water2
+            contents:
+              - /pet "Water II" <t>
+          5:
+            name: Water4
+            contents:
+              - /pet "Water IV" <t>
+          6:
+            name: SpinDive
+            contents:
+              - /pet "Spinning Dive" <t>
+          7:
+            name: GrndFall
+            contents:
+              - /pet "Grand Fall" <t>
+          8:
+            name: SoothCur
+            contents:
+              - /pet "Soothing Current" <me>
+          9:
+            name: Slowga
+            contents:
+              - /pet "Slowga" <t>
+          0:
+            name: TidalWv
+            contents:
+              - /pet "Tidal Wave" <t>
+        alt:
+          1:
+            name: SHubA
+            contents:
+              - /macro book 13
+              - /macro set 1
+          2:
+            name: SHubB
+            contents:
+              - /macro book 13
+              - /macro set 2
+          3:
+            name: TdlRoar
+            contents:
+              - /pet "Tidal Roar" <t>
+      6:
+        ctrl:
+          1:
+            name: Garuda
+            contents:
+              - /ma "Garuda" <me>
+          2:
+            name: Claw
+            contents:
+              - /pet "Claw" <t>
+          3:
+            name: PredClaw
+            contents:
+              - /pet "Predator Claws" <t>
+          4:
+            name: Aero2
+            contents:
+              - /pet "Aero II" <t>
+          5:
+            name: Aero4
+            contents:
+              - /pet "Aero IV" <t>
+          6:
+            name: WindBlde
+            contents:
+              - /pet "Wind Blade" <t>
+          7:
+            name: AerlArmr
+            contents:
+              - /pet "Aerial Armor" <me>
+          8:
+            name: Hastega
+            contents:
+              - /pet "Hastega" <me>
+          9:
+            name: Hastega2
+            contents:
+              - /pet "Hastega II" <me>
+          0:
+            name: AerlBlst
+            contents:
+              - /pet "Aerial Blast" <t>
+        alt:
+          1:
+            name: SHubA
+            contents:
+              - /macro book 13
+              - /macro set 1
+          2:
+            name: SHubB
+            contents:
+              - /macro book 13
+              - /macro set 2
+          3:
+            name: FleetWnd
+            contents:
+              - /pet "Fleet Wind" <me>
+      7:
+        ctrl:
+          1:
+            name: Shiva
+            contents:
+              - /ma "Shiva" <me>
+          2:
+            name: AxeKick
+            contents:
+              - /pet "Axe Kick" <t>
+          3:
+            name: DblSlap
+            contents:
+              - /pet "Double Slap" <t>
+          4:
+            name: Blizz2
+            contents:
+              - /pet "Blizzard II" <t>
+          5:
+            name: Blizz4
+            contents:
+              - /pet "Blizzard IV" <t>
+          6:
+            name: Rush
+            contents:
+              - /pet "Rush" <t>
+          7:
+            name: HvnStrk
+            contents:
+              - /pet "Heavenly Strike" <t>
+          8:
+            name: FrstArmr
+            contents:
+              - /pet "Frost Armor" <me>
+          9:
+            name: Sleepga
+            contents:
+              - /pet "Sleepga" <t>
+          0:
+            name: DmndDust
+            contents:
+              - /pet "Diamond Dust" <t>
+        alt:
+          1:
+            name: SHubA
+            contents:
+              - /macro book 13
+              - /macro set 1
+          2:
+            name: SHubB
+            contents:
+              - /macro book 13
+              - /macro set 2
+          3:
+            name: DmndStrm
+            contents:
+              - /pet "Diamond Storm" <t>
+          4:
+            name: CrstBlss
+            contents:
+              - /pet "Crystal Blessing" <me>
+      8:
+        ctrl:
+          1:
+            name: Ramuh
+            contents:
+              - /ma "Ramuh" <me>
+          2:
+            name: ShckStrk
+            contents:
+              - /pet "Shock Strike" <t>
+          3:
+            name: ChsStrk
+            contents:
+              - /pet "Chaotic Strike" <t>
+          4:
+            name: Thndr2
+            contents:
+              - /pet "Thunder II" <t>
+          5:
+            name: Thndr4
+            contents:
+              - /pet "Thunder IV" <t>
+          6:
+            name: Thndrstm
+            contents:
+              - /pet "Thunderstorm" <t>
+          7:
+            name: LtngArmr
+            contents:
+              - /pet "Lightning Armor" <me>
+          8:
+            name: RollThdr
+            contents:
+              - /pet "Rolling Thunder" <me>
+          9:
+            name: ShckSqal
+            contents:
+              - /pet "Shock Squall" <t>
+          0:
+            name: JdgBolt
+            contents:
+              - /pet "Judgment Bolt" <t>
+        alt:
+          1:
+            name: SHubA
+            contents:
+              - /macro book 13
+              - /macro set 1
+          2:
+            name: SHubB
+            contents:
+              - /macro book 13
+              - /macro set 2
+      9:
+        ctrl:
+          1:
+            name: SprtTkr
+            contents:
+              - /ws "Spirit Taker" <t>
+          2:
+            name: Retrbtn
+            contents:
+              - /ws "Retribution" <t>
+          3:
+            name: Catclysm
+            contents:
+              - /ws "Cataclysm" <t>
+          4:
+            name: FullSwng
+            contents:
+              - /ws "Full Swing" <t>
+          5:
+            name: ShlCrshr
+            contents:
+              - /ws "Shell Crusher" <t>
+        alt:
+          1:
+            name: SHubA
+            contents:
+              - /macro book 13
+              - /macro set 1
+          2:
+            name: SHubB
+            contents:
+              - /macro book 13
+              - /macro set 2
+          3:
+            name: HvySwng
+            contents:
+              - /ws "Heavy Swing" <t>
+          4:
+            name: RckCrshr
+            contents:
+              - /ws "Rock Crusher" <t>
+          5:
+            name: ErtCrshr
+            contents:
+              - /ws "Earth Crusher" <t>
+          6:
+            name: Starbust
+            contents:
+              - /ws "Starburst" <t>
+          7:
+            name: Sunburst
+            contents:
+              - /ws "Sunburst" <t>
+      10:
+        alt:
+          1:
+            name: SHubA
+            contents:
+              - /macro book 13
+              - /macro set 1
+          2:
+            name: SHubB
+            contents:
+              - /macro book 13
+              - /macro set 2

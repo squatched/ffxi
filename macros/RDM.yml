@@ -1,0 +1,500 @@
+version: 1
+scope:
+  level: book
+  selections:
+    - {book: 6}
+books:
+  6:
+    name: RDM
+    sets:
+      1:
+        ctrl:
+          1:
+            name: StonSkin
+            contents:
+              - /ma "Stoneskin" <me>
+          2:
+            name: Blink
+            contents:
+              - /ma "Blink" <me>
+          3:
+            name: Aquaveil
+            contents:
+              - /ma "Aquaveil" <me>
+          4:
+            name: Convert
+            contents:
+              - /ja "Convert" <me>
+          5:
+            name: Saboteur
+            contents:
+              - /ja "Saboteur" <me>
+          6:
+            name: Spontnty
+            contents:
+              - /ja "Spontaneity" <me>
+          7:
+            name: Composr
+            contents:
+              - /ja "Composure" <me>
+          8:
+            name: Stymie
+            contents:
+              - /ja "Stymie" <me>
+          0:
+            name: Chnspl
+            contents:
+              - /ja "Chainspell" <me>
+        alt:
+          2:
+            name: SHeal
+            contents:
+              - /macro book 6
+              - /macro set 2
+          3:
+            name: SNukes
+            contents:
+              - /macro book 6
+              - /macro set 3
+          4:
+            name: SEnfCC
+            contents:
+              - /macro book 6
+              - /macro set 4
+          5:
+            name: SEnfDot
+            contents:
+              - /macro book 6
+              - /macro set 5
+          6:
+            name: SSword
+            contents:
+              - /macro book 6
+              - /macro set 6
+          7:
+            name: SDagger
+            contents:
+              - /macro book 6
+              - /macro set 7
+          8:
+            name: SEnhOth
+            contents:
+              - /macro book 6
+              - /macro set 8
+          9:
+            name: SEnhSlf
+            contents:
+              - /macro book 6
+              - /macro set 9
+          0:
+            name: SJobHub
+            contents:
+              - /macro book 1
+              - /macro set 1
+      2:
+        ctrl:
+          1:
+            name: CureS
+            contents:
+              - /ma "Cure III" <t>
+          2:
+            name: CureL
+            contents:
+              - /ma "Cure IV" <t>
+          3:
+            name: Raise
+            contents:
+              - /ma "Raise" <t>
+          4:
+            name: Raise2
+            contents:
+              - /ma "Raise II" <t>
+          5:
+            name: Erase
+            contents:
+              - /ma "Erase" <t>
+          6:
+            name: Cursna
+            contents:
+              - /ma "Cursna" <t>
+          7:
+            name: Regen
+            contents:
+              - /ma "Regen" <t>
+        alt:
+          1:
+            name: SHub
+            contents:
+              - /macro book 6
+              - /macro set 1
+      3:
+        ctrl:
+          1:
+            name: Stone
+            contents:
+              - /ma "Stone II" <t>
+          2:
+            name: Thundr
+            contents:
+              - /ma "Thunder" <t>
+          3:
+            name: Water
+            contents:
+              - /ma "Water II" <t>
+          4:
+            name: Fire
+            contents:
+              - /ma "Fire II" <t>
+          5:
+            name: Blizz
+            contents:
+              - /ma "Blizzard" <t>
+          6:
+            name: Aero
+            contents:
+              - /ma "Aero II" <t>
+        alt:
+          1:
+            name: SHub
+            contents:
+              - /macro book 6
+              - /macro set 1
+          2:
+            name: SHeal
+            contents:
+              - /macro book 6
+              - /macro set 2
+      4:
+        ctrl:
+          1:
+            name: Slow
+            contents:
+              - /ma "Slow" <t>
+          2:
+            name: Para
+            contents:
+              - /ma "Paralyze" <t>
+          3:
+            name: Blind
+            contents:
+              - /ma "Blind" <t>
+          4:
+            name: Gravity
+            contents:
+              - /ma "Gravity" <t>
+          5:
+            name: Silence
+            contents:
+              - /ma "Silence" <t>
+          6:
+            name: Bind
+            contents:
+              - /ma "Bind" <t>
+          7:
+            name: Distract
+            contents:
+              - /ma "Distract" <t>
+          8:
+            name: Frazzle
+            contents:
+              - /ma "Frazzle" <t>
+          9:
+            name: Addle
+            contents:
+              - /ma "Addle" <t>
+          0:
+            name: Sleep
+            contents:
+              - /ma "Sleep II" <t>
+        alt:
+          1:
+            name: SHub
+            contents:
+              - /macro book 6
+              - /macro set 1
+          2:
+            name: SHeal
+            contents:
+              - /macro book 6
+              - /macro set 2
+          3:
+            name: Break
+            contents:
+              - /ma "Break" <t>
+      5:
+        ctrl:
+          1:
+            name: Dia
+            contents:
+              - /ma "Dia II" <t>
+          2:
+            name: Poison
+            contents:
+              - /ma "Poison II" <t>
+          3:
+            name: Bio
+            contents:
+              - /ma "Bio II" <t>
+          4:
+            name: Diaga
+            contents:
+              - /ma "Diaga" <t>
+          5:
+            name: Dispel
+            contents:
+              - /ma "Dispel" <t>
+          6:
+            name: Inundatn
+            contents:
+              - /ma "Inundation" <t>
+        alt:
+          1:
+            name: SHub
+            contents:
+              - /macro book 6
+              - /macro set 1
+          2:
+            name: SHeal
+            contents:
+              - /macro book 6
+              - /macro set 2
+      6:
+        ctrl:
+          1:
+            name: SavgBld
+            contents:
+              - /ws "Savage Blade" <t>
+          2:
+            name: Reqscat
+            contents:
+              - /ws "Requiescat" <t>
+          3:
+            name: SangnBld
+            contents:
+              - /ws "Sanguine Blade" <t>
+          4:
+            name: DthBlsm
+            contents:
+              - /ws "Death Blossom" <t>
+          5:
+            name: SprtWthn
+            contents:
+              - /ws "Spirits Within" <t>
+          6:
+            name: SwftBld
+            contents:
+              - /ws "Swift Blade" <t>
+          7:
+            name: VrplBld
+            contents:
+              - /ws "Vorpal Blade" <t>
+        alt:
+          1:
+            name: SHub
+            contents:
+              - /macro book 6
+              - /macro set 1
+          2:
+            name: SHeal
+            contents:
+              - /macro book 6
+              - /macro set 2
+          3:
+            name: FastBld
+            contents:
+              - /ws "Fast Blade" <t>
+          4:
+            name: BrnBlade
+            contents:
+              - /ws "Burning Blade" <t>
+          5:
+            name: RdLtsBld
+            contents:
+              - /ws "Red Lotus Blade" <t>
+          6:
+            name: FlatBld
+            contents:
+              - /ws "Flat Blade" <t>
+          7:
+            name: ShnBlade
+            contents:
+              - /ws "Shining Blade" <t>
+          8:
+            name: CirBlade
+            contents:
+              - /ws "Circle Blade" <t>
+          9:
+            name: SeraphBl
+            contents:
+              - /ws "Seraph Blade" <t>
+          0:
+            name: GustSlsh
+            contents:
+              - /ws "Gust Slash" <t>
+      7:
+        ctrl:
+          1:
+            name: Eviscrt
+            contents:
+              - /ws "Evisceration" <t>
+          2:
+            name: Exenrtr
+            contents:
+              - /ws "Exenterator" <t>
+          3:
+            name: MordRime
+            contents:
+              - /ws "Mordant Rime" <t>
+          4:
+            name: AeolEdge
+            contents:
+              - /ws "Aeolian Edge" <t>
+          5:
+            name: EnrgStl
+            contents:
+              - /ws "Energy Steal" <t>
+          6:
+            name: EnrgDrn
+            contents:
+              - /ws "Energy Drain" <t>
+        alt:
+          1:
+            name: SHub
+            contents:
+              - /macro book 6
+              - /macro set 1
+          2:
+            name: SHeal
+            contents:
+              - /macro book 6
+              - /macro set 2
+          3:
+            name: WaspStn
+            contents:
+              - /ws "Wasp Sting" <t>
+          4:
+            name: ViprBit
+            contents:
+              - /ws "Viper Bite" <t>
+          5:
+            name: Cyclone
+            contents:
+              - /ws "Cyclone" <t>
+          6:
+            name: Shdwstch
+            contents:
+              - /ws "Shadowstitch" <t>
+      8:
+        ctrl:
+          1:
+            name: Refresh
+            contents:
+              - /ma "Refresh III" <t>
+          2:
+            name: Haste
+            contents:
+              - /ma "Haste II" <t>
+          3:
+            name: Regen
+            contents:
+              - /ma "Regen V" <t>
+          4:
+            name: Phalanx
+            contents:
+              - /ma "Phalanx" <t>
+          5:
+            name: Flurry
+            contents:
+              - /ma "Flurry II" <t>
+        alt:
+          1:
+            name: SHub
+            contents:
+              - /macro book 6
+              - /macro set 1
+          2:
+            name: SHeal
+            contents:
+              - /macro book 6
+              - /macro set 2
+      9:
+        ctrl:
+          1:
+            name: EnStone
+            contents:
+              - /ma "Enstone II" <me>
+          2:
+            name: EnThundr
+            contents:
+              - /ma "Enthunder II" <me>
+          3:
+            name: EnWater
+            contents:
+              - /ma "Enwater II" <me>
+          4:
+            name: EnFire
+            contents:
+              - /ma "Enfire II" <me>
+          5:
+            name: EnBlizz
+            contents:
+              - /ma "Enblizzard II" <me>
+          6:
+            name: EnAero
+            contents:
+              - /ma "Enaero II" <me>
+          7:
+            name: ShckSpk
+            contents:
+              - /ma "Shock Spikes" <me>
+          8:
+            name: BlzSpk
+            contents:
+              - /ma "Blaze Spikes" <me>
+          9:
+            name: IceSpk
+            contents:
+              - /ma "Ice Spikes" <me>
+          0:
+            name: Temper
+            contents:
+              - /ma "Temper" <me>
+        alt:
+          1:
+            name: SHub
+            contents:
+              - /macro book 6
+              - /macro set 1
+          2:
+            name: SHeal
+            contents:
+              - /macro book 6
+              - /macro set 2
+          3:
+            name: Gn-STR
+            contents:
+              - /ma "Gain-STR" <me>
+          4:
+            name: Gn-DEX
+            contents:
+              - /ma "Gain-DEX" <me>
+          5:
+            name: Gn-VIT
+            contents:
+              - /ma "Gain-VIT" <me>
+          6:
+            name: Gn-AGI
+            contents:
+              - /ma "Gain-AGI" <me>
+          7:
+            name: Gn-INT
+            contents:
+              - /ma "Gain-INT" <me>
+          8:
+            name: Gn-MND
+            contents:
+              - /ma "Gain-MND" <me>
+          9:
+            name: Gn-CHR
+            contents:
+              - /ma "Gain-CHR" <me>

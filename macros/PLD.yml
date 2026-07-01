@@ -1,0 +1,462 @@
+version: 1
+scope:
+  level: book
+  selections:
+    - {book: 8}
+books:
+  8:
+    name: PLD
+    sets:
+      1:
+        ctrl:
+          1:
+            name: Sentinel
+            contents:
+              - /ja "Sentinel" <me>
+          2:
+            name: Rampart
+            contents:
+              - /ja "Rampart" <me>
+          3:
+            name: Palisade
+            contents:
+              - /ja "Palisade" <me>
+          4:
+            name: Sepulchr
+            contents:
+              - /ja "Sepulcher" <me>
+          5:
+            name: Cover
+            contents:
+              - /ja "Cover" <t>
+          6:
+            name: HlyCircl
+            contents:
+              - /ja "Holy Circle" <me>
+          0:
+            name: Invincbl
+            contents:
+              - /ja "Invincible" <me>
+        alt:
+          2:
+            name: SOffHub
+            contents:
+              - /macro book 8
+              - /macro set 2
+          3:
+            name: SMagic
+            contents:
+              - /macro book 8
+              - /macro set 3
+          4:
+            name: SSword
+            contents:
+              - /macro book 8
+              - /macro set 4
+          5:
+            name: SClub
+            contents:
+              - /macro book 8
+              - /macro set 5
+          6:
+            name: SStaff
+            contents:
+              - /macro book 8
+              - /macro set 6
+          7:
+            name: SGrtSwrd
+            contents:
+              - /macro book 8
+              - /macro set 7
+          0:
+            name: SJobHub
+            contents:
+              - /macro book 1
+              - /macro set 1
+      2:
+        ctrl:
+          1:
+            name: ShldBash
+            contents:
+              - /ja "Shield Bash" <t>
+          2:
+            name: Majesty
+            contents:
+              - /ja "Majesty" <me>
+          3:
+            name: DvnEmblm
+            contents:
+              - /ja "Divine Emblem" <me>
+          4:
+            name: Fealty
+            contents:
+              - /ja "Fealty" <me>
+          5:
+            name: Chivalry
+            contents:
+              - /ja "Chivalry" <me>
+          6:
+            name: Intervne
+            contents:
+              - /ja "Intervene" <t>
+        alt:
+          1:
+            name: SDefHub
+            contents:
+              - /macro book 8
+              - /macro set 1
+          3:
+            name: SMagic
+            contents:
+              - /macro book 8
+              - /macro set 3
+          4:
+            name: SSword
+            contents:
+              - /macro book 8
+              - /macro set 4
+          5:
+            name: SClub
+            contents:
+              - /macro book 8
+              - /macro set 5
+          6:
+            name: SStaff
+            contents:
+              - /macro book 8
+              - /macro set 6
+          7:
+            name: SGrtSwrd
+            contents:
+              - /macro book 8
+              - /macro set 7
+          0:
+            name: SJobHub
+            contents:
+              - /macro book 1
+              - /macro set 1
+      3:
+        ctrl:
+          1:
+            name: Flash
+            contents:
+              - /ma "Flash" <t>
+          2:
+            name: Cure
+            contents:
+              - /ma "Cure V" <st>
+          3:
+            name: Holy
+            contents:
+              - /ma "Holy" <t>
+          4:
+            name: Reprisal
+            contents:
+              - /ma "Reprisal" <me>
+          5:
+            name: Phalanx
+            contents:
+              - /ma "Phalanx" <me>
+          6:
+            name: Enlight
+            contents:
+              - /ma "Enlight II" <me>
+          7:
+            name: Crusade
+            contents:
+              - /ja "Crusade" <me>
+          8:
+            name: Banish
+            contents:
+              - /ma "Banish II" <t>
+        alt:
+          1:
+            name: SDefHub
+            contents:
+              - /macro book 8
+              - /macro set 1
+          2:
+            name: SOffHub
+            contents:
+              - /macro book 8
+              - /macro set 2
+          4:
+            name: SSword
+            contents:
+              - /macro book 8
+              - /macro set 4
+          5:
+            name: SClub
+            contents:
+              - /macro book 8
+              - /macro set 5
+          6:
+            name: SStaff
+            contents:
+              - /macro book 8
+              - /macro set 6
+          7:
+            name: SGrtSwrd
+            contents:
+              - /macro book 8
+              - /macro set 7
+      4:
+        ctrl:
+          1:
+            name: SavgBld
+            contents:
+              - /ws "Savage Blade" <t>
+          2:
+            name: Reqscat
+            contents:
+              - /ws "Requiescat" <t>
+          3:
+            name: Atonmnt
+            contents:
+              - /ws "Atonement" <t>
+          4:
+            name: SprtWthn
+            contents:
+              - /ws "Spirits Within" <t>
+          5:
+            name: SwftBld
+            contents:
+              - /ws "Swift Blade" <t>
+          6:
+            name: VrplBld
+            contents:
+              - /ws "Vorpal Blade" <t>
+          7:
+            name: SangnBld
+            contents:
+              - /ws "Sanguine Blade" <t>
+        alt:
+          1:
+            name: SDefHub
+            contents:
+              - /macro book 8
+              - /macro set 1
+          2:
+            name: SOffHub
+            contents:
+              - /macro book 8
+              - /macro set 2
+          3:
+            name: SMagic
+            contents:
+              - /macro book 8
+              - /macro set 3
+          5:
+            name: CirBlade
+            contents:
+              - /ws "Circle Blade" <t>
+          6:
+            name: ShnBlade
+            contents:
+              - /ws "Shining Blade" <t>
+          7:
+            name: RdLtsBld
+            contents:
+              - /ws "Red Lotus Blade" <t>
+          8:
+            name: FlatBld
+            contents:
+              - /ws "Flat Blade" <t>
+          9:
+            name: GustSlsh
+            contents:
+              - /ws "Gust Slash" <t>
+          0:
+            name: BrnBlade
+            contents:
+              - /ws "Burning Blade" <t>
+      5:
+        ctrl:
+          1:
+            name: HexaStrk
+            contents:
+              - /ws "Hexa Strike" <t>
+          2:
+            name: BlkHalo
+            contents:
+              - /ws "Black Halo" <t>
+          3:
+            name: TruStrke
+            contents:
+              - /ws "True Strike" <t>
+          4:
+            name: Judgmnt
+            contents:
+              - /ws "Judgment" <t>
+          5:
+            name: FlshNova
+            contents:
+              - /ws "Flash Nova" <t>
+          6:
+            name: MystcBon
+            contents:
+              - /ws "Mystic Boon" <t>
+        alt:
+          1:
+            name: SDefHub
+            contents:
+              - /macro book 8
+              - /macro set 1
+          2:
+            name: SOffHub
+            contents:
+              - /macro book 8
+              - /macro set 2
+          3:
+            name: SMagic
+            contents:
+              - /macro book 8
+              - /macro set 3
+          4:
+            name: ShnStrk
+            contents:
+              - /ws "Shining Strike" <t>
+          5:
+            name: SrphStrk
+            contents:
+              - /ws "Seraph Strike" <t>
+          6:
+            name: Brainshr
+            contents:
+              - /ws "Brainshaker" <t>
+          7:
+            name: Starlit
+            contents:
+              - /ws "Starlit Skies" <t>
+          8:
+            name: Moonlit
+            contents:
+              - /ws "Moonlit Charge" <t>
+          9:
+            name: SkulBrkr
+            contents:
+              - /ws "Skullbreaker" <t>
+          0:
+            name: Sunburst
+            contents:
+              - /ws "Sunburst" <t>
+      6:
+        ctrl:
+          1:
+            name: SprtTkr
+            contents:
+              - /ws "Spirit Taker" <t>
+          2:
+            name: Retrbtn
+            contents:
+              - /ws "Retribution" <t>
+          3:
+            name: Catclysm
+            contents:
+              - /ws "Cataclysm" <t>
+          4:
+            name: FullSwng
+            contents:
+              - /ws "Full Swing" <t>
+          5:
+            name: ShlCrshr
+            contents:
+              - /ws "Shell Crusher" <t>
+        alt:
+          1:
+            name: SDefHub
+            contents:
+              - /macro book 8
+              - /macro set 1
+          2:
+            name: SOffHub
+            contents:
+              - /macro book 8
+              - /macro set 2
+          3:
+            name: SMagic
+            contents:
+              - /macro book 8
+              - /macro set 3
+          4:
+            name: HvySwng
+            contents:
+              - /ws "Heavy Swing" <t>
+          5:
+            name: RckCrshr
+            contents:
+              - /ws "Rock Crusher" <t>
+          6:
+            name: ErtCrshr
+            contents:
+              - /ws "Earth Crusher" <t>
+          7:
+            name: Starbust
+            contents:
+              - /ws "Starburst" <t>
+          8:
+            name: Sunburst
+            contents:
+              - /ws "Sunburst" <t>
+      7:
+        ctrl:
+          1:
+            name: Resoltn
+            contents:
+              - /ws "Resolution" <t>
+          2:
+            name: GrndStrk
+            contents:
+              - /ws "Ground Strike" <t>
+          3:
+            name: HercSlsh
+            contents:
+              - /ws "Herculean Slash" <t>
+          4:
+            name: SpinSlsh
+            contents:
+              - /ws "Spinning Slash" <t>
+          5:
+            name: SicklMon
+            contents:
+              - /ws "Sickle Moon" <t>
+          6:
+            name: Shockwav
+            contents:
+              - /ws "Shockwave" <t>
+        alt:
+          1:
+            name: SDefHub
+            contents:
+              - /macro book 8
+              - /macro set 1
+          2:
+            name: SOffHub
+            contents:
+              - /macro book 8
+              - /macro set 2
+          3:
+            name: SMagic
+            contents:
+              - /macro book 8
+              - /macro set 3
+          4:
+            name: HardSlsh
+            contents:
+              - /ws "Hard Slash" <t>
+          5:
+            name: PwrSlash
+            contents:
+              - /ws "Power Slash" <t>
+          6:
+            name: Frostbit
+            contents:
+              - /ws "Frostbite" <t>
+          7:
+            name: Freezbit
+            contents:
+              - /ws "Freezebite" <t>
+          8:
+            name: CrsntMon
+            contents:
+              - /ws "Crescent Moon" <t>
