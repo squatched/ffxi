@@ -10,6 +10,7 @@ hubs:
       - {name: Assassin's Charge,  priority: high}
       - {name: Feint,              priority: high}
       - {name: Bully,              priority: mid}
+      - {name: Ranged Attack,      priority: mid}
 
   - name: utility
     label: "UtlHub"

@@ -1,13 +1,14 @@
 job: SMN
 name: Summoner
 
-# Hub holds SMN job abilities. Six primary celestial avatar groups (Sets 3-8) are spokes.
-# Primary avatars (Ifrit/Titan/Leviathan/Garuda/Shiva/Ramuh): the six elemental celestials,
-# most commonly used in endgame content (elemental burns, resist stacking, etc.).
-# Overflow avatars in MNK book (Sets 6-9, Sets 4+10 left empty as bookend buffers):
-#   Carbuncle (light), Fenrir (dark/moon), Diabolos (dark), Cait Sith (arcane),
-#   Siren (wind), Atomos (arcane), Alexander (light), Odin (dark)
-# Staff B included for WS (default B- cutoff passes it).
+# Hub holds SMN job abilities. All avatars are defined here as spoke groups; the generator
+# places them across sets automatically via gap-fill overflow allocation.
+#
+# Primary celestials (Ifrit/Titan/Leviathan/Garuda/Shiva/Ramuh): Sets 2-7 in primary book.
+# Staff WS: Set 8. Carbuncle: Set 9 (last hub nav slot, Alt+9). Fenrir: Set 10.
+# Overflow avatars (Diabolos, Cait Sith, Siren, Alexander, Odin, Atomos): gap-fill sets;
+# see the "# Overflow allocations:" header in generated output for their addresses.
+# Overflow avatars have no hub nav — navigate to them via /macro book N / /macro set M.
 #
 # Within each avatar spoke, pacts are ordered by endgame usefulness (high → Ctrl slots,
 # low → Alt slots). At any sub-cap level, all unlocked pacts fit without overflow.
@@ -136,3 +137,103 @@ groups:
       - {name: Earth Crusher, priority: low}
       - {name: Rock Crusher, priority: low}
       - {name: Heavy Swing,  priority: low}
+
+  # ── Overflow avatars ──────────────────────────────────────────────────────────
+  # Carbuncle gets the 8th and final hub nav slot (Alt+9). Fenrir fills Set 10 of
+  # the primary book. Diabolos through Atomos land in gap-fill sets — see the
+  # generated output header for their exact (book, set) addresses.
+
+  - name: avatar_carbuncle
+    type: spoke
+    actions:
+      - {name: Carbuncle,       priority: high}
+      - {name: Searing Light,   priority: high}   # 2-hour rage
+      - {name: Meteorite,       priority: high}   # merit rage L55
+      - {name: Holy Mist,       priority: high}   # rage L76
+      - {name: Healing Ruby II, priority: high}   # ward L65: strongest party cure
+      - {name: Glittering Ruby, priority: mid}    # ward L44: regen+stats
+      - {name: Shining Ruby,    priority: mid}    # ward L24
+      - {name: Soothing Ruby,   priority: mid}    # ward L94: refresh
+      - {name: Healing Ruby,    priority: mid}    # ward L1: basic cure
+      - {name: Pacifying Ruby,  priority: low}    # ward L99: enmity down
+      - {name: Poison Nails,    priority: low}    # rage L5: basic
+
+  - name: avatar_fenrir
+    type: spoke
+    actions:
+      - {name: Fenrir,           priority: high}
+      - {name: Howling Moon,     priority: high}   # 2-hour rage
+      - {name: Impact,           priority: high}   # L99 rage
+      - {name: Lunar Bay,        priority: high}   # L78 merit rage
+      - {name: Eclipse Bite,     priority: high}   # L65 rage
+      - {name: Heavenward Howl,  priority: high}   # L96 ward: def+meva
+      - {name: Ecliptic Howl,    priority: mid}    # L54 ward
+      - {name: Ecliptic Growl,   priority: mid}    # L43 ward
+      - {name: Lunar Roar,       priority: mid}    # L32 ward
+      - {name: Lunar Cry,        priority: mid}    # L21 ward
+      - {name: Moonlit Charge,   priority: mid}    # L5 rage
+      - {name: Crescent Fang,    priority: low}    # L10 rage
+
+  - name: avatar_diabolos
+    type: spoke
+    actions:
+      - {name: Diabolos,        priority: high}
+      - {name: Ruinous Omen,    priority: high}   # 2-hour rage
+      - {name: Blindside,       priority: high}   # L99 rage
+      - {name: Nether Blast,    priority: high}   # L65 merit rage
+      - {name: Night Terror,    priority: high}   # L80 rage
+      - {name: Nightmare,       priority: high}   # L29 ward: sleep+drain
+      - {name: Pavor Nocturnus, priority: mid}    # L98 ward: fear AoE
+      - {name: Dream Shroud,    priority: mid}    # L56 ward
+      - {name: Noctoshield,     priority: mid}    # L49 ward: shadow images
+      - {name: Ultimate Terror, priority: mid}    # L37 ward: fear
+      - {name: Somnolence,      priority: mid}    # L20 ward
+      - {name: Camisado,        priority: low}    # L1 rage: basic
+
+  - name: avatar_cait_sith
+    type: spoke
+    actions:
+      - {name: "Cait Sith",      priority: high}
+      - {name: "Altana's Favor", priority: high}  # 2-hour ward: party restore
+      - {name: "Level ? Holy",   priority: high}  # L75 rage: holy nuke
+      - {name: Regal Gash,       priority: high}  # L99 rage
+      - {name: Reraise II,       priority: high}  # L30 ward
+      - {name: Raise II,         priority: mid}   # L15 ward
+      - {name: Eerie Eye,        priority: mid}   # L55 ward: stat/resist down
+      - {name: Mewing Lullaby,   priority: mid}   # L25 ward: sleep
+      - {name: Regal Scratch,    priority: low}   # L1 rage: basic
+
+  - name: avatar_siren
+    type: spoke
+    actions:
+      - {name: Siren,             priority: high}
+      - {name: Clarsach Call,     priority: high}  # 2-hour rage
+      - {name: Hysteric Assault,  priority: high}  # L99 rage
+      - {name: Tornado II,        priority: high}  # L75 rage
+      - {name: Sonic Buffet,      priority: high}  # L65 rage: AoE wind
+      - {name: Wind's Blessing,   priority: mid}   # L88 ward
+      - {name: Bitter Elegy,      priority: mid}   # L50 ward: slow-like
+      - {name: Katabatic Blades,  priority: mid}   # L31 ward
+      - {name: Roundhouse,        priority: mid}   # L25 rage
+      - {name: Chinook,           priority: low}   # L42 ward
+      - {name: Lunatic Voice,     priority: low}   # L15 ward
+      - {name: Welt,              priority: low}   # L1 rage: basic
+
+  - name: avatar_alexander
+    type: spoke
+    actions:
+      - {name: Alexander,       priority: high}
+      - {name: Perfect Defense, priority: high}   # 2-hour ward: party invincible-like
+
+  - name: avatar_odin
+    type: spoke
+    actions:
+      - {name: Odin,         priority: high}
+      - {name: Zantetsuken,  priority: high}   # 2-hour rage: instant kill
+
+  - name: avatar_atomos
+    type: spoke
+    actions:
+      - {name: Atomos,         priority: high}
+      - {name: Deconstruction, priority: high}  # L75 ward
+      - {name: Chronoshift,    priority: mid}   # L75 ward

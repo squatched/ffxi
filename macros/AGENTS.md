@@ -118,8 +118,9 @@ When a set contains multiple target types, pick the majority as the canonical `T
 ## SMN Special Cases
 
 - Sets organized **per avatar** (not by spell category)
-- Dual Hub A/B (Sets 1-2), celestial avatars on Sets 3-8, Staff WS on Set 9, Set 10 open for future expansion/customization/subjob macros
-- Overflow avatars (Carbuncle, Fenrir, Diabolos, Cait Sith, Siren, Atomos, Alexander, Odin) live in **MNK book Sets 6-9**; Sets 4 and 10 left empty as bookend buffers. If more SMN overflow is needed, next destination is THF book (highest set number downward, buffer set first)
+- Primary book: hub (Set 1), six celestial avatars (Sets 2-7), Staff WS (Set 8), Carbuncle (Set 9), Fenrir (Set 10)
+- Overflow avatars (Diabolos, Cait Sith, Siren, Alexander, Odin, Atomos) land in generator gap-fill sets; their exact addresses appear in the `# Overflow allocations:` comment header of the generated output
+- Hub nav maxes out at 8 spokes (Alt+2-9); the first 8 spokes get links — Carbuncle (Alt+9) is the last. Diabolos through Atomos have no hub nav; navigate to them via `/macro book N` `/macro set M`
 
 ## Intentional Redundancy
 

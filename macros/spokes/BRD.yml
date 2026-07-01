@@ -16,6 +16,13 @@ exclude:
   - Shattersoul
   # Weapon-specific song requiring Loughnashade equipped — not a standard macro
   - Aria of Passion
+  # Lower-tier etudes superseded by higher tiers already on the spoke; not series-linked in data
+  - Sinewy Etude
+  - Swift Etude
+  - Quick Etude
+  - Vivacious Etude
+  - Enchanting Etude
+  - Learned Etude
 
 # Songs use series resolution: Army's Paeon → Army's Paeon VI, Mage's Ballad → III, etc.
 # Enfeebling family: cc + dots + enfeebling merge if ≤18 combined. Current count: 7+1+10=18 ✓
@@ -115,6 +122,20 @@ groups:
       - {name: Raptor Mazurka,  priority: high}  # movement speed
       - {name: Chocobo Mazurka, priority: mid}   # movement speed (higher tier)
       - {name: Warding Round,   priority: low}   # march-type defense
+
+  - name: niche_songs
+    type: spoke
+    label: "SFoes"
+    actions:
+      - {name: Dragonfoe Mambo,   priority: high}  # ATK+/DEF mod vs dragons
+      - {name: Sheepfoe Mambo,    priority: high}  # vs beasts
+      - {name: Fowl Aubade,       priority: high}  # vs birds
+      - {name: Herb Pastoral,     priority: high}  # vs plantoids
+      - {name: Goblin Gavotte,    priority: high}  # vs goblins
+      - {name: Shining Fantasia,  priority: high}  # vs arcana
+      - {name: Gold Capriccio,    priority: mid}   # charm resistance
+      - {name: Scop's Operetta,   priority: mid}   # lullaby resistance
+      - {name: Puppet's Operetta, priority: mid}   # sleep resistance
 
   - name: ws_dagger
     type: spoke
