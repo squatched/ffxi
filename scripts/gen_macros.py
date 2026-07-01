@@ -583,11 +583,14 @@ def _build_set(actions: list, two_hour: Optional[dict],
 
 # ── Book builder ──────────────────────────────────────────────────────────────
 
-def build_job_book(job: str, level: int, spoke_def: dict, job_data: dict,
-                   data_dir: Path, book_num: int,
-                   name_to_series: dict, series_members: dict,
-                   spell_targets: dict) -> dict:
+def _resolve_job_groups(job: str, level: int, spoke_def: dict, job_data: dict,
+                        data_dir: Path, name_to_series: dict, series_members: dict,
+                        spell_targets: dict):
+    """Resolve a job's hub/core/spoke actions against level + job data.
 
+    Returns (two_hour, resolved_hubs, cores, spokes) — no set numbers or nav assigned yet.
+    Group counts here are exactly what phase 1 (address allocation) needs to know.
+    """
     cutoff = spoke_def.get('ws_rank_cutoff', 'B-')
     spells    = _avail_spells(job_data, data_dir, level)
     abilities = _avail_abilities(job_data, level)
@@ -646,31 +649,42 @@ def build_job_book(job: str, level: int, spoke_def: dict, job_data: dict,
 
     # Family merge/split
     final_groups = _resolve_families(resolved_groups)
-
-    # Assign set numbers: hubs → cores → spokes (all in file order)
-    num_hubs = len(resolved_hubs)
-    is_dual  = num_hubs == 2
-    hub_sets = list(range(1, num_hubs + 1))
-
-    next_set = num_hubs + 1
     cores  = [g for g in final_groups if g.get('type') == 'core']
     spokes = [g for g in final_groups if g.get('type') != 'core']
 
-    core_set_nums:  dict[str, int] = {}
-    spoke_set_nums: dict[str, int] = {}
-    for g in cores:
-        core_set_nums[g['name']] = next_set; next_set += 1
-    for g in spokes:
-        spoke_set_nums[g['name']] = next_set; next_set += 1
+    return two_hour, resolved_hubs, cores, spokes
 
-    # Nav entries
+
+def _ordered_groups(resolved_hubs: list, cores: list, spokes: list) -> list[dict]:
+    """Flatten hub/core/spoke groups into address-allocation order (hubs, then cores,
+    then spokes — matching the original single-book set numbering), each tagged with
+    a unique key so phase 1 and phase 2 can refer to the same group unambiguously."""
+    ordered = []
+    for i in range(len(resolved_hubs)):
+        ordered.append({'key': f'__hub{i}'})
+    for g in cores:
+        ordered.append({'key': g['name']})
+    for g in spokes:
+        ordered.append({'key': g['name']})
+    return ordered
+
+
+def _build_job_sets(resolved_hubs: list, cores: list, spokes: list, two_hour: dict,
+                    address_map: dict) -> dict:
+    """Build the {(book, set): set_dict} map for one job, given its resolved groups
+    and the (book, set) address already assigned (phase 1) to every group key."""
+
+    num_hubs = len(resolved_hubs)
+    is_dual  = num_hubs == 2
+
+    # Nav entries — addresses now come from the allocator, not a fixed book number
     jobshub_nav = _nav_entry(1, 1, 'SJobHub')
-    hub_navs = [_nav_entry(book_num, s, _nav_label(h.get('label', h['name'])))
-                for h, s in zip(resolved_hubs, hub_sets)]
-    core_navs  = {g['name']: _nav_entry(book_num, core_set_nums[g['name']],
+    hub_navs = [_nav_entry(*address_map[f'__hub{i}'], _nav_label(h.get('label', h['name'])))
+                for i, h in enumerate(resolved_hubs)]
+    core_navs  = {g['name']: _nav_entry(*address_map[g['name']],
                                          _group_nav_label(g['name'], g.get('label')))
                   for g in cores}
-    spoke_navs = {g['name']: _nav_entry(book_num, spoke_set_nums[g['name']],
+    spoke_navs = {g['name']: _nav_entry(*address_map[g['name']],
                                           _group_nav_label(g['name'], g.get('label')))
                   for g in spokes}
     all_content_navs = list(core_navs.values()) + list(spoke_navs.values())
@@ -678,7 +692,8 @@ def build_job_book(job: str, level: int, spoke_def: dict, job_data: dict,
     sets: dict = {}
 
     # ── Hub sets ───────────────────────────────────────────────────────────────
-    for hub_idx, (hub, set_no) in enumerate(zip(resolved_hubs, hub_sets)):
+    for hub_idx, hub in enumerate(resolved_hubs):
+        addr = address_map[f'__hub{hub_idx}']
         fixed: dict = {0: jobshub_nav}
 
         if is_dual:
@@ -699,7 +714,7 @@ def build_job_book(job: str, level: int, spoke_def: dict, job_data: dict,
         for slot, nav in zip(free, all_content_navs):
             fixed[slot] = nav
 
-        sets[set_no] = _build_set(hub['actions'], two_hour, fixed)
+        sets[addr] = _build_set(hub['actions'], two_hour, fixed)
 
     # ── Non-hub Alt prefix: hub nav + optional core nav ───────────────────────
     def _nonhub_fixed(include_cores: bool) -> dict:
@@ -714,15 +729,15 @@ def build_job_book(job: str, level: int, spoke_def: dict, job_data: dict,
 
     # ── Core sets ──────────────────────────────────────────────────────────────
     for g in cores:
-        sets[core_set_nums[g['name']]] = _build_set(g['actions'], None,
-                                                      _nonhub_fixed(include_cores=False))
+        sets[address_map[g['name']]] = _build_set(g['actions'], None,
+                                                    _nonhub_fixed(include_cores=False))
 
     # ── Spoke sets ─────────────────────────────────────────────────────────────
     for g in spokes:
-        sets[spoke_set_nums[g['name']]] = _build_set(g['actions'], None,
-                                                       _nonhub_fixed(include_cores=bool(cores)))
+        sets[address_map[g['name']]] = _build_set(g['actions'], None,
+                                                     _nonhub_fixed(include_cores=bool(cores)))
 
-    return {'name': job[:15], 'sets': sets}
+    return sets
 
 
 # ── JobsHub ───────────────────────────────────────────────────────────────────
@@ -743,6 +758,93 @@ def build_jobshub(assignments: list) -> dict:
     if alt:
         sets[1]['alt'] = alt
     return {'name': 'JobsHub', 'sets': sets}
+
+
+# ── Overflow allocation ────────────────────────────────────────────────────────
+
+BOOK_CAPACITY  = 10
+TOTAL_BOOKS    = 40
+TOTAL_SETS     = BOOK_CAPACITY * TOTAL_BOOKS  # 400
+
+
+def _assign_primary_books(configurations: list) -> list[int]:
+    """Replicate the manifest's book_num assignment (explicit or auto-increment)
+    for every job, without resolving any content. Used to know every job's primary
+    book up front, both for phase-1 allocation and for reserving books against the
+    tail-fallback allocator.
+    """
+    book_nums = []
+    next_book = 2
+    for config in configurations:
+        book_num = config.get('book', next_book)
+        next_book = max(next_book, book_num) + 1
+        book_nums.append(book_num)
+    return book_nums
+
+
+class _TailFallback:
+    """Last-resort overflow source once the free-set stack is exhausted: spills into
+    the high end of the 400-set address space, starting at B40S10 and counting down,
+    skipping any book already reserved for JobsHub or a manifest primary book. Hard
+    errors only if the whole 400-set space is genuinely exhausted.
+    """
+
+    def __init__(self, reserved_books: set[int]):
+        self._reserved = reserved_books
+        self._global = TOTAL_SETS  # 400, decrementing
+
+    def pop(self) -> tuple[int, int]:
+        while True:
+            if self._global < 1:
+                sys.exit('error: exhausted all 400 macro book sets — no space left for overflow')
+            book   = (self._global - 1) // BOOK_CAPACITY + 1
+            set_no = (self._global - 1) % BOOK_CAPACITY + 1
+            self._global -= 1
+            if book in self._reserved:
+                continue
+            return (book, set_no)
+
+
+def _format_run(book: int, run: list[int]) -> str:
+    if len(run) == 1:
+        return f'B{book}S{run[0]}'
+    return f'B{book}S{run[0]}-S{run[-1]}'
+
+
+def _addr_segments(addrs: list[tuple[int, int]]) -> list[str]:
+    """Group addresses by book (preserving first-seen book order) and collapse each
+    book's set numbers into contiguous 'B{n}S{a}-S{b}' runs for human-readable output.
+    """
+    by_book: dict[int, list[int]] = {}
+    order: list[int] = []
+    for book, s in addrs:
+        if book not in by_book:
+            by_book[book] = []
+            order.append(book)
+        by_book[book].append(s)
+
+    segments = []
+    for book in order:
+        sets_sorted = sorted(set(by_book[book]))
+        run = [sets_sorted[0]]
+        for s in sets_sorted[1:]:
+            if s == run[-1] + 1:
+                run.append(s)
+            else:
+                segments.append(_format_run(book, run))
+                run = [s]
+        segments.append(_format_run(book, run))
+    return segments
+
+
+def _format_addr_ranges(addrs: list[tuple[int, int]]) -> str:
+    """Space-separated range segments — used for the overflow-allocations file header."""
+    return ' '.join(_addr_segments(addrs))
+
+
+def _format_addr_ranges_csv(addrs: list[tuple[int, int]]) -> str:
+    """Comma-separated range segments — used for the non-contiguous warning."""
+    return ', '.join(_addr_segments(addrs))
 
 
 # ── CLI ───────────────────────────────────────────────────────────────────────
@@ -767,17 +869,28 @@ def main():
     name_to_series, series_members = build_series_map(DATA_DIR)
     spell_targets = _build_spell_target_map(DATA_DIR)
 
-    books: dict = {}
-    assignments: list = []  # (book_num, label)
+    configurations = manifest.get('configurations', [])
+    primary_books  = _assign_primary_books(configurations)
+    reserved_books = {1} | set(primary_books)  # JobsHub + every job's primary book
 
-    next_book = 2
-    for config in manifest.get('configurations', []):
-        job = config['job'].upper()
+    # ── Phase 1: allocate a (book, set) address for every group in every job ────
+    # JobsHub is allocated first (B1S1); its unused sets are the stack's floor.
+    free_stack: list = []
+    for s in range(2, BOOK_CAPACITY + 1):
+        free_stack.append((1, s))
+    tail_fallback = _TailFallback(reserved_books)
+
+    job_records: list = []          # per-job data carried into phase 2
+    assignments: list = []          # (book_num, label) for JobsHub nav
+    overflow_summaries: list = []   # (job, primary_range, overflow_range) for the file header
+    non_contiguous_warnings: list = []
+    tail_warnings: list = []
+
+    for config, book_num in zip(configurations, primary_books):
+        job   = config['job'].upper()
         level = config.get('level', 99)
-        book_num = config.get('book', next_book)
-        next_book = max(next_book, book_num) + 1
 
-        spoke_path   = SPOKES_DIR / f'{job}.yml'
+        spoke_path    = SPOKES_DIR / f'{job}.yml'
         job_data_path = DATA_DIR / 'jobs' / f'{job}.yml'
         if not spoke_path.exists():
             sys.exit(f'error: no spoke definition at {spoke_path}')
@@ -787,9 +900,53 @@ def main():
         spoke_def = _load(spoke_path)
         job_data  = _load(job_data_path)
 
-        book = build_job_book(job, level, spoke_def, job_data, DATA_DIR, book_num,
-                              name_to_series, series_members, spell_targets)
-        books[book_num] = book
+        two_hour, resolved_hubs, cores, spokes = _resolve_job_groups(
+            job, level, spoke_def, job_data, DATA_DIR,
+            name_to_series, series_members, spell_targets)
+
+        ordered = _ordered_groups(resolved_hubs, cores, spokes)
+        count = len(ordered)
+        primary_count = min(count, BOOK_CAPACITY)
+
+        address_map: dict = {}
+        assigned_addrs: list = []
+        for idx in range(primary_count):
+            addr = (book_num, idx + 1)
+            address_map[ordered[idx]['key']] = addr
+            assigned_addrs.append(addr)
+
+        tail_addrs: list = []
+        if count > primary_count:
+            for idx in range(primary_count, count):
+                if free_stack:
+                    addr = free_stack.pop()
+                else:
+                    addr = tail_fallback.pop()
+                    tail_addrs.append(addr)
+                address_map[ordered[idx]['key']] = addr
+                assigned_addrs.append(addr)
+        else:
+            # Push this job's unused primary sets onto the free stack for later overflow.
+            for s in range(count + 1, BOOK_CAPACITY + 1):
+                free_stack.append((book_num, s))
+
+        job_records.append({
+            'job': job, 'resolved_hubs': resolved_hubs, 'cores': cores,
+            'spokes': spokes, 'two_hour': two_hour, 'address_map': address_map,
+        })
+
+        if count > primary_count:
+            overflow_addrs = assigned_addrs[primary_count:]
+            primary_range  = _format_addr_ranges(assigned_addrs[:primary_count])
+            overflow_range = _format_addr_ranges(overflow_addrs)
+            overflow_summaries.append((job, primary_range, overflow_range))
+
+            global_nums = sorted((b - 1) * BOOK_CAPACITY + s for b, s in assigned_addrs)
+            if global_nums[-1] - global_nums[0] + 1 != len(global_nums):
+                non_contiguous_warnings.append((job, _format_addr_ranges_csv(assigned_addrs)))
+
+            if tail_addrs:
+                tail_warnings.append((job, ', '.join(f'B{b}S{s}' for b, s in tail_addrs)))
 
         def _job_label(sdef: dict, fallback: str) -> str:
             explicit = sdef.get('label')
@@ -804,7 +961,26 @@ def main():
             job_display = _job_label(spoke_def, job)
         assignments.append((book_num, job_display))
 
-    books[1] = build_jobshub(assignments)
+    for job, addr_str in non_contiguous_warnings:
+        print(f'WARN: {job} sets are non-contiguous — {addr_str}', file=sys.stderr)
+        print('      Reorder books in the manifest to consolidate overflow.', file=sys.stderr)
+    for job, addr_str in tail_warnings:
+        print(f'WARN: {job} overflow exhausted the free-set pool; '
+              f'spilling into tail space ({addr_str})', file=sys.stderr)
+        print('      Consider adding reserved books to the manifest or reducing set count.',
+              file=sys.stderr)
+
+    # ── Phase 2: generate content at the addresses phase 1 assigned ──────────────
+    books: dict = {1: {'name': 'JobsHub', 'sets': {}}}
+
+    for rec in job_records:
+        job_sets = _build_job_sets(rec['resolved_hubs'], rec['cores'], rec['spokes'],
+                                   rec['two_hour'], rec['address_map'])
+        for (set_book, set_no), set_dict in job_sets.items():
+            book = books.setdefault(set_book, {'name': rec['job'][:15], 'sets': {}})
+            book['sets'][set_no] = set_dict
+
+    books[1]['sets'][1] = build_jobshub(assignments)['sets'][1]
     all_books = sorted(books.keys())
 
     output = {
@@ -818,6 +994,12 @@ def main():
 
     yaml_str = yaml.dump(output, default_flow_style=False, allow_unicode=True,
                          sort_keys=False)
+
+    if overflow_summaries:
+        header = ['# Overflow allocations:']
+        for job, primary_range, overflow_range in overflow_summaries:
+            header.append(f'#   {job}: primary {primary_range}, overflow {overflow_range}')
+        yaml_str = '\n'.join(header) + '\n' + yaml_str
 
     if args.char:
         with tempfile.NamedTemporaryFile(mode='w', suffix='.yml', delete=False,
