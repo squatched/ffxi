@@ -2,12 +2,31 @@ job: SCH
 name: Scholar
 ws_rank_cutoff: C  # include Club C+ and Staff C+
 
-# SCH has 17+ JA stratagems but hub fits only 11 (5 high Ctrl+1-5, 4 mid Ctrl+6-9,
-# 2 low on Alt+8-9 — remaining Alt+2-7 used for 6 content group nav).
-# Uncovered JAs: Perpetuance, Immanence, Rapture, Ebullience, Modus Veritas,
-# Sublimation, Libra, Stormsurge, Altruism and merit abilities. Accepted — too many
-# stratagems to fit on one hub. Bring them up via /ja in chat or a separate macro book.
-#
+exclude:
+  # SCH has 17+ JA stratagems but hub fits only 11 (5 high Ctrl+1-5, 4 mid Ctrl+6-9,
+  # 2 low on Alt+8-9 — remaining Alt+2-7 used for 6 content group nav). Accepted — too
+  # many stratagems to fit on one hub. Bring them up via /ja in chat or a separate macro book.
+  - Perpetuance
+  - Immanence
+  - Rapture
+  - Ebullience
+  - Modus Veritas
+  - Sublimation
+  - Libra
+  - Stormsurge
+  - Altruism
+  - Equanimity     # merit ability
+  - Tranquility    # merit ability
+  - Focalization   # merit ability
+  - Caper Emissarius  # merit ability
+  # Trimmed so ws_club(11)+ws_staff(7)=18 auto-merges into one SWS set.
+  - Shell Crusher
+  - Sunburst
+  - Starburst
+  - Earth Crusher
+  - Rock Crusher
+  - Heavy Swing
+
 # Content group math (7 total sets):
 #   resist_dmg + status_removal + field: family:resist → merge (6+8+3=17 ≤ 18) → 1 set
 #   ws_club (11) + ws_staff (7): auto-merge as ws family (11+7=18 ≤ 18) → 1 set

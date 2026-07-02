@@ -1,10 +1,11 @@
 # CLAUDE.md — FFXI Macros
 
-This folder documents a hub-and-spoke macro system for FFXI (retail), covering all jobs. Each job has its own file (`WAR.md`, `RDM.md`, etc.). Navigation lives in `JobsHub.md`. See `README.md` for full conventions.
-
-**Two coexisting formats in this folder:**
-- **`JOB.yml` / `JOB.md`** (this folder's root) — a hand-authored, standalone L99-only macro set per job, at a *fixed* book number per the table below. Importable directly, no generator involved.
-- **`spokes/JOB.yml`** — the declarative layout `scripts/gen_macros.py` actually reads today to build a *per-character* macro set (any job/level/subjob combo, addresses allocated dynamically via `characters/NAME/manifest.yml` — see `characters/AGENTS.md`). No fixed book numbers; JobsHub itself is generated, not hand-authored. All the naming/nav/priority *conventions* below (hub/core/spoke contract, button rules, group taxonomy, multi-page overflow) apply to both formats — only the addressing mechanism differs. See "`spokes/JOB.yml` — Generator Input Format" further down for its schema.
+This folder documents a hub-and-spoke macro system for FFXI (retail), covering all jobs.
+`spokes/JOB.yml` is the declarative layout `scripts/gen_macros.py` reads to build a
+*per-character* macro set (any job/level/subjob combo, addresses allocated dynamically via
+`characters/NAME/manifest.yml` — see `characters/AGENTS.md`). There are no fixed book numbers;
+JobsHub itself is generated, not hand-authored. See "`spokes/JOB.yml` — Generator Input Format"
+further down for its schema.
 
 ## System Overview
 
@@ -99,9 +100,8 @@ within the same group.
 
 Always: **Earth → Lightning → Water → Fire → Ice → Wind** (Light ↔ Dark)
 
-## Spell Filtering — Excluded by Default
+## Spell Filtering Conventions
 
-- **Pre-combat set-and-forget**: Protect/Shell/Reraise/Sneak/Invisible/Deodorize/Teleport — Bar-spells are excluded by default but belong in `resistances` if the job has enough of them to warrant a set
 - **Redundant**: lower tiers when a higher tier is macroed, healing is an exception for mana efficiency
 - **Covered by Erase**: Blindna, Paralyna, Poisona — Cursna is kept because Erase does not remove Curse
 - **Subjob spells**: excluded by default; switch to the relevant job book instead
@@ -134,14 +134,13 @@ Some spells appear on multiple sets deliberately — e.g. Regen on both Healing 
 
 ---
 
-## `spokes/JOB.yml` — Generator Input Format (Current)
+## `spokes/JOB.yml` — Generator Input Format
 
 This is what `scripts/gen_macros.py` actually reads (via `characters/NAME/manifest.yml` — see
-`characters/AGENTS.md`). Unlike the static `JOB.yml` files below, it has no book/set/button
-addresses at all — just a declarative list of hubs and groups, each holding named actions with a
-priority. The generator resolves action names against `data/` (spells/JAs/WS availability at the
-target level), buckets by priority into Ctrl/Alt slots, and allocates book/set addresses at
-generation time.
+`characters/AGENTS.md`). It has no book/set/button addresses at all — just a declarative list of
+hubs and groups, each holding named actions with a priority. The generator resolves action names
+against `data/` (spells/JAs/WS availability at the target level), buckets by priority into
+Ctrl/Alt slots, and allocates book/set addresses at generation time.
 
 ```yaml
 job: WHM
@@ -179,100 +178,17 @@ existing hub/core/spoke, or to define a brand-new one (see `characters/AGENTS.md
 
 ---
 
-## .md / .yml Dual-File Workflow — Static Per-Job Files (Legacy Reference)
+## Future Ideas / Out of Scope
 
-The rest of this section covers the hand-authored `JOB.yml`/`JOB.md` files at fixed book numbers
-(the table below) — a separate, standalone L99 macro set per job, not read by the generator.
-
-Each job has two files:
-
-- **`JOB.md`** — design document. Button layout tables, naming rationale, glossary of abbreviations, open questions. Source of truth for *what* each button does and *why*.
-- **`JOB.yml`** — importable artifact for the [macromog](../macromog/) tool. Contains the actual `/ma`, `/ja`, `/ws`, `/pet` command lines. Maintained in parallel with the .md.
-
-The `.md` files are not generated from the `.yml` and vice versa — they are hand-authored companions. When you change what a button does, update both.
-
-### Book Index Assignment
-
-Each .md file begins with YAML frontmatter declaring its book slot — the single source of truth:
-
-```markdown
----
-book: 4
----
-# Book: WHM — White Mage
-```
-
-The full assignment table:
-
-| Book | Job      | Book | Job      |
-|------|----------|------|----------|
-| 1    | JobsHub  | 14   | SAM      |
-| 2    | WAR      | 15   | NIN      |
-| 3    | MNK      | 16   | DRG      |
-| 4    | WHM      | 17   | BLU      |
-| 5    | BLM      | 18   | COR      |
-| 6    | RDM      | 19   | PUP      |
-| 7    | THF      | 20   | DNC      |
-| 8    | PLD      | 21   | SCH      |
-| 9    | DRK      | 22   | GEO      |
-| 10   | BST      | 23   | RUN      |
-| 11   | BRD      | 24   | (reserved) |
-| 12   | RNG      | 25–40 | (reserved) |
-| 13   | SMN      |      |          |
-
-### Navigation Macro Contents (Formulaic)
-
-Nav macros are always two lines derived from the book table. No lookup needed — just book index + set number:
-
-```yaml
-contents:
-  - /macro book N
-  - /macro set M
-```
-
-Common patterns:
-
-| Nav label | Meaning | Example (WHM = book 4) |
-|-----------|---------|------------------------|
-| `SJobHub` | Go to JobsHub Set 1 | `/macro book 1` / `/macro set 1` |
-| `SHub`    | Go to this job's Set 1 | `/macro book 4` / `/macro set 1` |
-| `SHeal`   | Go to this job's Set 2 | `/macro book 4` / `/macro set 2` |
-| `SHub` (Alt+1 on Set 1) | Omitted — blank slot | (no entry in YAML) |
-
-Blank nav slots (e.g., Alt+1 on the primary hub) are simply omitted from the YAML — sparse format means only non-empty slots appear.
-
-### Authoring a .yml
-
-```yaml
-version: 1
-scope:
-  level: book
-  selections:
-    - {book: N}        # matches the book: N in the .md frontmatter
-books:
-  N:
-    name: JOB          # ≤15 chars, alphanumeric — shown in-game
-    sets:
-      1:
-        ctrl:
-          1:
-            name: McrName  # ≤8 bytes — shown on button
-            contents:
-              - /ma "Spell Name" <t>   # ≤6 lines, ≤60 chars each
-        alt:
-          0:
-            name: SJobHub
-            contents:
-              - /macro book 1
-              - /macro set 1
-```
-
-Constraints (from macromog schema):
-- Books: 1–40, Sets: 1–10, Keys: 1–9 then 0 (0 = tenth/rightmost slot)
-- Button name: ≤8 bytes
-- Contents: ≤6 lines, each ≤60 characters
-- Only populated slots appear — gaps are valid (sparse format)
-
-### Stub .yml Files
-
-Jobs not yet designed have minimal stub .yml files with only the `SJobHub` nav on Alt+0 of Set 1. These are valid for import but essentially empty. Expand them as the corresponding .md is designed.
+- **Common book (not yet implemented)** — a dedicated cross-job macro book for utility that
+  doesn't belong to any one job: consumables (medicines, XP rings), Sneak/Invisible/Deodorize/
+  Teleport-Recall, Trust macros, lockstyle sets, and commonly-subbed job spells/abilities. Would
+  reduce duplication across job books. A candidate technique for tiered spells in such a book:
+  cascading rank lines — FFXI runs macro lines sequentially and stops at the first successful
+  command, so stacking `/ma "Protect V" <t>` / `/ma "Protect IV" <t>` / `/ma "Protect III" <t>`
+  auto-selects the highest available rank with no manual adjustment while leveling.
+- **Gear swapping is out of scope** for this macro system. Two options exist independently, layered
+  on top: manual `/equip` lines (workable for simple pre/post-cast swaps, within the 6-line/macro
+  limit) or [GearSwap](https://github.com/Windower/Lua) (the standard endgame solution — Lua gear
+  sets auto-equipped based on spell/ability conditions, recommended once gear swapping matters to
+  performance).

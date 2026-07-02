@@ -21,17 +21,14 @@ Game mechanics data. Answers: *given a job and level, what actions are available
 See `data/AGENTS.md` for full schemas and targeting conventions (`default_self`, `self_only`).
 
 ### `macros/`
-Hub-and-spoke macro layouts. Two coexisting formats live here — see `macros/AGENTS.md` for the
-full breakdown:
+Hub-and-spoke macro layouts.
 - `spokes/JOB.yml` — declarative layout (hubs/groups/actions + priority, no fixed addresses); what
-  `scripts/gen_macros.py` actually reads today to build a per-character macro set.
-- `JOB.yml` / `JOB.md` (this folder's root) — hand-authored, standalone L99-only macro sets at
-  fixed book numbers, importable directly without the generator.
+  `scripts/gen_macros.py` reads to build a per-character macro set.
 
-Both share the same hub-and-spoke conventions: a shared **JobsHub** links to each job's book; a
-primary hub set holds always-up abilities and nav links to category sets (healing, nukes,
-enfeebling, WS, etc.). See `macros/AGENTS.md` for hub types, button naming rules, nav conventions,
-group taxonomy, and multi-page overflow.
+A shared **JobsHub** (generated, not hand-authored) links to each job's book; a primary hub set
+holds always-up abilities and nav links to category sets (healing, nukes, enfeebling, WS, etc.).
+See `macros/AGENTS.md` for hub types, button naming rules, nav conventions, group taxonomy, and
+multi-page overflow.
 
 ### `characters/`
 Per-character, per-player inputs (git-ignored — local to the player, not checked in):

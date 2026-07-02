@@ -60,6 +60,8 @@ groups:
 
   - name: nuking
     type: spoke
+    # DRK has no Magic Attack Bonus and only tier II nukes — low priority across the board,
+    # not worth casting over weaponskilling except as filler.
     actions:
       - {name: Stone,    priority: low}  # resolves to Stone III
       - {name: Thunder,  priority: low}
