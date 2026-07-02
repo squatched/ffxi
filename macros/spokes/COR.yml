@@ -62,20 +62,6 @@ groups:
       - {name: "Choral Roll",        priority: low}    # spell interruption
       - {name: "Ninja's Roll",       priority: low}    # evasion
 
-  - name: ws_dagger
-    type: spoke
-    actions:
-      - {name: Evisceration,  priority: high, note: "quest: Cloak and Dagger"}
-      - {name: Aeolian Edge,  priority: high}
-      - {name: Exenterator,   priority: high}
-      - {name: Energy Drain,  priority: mid}
-      - {name: Energy Steal,  priority: mid}
-      - {name: Cyclone,       priority: low}
-      - {name: Viper Bite,    priority: low}
-      - {name: Shadowstitch,  priority: low}
-      - {name: Gust Slash,    priority: low}
-      - {name: Wasp Sting,    priority: low}
-
   - name: ws_marksmanship
     type: spoke
     actions:
@@ -89,3 +75,17 @@ groups:
       - {name: Sniper Shot,    priority: low}
       - {name: Split Shot,     priority: low}
       - {name: Hot Shot,       priority: low}
+
+  - name: ws_dagger
+    type: spoke
+    actions:
+      - {name: Evisceration,  priority: high, note: "quest: Cloak and Dagger"}
+      - {name: Aeolian Edge,  priority: high}
+      - {name: Exenterator,   priority: high}
+      - {name: Energy Drain,  priority: mid}
+      - {name: Energy Steal,  priority: mid}
+      - {name: Cyclone,       priority: low}
+      - {name: Viper Bite,    priority: low}
+      - {name: Shadowstitch,  priority: low}
+      - {name: Gust Slash,    priority: low}
+      - {name: Wasp Sting,    priority: low}

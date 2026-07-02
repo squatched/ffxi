@@ -46,27 +46,11 @@ groups:
       - {name: "Gekka: Ichi",   priority: low}   # sleep (lunar)
       - {name: "Yain: Ichi",    priority: low}   # amnesia
 
-  - name: dots
-    type: spoke
-    actions:
-      - {name: "Dokumori: Ichi", priority: high}  # poison DoT
-
   - name: resist_dmg
     type: spoke
     actions:
       - {name: "Utsusemi: San",  priority: high}  # 5 shadows — pre-pull setup
       - {name: "Migawari: Ichi", priority: high}  # take hit in place of party member
-
-  - name: enhance_self
-    type: spoke
-    actions:
-      - {name: "Myoshu: Ichi", priority: high}  # enspell (Water)
-
-  - name: field
-    type: spoke
-    actions:
-      - {name: "Tonko: Ichi",  priority: high}  # resolves to Ni (Invisible)
-      - {name: "Monomi: Ichi", priority: high}  # Sneak
 
   - name: ws_katana
     type: spoke
@@ -86,3 +70,19 @@ groups:
       - {name: "Blade: Teki", priority: low}
       - {name: "Blade: Retsu", priority: low}
       - {name: "Blade: Rin",  priority: low}
+
+  - name: dots
+    type: spoke
+    actions:
+      - {name: "Dokumori: Ichi", priority: high}  # poison DoT
+
+  - name: enhance_self
+    type: spoke
+    actions:
+      - {name: "Myoshu: Ichi", priority: high}  # enspell (Water)
+
+  - name: field
+    type: spoke
+    actions:
+      - {name: "Tonko: Ichi",  priority: high}  # resolves to Ni (Invisible)
+      - {name: "Monomi: Ichi", priority: high}  # Sneak

@@ -37,11 +37,6 @@ groups:
       - {name: Absorb-Attri, priority: low}
       - {name: Tractor,     priority: low}
 
-  - name: enhance_self
-    type: spoke
-    actions:
-      - {name: Endark, priority: high}  # resolves to Endark II
-
   - name: dots
     type: spoke
     actions:
@@ -57,18 +52,6 @@ groups:
       - {name: Bind,  priority: high}
       - {name: Stun,  priority: high}
       - {name: Break, priority: mid}
-
-  - name: nuking
-    type: spoke
-    # DRK has no Magic Attack Bonus and only tier II nukes — low priority across the board,
-    # not worth casting over weaponskilling except as filler.
-    actions:
-      - {name: Stone,    priority: low}  # resolves to Stone III
-      - {name: Thunder,  priority: low}
-      - {name: Water,    priority: low}
-      - {name: Fire,     priority: low}
-      - {name: Blizzard, priority: low}
-      - {name: Aero,     priority: low}
 
   - name: ws_scythe
     type: spoke
@@ -106,6 +89,20 @@ groups:
       - {name: Power Slash,     priority: low}
       - {name: Hard Slash,      priority: low}
 
+  - name: ws_axe
+    type: spoke
+    actions:
+      - {name: Ruinator,     priority: high}  # merit
+      - {name: Decimation,   priority: high}  # quest
+      - {name: Onslaught,    priority: high}
+      - {name: Bora Axe,     priority: mid}
+      - {name: Rampage,      priority: mid}
+      - {name: Spinning Axe, priority: mid}
+      - {name: Avalanche Axe, priority: low}
+      - {name: Gale Axe,    priority: low}
+      - {name: Smash Axe,   priority: low}
+      - {name: Raging Axe,  priority: low}
+
   - name: ws_great_axe
     type: spoke
     actions:
@@ -120,16 +117,19 @@ groups:
       - {name: Iron Tempest,    priority: low}
       - {name: Shield Break,    priority: low}
 
-  - name: ws_axe
+  - name: enhance_self
     type: spoke
     actions:
-      - {name: Ruinator,     priority: high}  # merit
-      - {name: Decimation,   priority: high}  # quest
-      - {name: Onslaught,    priority: high}
-      - {name: Bora Axe,     priority: mid}
-      - {name: Rampage,      priority: mid}
-      - {name: Spinning Axe, priority: mid}
-      - {name: Avalanche Axe, priority: low}
-      - {name: Gale Axe,    priority: low}
-      - {name: Smash Axe,   priority: low}
-      - {name: Raging Axe,  priority: low}
+      - {name: Endark, priority: high}  # resolves to Endark II
+
+  - name: nuking
+    type: spoke
+    # DRK has no Magic Attack Bonus and only tier II nukes — low priority across the board,
+    # not worth casting over weaponskilling except as filler.
+    actions:
+      - {name: Stone,    priority: low}  # resolves to Stone III
+      - {name: Thunder,  priority: low}
+      - {name: Water,    priority: low}
+      - {name: Fire,     priority: low}
+      - {name: Blizzard, priority: low}
+      - {name: Aero,     priority: low}

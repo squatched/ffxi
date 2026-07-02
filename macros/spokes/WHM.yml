@@ -48,6 +48,29 @@ groups:
       - {name: Esuna,    priority: high}
       - {name: Sacrifice, priority: high}
 
+  - name: enhance_others
+    type: spoke
+    actions:
+      - {name: Haste,      priority: high}
+      - {name: Regen,      priority: high} # cross-cutting: also in healing
+      - {name: Auspice,    priority: high}
+      - {name: Boost-STR,  priority: high}
+      - {name: Boost-DEX,  priority: high}
+      - {name: Boost-VIT,  priority: high}
+      - {name: Boost-AGI,  priority: high}
+      - {name: Boost-INT,  priority: high}
+      - {name: Boost-MND,  priority: high}
+      - {name: Boost-CHR,  priority: high}
+
+  - name: resist_dmg
+    type: spoke
+    actions:
+      - {name: Protect,    priority: high}  # series: Protect → Protect V
+      - {name: Protectra,  priority: high}  # series: Protectra → Protectra V (AoE)
+      - {name: Shell,      priority: high}  # series: Shell → Shell V
+      - {name: Shellra,    priority: high}  # series: Shellra → Shellra V (AoE)
+      - {name: Reraise,    priority: mid}   # series: Reraise → Reraise IV
+
   - name: offensive
     type: spoke
     # Mixed set: holy damage + CC + debuffs — all on one set per WHM.md design
@@ -62,20 +85,6 @@ groups:
       - {name: Silence,  priority: mid}
       - {name: Paralyze, priority: mid}
       - {name: Diaga,    priority: mid}
-
-  - name: enhance_others
-    type: spoke
-    actions:
-      - {name: Haste,      priority: high}
-      - {name: Regen,      priority: high} # cross-cutting: also in healing
-      - {name: Auspice,    priority: high}
-      - {name: Boost-STR,  priority: high}
-      - {name: Boost-DEX,  priority: high}
-      - {name: Boost-VIT,  priority: high}
-      - {name: Boost-AGI,  priority: high}
-      - {name: Boost-INT,  priority: high}
-      - {name: Boost-MND,  priority: high}
-      - {name: Boost-CHR,  priority: high}
 
   - name: resist_elem
     type: spoke
@@ -102,15 +111,6 @@ groups:
       - {name: Baramnesia,   priority: high}
       - {name: Baramnesra,   priority: high}
       - {name: Barvira,      priority: high}
-
-  - name: resist_dmg
-    type: spoke
-    actions:
-      - {name: Protect,    priority: high}  # series: Protect → Protect V
-      - {name: Protectra,  priority: high}  # series: Protectra → Protectra V (AoE)
-      - {name: Shell,      priority: high}  # series: Shell → Shell V
-      - {name: Shellra,    priority: high}  # series: Shellra → Shellra V (AoE)
-      - {name: Reraise,    priority: mid}   # series: Reraise → Reraise IV
 
   - name: field
     type: spoke

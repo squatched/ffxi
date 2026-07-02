@@ -57,21 +57,6 @@ groups:
       - {name: Keen Edge,        priority: low}
       - {name: Metatron Torment, priority: low}
 
-  - name: ws_axe
-    type: spoke
-    actions:
-      - {name: Raging Axe,    priority: high}
-      - {name: Smash Axe,     priority: high}
-      - {name: Gale Axe,      priority: high}
-      - {name: Avalanche Axe, priority: high}
-      - {name: Spinning Axe,  priority: high}
-      - {name: Rampage,       priority: mid}
-      - {name: Mistral Axe,   priority: mid}
-      - {name: Calamity,      priority: mid}
-      - {name: Decimation,    priority: mid}
-      - {name: Bora Axe,      priority: mid}
-      - {name: Ruinator,      priority: mid}
-
   - name: ws_great_sword
     type: spoke
     actions:
@@ -86,19 +71,20 @@ groups:
       - {name: Freezebite,      priority: low}
       - {name: Crescent Moon,   priority: low}
 
-  - name: ws_scythe
+  - name: ws_axe
     type: spoke
     actions:
-      - {name: Dark Harvest,     priority: high}
-      - {name: Nightmare Scythe, priority: high}
-      - {name: Vorpal Scythe,    priority: high}
-      - {name: Spinning Scythe,  priority: high}
-      - {name: Infernal Scythe,  priority: high}
-      - {name: Catastrophe,      priority: mid}
-      - {name: Entropy,          priority: mid}
-      - {name: Spiral Hell,      priority: mid}
-      - {name: Shadow of Death,  priority: low}
-      - {name: Slice,            priority: low}  # only Scythe WS below skill 30
+      - {name: Raging Axe,    priority: high}
+      - {name: Smash Axe,     priority: high}
+      - {name: Gale Axe,      priority: high}
+      - {name: Avalanche Axe, priority: high}
+      - {name: Spinning Axe,  priority: high}
+      - {name: Rampage,       priority: mid}
+      - {name: Mistral Axe,   priority: mid}
+      - {name: Calamity,      priority: mid}
+      - {name: Decimation,    priority: mid}
+      - {name: Bora Axe,      priority: mid}
+      - {name: Ruinator,      priority: mid}
 
   - name: ws_sword
     type: spoke
@@ -115,3 +101,17 @@ groups:
       - {name: Requiescat,      priority: mid}
       - {name: Vorpal Blade,    priority: low}
       - {name: Seraph Blade,    priority: low}
+
+  - name: ws_scythe
+    type: spoke
+    actions:
+      - {name: Dark Harvest,     priority: high}
+      - {name: Nightmare Scythe, priority: high}
+      - {name: Vorpal Scythe,    priority: high}
+      - {name: Spinning Scythe,  priority: high}
+      - {name: Infernal Scythe,  priority: high}
+      - {name: Catastrophe,      priority: mid}
+      - {name: Entropy,          priority: mid}
+      - {name: Spiral Hell,      priority: mid}
+      - {name: Shadow of Death,  priority: low}
+      - {name: Slice,            priority: low}  # only Scythe WS below skill 30

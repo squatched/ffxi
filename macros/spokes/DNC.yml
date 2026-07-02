@@ -48,14 +48,6 @@ groups:
       - {name: Stutter Step, priority: mid,  self_only: false}
       - {name: Feather Step, priority: mid,  self_only: false}
 
-  - name: field
-    type: spoke
-    actions:
-      - {name: Spectral Jig,  priority: high}   # Sneak+Invisible on self
-      - {name: Chocobo Jig II, priority: mid}   # movement speed
-      - {name: Chocobo Jig,   priority: mid}
-      - {name: Contradance,   priority: low}    # share TP generation with partner
-
   - name: ws_dagger
     type: spoke
     actions:
@@ -73,3 +65,11 @@ groups:
       - {name: Shadowstitch,  priority: low}
       - {name: Gust Slash,    priority: low}
       - {name: Wasp Sting,    priority: low}
+
+  - name: field
+    type: spoke
+    actions:
+      - {name: Spectral Jig,  priority: high}   # Sneak+Invisible on self
+      - {name: Chocobo Jig II, priority: mid}   # movement speed
+      - {name: Chocobo Jig,   priority: mid}
+      - {name: Contradance,   priority: low}    # share TP generation with partner

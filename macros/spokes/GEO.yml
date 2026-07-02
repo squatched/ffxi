@@ -28,25 +28,6 @@ hubs:
       - {name: Widened Compass,   priority: low}
 
 groups:
-  - name: indi_offense
-    type: spoke
-    # Elemental ordering: Earth > Lightning > Water > Fire > Ice > Wind, then Light > Dark, then misc
-    actions:
-      - {name: Indi-Frailty,   priority: high}  # DEF down (enemy)
-      - {name: Indi-Malaise,   priority: high}  # INT/MND down (enemy magic)
-      - {name: Indi-Torpor,    priority: high}  # AGI/evasion down
-      - {name: Indi-Wilt,      priority: high}  # subtle blow bonus
-      - {name: Indi-Vex,       priority: high}  # enmity reduction debuff
-      - {name: Indi-Languor,   priority: mid}   # slow effect on enemy
-      - {name: Indi-Paralysis, priority: mid}
-      - {name: Indi-Gravity,   priority: mid}
-      - {name: Indi-Slow,      priority: mid}
-      - {name: Indi-Slip,      priority: low}   # skill reduction
-      - {name: Indi-Voidance,  priority: low}   # evasion down
-      - {name: Indi-Fury,      priority: low}   # STR/ATK (also useful for party)
-      - {name: Indi-Poison,    priority: low}
-      - {name: Indi-Fade,      priority: low}   # reduces enemy damage
-
   - name: indi_support
     type: spoke
     actions:
@@ -66,25 +47,6 @@ groups:
       - {name: Indi-MND,        priority: low}
       - {name: Indi-CHR,        priority: low}
       - {name: Indi-Fend,       priority: low}   # DEF up
-
-  - name: geo_offense
-    type: spoke
-    # Luopan placed at target (<t>) for enemy-targeted debuffs
-    actions:
-      - {name: Geo-Frailty,    priority: high}
-      - {name: Geo-Malaise,    priority: high}
-      - {name: Geo-Torpor,     priority: high}
-      - {name: Geo-Wilt,       priority: high}
-      - {name: Geo-Vex,        priority: high}
-      - {name: Geo-Languor,    priority: mid}
-      - {name: Geo-Paralysis,  priority: mid}
-      - {name: Geo-Gravity,    priority: mid}
-      - {name: Geo-Slow,       priority: mid}
-      - {name: Geo-Slip,       priority: low}
-      - {name: Geo-Voidance,   priority: low}
-      - {name: Geo-Fury,       priority: low}
-      - {name: Geo-Poison,     priority: low}
-      - {name: Geo-Fade,       priority: low}
 
   - name: geo_support
     type: spoke
@@ -106,6 +68,44 @@ groups:
       - {name: Geo-MND,        priority: low}
       - {name: Geo-CHR,        priority: low}
       - {name: Geo-Fend,       priority: low}
+
+  - name: indi_offense
+    type: spoke
+    # Elemental ordering: Earth > Lightning > Water > Fire > Ice > Wind, then Light > Dark, then misc
+    actions:
+      - {name: Indi-Frailty,   priority: high}  # DEF down (enemy)
+      - {name: Indi-Malaise,   priority: high}  # INT/MND down (enemy magic)
+      - {name: Indi-Torpor,    priority: high}  # AGI/evasion down
+      - {name: Indi-Wilt,      priority: high}  # subtle blow bonus
+      - {name: Indi-Vex,       priority: high}  # enmity reduction debuff
+      - {name: Indi-Languor,   priority: mid}   # slow effect on enemy
+      - {name: Indi-Paralysis, priority: mid}
+      - {name: Indi-Gravity,   priority: mid}
+      - {name: Indi-Slow,      priority: mid}
+      - {name: Indi-Slip,      priority: low}   # skill reduction
+      - {name: Indi-Voidance,  priority: low}   # evasion down
+      - {name: Indi-Fury,      priority: low}   # STR/ATK (also useful for party)
+      - {name: Indi-Poison,    priority: low}
+      - {name: Indi-Fade,      priority: low}   # reduces enemy damage
+
+  - name: geo_offense
+    type: spoke
+    # Luopan placed at target (<t>) for enemy-targeted debuffs
+    actions:
+      - {name: Geo-Frailty,    priority: high}
+      - {name: Geo-Malaise,    priority: high}
+      - {name: Geo-Torpor,     priority: high}
+      - {name: Geo-Wilt,       priority: high}
+      - {name: Geo-Vex,        priority: high}
+      - {name: Geo-Languor,    priority: mid}
+      - {name: Geo-Paralysis,  priority: mid}
+      - {name: Geo-Gravity,    priority: mid}
+      - {name: Geo-Slow,       priority: mid}
+      - {name: Geo-Slip,       priority: low}
+      - {name: Geo-Voidance,   priority: low}
+      - {name: Geo-Fury,       priority: low}
+      - {name: Geo-Poison,     priority: low}
+      - {name: Geo-Fade,       priority: low}
 
   - name: ws_club
     type: spoke

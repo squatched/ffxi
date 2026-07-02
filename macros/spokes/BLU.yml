@@ -37,43 +37,6 @@ groups:
       - {name: Blazing Bound,   priority: mid}
       - {name: Quad. Continuum, priority: mid}
 
-  - name: healing
-    type: spoke
-    actions:
-      - {name: White Wind,       priority: high}   # % HP restore (main only)
-      - {name: Plenilune Embrace, priority: high}  # HP restore (main only)
-      - {name: Restoral,         priority: high}   # HP/MP restore (main only)
-      - {name: Magic Fruit,      priority: mid}
-      - {name: Wild Carrot,      priority: mid}
-      - {name: Healing Breeze,   priority: low}
-      - {name: Pollen,           priority: low}
-
-  - name: resist_dmg
-    type: spoke
-    actions:
-      - {name: Mighty Guard,   priority: high, note: "Unbridled Learning — party-wide buffs"}
-      - {name: Occultation,    priority: high}   # multiple blink shadows
-      - {name: Magic Barrier,  priority: high}   # magic shield (main only)
-      - {name: Diamondhide,    priority: high}   # high defense boost (main only)
-      - {name: Zephyr Mantle,  priority: high}   # blink (main only)
-      - {name: Feather Barrier, priority: mid}   # high evasion boost
-      - {name: Metallic Body,  priority: mid}    # stoneskin
-      - {name: Cocoon,         priority: low}    # defense +50%
-
-  - name: enhance_self
-    type: spoke
-    actions:
-      - {name: Erratic Flutter,  priority: high}  # double attack/triple attack/haste
-      - {name: Animating Wail,   priority: high}  # ATK/DEF buff (main only)
-      - {name: Triumphant Roar,  priority: high}  # stat boost (main only)
-      - {name: Amplification,    priority: high}  # MAB boost (main only)
-      - {name: Battery Charge,   priority: mid}   # HP/MP recovery (main only)
-      - {name: Plasma Charge,    priority: mid}   # MP recovery (main only)
-      - {name: Reactor Cool,     priority: mid}   # enmity down (main only)
-      - {name: Exuviation,       priority: mid}   # status removal (main only)
-      - {name: Warm-Up,          priority: low}   # enhancing magic buff (main only)
-      - {name: Refueling,        priority: low}   # haste
-
   - name: debuffs
     type: spoke
     actions:
@@ -92,6 +55,18 @@ groups:
       - {name: Acrid Stream,      priority: low}   # INT/MND down + DoT (main only)
       - {name: Chaotic Eye,       priority: low}   # single target sleep
 
+  - name: resist_dmg
+    type: spoke
+    actions:
+      - {name: Mighty Guard,   priority: high, note: "Unbridled Learning — party-wide buffs"}
+      - {name: Occultation,    priority: high}   # multiple blink shadows
+      - {name: Magic Barrier,  priority: high}   # magic shield (main only)
+      - {name: Diamondhide,    priority: high}   # high defense boost (main only)
+      - {name: Zephyr Mantle,  priority: high}   # blink (main only)
+      - {name: Feather Barrier, priority: mid}   # high evasion boost
+      - {name: Metallic Body,  priority: mid}    # stoneskin
+      - {name: Cocoon,         priority: low}    # defense +50%
+
   - name: ws_sword
     type: spoke
     actions:
@@ -108,3 +83,28 @@ groups:
       - {name: Red Lotus Blade, priority: low}
       - {name: Burning Blade,  priority: low}
       - {name: Fast Blade,     priority: low}
+
+  - name: healing
+    type: spoke
+    actions:
+      - {name: White Wind,       priority: high}   # % HP restore (main only)
+      - {name: Plenilune Embrace, priority: high}  # HP restore (main only)
+      - {name: Restoral,         priority: high}   # HP/MP restore (main only)
+      - {name: Magic Fruit,      priority: mid}
+      - {name: Wild Carrot,      priority: mid}
+      - {name: Healing Breeze,   priority: low}
+      - {name: Pollen,           priority: low}
+
+  - name: enhance_self
+    type: spoke
+    actions:
+      - {name: Erratic Flutter,  priority: high}  # double attack/triple attack/haste
+      - {name: Animating Wail,   priority: high}  # ATK/DEF buff (main only)
+      - {name: Triumphant Roar,  priority: high}  # stat boost (main only)
+      - {name: Amplification,    priority: high}  # MAB boost (main only)
+      - {name: Battery Charge,   priority: mid}   # HP/MP recovery (main only)
+      - {name: Plasma Charge,    priority: mid}   # MP recovery (main only)
+      - {name: Reactor Cool,     priority: mid}   # enmity down (main only)
+      - {name: Exuviation,       priority: mid}   # status removal (main only)
+      - {name: Warm-Up,          priority: low}   # enhancing magic buff (main only)
+      - {name: Refueling,        priority: low}   # haste
