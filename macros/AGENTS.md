@@ -2,6 +2,10 @@
 
 This folder documents a hub-and-spoke macro system for FFXI (retail), covering all jobs. Each job has its own file (`WAR.md`, `RDM.md`, etc.). Navigation lives in `JobsHub.md`. See `README.md` for full conventions.
 
+**Two coexisting formats in this folder:**
+- **`JOB.yml` / `JOB.md`** (this folder's root) — a hand-authored, standalone L99-only macro set per job, at a *fixed* book number per the table below. Importable directly, no generator involved.
+- **`spokes/JOB.yml`** — the declarative layout `scripts/gen_macros.py` actually reads today to build a *per-character* macro set (any job/level/subjob combo, addresses allocated dynamically via `characters/NAME/manifest.yml` — see `characters/AGENTS.md`). No fixed book numbers; JobsHub itself is generated, not hand-authored. All the naming/nav/priority *conventions* below (hub/core/spoke contract, button rules, group taxonomy, multi-page overflow) apply to both formats — only the addressing mechanism differs. See "`spokes/JOB.yml` — Generator Input Format" further down for its schema.
+
 ## System Overview
 
 Based on [The Hub System by Sekhmet](https://ffxiclopedia.fandom.com/wiki/The_Hub_System_of_Macro_Management_a_guide_by_Sekhmet). 40 macro books × 10 sets × 20 buttons (Ctrl+1-0 and Alt+1-0). A shared **JobsHub** book links all job books.
@@ -53,6 +57,8 @@ When any group overflows to a second set, the same toggle button links page 1 �
 - **Hubs**: Alt+9 (Alt+0 is reserved for JobsHub)
 
 The toggle always returns you to the primary page. On hub overflow pages, Ctrl+0 = 2-hour is repeated. Ctrl+1-9 duplicates page 1 if all JAs fit there; otherwise holds the overflow JAs.
+
+For the `spokes/` generator path, this is enforced automatically — `scripts/gen_macros.py` dry-run checks capacity during address allocation (`_hub_page_fits` / `_nonhub_page_fits`) and reserves a second page whenever a hub, core, or spoke's actions or nav links don't fit on one, rather than dropping anything. It prints a `WARN:` if something still doesn't fit even with a second page.
 
 ## Group Taxonomy
 
@@ -128,7 +134,55 @@ Some spells appear on multiple sets deliberately — e.g. Regen on both Healing 
 
 ---
 
-## .md / .yml Dual-File Workflow
+## `spokes/JOB.yml` — Generator Input Format (Current)
+
+This is what `scripts/gen_macros.py` actually reads (via `characters/NAME/manifest.yml` — see
+`characters/AGENTS.md`). Unlike the static `JOB.yml` files below, it has no book/set/button
+addresses at all — just a declarative list of hubs and groups, each holding named actions with a
+priority. The generator resolves action names against `data/` (spells/JAs/WS availability at the
+target level), buckets by priority into Ctrl/Alt slots, and allocates book/set addresses at
+generation time.
+
+```yaml
+job: WHM
+name: White Mage
+ws_rank_cutoff: C          # optional; overrides the default B- weapon-rank-to-include cutoff
+
+exclude:                    # optional; action names never resolved for this job (see coverage.py)
+  - Reraise
+
+hubs:                       # 1-2 entries; each becomes a hub set (see "Group Types" above)
+  - name: main               # referenced by characters/*/custom.yml to merge in custom actions
+    label: "WHM Hub"          # nav button text (abbreviated to 8 chars); falls back to name
+    actions:
+      - {name: Stoneskin, priority: high}
+      - {name: Cure, priority: mid, sub_tier: 1}   # sub_tier: series member N below the max tier
+      - {name: Reraise, priority: low, exact: true} # exact: true — never auto-upgrade to a higher tier
+
+groups:                     # any number; each becomes a core or spoke set
+  - name: healing
+    type: core                # core | spoke (see "Group Types" above)
+    label: "Healing"           # optional; defaults to name.title()
+    family: enhance             # optional; groups sharing a family merge into one set if the
+                                  # combined action count fits (see FAMILY_DEFS in gen_macros.py)
+    actions:
+      - {name: Cure, priority: high}
+```
+
+Action entry fields: `name` (required — spell/JA/WS/avatar/blood-pact name as it appears in
+`data/`), `priority` (`high`/`mid`/`low`, default `mid`), `sub_tier` (int — for multi-slot series
+like CureS/M/L), `exact` (bool — pin to this exact tier, never auto-upgrade), `self_only`
+(overrides the job/spell default target).
+
+Group names are the same namespace `characters/*/custom.yml` uses to merge custom macros into an
+existing hub/core/spoke, or to define a brand-new one (see `characters/AGENTS.md`).
+
+---
+
+## .md / .yml Dual-File Workflow — Static Per-Job Files (Legacy Reference)
+
+The rest of this section covers the hand-authored `JOB.yml`/`JOB.md` files at fixed book numbers
+(the table below) — a separate, standalone L99 macro set per job, not read by the generator.
 
 Each job has two files:
 
