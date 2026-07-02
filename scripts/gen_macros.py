@@ -730,7 +730,8 @@ def _resolve_job_groups(job: str, level: int, spoke_def: dict, job_data: dict,
 
 
 def _merge_subjob(main_hubs: list, main_cores: list, main_spokes: list,
-                  sub_hubs: list, sub_cores: list, sub_spokes: list) -> tuple:
+                  sub_hubs: list, sub_cores: list, sub_spokes: list,
+                  name_to_series: Optional[dict] = None) -> tuple:
     """Merge a subjob's resolved hubs/groups into the main job's, in place.
 
     Hub actions merge by index (cycling if the subjob has more hubs than the main
@@ -741,7 +742,24 @@ def _merge_subjob(main_hubs: list, main_cores: list, main_spokes: list,
     entirely: the main job's weapon rank caps the effective skill, so a subjob WS
     group adds nothing practical. The subjob's two-hour is discarded by the caller
     before this function ever sees it — the main job's is always the only one.
+
+    Before any of that, subjob spells whose series the main job already grants
+    (at any tier, in any group) are dropped outright — e.g. a WHM subjob's Cure II
+    is redundant noise on a job that natively casts Cure at some tier.
     """
+    if name_to_series is not None:
+        main_series = {
+            name_to_series.get(a['resolved'], a['resolved'])
+            for g in main_hubs + main_cores + main_spokes
+            for a in g['actions'] if a['cmd'] == '/ma'
+        }
+        for g in sub_hubs + sub_cores + sub_spokes:
+            g['actions'] = [
+                a for a in g['actions']
+                if not (a['cmd'] == '/ma'
+                        and name_to_series.get(a['resolved'], a['resolved']) in main_series)
+            ]
+
     if main_hubs and sub_hubs:
         for i, sub_hub in enumerate(sub_hubs):
             main_hub = main_hubs[i % len(main_hubs)]
@@ -750,7 +768,7 @@ def _merge_subjob(main_hubs: list, main_cores: list, main_spokes: list,
     by_name = {g['name']: g for g in main_cores + main_spokes}
     order = [g['name'] for g in main_cores + main_spokes]
     for sg in sub_cores + sub_spokes:
-        if _is_ws_group(sg['name']):
+        if _is_ws_group(sg['name']) or not sg['actions']:
             continue
         if sg['name'] in by_name:
             main_g = by_name[sg['name']]
@@ -1227,7 +1245,8 @@ def main():
                 name_to_series, series_members, spell_targets)
 
             resolved_hubs, cores, spokes = _merge_subjob(
-                resolved_hubs, cores, spokes, sub_hubs, sub_cores, sub_spokes)
+                resolved_hubs, cores, spokes, sub_hubs, sub_cores, sub_spokes,
+                name_to_series)
 
         custom_groups = _custom_entries_for_job(custom_data, job, subjob)
         if custom_groups:
