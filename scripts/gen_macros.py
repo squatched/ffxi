@@ -535,6 +535,8 @@ def _nav_entry(book: int, set_no: int, label: str) -> dict:
     return {'name': label, 'contents': [f'/macro book {book}', f'/macro set {set_no}']}
 
 def _action_slot(action: dict) -> dict:
+    if 'contents' in action:
+        return {'name': action['display'], 'contents': action['contents']}
     cmd = action['cmd']
     if cmd == '/ra':
         line = f'/ra {action["target"]}'
@@ -545,17 +547,51 @@ def _action_slot(action: dict) -> dict:
 def _two_hour_slot(two_hour: dict) -> dict:
     return _action_slot(two_hour)
 
+def _custom_action(entry: dict) -> dict:
+    """Turn a custom.yml entry (verbatim contents, no data/ resolution) into an
+    action dict that flows through the same priority/merge/slot machinery as any
+    resolved spell/ability. 'resolved' is namespaced so it can never collide with
+    a real spell/ability/WS name during dedup."""
+    if 'name' not in entry or 'contents' not in entry:
+        sys.exit(f'error: custom macro entry missing name/contents: {entry}')
+    return {
+        'display': (entry.get('display') or _abbrev(entry['name']))[:8],
+        'contents': entry['contents'],
+        'resolved': f"custom:{entry['name']}",
+        'priority': entry.get('priority', 'mid'),
+    }
+
 
 # ── Slot assignment ───────────────────────────────────────────────────────────
 
+def _bucket_ctrl(actions: list, has_two_hour: bool) -> tuple[list, list]:
+    """Split actions into what fits in Ctrl slots vs. what's left competing for
+    Alt. Ctrl+1-5 = high priority; Ctrl+6-9 (two_hour reserves Ctrl+0) or
+    Ctrl+6-0 = mid priority, with high-priority overflow spilling in first."""
+    high = [a for a in actions if a.get('priority') == 'high']
+    mid  = [a for a in actions if a.get('priority') == 'mid']
+    low  = [a for a in actions if a.get('priority') == 'low']
+
+    ctrl_actions = high[:5]
+    overflow_high = high[5:]
+    mid_capacity = 4 if has_two_hour else 5
+    all_mid = overflow_high + mid
+    ctrl_actions += all_mid[:mid_capacity]
+    overflow_mid = all_mid[mid_capacity:]
+
+    return ctrl_actions, overflow_mid + low
+
+
 def _build_set(actions: list, two_hour: Optional[dict],
-               fixed_alt: dict  # {slot: nav_dict_or_None}
-               ) -> dict:
+               fixed_alt: dict,  # {slot: nav_dict_or_None}
+               ) -> tuple[dict, list]:
     """
     Assign actions to ctrl/alt slots and wire nav.
     two_hour occupies Ctrl+0 (hub only).
     fixed_alt pre-assigns Alt slots; None entries are blank (omitted from output).
     Low-priority actions fill remaining Alt slots after nav.
+    Returns (set_dict, dropped_actions) — dropped_actions is whatever didn't fit;
+    callers decide whether to warn or spill it onto an overflow page.
     """
     ctrl: dict = {}
     alt:  dict = {}
@@ -563,21 +599,10 @@ def _build_set(actions: list, two_hour: Optional[dict],
     if two_hour:
         ctrl[0] = _two_hour_slot(two_hour)
 
-    high = [a for a in actions if a.get('priority') == 'high']
-    mid  = [a for a in actions if a.get('priority') == 'mid']
-    low  = [a for a in actions if a.get('priority') == 'low']
-
-    # Ctrl+1-5: high priority
-    for slot, action in zip([1, 2, 3, 4, 5], high):
+    ctrl_actions, alt_actions = _bucket_ctrl(actions, has_two_hour=bool(two_hour))
+    ctrl_slots = [1, 2, 3, 4, 5, 6, 7, 8, 9] if two_hour else [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+    for slot, action in zip(ctrl_slots, ctrl_actions):
         ctrl[slot] = _action_slot(action)
-    overflow_high = high[5:]
-
-    # Ctrl+6-9 (hub, 0 reserved) or Ctrl+6-0 (non-hub)
-    mid_ctrl = [6, 7, 8, 9] if two_hour else [6, 7, 8, 9, 0]
-    all_mid = overflow_high + mid
-    for slot, action in zip(mid_ctrl, all_mid):
-        ctrl[slot] = _action_slot(action)
-    overflow_mid = all_mid[len(mid_ctrl):]
 
     # Alt nav (fixed_alt) + low-priority actions in remaining Alt slots
     used_alt = set(fixed_alt.keys())
@@ -585,17 +610,49 @@ def _build_set(actions: list, two_hour: Optional[dict],
         if nav is not None:
             alt[slot] = nav
 
-    low_actions = overflow_mid + low
     remaining_alt = [s for s in ALT_SLOTS if s not in used_alt]
-    for slot, action in zip(remaining_alt, low_actions):
+    for slot, action in zip(remaining_alt, alt_actions):
         alt[slot] = _action_slot(action)
+
+    dropped = alt_actions[len(remaining_alt):]
 
     out: dict = {}
     if ctrl:
         out['ctrl'] = ctrl
     if alt:
         out['alt'] = alt
-    return out
+    return out, dropped
+
+
+def _warn_dropped(dropped: list, label: str) -> None:
+    if not dropped:
+        return
+    names = ', '.join(a['display'] for a in dropped)
+    print(f'WARN: no room for {names} on {label} — set is full, action(s) dropped',
+          file=sys.stderr)
+
+
+def _hub_page_fits(actions: list, num_content_navs: int, is_dual: bool) -> bool:
+    """Dry-run capacity check: would this hub's actions plus every core/spoke nav
+    link fit on one page? Mirrors the fixed-Alt-slot reservations _build_job_sets
+    applies for real (JobsHub link + hub-toggle reservation) without needing
+    real addresses yet — used in phase 1 to decide whether to reserve a second
+    hub page before any (book, set) addresses are assigned."""
+    fixed_count = 1 + (2 if is_dual else 1)  # jobshub + hub-toggle reservation
+    available_alt = len(ALT_SLOTS) - fixed_count
+    nav_fits = num_content_navs <= available_alt
+    remaining_alt = max(0, available_alt - num_content_navs)
+    _, alt_actions = _bucket_ctrl(actions, has_two_hour=True)
+    return nav_fits and len(alt_actions) <= remaining_alt
+
+
+def _nonhub_page_fits(actions: list, fixed_alt_count: int) -> bool:
+    """Same dry-run idea as _hub_page_fits, for a core/spoke set: does it fit
+    without reserving the Alt+0 overflow toggle? fixed_alt_count is however many
+    Alt slots the hub-nav (+ core-nav, for spokes) prefix already consumes."""
+    available_alt = len(ALT_SLOTS) - fixed_alt_count
+    _, alt_actions = _bucket_ctrl(actions, has_two_hour=False)
+    return len(alt_actions) <= available_alt
 
 
 # ── Book builder ──────────────────────────────────────────────────────────────
@@ -708,22 +765,120 @@ def _merge_subjob(main_hubs: list, main_cores: list, main_spokes: list,
     return main_hubs, cores, spokes
 
 
-def _ordered_groups(resolved_hubs: list, cores: list, spokes: list) -> list[dict]:
+# ── Custom macros (player-authored, layered on top of the authoritative spokes) ──
+
+def _is_job_code(key: str) -> bool:
+    """A jobs: nesting key is a subjob scope (not a group name) iff it's a real job."""
+    return (DATA_DIR / 'jobs' / f'{key}.yml').exists()
+
+def _merge_custom(a: dict, b: dict) -> dict:
+    """Deep-merge two custom.yml structures: lists concatenate, dicts merge
+    key-wise (recursively, so job-combo nesting merges too), scalars from b win."""
+    result = dict(a)
+    for k, v in b.items():
+        existing = result.get(k)
+        if isinstance(existing, list) and isinstance(v, list):
+            result[k] = existing + v
+        elif isinstance(existing, dict) and isinstance(v, dict):
+            result[k] = _merge_custom(existing, v)
+        else:
+            result[k] = v
+    return result
+
+def _load_custom(character: str) -> dict:
+    """Load and merge the account-wide (characters/custom.yml) and per-character
+    (characters/NAME/custom.yml) custom macro files. Either or both may be absent."""
+    data: dict = {}
+    for path in (CHARS_DIR / 'custom.yml', CHARS_DIR / character / 'custom.yml'):
+        if path.exists():
+            data = _merge_custom(data, _load(path))
+    return data
+
+def _custom_entries_for_job(custom_data: dict, job: str, subjob: Optional[str]) -> dict:
+    """Resolve the {group_name: entries_or_spec} map that applies to this job at
+    its current subjob. Keys under jobs.JOB that are themselves job codes scope
+    their contents to that specific main/sub combo; all other keys are group
+    names that apply regardless of subjob."""
+    job_block = custom_data.get('jobs', {}).get(job, {})
+    merged: dict = {}
+    for key, val in job_block.items():
+        if not _is_job_code(key):
+            merged = _merge_custom(merged, {key: val})
+    if subjob:
+        combo = job_block.get(subjob)
+        if isinstance(combo, dict) and _is_job_code(subjob):
+            merged = _merge_custom(merged, combo)
+    return merged
+
+def _apply_custom_groups(resolved_hubs: list, cores: list, spokes: list,
+                         custom_groups: dict) -> tuple:
+    """Merge custom.yml entries into a job's resolved groups. A group_name that
+    matches an existing hub/core/spoke name merges custom actions into it
+    (participating in the normal priority-based slot assignment); an unmatched
+    name becomes a brand-new spoke (or core, if specified) with its own address
+    and nav button, via the same pipeline any authoritative spoke uses."""
+    by_name = {h['name']: h for h in resolved_hubs}
+    by_name.update({g['name']: g for g in cores + spokes})
+    new_groups: list = []
+
+    for group_name, spec in custom_groups.items():
+        if isinstance(spec, list):
+            entries, gtype, label = spec, 'spoke', None
+        else:
+            entries = spec.get('actions', [])
+            gtype = spec.get('type', 'spoke')
+            label = spec.get('label')
+        custom_actions = [_custom_action(e) for e in entries]
+
+        if group_name in by_name:
+            g = by_name[group_name]
+            g['actions'] = _merge_dedup([g['actions'], custom_actions])
+        else:
+            new_group = {
+                'name': group_name,
+                'type': gtype,
+                'label': label or group_name.replace('_', ' ').title(),
+                'actions': custom_actions,
+            }
+            by_name[group_name] = new_group
+            new_groups.append(new_group)
+
+    cores  = cores  + [g for g in new_groups if g['type'] == 'core']
+    spokes = spokes + [g for g in new_groups if g['type'] != 'core']
+    return resolved_hubs, cores, spokes
+
+
+def _ordered_groups(resolved_hubs: list, cores: list, spokes: list,
+                    hub_overflow: Optional[list] = None,
+                    core_overflow: Optional[list] = None,
+                    spoke_overflow: Optional[list] = None) -> list[dict]:
     """Flatten hub/core/spoke groups into address-allocation order (hubs, then cores,
     then spokes — matching the original single-book set numbering), each tagged with
-    a unique key so phase 1 and phase 2 can refer to the same group unambiguously."""
+    a unique key so phase 1 and phase 2 can refer to the same group unambiguously.
+    A group flagged in its *_overflow list gets a second key immediately after it,
+    reserving an address for its overflow page before any addresses are handed out
+    (hubs toggle on Alt+9; cores/spokes toggle on Alt+0 — see macros/AGENTS.md)."""
+    hub_overflow   = hub_overflow   or [False] * len(resolved_hubs)
+    core_overflow  = core_overflow  or [False] * len(cores)
+    spoke_overflow = spoke_overflow or [False] * len(spokes)
     ordered = []
     for i in range(len(resolved_hubs)):
         ordered.append({'key': f'__hub{i}'})
-    for g in cores:
+        if hub_overflow[i]:
+            ordered.append({'key': f'__hub{i}_p2'})
+    for g, overflow in zip(cores, core_overflow):
         ordered.append({'key': g['name']})
-    for g in spokes:
+        if overflow:
+            ordered.append({'key': f"{g['name']}_p2"})
+    for g, overflow in zip(spokes, spoke_overflow):
         ordered.append({'key': g['name']})
+        if overflow:
+            ordered.append({'key': f"{g['name']}_p2"})
     return ordered
 
 
 def _build_job_sets(resolved_hubs: list, cores: list, spokes: list, two_hour: dict,
-                    address_map: dict) -> dict:
+                    address_map: dict, job_label: str = '') -> dict:
     """Build the {(book, set): set_dict} map for one job, given its resolved groups
     and the (book, set) address already assigned (phase 1) to every group key."""
 
@@ -745,10 +900,19 @@ def _build_job_sets(resolved_hubs: list, cores: list, spokes: list, two_hour: di
     sets: dict = {}
 
     # ── Hub sets ───────────────────────────────────────────────────────────────
+    # A hub that doesn't fit on one page gets a second: Alt+9 toggles between them
+    # (Alt+0 stays JobsHub, so hubs use +9 rather than the +0 spokes/cores use).
+    # Page 2 repeats the 2-hour on Ctrl+0; Ctrl+1-9 duplicates page 1's actions if
+    # they all fit there, otherwise holds whatever overflowed. See macros/AGENTS.md
+    # "Multi-page groups".
     for hub_idx, hub in enumerate(resolved_hubs):
         addr = address_map[f'__hub{hub_idx}']
-        fixed: dict = {0: jobshub_nav}
+        p2_addr = address_map.get(f'__hub{hub_idx}_p2')
+        hub_label = hub.get('label', hub['name'])
+        hub_nav_label = _nav_label(hub_label)
+        full_label = f'{job_label} {hub_label}'
 
+        fixed: dict = {0: jobshub_nav}
         if is_dual:
             other_nav = hub_navs[1 - hub_idx]
             if hub_idx == 0:
@@ -762,12 +926,42 @@ def _build_job_sets(resolved_hubs: list, cores: list, spokes: list, two_hour: di
         else:
             fixed[1] = None  # blank — nothing to toggle to on single-hub job
 
+        if p2_addr:
+            fixed[9] = _nav_entry(*p2_addr, f'{hub_nav_label}2'[:8])
+
         # Fill remaining Alt slots with core then spoke nav
         free = [s for s in ALT_SLOTS if s not in fixed]
-        for slot, nav in zip(free, all_content_navs):
+        placed_navs = all_content_navs[:len(free)]
+        leftover_navs = all_content_navs[len(free):]
+        for slot, nav in zip(free, placed_navs):
             fixed[slot] = nav
 
-        sets[addr] = _build_set(hub['actions'], two_hour, fixed)
+        set_dict, dropped_actions = _build_set(hub['actions'], two_hour, fixed)
+
+        if p2_addr:
+            p2_ctrl_actions = dropped_actions if dropped_actions else hub['actions']
+            p2_fixed: dict = {0: jobshub_nav, 9: _nav_entry(*addr, hub_nav_label)}
+            p2_free = [s for s in ALT_SLOTS if s not in p2_fixed]
+            for slot, nav in zip(p2_free, leftover_navs):
+                p2_fixed[slot] = nav
+            still_unplaced = leftover_navs[len(p2_free):]
+
+            p2_set_dict, p2_dropped = _build_set(p2_ctrl_actions, two_hour, p2_fixed)
+            _warn_dropped(p2_dropped, f'{full_label} (page 2)')
+            if still_unplaced:
+                names = ', '.join(n['name'] for n in still_unplaced)
+                print(f'WARN: {full_label} has no room to link {names} even with '
+                      f'a second hub page — unreachable', file=sys.stderr)
+
+            sets[addr]    = set_dict
+            sets[p2_addr] = p2_set_dict
+        else:
+            _warn_dropped(dropped_actions, full_label)
+            if leftover_navs:
+                names = ', '.join(n['name'] for n in leftover_navs)
+                print(f'WARN: {full_label} hub has no room to link {names} — '
+                      f'unreachable from the hub nav', file=sys.stderr)
+            sets[addr] = set_dict
 
     # ── Non-hub Alt prefix: hub nav + optional core nav ───────────────────────
     def _nonhub_fixed(include_cores: bool) -> dict:
@@ -780,34 +974,69 @@ def _build_job_sets(resolved_hubs: list, cores: list, spokes: list, two_hour: di
                 fa[slot] = nav
         return fa
 
+    # A core/spoke that doesn't fit on one page gets a second: Alt+0 toggles
+    # between them (free on non-hub sets, unlike hubs where it's the JobsHub
+    # link) — see macros/AGENTS.md "Multi-page groups". Page 2 just holds
+    # whatever overflowed; there's no 2-hour or nav prefix to repeat here.
+    def _build_nonhub_group(g: dict, fixed_alt: dict) -> None:
+        name  = g['name']
+        addr  = address_map[name]
+        p2_addr = address_map.get(f'{name}_p2')
+        label = f"{job_label} {g.get('label', name)}"
+        nav_label = _group_nav_label(name, g.get('label'))
+
+        fa = dict(fixed_alt)
+        if p2_addr:
+            fa[0] = _nav_entry(*p2_addr, f'{nav_label}2'[:8])
+
+        set_dict, dropped = _build_set(g['actions'], None, fa)
+        sets[addr] = set_dict
+
+        if p2_addr:
+            p2_fa: dict = {1: hub_navs[0]}
+            if is_dual:
+                p2_fa[2] = hub_navs[1]
+            p2_fa[0] = _nav_entry(*addr, nav_label)
+            p2_set_dict, p2_dropped = _build_set(dropped, None, p2_fa)
+            _warn_dropped(p2_dropped, f'{label} (page 2)')
+            sets[p2_addr] = p2_set_dict
+        else:
+            _warn_dropped(dropped, label)
+
     # ── Core sets ──────────────────────────────────────────────────────────────
     for g in cores:
-        sets[address_map[g['name']]] = _build_set(g['actions'], None,
-                                                    _nonhub_fixed(include_cores=False))
+        _build_nonhub_group(g, _nonhub_fixed(include_cores=False))
 
     # ── Spoke sets ─────────────────────────────────────────────────────────────
     for g in spokes:
-        sets[address_map[g['name']]] = _build_set(g['actions'], None,
-                                                     _nonhub_fixed(include_cores=bool(cores)))
+        _build_nonhub_group(g, _nonhub_fixed(include_cores=bool(cores)))
 
     return sets
 
 
 # ── JobsHub ───────────────────────────────────────────────────────────────────
 
-def build_jobshub(assignments: list) -> dict:
-    """Build the JobsHub book from (book_num, label) pairs, spanning multiple sets if needed."""
-    num_pages = max(1, (len(assignments) + JOBSHUB_PAGE_SIZE - 1) // JOBSHUB_PAGE_SIZE)
+def build_jobshub(assignments: list, global_customs: Optional[list] = None) -> dict:
+    """Build the JobsHub book from (book_num, label) pairs plus custom.yml's global
+    entries, spanning multiple sets if needed. Job nav buttons default to 'mid'
+    priority; global customs carry their own priority and are stably sorted ahead
+    of/behind nav in high->mid->low order — same convention as job action slots."""
+    custom_slots = [(_action_slot(_custom_action(e)), PRIORITY_RANK.get(e.get('priority', 'mid'), 1))
+                    for e in (global_customs or [])]
+    nav_slots = [(_nav_entry(book_num, 1, _abbrev(label, 8)), PRIORITY_RANK['mid'])
+                 for book_num, label in assignments]
+    entries = [slot for slot, _ in sorted(custom_slots + nav_slots, key=lambda x: -x[1])]
+
+    num_pages = max(1, (len(entries) + JOBSHUB_PAGE_SIZE - 1) // JOBSHUB_PAGE_SIZE)
     sets: dict = {}
 
     for page_idx in range(num_pages):
         set_no = page_idx + 1
-        page_jobs = assignments[page_idx * JOBSHUB_PAGE_SIZE:(page_idx + 1) * JOBSHUB_PAGE_SIZE]
+        page_entries = entries[page_idx * JOBSHUB_PAGE_SIZE:(page_idx + 1) * JOBSHUB_PAGE_SIZE]
         ctrl: dict = {}
         alt:  dict = {}
 
-        for i, (book_num, label) in enumerate(page_jobs):
-            btn = _nav_entry(book_num, 1, _abbrev(label, 8))
+        for i, btn in enumerate(page_entries):
             if i < 10:
                 ctrl[CTRL_SLOTS[i]] = btn
             else:
@@ -937,6 +1166,7 @@ def main():
 
     name_to_series, series_members = build_series_map(DATA_DIR)
     spell_targets = _build_spell_target_map(DATA_DIR)
+    custom_data = _load_custom(args.character)
 
     configurations = manifest.get('configurations', [])
     primary_books  = _assign_primary_books(configurations)
@@ -999,7 +1229,23 @@ def main():
             resolved_hubs, cores, spokes = _merge_subjob(
                 resolved_hubs, cores, spokes, sub_hubs, sub_cores, sub_spokes)
 
-        ordered = _ordered_groups(resolved_hubs, cores, spokes)
+        custom_groups = _custom_entries_for_job(custom_data, job, subjob)
+        if custom_groups:
+            resolved_hubs, cores, spokes = _apply_custom_groups(
+                resolved_hubs, cores, spokes, custom_groups)
+
+        is_dual = len(resolved_hubs) == 2
+        num_content_navs = len(cores) + len(spokes)
+        hub_overflow = [not _hub_page_fits(h['actions'], num_content_navs, is_dual)
+                        for h in resolved_hubs]
+
+        hub_nav_count = 2 if is_dual else 1
+        core_overflow = [not _nonhub_page_fits(g['actions'], hub_nav_count) for g in cores]
+        spoke_fixed_count = hub_nav_count + len(cores)
+        spoke_overflow = [not _nonhub_page_fits(g['actions'], spoke_fixed_count) for g in spokes]
+
+        ordered = _ordered_groups(resolved_hubs, cores, spokes,
+                                  hub_overflow, core_overflow, spoke_overflow)
         count = len(ordered)
         primary_count = min(count, BOOK_CAPACITY)
 
@@ -1070,14 +1316,15 @@ def main():
     books: dict = {1: {'name': 'JobsHub', 'sets': {}}}
 
     for rec in job_records:
+        job_label = f"{rec['job']}/{rec['subjob']}" if rec.get('subjob') else rec['job']
         job_sets = _build_job_sets(rec['resolved_hubs'], rec['cores'], rec['spokes'],
-                                   rec['two_hour'], rec['address_map'])
+                                   rec['two_hour'], rec['address_map'], job_label=job_label)
         book_name = _book_name(rec['job'], rec['level'], rec.get('subjob'))
         for (set_book, set_no), set_dict in job_sets.items():
             book = books.setdefault(set_book, {'name': book_name, 'sets': {}})
             book['sets'][set_no] = set_dict
 
-    books[1]['sets'].update(build_jobshub(assignments)['sets'])
+    books[1]['sets'].update(build_jobshub(assignments, custom_data.get('global', []))['sets'])
     all_books = sorted(books.keys())
 
     output = {
