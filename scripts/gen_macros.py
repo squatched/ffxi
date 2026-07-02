@@ -635,10 +635,13 @@ def _warn_dropped(dropped: list, label: str) -> None:
 def _hub_page_fits(actions: list, num_content_navs: int, is_dual: bool) -> bool:
     """Dry-run capacity check: would this hub's actions plus every core/spoke nav
     link fit on one page? Mirrors the fixed-Alt-slot reservations _build_job_sets
-    applies for real (JobsHub link + hub-toggle reservation) without needing
-    real addresses yet — used in phase 1 to decide whether to reserve a second
-    hub page before any (book, set) addresses are assigned."""
-    fixed_count = 1 + (2 if is_dual else 1)  # jobshub + hub-toggle reservation
+    applies for real (JobsHub/forward-nav slot + Alt+1/Alt+2 pin-or-back slots)
+    without needing real addresses yet — used in phase 1 to decide whether to
+    reserve a second hub page before any (book, set) addresses are assigned.
+    The reserved count is the same whether or not this hub ends up overflowing:
+    Alt+0 always holds JobsHub-or-forward, and Alt+1 (single-hub) or Alt+1+Alt+2
+    (dual-hub) are always reserved for the pin/back-nav pair."""
+    fixed_count = 1 + (2 if is_dual else 1)  # jobshub/fwd + pin-or-back slot(s)
     available_alt = len(ALT_SLOTS) - fixed_count
     nav_fits = num_content_navs <= available_alt
     remaining_alt = max(0, available_alt - num_content_navs)
@@ -875,7 +878,8 @@ def _ordered_groups(resolved_hubs: list, cores: list, spokes: list,
     a unique key so phase 1 and phase 2 can refer to the same group unambiguously.
     A group flagged in its *_overflow list gets a second key immediately after it,
     reserving an address for its overflow page before any addresses are handed out
-    (hubs toggle on Alt+9; cores/spokes toggle on Alt+0 — see macros/AGENTS.md)."""
+    (hubs use Alt+0/Alt+1(/Alt+2) for forward/back nav; cores/spokes toggle on
+    Alt+0 — see macros/AGENTS.md)."""
     hub_overflow   = hub_overflow   or [False] * len(resolved_hubs)
     core_overflow  = core_overflow  or [False] * len(cores)
     spoke_overflow = spoke_overflow or [False] * len(spokes)
@@ -917,11 +921,24 @@ def _build_job_sets(resolved_hubs: list, cores: list, spokes: list, two_hour: di
 
     sets: dict = {}
 
+    def _hub_pin_slots(hub_idx: int, own_back_nav) -> dict:
+        """Alt+1/Alt+2 for a hub page. On a dual-hub job, whichever of the two
+        slots isn't permanently pinned to the other hub carries this hub's own
+        overflow back-nav (None on page 1 — nothing to go back to yet). On a
+        single-hub job there's no pin, so Alt+1 alone carries the back-nav."""
+        if not is_dual:
+            return {1: own_back_nav}
+        other_nav = hub_navs[1 - hub_idx]
+        if hub_idx == 0:
+            return {1: own_back_nav, 2: other_nav}
+        return {1: other_nav, 2: own_back_nav}
+
     # ── Hub sets ───────────────────────────────────────────────────────────────
-    # A hub that doesn't fit on one page gets a second: Alt+9 toggles between them
-    # (Alt+0 stays JobsHub, so hubs use +9 rather than the +0 spokes/cores use).
-    # Page 2 repeats the 2-hour on Ctrl+0; Ctrl+1-9 duplicates page 1's actions if
-    # they all fit there, otherwise holds whatever overflowed. See macros/AGENTS.md
+    # A hub that doesn't fit on one page gets a second. Alt+0 walks forward to
+    # it and, on that last page, on to JobsHub — reaching JobsHub no longer
+    # needs to be one hop away now that subjobs cover fast job-switching. The
+    # other hub's pin (dual-hub jobs) holds its slot on every page; whichever
+    # slot isn't the pin carries this hub's own back-nav. See macros/AGENTS.md
     # "Multi-page groups".
     for hub_idx, hub in enumerate(resolved_hubs):
         addr = address_map[f'__hub{hub_idx}']
@@ -930,22 +947,11 @@ def _build_job_sets(resolved_hubs: list, cores: list, spokes: list, two_hour: di
         hub_nav_label = _nav_label(hub_label)
         full_label = f'{job_label} {hub_label}'
 
-        fixed: dict = {0: jobshub_nav}
-        if is_dual:
-            other_nav = hub_navs[1 - hub_idx]
-            if hub_idx == 0:
-                # Hub A: Alt+1 = Hub B toggle, Alt+2 = Hub B (spoke consistency)
-                fixed[1] = other_nav
-                fixed[2] = other_nav
-            else:
-                # Hub B: Alt+1 = Hub A toggle, Alt+2 = blank (Hub B is here)
-                fixed[1] = other_nav
-                fixed[2] = None
-        else:
-            fixed[1] = None  # blank — nothing to toggle to on single-hub job
+        forward_nav = _nav_entry(*p2_addr, f'{hub_nav_label}2'[:8]) if p2_addr else None
+        back_nav    = _nav_entry(*addr, hub_nav_label)
 
-        if p2_addr:
-            fixed[9] = _nav_entry(*p2_addr, f'{hub_nav_label}2'[:8])
+        fixed: dict = {0: forward_nav if p2_addr else jobshub_nav}
+        fixed.update(_hub_pin_slots(hub_idx, None))
 
         # Fill remaining Alt slots with core then spoke nav
         free = [s for s in ALT_SLOTS if s not in fixed]
@@ -958,7 +964,8 @@ def _build_job_sets(resolved_hubs: list, cores: list, spokes: list, two_hour: di
 
         if p2_addr:
             p2_ctrl_actions = dropped_actions if dropped_actions else hub['actions']
-            p2_fixed: dict = {0: jobshub_nav, 9: _nav_entry(*addr, hub_nav_label)}
+            p2_fixed: dict = {0: jobshub_nav}
+            p2_fixed.update(_hub_pin_slots(hub_idx, back_nav))
             p2_free = [s for s in ALT_SLOTS if s not in p2_fixed]
             for slot, nav in zip(p2_free, leftover_navs):
                 p2_fixed[slot] = nav

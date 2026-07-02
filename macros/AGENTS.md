@@ -22,7 +22,7 @@ Based on [The Hub System by Sekhmet](https://ffxiclopedia.fandom.com/wiki/The_Hu
 
 Every set in a job book is one of three types:
 
-**Hub** — the player's home set. The hub is where you live between actions; you navigate to spokes as needed and return. Actions on the hub are the most constantly-needed — JAs and reactive self-buffs (spells are valid hub actions). Always pinned (reachable from every other set). Full nav to all groups on Alt. Ctrl+0 = 2-hour. Alt+0 = JobsHub. A job may have one or two hubs (max); a second hub is a full co-equal hub with the same contract, not an overflow mechanism. The primary hub is pin:1, the secondary hub is pin:2.
+**Hub** — the player's home set. The hub is where you live between actions; you navigate to spokes as needed and return. Actions on the hub are the most constantly-needed — JAs and reactive self-buffs (spells are valid hub actions). Always pinned (reachable from every other set). Full nav to all groups on Alt. Ctrl+0 = 2-hour. Alt+0 = JobsHub, except on a hub's own overflow pages before the last one, where Alt+0 walks forward instead (see "Multi-page groups"). A job may have one or two hubs (max); a second hub is a full co-equal hub with the same contract, not an overflow mechanism. The primary hub is pin:1, the secondary hub is pin:2.
 
 **Core** — a content set (spells/skills) that must be reactively reachable from any other set without first returning to the hub. Alt slot assignment is driven by `type:` and file order: cores fill Alt slots immediately after hubs in file order (see Navigation). No 2-hour on Ctrl+0; no full nav on Alt — just nav back to the hub(s). Use sparingly; each core costs one Alt slot on every other set.
 
@@ -33,7 +33,7 @@ Every set in a job book is one of three types:
 - **Alt** = navigation priority (all groups)
 - **Ctrl** = actions only (exception: hubs use both for actions and nav)
 - **Ctrl+0** = 2-hour ability on **every hub** (primary and secondary)
-- **Alt+0** = JobsHub on **every hub**; free on all other sets
+- **Alt+0** = JobsHub on **every hub**; free on all other sets (exception: a hub's overflow pages before the last one use Alt+0 to walk forward instead — see "Multi-page groups")
 - Action priority fills Ctrl slots in order: `high` → Ctrl+1-5, `mid` → Ctrl+6-0, `low` → remaining Alt slots then overflow to a second set
 
 ## Navigation
@@ -47,19 +47,26 @@ Examples:
 - Single-hub job, one core: Alt+1 = hub, Alt+2 = core
 - Dual-hub job, one core: Alt+1 = Hub A, Alt+2 = Hub B, Alt+3 = core
 
-Two-press sequence to reach JobsHub (Alt+1 → hub, then Alt+0) is intentional — prevents accidental job-switching.
+Two-press sequence to reach JobsHub (Alt+1 → hub, then Alt+0) is intentional — prevents accidental job-switching. On a hub deep in its own overflow chain, this takes an extra press or two to walk forward to the last page first; that's an acceptable cost since subjob support means fast job-switching is no longer load-bearing the way it was when this convention was first written.
 
 ### Hub toggle (dual-hub jobs)
-On Hub A: Alt+1 = Hub B. On Hub B: Alt+1 = Hub A. Pressing Alt+1 on either hub toggles to the other. Hub A also has Alt+2 = Hub B (consistent with the spoke convention). Single-hub jobs have Alt+1 blank on the hub — nothing to toggle to.
+On Hub A: Alt+2 = Hub B. On Hub B: Alt+1 = Hub A. This link is pinned — it holds its slot on every page of that hub, including overflow pages (see "Multi-page groups"). Single-hub jobs have no hub-to-hub link, so neither slot is claimed by it.
 
 ### Multi-page groups
-When any group overflows to a second set, the same toggle button links page 1 ↔ page 2:
-- **Spokes and core groups**: Alt+0 (free on non-hub sets)
-- **Hubs**: Alt+9 (Alt+0 is reserved for JobsHub)
+When any group overflows to a second set:
 
-The toggle always returns you to the primary page. On hub overflow pages, Ctrl+0 = 2-hour is repeated. Ctrl+1-9 duplicates page 1 if all JAs fit there; otherwise holds the overflow JAs.
+- **Spokes and core groups**: Alt+0 toggles page 1 ↔ page 2 (free on non-hub sets). The toggle always returns you to the primary page.
+- **Hubs**: Alt+0 walks forward instead of toggling — page 1 → page 2 → … → the last page — and only on that last page does Alt+0 become JobsHub. Reaching JobsHub no longer needs to be one hop away from every hub page now that subjob support covers fast job-switching, so the extra hop through a deep overflow chain is an acceptable cost. Whichever of Alt+1/Alt+2 isn't claimed by the dual-hub pin (see above) carries this hub's own back-nav to the previous page — blank on page 1, since there's nothing before it. On a single-hub job, that's simply Alt+1.
 
-For the `spokes/` generator path, this is enforced automatically — `scripts/gen_macros.py` dry-run checks capacity during address allocation (`_hub_page_fits` / `_nonhub_page_fits`) and reserves a second page whenever a hub, core, or spoke's actions or nav links don't fit on one, rather than dropping anything. It prints a `WARN:` if something still doesn't fit even with a second page.
+  Example (single-hub, 2 pages): page 1 — Alt+0 = forward to page 2, Alt+1 blank. Page 2 (last) — Alt+0 = JobsHub, Alt+1 = back to page 1.
+
+  Example (dual-hub, Hub A overflows to 2 pages): Hub A page 1 — Alt+0 = forward, Alt+1 blank, Alt+2 = Hub B (pinned). Hub A page 2 (last) — Alt+0 = JobsHub, Alt+1 = back to Hub A page 1, Alt+2 = Hub B (still pinned).
+
+On hub overflow pages, Ctrl+0 = 2-hour is repeated. Ctrl+1-9 duplicates page 1 if all JAs fit there; otherwise holds the overflow JAs.
+
+The generator only ever allocates up to 2 pages per hub/core/spoke today; if content still doesn't fit on page 2 it prints a `WARN: ... unreachable` rather than adding a third page. If a hub ever needs 3+ pages, the forward/back nav described above generalizes directly (Alt+0 keeps walking forward through the chain, JobsHub lands only on the true last page) — same idea JobsHub itself already uses for its own multi-page nav (`build_jobshub`) — but the generator would need extending to actually allocate beyond 2 pages.
+
+For the `spokes/` generator path, capacity is enforced automatically — `scripts/gen_macros.py` dry-run checks capacity during address allocation (`_hub_page_fits` / `_nonhub_page_fits`) and reserves a second page whenever a hub, core, or spoke's actions or nav links don't fit on one, rather than dropping anything. It prints a `WARN:` if something still doesn't fit even with a second page.
 
 ## Group Taxonomy
 
