@@ -41,8 +41,11 @@ FAMILY_DEFS: dict[str, list[str]] = {
 
 # Group names whose actions always target self
 SELF_GROUPS = frozenset({'enhance_self', 'pre_battle', 'field'})
-# Group names whose actions always target an enemy
-ENEMY_GROUPS = frozenset({'nuking', 'nuking_aoe', 'cc', 'dots', 'enfeebling'})
+
+# target category -> cursor. 'cc' is enemy-targeted but via a select-target cursor
+# (<stnpc>) rather than <t>, so crowd control/enfeebles don't have to match whatever
+# you're currently locked onto — see macros/AGENTS.md "Targets".
+_CATEGORY_CURSOR = {'self': '<me>', 'ally': '<stpc>', 'enemy': '<t>', 'cc': '<stnpc>'}
 
 # Content slots before overflow: ~10 Ctrl + 8 Alt after a typical non-hub nav prefix
 MAX_CONTENT = 18
@@ -328,19 +331,42 @@ def _avail_ws_exotic(job_data: dict, data_dir: Path) -> set[str]:
     return exotic
 
 
-def _build_spell_target_map(data_dir: Path) -> dict[str, str]:
-    """Build {spell_name: '<me>'|'<t>'} from magic catalog files."""
-    targets: dict[str, str] = {}
+def _build_spell_category_map(data_dir: Path) -> dict[str, str]:
+    """Build {spell_name: 'self'|'ally'|'enemy'|'cc'} from magic catalog files.
+
+    self_only decides self vs not-self, as before. For not-self spells, the new
+    target/default_target fields decide ally vs enemy vs cc — see macros/AGENTS.md
+    "Targets" for what each category means and data/AGENTS.md for the file schema.
+    """
+    categories: dict[str, str] = {}
     for path in (data_dir / 'magic').glob('*.yml'):
         catalog = _load(path)
         default_self = catalog.get('default_self', False)
+        default_target = catalog.get('default_target', 'enemy')
         for spell in catalog.get('spells', []):
             name = spell.get('name')
             if not name:
                 continue
             self_only = spell.get('self_only', default_self)
-            targets[name] = '<me>' if self_only else '<t>'
-    return targets
+            categories[name] = 'self' if self_only else spell.get('target', default_target)
+    return categories
+
+
+def _resolve_category(entry: dict, data_category: str, group_name: Optional[str] = None) -> str:
+    """Apply per-action overrides over group-context defaults over the data category.
+
+    Precedence: entry['target'] (explicit ally/enemy/cc/self override, e.g. Cure-as-nuke
+    against undead) > entry['self_only'] (existing self-vs-not-self override) >
+    SELF_GROUPS group context (e.g. 'field' forces self even for ally-capable spells
+    like Sneak) > the spell/ability's own data category.
+    """
+    if 'target' in entry:
+        return entry['target']
+    if 'self_only' in entry:
+        return 'self' if entry['self_only'] else data_category
+    if group_name is not None and group_name in SELF_GROUPS:
+        return 'self'
+    return data_category
 
 
 # ── Action resolution ─────────────────────────────────────────────────────────
@@ -359,9 +385,9 @@ def _resolve_series(name: str, sub_tier: Optional[int],
     return available[target_idx] if target_idx >= 0 else None
 
 
-def _resolve_action(entry: dict, group_name: str, is_hub: bool,
+def _resolve_action(entry: dict, group_name: str,
                     spells: set, abilities: set, ws_names: set, wyvern: set,
-                    job_data: dict, spell_targets: dict, ability_data: dict,
+                    job_data: dict, spell_categories: dict, ability_data: dict,
                     name_to_series: dict, series_members: dict,
                     summons: Optional[set] = None,
                     blood_pact_targets: Optional[dict] = None,
@@ -392,14 +418,8 @@ def _resolve_action(entry: dict, group_name: str, is_hub: bool,
     else:
         resolved = _resolve_series(name, sub_tier, spells, name_to_series, series_members)
     if resolved:
-        if is_hub:
-            target = '<me>'  # hub spells are always reactive self-buffs
-        elif group_name in SELF_GROUPS:
-            target = '<me>'
-        elif group_name in ENEMY_GROUPS:
-            target = '<t>'
-        else:
-            target = spell_targets.get(resolved, '<t>')
+        category = _resolve_category(entry, spell_categories.get(resolved, 'enemy'), group_name)
+        target = _CATEGORY_CURSOR.get(category, '<t>')
         return {
             'display': _abbrev(resolved),
             'cmd': '/ma',
@@ -413,11 +433,13 @@ def _resolve_action(entry: dict, group_name: str, is_hub: bool,
         ab = ability_data.get(name, {})
         default_self = job_data.get('abilities_default_self', True)
         self_only = ab.get('self_only', default_self)
+        data_category = 'self' if self_only else ab.get('target', 'enemy')
+        category = _resolve_category(entry, data_category)
         return {
             'display': _abbrev(name),
             'cmd': '/ja',
             'resolved': name,
-            'target': '<me>' if self_only else '<t>',
+            'target': _CATEGORY_CURSOR.get(category, '<t>'),
             'priority': priority,
         }
 
@@ -436,11 +458,13 @@ def _resolve_action(entry: dict, group_name: str, is_hub: bool,
         cmd_def = next((c for c in job_data.get('wyvern_commands', []) if c.get('name') == name), {})
         default_self = job_data.get('abilities_default_self', True)
         self_only = cmd_def.get('self_only', default_self)
+        data_category = 'self' if self_only else cmd_def.get('target', 'enemy')
+        category = _resolve_category(entry, data_category)
         return {
             'display': _abbrev(name),
             'cmd': '/ja',
             'resolved': name,
-            'target': '<me>' if self_only else '<t>',
+            'target': _CATEGORY_CURSOR.get(category, '<t>'),
             'priority': priority,
         }
 
@@ -662,7 +686,7 @@ def _nonhub_page_fits(actions: list, fixed_alt_count: int) -> bool:
 
 def _resolve_job_groups(job: str, level: int, spoke_def: dict, job_data: dict,
                         data_dir: Path, name_to_series: dict, series_members: dict,
-                        spell_targets: dict):
+                        spell_categories: dict):
     """Resolve a job's hub/core/spoke actions against level + job data.
 
     Returns (two_hour, resolved_hubs, cores, spokes) — no set numbers or nav assigned yet.
@@ -698,10 +722,10 @@ def _resolve_job_groups(job: str, level: int, spoke_def: dict, job_data: dict,
     for hub in hubs_raw:
         acts = []
         for entry in hub.get('actions', []):
-            r = _resolve_action(entry, hub['name'], is_hub=True,
+            r = _resolve_action(entry, hub['name'],
                                 spells=spells, abilities=abilities, ws_names=ws_names,
                                 wyvern=wyvern, job_data=job_data,
-                                spell_targets=spell_targets, ability_data=ability_data,
+                                spell_categories=spell_categories, ability_data=ability_data,
                                 name_to_series=name_to_series, series_members=series_members,
                                 summons=summons, blood_pact_targets=blood_pact_targets)
             if r:
@@ -713,10 +737,10 @@ def _resolve_job_groups(job: str, level: int, spoke_def: dict, job_data: dict,
     for group in spoke_def.get('groups', []):
         acts = []
         for entry in group.get('actions', []):
-            r = _resolve_action(entry, group['name'], is_hub=False,
+            r = _resolve_action(entry, group['name'],
                                 spells=spells, abilities=abilities, ws_names=ws_names,
                                 wyvern=wyvern, job_data=job_data,
-                                spell_targets=spell_targets, ability_data=ability_data,
+                                spell_categories=spell_categories, ability_data=ability_data,
                                 name_to_series=name_to_series, series_members=series_members,
                                 summons=summons, blood_pact_targets=blood_pact_targets)
             if r:
@@ -1190,7 +1214,7 @@ def main():
     manifest = _load(manifest_path)
 
     name_to_series, series_members = build_series_map(DATA_DIR)
-    spell_targets = _build_spell_target_map(DATA_DIR)
+    spell_categories = _build_spell_category_map(DATA_DIR)
     custom_data = _load_custom(args.character)
 
     configurations = manifest.get('configurations', [])
@@ -1232,7 +1256,7 @@ def main():
 
         two_hour, resolved_hubs, cores, spokes = _resolve_job_groups(
             job, level, spoke_def, job_data, DATA_DIR,
-            name_to_series, series_members, spell_targets)
+            name_to_series, series_members, spell_categories)
 
         subjob = config.get('subjob')
         if subjob:
@@ -1249,7 +1273,7 @@ def main():
 
             _, sub_hubs, sub_cores, sub_spokes = _resolve_job_groups(
                 subjob, level // 2, sub_spoke_def, sub_job_data, DATA_DIR,
-                name_to_series, series_members, spell_targets)
+                name_to_series, series_members, spell_categories)
 
             resolved_hubs, cores, spokes = _merge_subjob(
                 resolved_hubs, cores, spokes, sub_hubs, sub_cores, sub_spokes,

@@ -12,9 +12,11 @@ spells:
     level: 12
     next: "Utsusemi: Ni"
   - name: "Kurayami: Ichi"
+    target: cc
     level: 19
     next: "Kurayami: Ni"
   - name: "Hojo: Ichi"
+    target: cc
     level: 23
     next: "Hojo: Ni"
   - name: "Monomi: Ichi"
@@ -23,6 +25,7 @@ spells:
   - name: "Dokumori: Ichi"
     level: 27
   - name: "Jubaku: Ichi"
+    target: cc
     level: 30
   - name: "Tonko: Ni"
     self_only: true
@@ -94,9 +97,11 @@ spells:
     level: 75
     prev: "Hyoton: Ni"
   - name: "Kurayami: Ni"
+    target: cc
     level: 44
     prev: "Kurayami: Ichi"
   - name: "Hojo: Ni"
+    target: cc
     level: 48
     prev: "Hojo: Ichi"
   - name: "Aisha: Ichi"

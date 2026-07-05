@@ -413,16 +413,19 @@ spells:
 
   # --- Spike Spells (BLM/RDM/SCH) ---
   - name: Blaze Spikes
+    self_only: true  # triggers on the caster's own melee counters
     BLM: 10
     RDM: 20
     SCH: 30
 
   - name: Ice Spikes
+    self_only: true
     BLM: 20
     RDM: 40
     SCH: 50
 
   - name: Shock Spikes
+    self_only: true
     BLM: 30
     RDM: 60
     SCH: 70
@@ -480,6 +483,7 @@ spells:
 
   # --- Dark Magic: Sleep ---
   - name: Sleep
+    target: cc
     BLM: 20
     RDM: 25
     SCH: 30
@@ -487,6 +491,7 @@ spells:
     next: "Sleep II"
 
   - name: Sleep II
+    target: cc
     BLM: 41
     RDM: 46
     SCH: 65
@@ -494,10 +499,12 @@ spells:
     prev: "Sleep"
 
   - name: Sleepga
+    target: cc
     BLM: 31
     next: "Sleepga II"
 
   - name: Sleepga II
+    target: cc
     BLM: 56
     prev: "Sleepga"
 
@@ -506,10 +513,12 @@ spells:
     BLM: 20
 
   - name: Stun
+    target: cc
     BLM: 45
     DRK: 37
 
   - name: Tractor
+    target: ally  # pulls a fallen ally's body to you — you choose which
     BLM: 25
     DRK: 32
 
@@ -548,63 +557,77 @@ spells:
     DRK: 26
 
   - name: Bind
+    target: cc
     BLM: 7
     RDM: 11
     DRK: 20
 
   - name: Blind
+    target: cc
     BLM: 4
     next: "Blind II"
 
   - name: Blind II
+    target: cc
     RDM: 75
     prev: "Blind"
 
   - name: Gravity
+    target: cc
     RDM: 21
     next: "Gravity II"
 
   - name: Gravity II
+    target: cc
     RDM: 98
     prev: "Gravity"
 
   - name: Dispel
+    target: cc
     RDM: 32
     SCH: 32
 
   - name: Break
+    target: cc
     BLM: 85
     RDM: 87
     SCH: 90
     DRK: 95
 
   - name: Breakga
+    target: cc
     BLM: 95
 
   # --- RDM Specific Enfeebling (Black Magic) ---
   - name: Distract
+    target: cc
     RDM: 35
     next: "Distract II"
 
   - name: Distract II
+    target: cc
     RDM: 85
     prev: "Distract"
     next: "Distract III"
 
   - name: Distract III
+    target: cc
     RDM: 99
     prev: "Distract II"
 
   - name: Frazzle
+    target: cc
     RDM: 42
     next: "Frazzle II"
 
   - name: Frazzle II
+    target: cc
     RDM: 92
     prev: "Frazzle"
     next: "Frazzle III"
 
   - name: Frazzle III
+    target: cc
     RDM: 99
     prev: "Frazzle II"
 
@@ -641,6 +664,7 @@ spells:
 
   # --- DRK: Other Dark Magic ---
   - name: Dread Spikes
+    self_only: true  # triggers on the caster's own melee counters
     DRK: 71
 
   - name: Endark

@@ -12,8 +12,8 @@ hubs:
   - name: main
     label: "RDM Hub"
     actions:
-      - {name: Stoneskin,   priority: high}
-      - {name: Blink,       priority: high}
+      - {name: Stoneskin,   priority: high, self_only: true}  # ally-capable in data, but always self-cast from the hub
+      - {name: Blink,       priority: high, self_only: true}
       - {name: Aquaveil,    priority: high}
       - {name: Convert,     priority: high}
       - {name: Saboteur,    priority: high}

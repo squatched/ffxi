@@ -6,6 +6,7 @@ default_self: false
 # unbridled_learning: true — spell requires Unbridled Learning job ability active when cast
 spells:
   - name: Pollen
+    self_only: true  # self-heal
     level: 1
   - name: Sandspin
     level: 1
@@ -30,6 +31,7 @@ spells:
   - name: Head Butt
     level: 12
   - name: Healing Breeze
+    self_only: true  # self-centered AoE HoT
     level: 16
   - name: Sheep Song
     level: 16
@@ -56,6 +58,7 @@ spells:
   - name: Grand Slam
     level: 30
   - name: Wild Carrot
+    self_only: true  # self-heal + status cure
     level: 30
   - name: Chaotic Eye
     level: 32
@@ -124,6 +127,7 @@ spells:
   - name: Flying Hip Press
     level: 58
   - name: Magic Fruit
+    target: ally  # BLU's ally heal
     level: 58
   - name: Dimensional Death
     level: 60

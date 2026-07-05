@@ -13,6 +13,7 @@ abilities:
     level: 30
   - name: Cover
     self_only: false
+    target: ally  # redirects a party member's attacker onto you
     level: 35
   - name: Rampart
     level: 62
@@ -32,6 +33,7 @@ abilities:
     level: 95
   - name: Intervene
     self_only: false
+    target: ally  # dashes to a chosen party member, redirecting hate
     level: 96
 
 magic:

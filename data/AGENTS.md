@@ -154,26 +154,34 @@ Magic data lives in separate catalog files rather than embedded in job files, av
 across the jobs that share white/black magic. Job files list which categories they have via a
 `magic:` key; the catalog files hold the actual spell data.
 
-### Targeting: `default_self` and `self_only`
+### Targeting: `default_self`/`self_only` and `default_target`/`target`
 
 Each magic catalog file carries a top-level `default_self:` field indicating whether its entries
-target the caster (`true`) or a target via `<t>` (`false`). Individual entries override this with
-an explicit `self_only: true` or `self_only: false` field when they differ from the file default.
+target the caster (`true`) or not (`false`). Individual entries override this with an explicit
+`self_only: true` or `self_only: false` field when they differ from the file default.
 
-| File | `default_self` | Exceptions |
-|------|---------------|------------|
-| `white_magic.yml` | `false` | Reraise I–IV, Aquaveil → `self_only: true` |
-| `black_magic.yml` | `false` | Warp/II, Escape, Retrace, Endark/II, Klimaform → `self_only: true` |
-| `ninjutsu.yml` | `false` | Utsusemi, Tonko, Monomi, Migawari series → `self_only: true` |
-| `songs.yml` | `true` | none |
-| `blue_magic.yml` | `false` | none |
-| `geomancy.yml` | `false` | all Indi- spells → `self_only: true` |
-| `summoning.yml` | `true` | none |
-| `blood_pacts.yml` | `false` | none |
+`self_only` only decides self vs. not-self. For not-self entries, a second field decides *who*:
+`default_target:` at the file level (`ally` or `enemy`; omit the field for `enemy`, since that's
+the default and the vast majority of files need no per-spell overrides) and `target:` on
+individual spells to override the file default (values: `ally`, `enemy`, or `cc`). `cc` is a
+variant of `enemy` for crowd control / enfeebling — see macros/AGENTS.md "Targets" for why it
+gets a distinct value (it changes which cursor the generator emits, not who the caster is).
+
+| File | `default_self` | `default_target` | Notable per-spell overrides |
+|------|---------------|-------------------|------------------------------|
+| `white_magic.yml` | `false` | `ally` | Reraise I–IV, Aquaveil → `self_only: true`; Holy/Banish family, Dia family → `target: enemy`; Paralyze/Slow/Silence/Addle/Repose/Inundation → `target: cc` |
+| `black_magic.yml` | `false` | (enemy) | Warp/II, Escape, Retrace, Endark/II, Klimaform, Spikes family → `self_only: true`; Tractor → `target: ally`; Sleep/Bind/Blind/Gravity/Dispel/Distract/Frazzle/Stun/Break family → `target: cc` |
+| `ninjutsu.yml` | `false` | (enemy) | Utsusemi, Tonko, Monomi, Migawari series → `self_only: true`; Kurayami, Hojo, Jubaku → `target: cc` |
+| `songs.yml` | `true` | — | none (songs are self-centered AoE — no ally/enemy split needed) |
+| `blue_magic.yml` | `false` | (enemy) | Pollen, Wild Carrot, Healing Breeze → `self_only: true`; Magic Fruit → `target: ally` (audit of the rest of the BLU catalog for `cc`-flavored spells is still outstanding — see "Known Gaps") |
+| `geomancy.yml` | `false` | (enemy) | all Indi- spells → `self_only: true` |
+| `summoning.yml` | `true` | — | none |
+| `blood_pacts.yml` | `false` | (enemy) | targets are computed in code, not data — see `_avail_blood_pacts` in `gen_macros.py` (rage → `<t>`, ward → `<me>`; this hasn't been audited for ward pacts that actually target a chosen ally, e.g. Carbuncle's Healing Ruby/Whispering Wind — see "Known Gaps") |
 
 Job files carry `abilities_default_self: true` (nearly all JAs target the caster). Individual
-abilities that target an enemy or ally carry `self_only: false`. Weapon skills always target
-`<t>` and carry no targeting field.
+abilities that target an enemy or ally carry `self_only: false`, with the same `target: ally`/`cc`
+field (default `enemy`) deciding who when not self. Weapon skills always target `<t>` and carry no
+targeting field.
 
 ### Job-Exclusive Categories
 
@@ -407,6 +415,24 @@ Given a job and level:
 - **Gear-conditional abilities** — anything that requires equipping a specific item (e.g. some PUP attachments enabling new behaviors)
 
 ---
+
+## Known Gaps (Targeting Audit)
+
+The `target`/`default_target` fields (see "Targeting" above) were introduced to fix ally-targeted
+spells/abilities resolving to `<t>` (which lands on your current enemy target mid-combat instead
+of a party member). `white_magic.yml`, `black_magic.yml`, `ninjutsu.yml`, and the job files with
+known ally-targeted abilities (PLD, DNC, THF, WHM) have been fully audited. Two areas have not:
+
+- **`blue_magic.yml`** — only the obvious self-heals (Pollen, Wild Carrot, Healing Breeze) and the
+  one ally-heal (Magic Fruit) were fixed. The other ~150 BLU spells default to `enemy`, which is
+  correct for the offensive majority, but any CC-flavored BLU spell (Sheep Song, Yawn, Soporific,
+  Sound Blast, Filamented Hold, Awful Eye, Jettatura, etc.) should probably carry `target: cc` like
+  their black_magic/ninjutsu counterparts, and any remaining self-buffs (Cocoon, Metallic Body,
+  Refueling, Zephyr Mantle, etc.) may need `self_only: true`. Not yet reviewed spell-by-spell.
+- **`blood_pacts.yml`** — targets are hardcoded in `gen_macros.py`'s `_avail_blood_pacts`
+  (rage → `<t>`, ward → `<me>`), not read from data. Some ward pacts (e.g. Carbuncle's Healing
+  Ruby/Whispering Wind) target a chosen ally, not the summoner — this hasn't been verified pact by
+  pact.
 
 ## Known Gaps (Post-99 Content)
 

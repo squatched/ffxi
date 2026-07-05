@@ -1,5 +1,7 @@
 magic: white_magic
 default_self: false
+default_target: ally  # non-self white magic is overwhelmingly ally-targeted (Cure, Protect, Esuna...);
+                       # the handful of enemy-targeted spells (Holy, Banish, Paralyze...) override below
 
 # Per-job unlock levels. Jobs: WHM, RDM, PLD, SCH
 # Omit a job from a spell entry if they cannot learn it
@@ -369,66 +371,81 @@ spells:
     SCH: 15
 
   - name: Flash
+    target: enemy  # enmity tool on your current target, not a different mob
     WHM: 45
     PLD: 37
 
   - name: Repose
+    target: cc  # sleep — usually a mob other than your current kill target
     WHM: 48
 
   - name: Auspice
+    target: enemy  # self-only in practice; not confidently reclassified — see AGENTS.md
     WHM: 55
 
   - name: Sacrifice
+    target: enemy  # self-only in practice; not confidently reclassified — see AGENTS.md
     WHM: 65
 
   # --- Enfeebling as White Magic ---
   - name: Paralyze
+    target: cc
     WHM: 4
     RDM: 6
     next: "Paralyze II"
 
   - name: Slow
+    target: cc
     WHM: 13
     RDM: 13
     next: "Slow II"
 
   - name: Silence
+    target: cc
     WHM: 15
     RDM: 18
 
   - name: Slow II
+    target: cc
     WHM: 75
     RDM: 75
     prev: "Slow"
 
   - name: Paralyze II
+    target: cc
     RDM: 75
     prev: "Paralyze"
 
   - name: Dia
+    target: enemy  # DoT — applied to whatever you're actively fighting
     WHM: 3
     RDM: 1
     next: "Dia II"
 
   - name: Dia II
+    target: enemy
     WHM: 36
     RDM: 31
     prev: "Dia"
     next: "Dia III"
 
   - name: Diaga
+    target: enemy
     WHM: 18
     RDM: 15
 
   - name: Dia III
+    target: enemy
     RDM: 75
     prev: "Dia II"
 
   - name: Addle
+    target: cc
     RDM: 83
     next: "Addle II"
 
   - name: Addle II
+    target: cc
     RDM: 99
     prev: "Addle"
 
@@ -574,6 +591,7 @@ spells:
     prev: "Phalanx"
 
   - name: Inundation
+    target: cc  # enfeebling — boosts WS/magic burst damage taken, cast on an enemy
     RDM: 64
 
   - name: Refresh
@@ -628,52 +646,63 @@ spells:
 
   # --- Divine (WHM/PLD) ---
   - name: Banish
+    target: enemy
     WHM: 5
     PLD: 7
     next: "Banish II"
 
   - name: Banish II
+    target: enemy
     WHM: 30
     PLD: 34
     prev: "Banish"
     next: "Banish III"
 
   - name: Banish III
+    target: enemy
     WHM: 65
     prev: "Banish II"
 
   - name: Banishga
+    target: enemy
     WHM: 15
     PLD: 30
     next: "Banishga II"
 
   - name: Banishga II
+    target: enemy
     WHM: 40
     prev: "Banishga"
 
   - name: Holy
+    target: enemy
     WHM: 50
     PLD: 55
     next: "Holy II"
 
   - name: Holy II
+    target: enemy
     WHM: 95
     PLD: 99
     prev: "Holy"
 
   # --- PLD Specific ---
   - name: Reprisal
+    target: enemy  # self-only in practice; not confidently reclassified — see AGENTS.md
     PLD: 61
 
   - name: Enlight
+    target: enemy  # self-only in practice; not confidently reclassified — see AGENTS.md
     PLD: 85
     next: "Enlight II"
 
   - name: Enlight II
+    target: enemy
     PLD: 99
     prev: "Enlight"
 
   - name: Crusade
+    target: enemy  # mostly self-cast; PLD's enhance_self group already forces <me> regardless
     PLD: 88
 
   # --- Teleports (WHM only) ---
@@ -727,38 +756,53 @@ spells:
     WHM: 99
 
   # --- SCH Specific White Magic ---
+  # Embrava/storms/Animus are self-centered AoE in practice (like songs); Adloquium's
+  # single-target-vs-ally nature is unconfirmed. None confidently reclassified as ally —
+  # left at target: enemy to preserve prior <t> behavior. See data/AGENTS.md.
   - name: Embrava
+    target: enemy
     SCH: 5
 
   - name: Sandstorm
+    target: enemy
     SCH: 41
 
   - name: Rainstorm
+    target: enemy
     SCH: 42
 
   - name: Windstorm
+    target: enemy
     SCH: 43
 
   - name: Firestorm
+    target: enemy
     SCH: 44
 
   - name: Hailstorm
+    target: enemy
     SCH: 45
 
   - name: Thunderstorm
+    target: enemy
     SCH: 46
 
   - name: Voidstorm
+    target: enemy
     SCH: 47
 
   - name: Aurorastorm
+    target: enemy
     SCH: 48
 
   - name: Animus Augeo
+    target: enemy
     SCH: 85
 
   - name: Animus Minuo
+    target: enemy
     SCH: 85
 
   - name: Adloquium
+    target: enemy
     SCH: 88

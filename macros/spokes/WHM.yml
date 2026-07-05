@@ -7,8 +7,8 @@ hubs:
   - name: main
     label: "WHM Hub"
     actions:
-      - {name: Stoneskin,       priority: high}
-      - {name: Blink,           priority: high}
+      - {name: Stoneskin,       priority: high, self_only: true}  # ally-capable in data, but always self-cast from the hub
+      - {name: Blink,           priority: high, self_only: true}
       - {name: Aquaveil,        priority: high}
       - {name: Divine Seal,     priority: high}
       - {name: Afflatus Solace, priority: high}
@@ -85,6 +85,7 @@ groups:
       - {name: Silence,  priority: mid}
       - {name: Paralyze, priority: mid}
       - {name: Diaga,    priority: mid}
+      - {name: Cure,     priority: low, target: enemy}  # damages undead — current target, not stpc
 
   - name: resist_elem
     type: spoke

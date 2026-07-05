@@ -21,9 +21,11 @@ abilities:
     level: 45
   - name: Accomplice
     self_only: false
+    target: ally  # grants the SA/TA bonus effect to a chosen party member
     level: 65
   - name: Collaborator
     self_only: false
+    target: ally
     level: 65
   - name: Assassin's Charge
     level: 75

@@ -115,12 +115,39 @@ Always: **Earth → Lightning → Water → Fire → Ice → Wind** (Light ↔ D
 
 ## Targets
 
-- `<me>` — self-only
-- `<t>` — always an enemy (offensive spells, debuffs, WS)
-- `<st>` — sub-target; beneficial spell that may target a party member on a job that holds enemy lock during combat (PLD, DRK, RUN). A bare `<t>` on a cure or buff would land on the enemy.
+While enemy-locked in combat you cannot manually select a party member — `<t>` always resolves to
+your current (or last) enemy target. A bare `<t>` on a cure or buff lands on the enemy, not the
+ally you meant to help. The generator resolves every action to one of four cursors, driven by the
+action's data-level target category (see `data/AGENTS.md` "Targeting"):
+
+- `<me>` — self (`self_only: true`, or the `enhance_self`/`pre_battle`/`field` group context)
+- `<t>` — current target; always an enemy. Used for damage you want to land on whatever you're
+  actively fighting — nukes, DoTs, weapon skills.
+- `<stpc>` — select-target-PC cursor; ally-targeted spells/abilities (heals, party buffs, status
+  removal, Cover/Intervene, Curing Waltz, etc.). Requires a manual target confirm each cast — the
+  cost of correctness while enemy-locked, since there's no way to "remember" a party target
+  independently of an enemy target (`<lastst>` is a single shared register — see below).
+- `<stnpc>` — select-target-NPC cursor; crowd control and enfeebling (Sleep, Bind, Paralyze, Slow,
+  Silence, etc.). Lets you CC or debuff a mob other than your current kill target — useful for
+  managing adds while the group focus-fires something else. Nukes/DoTs deliberately do *not* use
+  this — you always want those on whatever you're currently fighting, so they stay on `<t>`.
 - `N/A` — navigation (no cast)
 
-When a set contains multiple target types, pick the majority as the canonical `Target:` value. Minority exceptions are annotated inline after the macro name (e.g. `WpnBash <t>` in an otherwise `<me>` set). The 8-character name limit applies to the abbreviated name only — the target indicator does not count toward it.
+**Why not `<lastst>`:** it looked like a way to avoid the manual-confirm cost — lock a target once,
+then reuse it — but `<lastst>` is a single global "last thing selected via `<st>`/`<stpc>`/`<stnpc>`"
+register, not per-cursor-type memory. Locking an ally for a heal and then locking a different mob
+for CC overwrites the same slot, so a later `<lastst>` call can silently resolve to the wrong kind
+of target. There's no `<laststpc>`/`<laststnpc>` variant that would fix this. Given that, direct
+`<stpc>`/`<stnpc>` on every cast — accepting the manual confirm — is the only reliably-correct
+option.
+
+**Exceptions**: some spells are ally/enemy-flexible depending on context — e.g. Cure damages
+undead, so a job may want one hub/group entry targeting the ally-heal (default) and a second,
+explicit `target: enemy` entry elsewhere for the undead-nuke use (see `spokes/WHM.yml`'s
+`offensive` group). When a set's actions are overwhelmingly one target type, minority exceptions
+are annotated inline after the macro name in this doc (e.g. `WpnBash <t>` in an otherwise `<me>`
+set). The 8-character name limit applies to the abbreviated name only — the target indicator does
+not count toward it.
 
 ## Pet Command Syntax (`/ja` vs `/pet`)
 
@@ -177,8 +204,10 @@ groups:                     # any number; each becomes a core or spoke set
 
 Action entry fields: `name` (required — spell/JA/WS/avatar/blood-pact name as it appears in
 `data/`), `priority` (`high`/`mid`/`low`, default `mid`), `sub_tier` (int — for multi-slot series
-like CureS/M/L), `exact` (bool — pin to this exact tier, never auto-upgrade), `self_only`
-(overrides the job/spell default target).
+like CureS/M/L), `exact` (bool — pin to this exact tier, never auto-upgrade), `self_only` (bool —
+overrides self vs. not-self), `target` (`self`/`ally`/`enemy`/`cc` — overrides the resolved target
+category outright; the escape hatch for spells that are ally/enemy-flexible by context, like Cure
+against undead — see "Targets" above).
 
 Group names are the same namespace `characters/*/custom.yml` uses to merge custom macros into an
 existing hub/core/spoke, or to define a brand-new one (see `characters/AGENTS.md`).

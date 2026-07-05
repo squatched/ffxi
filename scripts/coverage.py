@@ -31,7 +31,7 @@ from gen_macros import (
     DATA_DIR, SPOKES_DIR,
     _load, _avail_spells, _avail_abilities, _avail_ws, _avail_ws_exotic, _avail_wyvern,
     _avail_summons, _avail_blood_pacts,
-    build_series_map, _build_spell_target_map, _resolve_action, _is_ws_group,
+    build_series_map, _build_spell_category_map, _resolve_action, _is_ws_group,
 )
 
 
@@ -64,7 +64,7 @@ def main() -> None:
     spoke_def = _load(spoke_path)
 
     name_to_series, series_members = build_series_map(DATA_DIR)
-    spell_targets = _build_spell_target_map(DATA_DIR)
+    spell_categories = _build_spell_category_map(DATA_DIR)
     ability_data  = {ab['name']: ab for ab in job_data.get('abilities', [])}
     for cmd in job_data.get('wyvern_commands', []):
         ability_data[cmd['name']] = cmd
@@ -123,11 +123,11 @@ def main() -> None:
             return f'not yet available at L{level}'
         return f'not available to {job}'
 
-    def _walk(group_name: str, entry: dict, is_hub: bool) -> None:
+    def _walk(group_name: str, entry: dict) -> None:
         result = _resolve_action(
-            entry, group_name, is_hub,
+            entry, group_name,
             spells, abilities, ws_names, wyvern,
-            job_data, spell_targets, ability_data,
+            job_data, spell_categories, ability_data,
             name_to_series, series_members,
             summons=summons, blood_pact_targets=blood_pact_targets,
         )
@@ -138,11 +138,11 @@ def main() -> None:
 
     for hub in spoke_def.get('hubs', []):
         for entry in hub.get('actions', []):
-            _walk(hub['name'], entry, is_hub=True)
+            _walk(hub['name'], entry)
 
     for group in spoke_def.get('groups', []):
         for entry in group.get('actions', []):
-            _walk(group['name'], entry, is_hub=False)
+            _walk(group['name'], entry)
 
     # ── Subjob merge (optional) ────────────────────────────────────────────────
     # Mirrors gen_macros._merge_subjob: subjob evaluated at level // 2, its ws_*
@@ -179,11 +179,11 @@ def main() -> None:
         for name in sub_summons:   available.setdefault(name, 'summon')
         for name in sub_blood_pact_targets: available.setdefault(name, 'blood_pact')
 
-        def _sub_walk(group_name: str, entry: dict, is_hub: bool) -> None:
+        def _sub_walk(group_name: str, entry: dict) -> None:
             result = _resolve_action(
-                entry, group_name, is_hub,
+                entry, group_name,
                 sub_spells, sub_abilities, set(), sub_wyvern,
-                sub_job_data, spell_targets, sub_ability_data,
+                sub_job_data, spell_categories, sub_ability_data,
                 name_to_series, series_members,
                 summons=sub_summons, blood_pact_targets=sub_blood_pact_targets,
             )
@@ -192,13 +192,13 @@ def main() -> None:
 
         for hub in sub_spoke_def.get('hubs', []):
             for entry in hub.get('actions', []):
-                _sub_walk(hub['name'], entry, is_hub=True)
+                _sub_walk(hub['name'], entry)
 
         for group in sub_spoke_def.get('groups', []):
             if _is_ws_group(group['name']):
                 continue
             for entry in group.get('actions', []):
-                _sub_walk(group['name'], entry, is_hub=False)
+                _sub_walk(group['name'], entry)
 
     # ── Build uncovered list ──────────────────────────────────────────────────
 
